@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./rightbar.component.scss']
 })
 export class RightbarComponent {
-  mostrarRightBar: boolean = true; // Inicializa en true si quieres que se muestre al inicio
-
+  mostrarRightBar: boolean = true;
   alternarRightBar() {
     this.mostrarRightBar = !this.mostrarRightBar;
   }
