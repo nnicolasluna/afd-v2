@@ -1,0 +1,39 @@
+.cabecera{
+    background-color: white;
+    color: #1F631C;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+a{
+    text-decoration: none;
+    color: #1F631C;
+}
+img{
+    height: 60px;
+    /* width: 170px; */
+}
+.title{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+}
+.contac{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.info_content{
+    display: flex;
+    align-items: center;
+    width: auto;
+}
+mat-icon{
+    margin-right: 5px;
+}
+.bar{
+    width: 2px;
+    background-color: #1F631C;
+}

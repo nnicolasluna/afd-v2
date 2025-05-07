@@ -51,8 +51,8 @@ export class InicioComponent implements AfterViewInit {/*
   private initMap(): void {
     this.map = L.map('map', {
       center: [-16.5, -64.15],
-      zoom: 6,
-      /* scrollWheelZoom: false, */
+      zoom: 5,
+      scrollWheelZoom: false,
       dragging: false,
       zoomControl: false,
       doubleClickZoom: false
