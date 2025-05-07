@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CabeceraComponent } from './items/cabecera/cabecera.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './items/menu/menu.component';
+import { RightbarComponent } from './items/rightbar/rightbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     CabeceraComponent,
-    MenuComponent
+    MenuComponent,
+    RightbarComponent
   ],
   imports: [
     BrowserModule,

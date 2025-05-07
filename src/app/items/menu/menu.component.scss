@@ -92,6 +92,7 @@ ol {
     padding: 10px;
     width: 150px;
     color: white;
+    cursor: pointer;
 }
 
 .onlyIcons {
@@ -119,7 +120,7 @@ ol {
     margin: 0;
 }
 .iconplustext:hover{
-    background-color: darken(#009E2D, 10%);
+    background-color: darken(#009E2D, 15%);
 }
 .onlyIcons:hover{
     background-color: black;

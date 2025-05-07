@@ -1,0 +1,51 @@
+<div class="bar_main">
+    <div class="button_action">
+        <button class="btn_act" (click)="alternarRightBar()">
+            <mat-icon fontIcon="arrow_right" *ngIf="mostrarRightBar"></mat-icon>
+            <mat-icon fontIcon="arrow_left" *ngIf="!mostrarRightBar"></mat-icon>
+        </button>
+    </div>
+    <div class="right_bar" *ngIf="mostrarRightBar">
+        <ol class="sits">
+            <li class="title">
+                La Paz
+            </li>
+            <li class="placeplusname">
+                <img src="assets/IconosMunicipios/SanBuenaventura.png">
+                <span>San Buenaventura</span>
+            </li>
+            <li class="placeplusname">
+                <img src="assets/IconosMunicipios/Palos Blancos.png">
+                <span>Palos Blancos</span>
+            </li>
+        </ol>
+        <div class="bar"></div>
+        <ol class="sits">
+            <li class="title">
+                Beni
+            </li>
+            <li class="placeplusname">
+                <img src="assets/IconosMunicipios/San Borja.png">
+                <span>San Borja</span>
+            </li>
+            <li class="placeplusname">
+                <img src="assets/IconosMunicipios/Rurrenabaque.png">
+                <span>Rurrenabaque</span>
+            </li>
+        </ol>
+        <div class="bar"></div>
+        <ol class="sits">
+            <li class="title">
+                Cochabamba
+            </li>
+            <li class="placeplusname">
+                <img src="assets/IconosMunicipios/Vinto.png">
+                <span>Vinto</span>
+            </li>
+            <li class="placeplusname">
+                <img src="assets/IconosMunicipios/Tiquipaya.png">
+                <span>Tiquipaya</span>
+            </li>
+        </ol>
+    </div>
+</div>
