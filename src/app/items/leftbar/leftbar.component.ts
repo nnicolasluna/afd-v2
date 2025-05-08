@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./leftbar.component.scss']
 })
 export class LeftbarComponent {
-  mostrarleftCard: boolean = true;
+  mostrarleftCard: boolean = false;
   alternarleftCard() {
     this.mostrarleftCard = !this.mostrarleftCard;
   }

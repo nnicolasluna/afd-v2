@@ -10,11 +10,20 @@ import { HttpClient } from '@angular/common/http';
 export class InicioComponent implements AfterViewInit {
   private map!: L.Map;
 
+  ciudades = [
+    { nombre: 'San Buenaventura', lat: -14.45812, lon: -67.58674599999999 },
+    { nombre: 'Palos Blancos', lat: -15.583, lon: -67.25 }, 
+    { nombre: 'San Borja', lat: -14.8583, lon: -66.7475 }, 
+    { nombre: 'Rurrenabaque', lat: -14.442222, lon: -67.528333 }, 
+    { nombre: 'Vinto', lat: -17.383333, lon: -66.3 }, 
+    { nombre: 'Tiquipaya', lat: -17.333333, lon: -66.216667 } 
+];
+
   constructor(private http: HttpClient) { }
 
   ngAfterViewInit(): void {
     this.initMap();
-    this.cargarContornoBolivia();
+    this.cargarContornoDpts();
     this.cargarMunicipios();
   }
 
@@ -27,14 +36,10 @@ export class InicioComponent implements AfterViewInit {
       zoomControl: false,
       doubleClickZoom: false
     });
-
     this.map.setZoom(5.5);
-
-
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
     }).addTo(this.map);
-
     const labelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18,
       pane: 'labels'
@@ -42,7 +47,7 @@ export class InicioComponent implements AfterViewInit {
 
     if (!this.map.getPane('labels')) {
       this.map.createPane('labels');
-      this.map.getPane('labels')!.style.zIndex = '1000'; 
+      this.map.getPane('labels')!.style.zIndex = '200'; 
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
 
@@ -96,7 +101,7 @@ export class InicioComponent implements AfterViewInit {
     });
   }
 
-  private cargarContornoBolivia(): void {
+  private cargarContornoDpts(): void {
     this.http.get<any>('assets/bolivia.geo.json').subscribe(data => {
       const departamentosDeseados = ['La Paz', 'Beni', 'Cochabamba'];
 
@@ -118,6 +123,12 @@ export class InicioComponent implements AfterViewInit {
         }
       }).addTo(this.map);
     });
+  }
+
+  handleLocationSelection(MunucipioSelecionado: any): void {
+    const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
+    console.log(MunucipioSelecionado)
+    this.map.flyTo(newCenter, 7.5);
   }
 
 }
