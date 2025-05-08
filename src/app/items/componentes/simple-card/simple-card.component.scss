@@ -1,5 +1,4 @@
 .card {
-    background: #1e722f;
     color: white;
     width: 320px;
     border-radius: 10px;
@@ -21,7 +20,8 @@
     font-weight: bold;
     font-size: 16px;
 }
-.button{
+
+.button {
     width: fit-content;
     border-radius: 50%;
     border: 3px solid white;
@@ -29,6 +29,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .close-btn {
     background: none;
     border: none;
@@ -37,37 +38,49 @@
     cursor: pointer;
 }
 
-.platform-list {
+.card-body {
     background-color: #272323E5;
-    padding: 10px 0;
+    padding: 10px;
 }
 
-.platform {
+.card-info {
+    border-bottom: 1px;
+}
+
+.card-info p {
+    margin: 8px 0;
+    font-size: 0.9em;
+}
+
+.card-info strong {
+    color: #ccc;
+}
+.card-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 10px; /* Space between stat boxes */
+
+}
+
+.stat-box {
+    background-color: #388e3c; /* Green color for stat boxes */
+    border-radius: 8px;
+    
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 10px 16px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 5px;
-
 }
 
-.platform img {
-    height: 50px;
-    width: 50px;
-    object-fit: contain;
-    margin-right: 12px;
-}
-
-.platform:last-child {
-    border-bottom: none;
-}
-
-.platform-name {
-    color: #215E1D;
-    font-size: 14px;
+.stat-value {
+    font-size: 1.2em;
     font-weight: bold;
+    margin: 0 0 5px 0;
 }
-mat-icon{
-    color: white;
+
+.stat-label {
+    font-size: 0.8em;
+    margin: 0;
+    color: #eee; /* Slightly lighter color for labels */
 }

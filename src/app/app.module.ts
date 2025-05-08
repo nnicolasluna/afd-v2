@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './items/menu/menu.component';
 import { RightbarComponent } from './items/rightbar/rightbar.component';
 import { LeftbarComponent } from './items/leftbar/leftbar.component';
+import { SimpleCardComponent } from './items/componentes/simple-card/simple-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { LeftbarComponent } from './items/leftbar/leftbar.component';
     CabeceraComponent,
     MenuComponent,
     RightbarComponent,
-    LeftbarComponent
+    LeftbarComponent,
+    SimpleCardComponent
   ],
   imports: [
     BrowserModule,
