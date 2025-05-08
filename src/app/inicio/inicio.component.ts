@@ -28,9 +28,25 @@ export class InicioComponent implements AfterViewInit {
       doubleClickZoom: false
     });
 
+    this.map.setZoom(5.5);
+
+
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
     }).addTo(this.map);
+
+    const labelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
+      pane: 'labels'
+    });
+
+    if (!this.map.getPane('labels')) {
+      this.map.createPane('labels');
+      this.map.getPane('labels')!.style.zIndex = '1000'; 
+      this.map.getPane('labels')!.style.pointerEvents = 'none';
+    }
+
+    labelsLayer.addTo(this.map);
   }
 
   private cargarMunicipios(): void {
@@ -80,28 +96,28 @@ export class InicioComponent implements AfterViewInit {
     });
   }
 
-    private cargarContornoBolivia(): void {
-      this.http.get<any>('assets/bolivia.geo.json').subscribe(data => {
-        const departamentosDeseados = ['La Paz', 'Beni', 'Cochabamba'];
-    
-        const featuresFiltradas = data.features.filter((feature: any) => {
-          const props = feature.properties;
-          return departamentosDeseados.includes(props.NOM_DEP);
-        });
-    
-        const geojsonFiltrado = {
-          ...data,
-          features: featuresFiltradas
-        };
-    
-        L.geoJSON(geojsonFiltrado, {
-          style: {
-            color: 'gold',
-            weight: 2,
-            fillOpacity: 0
-          }
-        }).addTo(this.map);
+  private cargarContornoBolivia(): void {
+    this.http.get<any>('assets/bolivia.geo.json').subscribe(data => {
+      const departamentosDeseados = ['La Paz', 'Beni', 'Cochabamba'];
+
+      const featuresFiltradas = data.features.filter((feature: any) => {
+        const props = feature.properties;
+        return departamentosDeseados.includes(props.NOM_DEP);
       });
-    }
-    
+
+      const geojsonFiltrado = {
+        ...data,
+        features: featuresFiltradas
+      };
+
+      L.geoJSON(geojsonFiltrado, {
+        style: {
+          color: 'gold',
+          weight: 2,
+          fillOpacity: 0
+        }
+      }).addTo(this.map);
+    });
+  }
+
 }
