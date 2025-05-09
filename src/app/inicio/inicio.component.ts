@@ -9,21 +9,30 @@ import { HttpClient } from '@angular/common/http';
 })
 export class InicioComponent implements AfterViewInit {
   private map!: L.Map;
-
+  departamentos = [
+    { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
+    { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
+    { departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Cochabamba.geo.json', state: true },
+  ];
   ciudades = [
     { nombre: 'San Buenaventura', lat: -14.45812, lon: -67.58674599999999 },
-    { nombre: 'Palos Blancos', lat: -15.583, lon: -67.25 }, 
-    { nombre: 'San Borja', lat: -14.8583, lon: -66.7475 }, 
-    { nombre: 'Rurrenabaque', lat: -14.442222, lon: -67.528333 }, 
-    { nombre: 'Vinto', lat: -17.383333, lon: -66.3 }, 
-    { nombre: 'Tiquipaya', lat: -17.333333, lon: -66.216667 } 
-];
-
+    { nombre: 'Palos Blancos', lat: -15.583, lon: -67.25 },
+    { nombre: 'San Borja', lat: -14.8583, lon: -66.7475 },
+    { nombre: 'Rurrenabaque', lat: -14.442222, lon: -67.528333 },
+    { nombre: 'Vinto', lat: -17.383333, lon: -66.3 },
+    { nombre: 'Tiquipaya', lat: -17.333333, lon: -66.216667 }
+  ];
+  private geoLayers: { [key: string]: L.GeoJSON } = {};
   constructor(private http: HttpClient) { }
 
   ngAfterViewInit(): void {
     this.initMap();
-    this.cargarContornoDpts();
+    this.departamentos.forEach(
+      dep => {
+        console.log(dep)
+        this.cargarDepartamento(dep);
+      }
+    );
     this.cargarMunicipios();
   }
 
@@ -47,7 +56,7 @@ export class InicioComponent implements AfterViewInit {
 
     if (!this.map.getPane('labels')) {
       this.map.createPane('labels');
-      this.map.getPane('labels')!.style.zIndex = '200'; 
+      this.map.getPane('labels')!.style.zIndex = '200';
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
 
@@ -101,34 +110,46 @@ export class InicioComponent implements AfterViewInit {
     });
   }
 
-  private cargarContornoDpts(): void {
-    this.http.get<any>('assets/bolivia.geo.json').subscribe(data => {
-      const departamentosDeseados = ['La Paz', 'Beni', 'Cochabamba'];
-
-      const featuresFiltradas = data.features.filter((feature: any) => {
-        const props = feature.properties;
-        return departamentosDeseados.includes(props.NOM_DEP);
-      });
-
-      const geojsonFiltrado = {
-        ...data,
-        features: featuresFiltradas
-      };
-
-      L.geoJSON(geojsonFiltrado, {
+  private cargarDepartamento(dep: any): void {
+    this.http.get<any>(dep.source).subscribe(data => {
+      const layer = L.geoJSON(data, {
         style: {
           color: 'gold',
           weight: 2,
           fillOpacity: 0
         }
-      }).addTo(this.map);
+      });
+      layer.addTo(this.map);
+      this.geoLayers[dep.departamento] = layer;
+      dep.state = true;
     });
   }
-
   handleLocationSelection(MunucipioSelecionado: any): void {
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
-    console.log(MunucipioSelecionado)
     this.map.flyTo(newCenter, 7.5);
+    this.limpiarMapa();
+    this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === 'La Paz'));
   }
+  toggleDepartamento(dep: any): void {
+    if (dep.state) {
+      // Ocultar
+      this.map.removeLayer(this.geoLayers[dep.departamento]);
+      dep.state = false;
+    } else {
+      // Mostrar
+      this.cargarDepartamento(dep);
+    }
+  }
+  private limpiarMapa(): void {
+    this.map.eachLayer((layer: L.Layer) => {
+      // Evitar quitar la capa base (tile layer)
+      if (!(layer instanceof L.TileLayer)) {
+        this.map.removeLayer(layer);
+      }
+    });
 
+    // Marcar todos los departamentos como ocultos
+    this.departamentos.forEach(dep => dep.state = false);
+    console.log(this.departamentos)
+  }
 }
