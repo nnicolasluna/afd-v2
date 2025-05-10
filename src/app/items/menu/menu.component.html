@@ -12,7 +12,7 @@
         </li>
     </ol>
     <ol class="icons_right">
-        <li class="iconplustext">
+        <li class="iconplustext" (click)="toggleDiagnostico()"  [class.activo]="mostrarDiagnostico">
             <mat-icon fontIcon="monitor_heart"></mat-icon>
             <span>DIAGNOSTICO</span>
         </li>
@@ -38,3 +38,7 @@
         </li>
     </ol>
 </div>
+<app-diagnostico [MunicipioDiag]="MunicipioMenu"
+    *ngIf="mostrarDiagnostico"
+    (cerrarDiagnostico)="ocultarDiagnostico()">
+  </app-diagnostico>

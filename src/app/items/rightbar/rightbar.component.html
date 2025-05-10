@@ -10,11 +10,11 @@
             <li class="title">
                 La Paz
             </li>
-            <li class="placeplusname" (click)="selectLocation('San Buenaventura')">
+            <li class="placeplusname" (click)="selectLocation('San Buenaventura')" [class.selected]="rightBarToMenu === 'San Buenaventura'">
                 <img src="assets/IconosMunicipios/SanBuenaventura.png">
                 <span>San Buenaventura</span>
             </li>
-            <li class="placeplusname" (click)="selectLocation('Palos Blancos')">
+            <li class="placeplusname" (click)="selectLocation('Palos Blancos')" [class.selected]="rightBarToMenu === 'Palos Blancos'">
                 <img src="assets/IconosMunicipios/Palos Blancos.png">
                 <span>Palos Blancos</span>
             </li>
@@ -24,11 +24,11 @@
             <li class="title">
                 Beni
             </li>
-            <li class="placeplusname" (click)="selectLocation('San Borja')">
+            <li class="placeplusname" (click)="selectLocation('San Borja')" [class.selected]="rightBarToMenu === 'San Borja'">
                 <img src="assets/IconosMunicipios/San Borja.png">
                 <span>San Borja</span>
             </li>
-            <li class="placeplusname" (click)="selectLocation('Rurrenabaque')">
+            <li class="placeplusname" (click)="selectLocation('Rurrenabaque')" [class.selected]="rightBarToMenu === 'Rurrenabaque'">
                 <img src="assets/IconosMunicipios/Rurrenabaque.png">
                 <span>Rurrenabaque</span>
             </li>
@@ -38,11 +38,11 @@
             <li class="title">
                 Cochabamba
             </li>
-            <li class="placeplusname" (click)="selectLocation('Vinto')">
+            <li class="placeplusname" (click)="selectLocation('Vinto')" [class.selected]="rightBarToMenu === 'Vinto'">
                 <img src="assets/IconosMunicipios/Vinto.png">
                 <span>Vinto</span>
             </li>
-            <li class="placeplusname" (click)="selectLocation('Tiquipaya')">
+            <li class="placeplusname" (click)="selectLocation('Tiquipaya')" [class.selected]="rightBarToMenu === 'Tiquipaya'">
                 <img src="assets/IconosMunicipios/Tiquipaya.png">
                 <span>Tiquipaya</span>
             </li>
@@ -51,4 +51,4 @@
 </div>
 
 <app-simple-card></app-simple-card>
-<app-menu></app-menu>
+<app-menu [MunicipioMenu] ="rightBarToMenu"></app-menu>

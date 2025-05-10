@@ -11,6 +11,7 @@ import { MenuComponent } from './items/menu/menu.component';
 import { RightbarComponent } from './items/rightbar/rightbar.component';
 import { LeftbarComponent } from './items/leftbar/leftbar.component';
 import { SimpleCardComponent } from './items/componentes/simple-card/simple-card.component';
+import { DiagnosticoComponent } from './diagnostico/diagnostico.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { SimpleCardComponent } from './items/componentes/simple-card/simple-card
     MenuComponent,
     RightbarComponent,
     LeftbarComponent,
-    SimpleCardComponent
+    SimpleCardComponent,
+    DiagnosticoComponent
   ],
   imports: [
     BrowserModule,
