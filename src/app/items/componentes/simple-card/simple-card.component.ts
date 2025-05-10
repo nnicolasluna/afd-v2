@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-simple-card',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./simple-card.component.scss']
 })
 export class SimpleCardComponent {
+  @Input() municipio: string = '';
+
   mostrarSimpleCard: boolean = true;
   cerrarSimpleCard() {
     this.mostrarSimpleCard = !this.mostrarSimpleCard;
