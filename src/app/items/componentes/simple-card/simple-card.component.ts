@@ -20,5 +20,6 @@ export class SimpleCardComponent {
   mostrarSimpleCard: boolean = true;
   cerrarSimpleCard() {
     this.mostrarSimpleCard = !this.mostrarSimpleCard;
+    this.modalServiceState.cerrarVistas();
   }
 }

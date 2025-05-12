@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalStateService {
-  private vistaActual = new BehaviorSubject<'card' | 'diagnostico' | 'leftbar' | null>(null);
+  private vistaActual = new BehaviorSubject<'card' | 'diagnostico' | 'leftbar' | 'evaluamos' | null>(null);
 
   vistaActual$ = this.vistaActual.asObservable();
 
@@ -18,6 +18,9 @@ export class ModalStateService {
   }
   mostrarleftbar() {
     this.vistaActual.next('leftbar');
+  }
+  mostrarEvaluamos() {
+    this.vistaActual.next('evaluamos');
   }
   cerrarVistas() {
     this.vistaActual.next(null);

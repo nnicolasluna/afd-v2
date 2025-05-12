@@ -1,0 +1,46 @@
+<div class="bar_main">
+    <div class="card">
+        <div class="card-header">
+            <button class="buttonRregresar" (click)="mostrarDiagnostico()">
+                <span class="buttonCircle"> &lt;</span>
+                Regresar
+            </button>
+            <div class="card-title">{{Municipio}}</div>
+            <div class="button"><button class="close-btn">×</button></div>
+        </div>
+        <div class="platform-list">
+            <div class="botonesVolSig">
+                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0">Volver</button>
+                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 2 - 1">Siguiente</button>
+            </div>
+
+            <div [ngSwitch]="currentStep" class="content">
+                <div *ngSwitchCase="0">
+                    <div class="title">Metodología</div>
+                    Para llevar a cabo un análisis espacial de aptitud para la restauración, es importante integrar
+                    mapas de
+                    diferentes variables mediante un análisis multicriterio.
+                    Entre las plataformas disponibles, Sentinel-2 destaca por sus características técnicas avanzadas
+                    y su
+                    acceso libre, lo que facilita su uso en estudios ambientales. Para realizar un análisis de las
+                    cicatrices de quema, es necesario contar con imágenes obtenidas antes del evento, que sirvan
+                    como línea
+                    base, y con imágenes posteriores al incendio. Este conjunto de datos permite comparar las áreas
+                    afectadas y evaluar los cambios.
+                </div>
+                <div *ngSwitchCase="1">
+                    <p>Mapa Conceptual</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="button_action">
+        <button class="btn_act" (click)="extenderBar()">
+            <mat-icon fontIcon="arrow_right" *ngIf="ExtenderBar"></mat-icon>
+            <mat-icon fontIcon="arrow_left" *ngIf="!ExtenderBar"></mat-icon>
+        </button>
+    </div>
+
+</div>

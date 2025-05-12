@@ -10,9 +10,12 @@ import { ModalStateService } from '../services/modal-state/modal-state.service';
 })
 export class InicioComponent implements AfterViewInit {
   private map!: L.Map;
+  municipio = '';
   mostrarCard = false;
   mostrarDiagnostico = false;
   mostrarLeftBar = false;
+  mostrarEvaluamos = false;
+
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
     { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
@@ -35,15 +38,16 @@ export class InicioComponent implements AfterViewInit {
     { nombre: 'Tiquipaya', lat: -17.333333, lon: -66.216667 }
   ]; */
   private geoLayers: { [key: string]: L.GeoJSON } = {};
-  constructor(private http: HttpClient, private modalServiceState:ModalStateService) { }
+  constructor(private http: HttpClient, private modalServiceState: ModalStateService) { }
 
   ngOnInit() {
-  this.modalServiceState.vistaActual$.subscribe(vista => {
-    this.mostrarCard = vista === 'card';
-    this.mostrarDiagnostico = vista === 'diagnostico';
-    this.mostrarLeftBar = vista === 'leftbar';
-  });
-}
+    this.modalServiceState.vistaActual$.subscribe(vista => {
+      this.mostrarCard = vista === 'card';
+      this.mostrarDiagnostico = vista === 'diagnostico';
+      this.mostrarLeftBar = vista === 'leftbar';
+      this.mostrarEvaluamos = vista === 'evaluamos';
+    });
+  }
   ngAfterViewInit(): void {
     this.initMap();
     this.departamentos.forEach(
@@ -118,6 +122,7 @@ export class InicioComponent implements AfterViewInit {
     });
   }
   handleLocationSelection(MunucipioSelecionado: any): void {
+    this.municipio = MunucipioSelecionado.municipio;
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
     this.map.flyTo(newCenter, 7.5);
     this.limpiarMapa();

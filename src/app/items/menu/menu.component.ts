@@ -12,7 +12,6 @@ export class MenuComponent {
   constructor(private modalStateService: ModalStateService) { }
   alternarleftCard() {
     this.modalStateService.mostrarleftbar();
-    console.log(this.modalStateService.mostrarleftbar())
   }
   toggleDiagnostico(): void {
     this.mostrarDiagnostico = !this.mostrarDiagnostico;
