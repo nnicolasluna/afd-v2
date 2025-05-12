@@ -13,8 +13,13 @@ export class EvaluamosComponent {
   constructor(private modalStateService: ModalStateService) { }
 
   nextStep() {
-    if (this.currentStep < 2 - 1) {
+    if (this.currentStep < 3 - 1) {
       this.currentStep++;
+    }
+    console.log(this.currentStep)
+    if (this.currentStep === 2) {
+      this.ExtenderBar = false;
+      this.currentStep = 1;
     }
   }
 
@@ -26,7 +31,10 @@ export class EvaluamosComponent {
   mostrarDiagnostico(): void {
     this.modalStateService.mostrarDiagnostico();
   }
-    extenderBar() {
+  extenderBar() {
     this.ExtenderBar = !this.ExtenderBar;
+  }
+  onCerrarClick() {
+    this.modalStateService.cerrarVistas();
   }
 }

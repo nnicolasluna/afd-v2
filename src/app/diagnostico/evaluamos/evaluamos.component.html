@@ -1,17 +1,17 @@
 <div class="bar_main">
-    <div class="card">
+    <div class="card" *ngIf="ExtenderBar">
         <div class="card-header">
             <button class="buttonRregresar" (click)="mostrarDiagnostico()">
                 <span class="buttonCircle"> &lt;</span>
                 Regresar
             </button>
             <div class="card-title">{{Municipio}}</div>
-            <div class="button"><button class="close-btn">×</button></div>
+            <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
         </div>
         <div class="platform-list">
             <div class="botonesVolSig">
                 <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0">Volver</button>
-                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 2 - 1">Siguiente</button>
+                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 3 - 1">Siguiente</button>
             </div>
 
             <div [ngSwitch]="currentStep" class="content">
@@ -29,7 +29,33 @@
                     afectadas y evaluar los cambios.
                 </div>
                 <div *ngSwitchCase="1">
-                    <p>Mapa Conceptual</p>
+                    <div class="diagram">
+                        <div class="node inicio">Inicio</div>
+
+                        <div class="line"></div>
+                        <div class="node">📍 Alcance Geográfico</div>
+
+                        <div class="line"></div>
+                        <div class="node">🛰️ Imágenes Satelitales</div>
+
+                        <div class="line"></div>
+                        <div class="node">📅 Selección de Temporalidad</div>
+
+                        <div class="line"></div>
+                        <div class="node">Generación del Mosaico</div>
+
+                        <div class="line"></div>
+                        <div class="node">🎨 Generación de Índices Espectrales</div>
+
+                        <div class="line"></div>
+                        <div class="row">
+                            <div class="node small">Índice de<br>Calcinación NBR</div>
+                            <div class="node small">Índice de<br>Vegetación NDVI</div>
+                        </div>
+
+                        <div class="line"></div>
+                        <div class="node small">Diferencia Normalizada<br>de Relación de Quemado</div>
+                    </div>
                 </div>
             </div>
 
@@ -38,8 +64,8 @@
 
     <div class="button_action">
         <button class="btn_act" (click)="extenderBar()">
-            <mat-icon fontIcon="arrow_right" *ngIf="ExtenderBar"></mat-icon>
-            <mat-icon fontIcon="arrow_left" *ngIf="!ExtenderBar"></mat-icon>
+            <mat-icon fontIcon="arrow_left" *ngIf="ExtenderBar"></mat-icon>
+            <mat-icon fontIcon="arrow_right" *ngIf="!ExtenderBar"></mat-icon>
         </button>
     </div>
 
