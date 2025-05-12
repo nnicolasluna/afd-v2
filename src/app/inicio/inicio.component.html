@@ -1,3 +1,8 @@
 <div id="map"></div>
 <app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
-
+<app-menu></app-menu>
+<!-- <app-simple-card></app-simple-card>
+<app-diagnostico></app-diagnostico> -->
+<app-simple-card *ngIf="mostrarCard"></app-simple-card>
+<app-diagnostico *ngIf="mostrarDiagnostico"></app-diagnostico>
+<app-leftbar *ngIf="mostrarLeftBar"></app-leftbar>

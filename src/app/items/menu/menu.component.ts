@@ -1,19 +1,22 @@
 import { Component, ViewChild, Input } from '@angular/core';
-import { LeftbarComponent } from '../leftbar/leftbar.component';
+import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  @Input() MunicipioMenu: string | undefined;
-  @ViewChild(LeftbarComponent) leftbarOpen!: LeftbarComponent;
   mostrarDiagnostico: boolean = false;
+  @Input() MunicipioMenu: string | undefined;
+
+  constructor(private modalStateService: ModalStateService) { }
   alternarleftCard() {
-    this.leftbarOpen.alternarleftCard();
+    this.modalStateService.mostrarleftbar();
+    console.log(this.modalStateService.mostrarleftbar())
   }
   toggleDiagnostico(): void {
     this.mostrarDiagnostico = !this.mostrarDiagnostico;
+    this.modalStateService.mostrarDiagnostico(); // mostrar diagnóstico
   }
   ocultarDiagnostico(): void {
     this.mostrarDiagnostico = false;
