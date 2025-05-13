@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
 @Component({
   selector: 'app-menu',
@@ -6,6 +6,8 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
+  @Output() localizacionUsuario = new EventEmitter<string>();
+
   mostrarDiagnostico: boolean = false;
   @Input() MunicipioMenu: string | undefined;
 
@@ -19,5 +21,8 @@ export class MenuComponent {
   }
   ocultarDiagnostico(): void {
     this.mostrarDiagnostico = false;
+  }
+  verLocalizacion(){
+    this.localizacionUsuario.emit('true');
   }
 }

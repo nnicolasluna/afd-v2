@@ -14,6 +14,7 @@ import { SimpleCardComponent } from './items/componentes/simple-card/simple-card
 import { DiagnosticoComponent } from './diagnostico/diagnostico.component';
 import { EvaluamosComponent } from './diagnostico/evaluamos/evaluamos.component';
 import { VerDiagComponent } from './diagnostico/ver-diag/ver-diag.component';
+import { TableComponent } from './items/componentes/table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { VerDiagComponent } from './diagnostico/ver-diag/ver-diag.component';
     SimpleCardComponent,
     DiagnosticoComponent,
     EvaluamosComponent,
-    VerDiagComponent
+    VerDiagComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

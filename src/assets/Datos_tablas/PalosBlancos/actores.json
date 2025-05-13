@@ -1,0 +1,75 @@
+{
+    "municipio": "Palos Blancos",
+    "headers": [
+        {
+            "key": "actor",
+            "header": "Actor"
+        },
+        {
+            "key": "funciones",
+            "header": "Funciones"
+        },
+        {
+            "key": "capacidades",
+            "header": "Capacidades"
+        },
+        {
+            "key": "limitaciones",
+            "header": "Limitaciones"
+        }
+    ],
+    "rows": [
+        {
+            "actor": "Unidad de Gestion de Riesgo Municipal",
+            "funciones": [
+                "Monitoreo de focos de calor e incendios",
+                "prevencion",
+                "respuesta y recuperacion post-incendio"
+            ],
+            "capacidades": [
+                "Presupuesto anual: 146 mil Bs.",
+                "Cuenta con un pequeño stock de equipamiento.",
+                "Monitoreo mediante SIMB.",
+                "Propuesta de viveros municipales y comunales para reforestacion."
+            ],
+            "limitaciones": [
+                "No cuenta con planes de contingencia ni normativa de prohibicion de incendios.",
+                "Falta de conocimiento para elaboracion de protocolos.",
+                "No genera informacion de analisis de imagenes o vectorial."
+            ]
+        },
+        {
+            "actor": "Secretaria de Desarrollo Productivo",
+            "funciones": [
+                "Coordinacion en temas productivos",
+                "apoyo en la gestion de emergencias",
+                "monitoreo ambiental."
+            ],
+            "capacidades": [
+                "Monitoreo mediante SIMB.",
+                "Base de datos sobre incendios (no clara).",
+                "Coordinacion con instancias locales y departamentales."
+            ],
+            "limitaciones": [
+                "Desconocimiento sobre el plan de contingencia.",
+                "Falta de generacion de mapas de monitoreo.",
+                "No lleva un registro detallado de daños."
+            ]
+        },
+        {
+            "actor": "Organizacion de Mujeres Indigenas Moseten (OMIN)",
+            "funciones": [
+                "Participacion en campañas de prevencion",
+                "gestion de recursos para proyectos de recuperacion."
+            ],
+            "capacidades": [
+                "Cuenta con mochilas fumigadoras agricolas y overoles.",
+                "Difusion de spots publicitarios sobre prevencion."
+            ],
+            "limitaciones": [
+                "No cuentan con normativa de prohibicion de uso de fuego.",
+                "Falta de programas de capacitacion sobre MIF y formacion de brigadas."
+            ]
+        }
+    ]
+}

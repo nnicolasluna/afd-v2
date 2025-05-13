@@ -1,8 +1,9 @@
+<app-cabecera></app-cabecera>
 <div id="map"></div>
 <app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
-<app-menu></app-menu>
+<app-menu (localizacionUsuario)="locateUser($event)"></app-menu>
 <app-simple-card *ngIf="mostrarCard" [municipio]="municipio"></app-simple-card>
 <app-diagnostico *ngIf="mostrarDiagnostico" [MunicipioDiag]="municipio"></app-diagnostico>
 <app-leftbar *ngIf="mostrarLeftBar"></app-leftbar>
-<app-evaluamos [Municipio]="municipio" *ngIf="mostrarEvaluamos"></app-evaluamos>
+<app-evaluamos [Municipio]="municipio" *ngIf="mostrarEvaluamos" (locationEvaluamos) = "evaluamos($event)" ></app-evaluamos>
 <app-ver-diag [Municipio]="municipio" *ngIf="mostrarVerDiagnostico"></app-ver-diag>
