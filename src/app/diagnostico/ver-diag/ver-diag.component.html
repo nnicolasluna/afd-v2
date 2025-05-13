@@ -1,0 +1,210 @@
+<div class="bar_main">
+    <div class="card" *ngIf="ExtenderBar">
+        <div class="card-header">
+            <button class="buttonRregresar" (click)="mostrarDiagnostico()">
+                <span class="buttonCircle"> &lt;</span>
+                Regresar
+            </button>
+            <div class="card-title">{{Municipio}}</div>
+            <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
+        </div>
+        <div class="platform-list">
+            <div [ngSwitch]="currentStep" class="content">
+                <div *ngSwitchCase="0">
+                    <div class="title-2 title-2--black">Actividades</div>
+                    <img src="assets/imagenes/diagramaVerdiagnostico.png">
+                </div>
+                <div *ngSwitchCase="1">
+                    <div class="dobleCard">
+                        <div class="firstCard">
+                            <div class="title-2 title-2--black">Preparación</div>
+                            El municipio de San Buenaventura se encuentra ubicado al norte del departamento de La Paz y
+                            pertenece a la provincia Abel Iturralde. El municipio de San Buenaventura colinda al norte y
+                            oeste con el municipio de Ixiamas, departamento de La Paz, al este con el municipio de
+                            Rurrenabaque y al nor este con el municipio de Reyes, ambos del departamento del Beni; al
+                            sur y oeste con el municipio de Apolo del departamento de La Paz. El 17 de septiembre del
+                            2023 se inicia el primer incendio, a nivel urbano, en la zona de Cotoca, siendo atendido con
+                            los recursos del GAM, el apoyo de guardaparques, efectivos de la Base Naval Ballivián,
+                            bomberos voluntarios y la colaboración de la población en general. Con el paso de los días,
+                            los incendios se intensificaron, afectando a los tres distritos del municipio: Distrito I
+                            (San Buenaventura), Distrito II (Tumupasa) y Distrito III (San José de Uchupiamonas), junto
+                            a sus comunidades. Se registraron pérdidas totales o parciales en cultivos de cítricos,
+                            maíz, arroz, yuca, plátano, copoazú, papaya, cacao y caña de azúcar. La quema de pastizales
+                            redujo drásticamente la disponibilidad de alimento para el ganado, causando su
+                            debilitamiento. Además, la disminución del caudal de los ríos afectó directamente las
+                            actividades agrícolas y ganaderas.
+                        </div>
+                        <div class="secondCard">
+                            <div class="title-2 title-2--green">Mapeo de Apoyos y Proyectos similares pasados o actuales
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Institución</th>
+                                        <th>Temáticas</th>
+                                        <th>Comunidades</th>
+                                        <th>Temporalidad de la intervención</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Practical Action</td>
+                                        <td>
+                                            <ul>
+                                                <li>Programa de Resiliencia Climática</li>
+                                                <li>Recuperación post incendios</li>
+                                                <li>Rehabilitación de sistemas de agua y recuperación de medios de vida
+                                                    post incendios</li>
+                                            </ul>
+                                        </td>
+                                        <td>San Miguel, Capaina, Tres Hermanos, Villa Alcira, Bella Altura, Altamarani,
+                                            Buena Vista, Tumpasa, San Antonio, San Silvestre</td>
+                                        <td>Nov 2024 – Dic 2027</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fundación Natura</td>
+                                        <td>
+                                            <ul>
+                                                <li>Acuerdos de Conservación</li>
+                                                <li>Protección de fuentes de agua</li>
+                                                <li>Reforestación</li>
+                                            </ul>
+                                        </td>
+                                        <td>Toma de agua "Agua dulce", Altamarani</td>
+                                        <td>Nov 2024 – Dic 2026</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="2">
+                    <div class="dobleCard">
+                        <div class="firstCard">
+                            <div class="title-2 title-2--green">Mapeo de Actores</div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Actor</th>
+                                        <th>Funciones</th>
+                                        <th>Capacidades</th>
+                                        <th>Limitaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Unidad de Gestion de Riesgo Municipal</td>
+                                        <td>Monitoreo de focos de calor e incendios, prevención, respuesta y
+                                            recuperación post-incendio.</td>
+                                        <td>-Presupuesto anual: 146 mil Bs.<br>-Cuenta con un pequeño stock de
+                                            equipamiento.<br>-Monitoreo mediante SIMB.<br>-Propuesta de viveros
+                                            municipales y comunales para reforestación.</td>
+                                        <td>-No cuenta con planes de contingencia ni normativa de prohibición de
+                                            incendios.<br>-Falta de conocimiento para elaboración de
+                                            protocolos.<br>-No
+                                            genera información de análisis de imágenes o vectorial.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Secretaría de Desarrollo Productivo</td>
+                                        <td>Coordinación en temas productivos, apoyo en la gestión de emergencias,
+                                            monitoreo ambiental.</td>
+                                        <td>-Monitoreo mediante SIMB.<br>-Base de datos sobre incendios (no
+                                            clara).<br>-Coordinación con instancias locales y departamentales.</td>
+                                        <td>-Desconocimiento sobre el plan de contingencia.<br>-Falta de generación
+                                            de
+                                            mapas de monitoreo.<br>-No lleva un registro detallado de daños.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Organización de Mujeres Indígenas Mosetén (OMIN)</td>
+                                        <td>Participación en campañas de prevención, gestión de recursos para
+                                            proyectos
+                                            de recuperación.</td>
+                                        <td>-Cuenta con mochilas fumigadoras agrícolas y overoles.<br>-Difusión de
+                                            spots
+                                            publicitarios sobre prevención.</td>
+                                        <td>-No cuentan con normativa de prohibición de uso de fuego.<br>-Falta de
+                                            programas de capacitación sobre MIF y formación de brigadas.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="secondCard">
+                            <div class="title-2 title-2--green">Lecciones Aprendidas</div>
+                            <div class="lessons-container">
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">1</div>
+                                    <div class="lesson-content">
+                                        Existen planes de contingencia y monitoreo con SIMB, pero:<br>
+                                        - Falta normativa clara que prohíba quemas.<br>
+                                        - No hay personal capacitado para elaborar protocolos
+                                    </div>
+                                </div>
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">2</div>
+                                    <div class="lesson-content">
+                                        Se evidenció la necesidad urgente de fortalecer la prevención y respuesta ante
+                                        incendios.
+                                    </div>
+                                </div>
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">3</div>
+                                    <div class="lesson-content">
+                                        Se requiere un enfoque integral: prevención, respuesta y recuperación.
+                                    </div>
+                                </div>
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">4</div>
+                                    <div class="lesson-content">
+                                        Se capacitó en Manejo Integral del Fuego (MIF) y se formaron brigadas, pero:<br>
+                                        • El equipamiento es escaso y limita la respuesta.
+                                    </div>
+                                </div>
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">5</div>
+                                    <div class="lesson-content">
+                                        Falta monitoreo efectivo y generación de mapas de incendios, lo que
+                                        dificulta:<br>
+                                        • Cuantificación de daños.<br>
+                                        • Planificación de recuperación.
+                                    </div>
+                                </div>
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">6</div>
+                                    <div class="lesson-content">
+                                        Las comunidades siguen usando quemas para expandir la frontera agrícola.
+                                    </div>
+                                </div>
+
+                                <div class="lesson-item">
+                                    <div class="lesson-number">7</div>
+                                    <div class="lesson-content">
+                                        No existen viveros municipales o comunales suficientes para restauración.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="botonesVolSig">
+                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0">Volver</button>
+                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 4 - 1">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button_action">
+        <button class="btn_act" (click)="extenderBar()">
+            <mat-icon fontIcon="arrow_left" *ngIf="ExtenderBar"></mat-icon>
+            <mat-icon fontIcon="arrow_right" *ngIf="!ExtenderBar"></mat-icon>
+        </button>
+    </div>
+
+</div>

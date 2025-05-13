@@ -1,0 +1,301 @@
+.card {
+  color: white;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  top: 20%;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #1F631CE5;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.button {
+  width: fit-content;
+  border-radius: 50%;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.platform-list {
+  background-color: #272323E5;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+
+}
+
+.platform {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 5px;
+
+}
+
+.text {
+  width: 50%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn-body {
+  border-radius: 30px;
+  background-color: #14438F;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.buttonRregresar {
+  display: flex;
+  flex-direction: row;
+  background-color: #14438F;
+  align-items: center;
+  padding-right: 10px;
+  border-radius: 70px;
+  color: white;
+  border: none;
+}
+
+.buttonCircle {
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 50%;
+  border: solid 2px white;
+  color: white;
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: -5px;
+}
+
+.botonesVolSig {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.btn {
+  background-color: #14438F;
+  color: white;
+  border: solid #14438F 0px;
+
+  &--sig {
+    border-radius: 30px;
+  }
+
+  &--vol {
+    border-radius: 30px;
+  }
+}
+
+.title {
+
+  font-weight: bolder;
+  padding-bottom: 5px;
+
+  &--center {
+    text-align: center;
+  }
+
+}
+
+.title-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+
+  &--black {
+    background-color: #161616B2;
+  }
+
+  &--green {
+    background-color: #366D19;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+.content {
+  text-align: justify;
+}
+
+.button_action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+}
+
+.bar_main {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 13%;
+  align-items: center;
+  flex-direction: row;
+  height: 70%;
+  max-width: 1000px;
+}
+
+.btn_act {
+  background-color: #272323;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  width: fit-content;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+mat-icon {
+  color: white;
+}
+
+img {
+  width: 100%;
+}
+
+.dobleCard {
+  display: flex;
+  flex-direction: row;
+}
+
+.firstCard {
+  width: 50%;
+  text-align: justify;
+}
+
+.secondCard {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* table {
+  width: 95%;
+  text-align: center;
+
+} */
+
+table {
+  width: 95%;
+  border-collapse: collapse;
+  border: 1px solid #333;
+  background-color: #161616B2;
+  border-radius: 30px;
+}
+
+th {
+
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid white;
+}
+
+td {
+  border: 1px solid white;
+  vertical-align: top;
+}
+
+li {
+  margin-bottom: 1px;
+}
+
+.lessons-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff; /* Container background if needed, or just for centering */
+    padding: 0; /* Remove container padding if items have their own */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Needed for border-radius on children */
+}
+
+
+.lesson-item {
+    display: flex; /* Use flexbox to align number and content */
+    align-items: flex-start; /* Align items to the top */
+    background-color: #3a3a3a; /* Dark background for each item */
+    color: #fff; /* White text */
+    padding: 15px 20px;
+    margin-bottom: 8px; /* Space between items */
+}
+
+/* Remove bottom margin for the last item */
+.lesson-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.lesson-number {
+    font-size: 2.5em; /* Large number font size */
+    font-weight: bold;
+    color: #5a9b3d; /* Green number color */
+    margin-right: 20px; /* Space between number and text */
+    flex-shrink: 0; /* Prevent the number from shrinking */
+    /* Optional: adjust line height if numbers are too tall/short */
+    line-height: 1;
+}
+
+.lesson-content {
+    flex-grow: 1; /* Allow content to take up available space */
+    font-size: 1em;
+    /* Style for the bullet points if using <br> + characters */
+    /* Adjust padding/margin if using actual <ul><li> inside */
+}
+
+/* If you were to use actual lists inside lesson-content */
+.lesson-content ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.lesson-content li {
+    margin-bottom: 5px;
+}

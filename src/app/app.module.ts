@@ -13,6 +13,7 @@ import { LeftbarComponent } from './items/leftbar/leftbar.component';
 import { SimpleCardComponent } from './items/componentes/simple-card/simple-card.component';
 import { DiagnosticoComponent } from './diagnostico/diagnostico.component';
 import { EvaluamosComponent } from './diagnostico/evaluamos/evaluamos.component';
+import { VerDiagComponent } from './diagnostico/ver-diag/ver-diag.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { EvaluamosComponent } from './diagnostico/evaluamos/evaluamos.component'
     LeftbarComponent,
     SimpleCardComponent,
     DiagnosticoComponent,
-    EvaluamosComponent
+    EvaluamosComponent,
+    VerDiagComponent
   ],
   imports: [
     BrowserModule,

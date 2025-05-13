@@ -76,7 +76,9 @@ ol {
 .menu_bar {
     @include flex-container(row, space-around); // Usa el mixin
     background-color: #1F631C;
-    margin-top: 35%;
+    position: fixed;
+    top: 85%;
+    width: 100%;
 }
 
 .icons_left {

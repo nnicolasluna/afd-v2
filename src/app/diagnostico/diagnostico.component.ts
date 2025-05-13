@@ -19,11 +19,14 @@ export class DiagnosticoComponent {
       this.visible = vista === 'diagnostico';
     });
   }
-  onCerrarClick(){
+  onCerrarClick() {
     this.modalStateService.cerrarVistas();
   }
 
-   mostrarEvaluamos(){
-    this.modalStateService.mostrarEvaluamos(); 
+  mostrarEvaluamos() {
+    this.modalStateService.mostrarEvaluamos();
+  }
+  mostrarVerDiagnostico() {
+    this.modalStateService.mostrarVerDiagnostico();
   }
 }

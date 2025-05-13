@@ -15,6 +15,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarDiagnostico = false;
   mostrarLeftBar = false;
   mostrarEvaluamos = false;
+  mostrarVerDiagnostico = false;
 
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
@@ -46,6 +47,7 @@ export class InicioComponent implements AfterViewInit {
       this.mostrarDiagnostico = vista === 'diagnostico';
       this.mostrarLeftBar = vista === 'leftbar';
       this.mostrarEvaluamos = vista === 'evaluamos';
+      this.mostrarVerDiagnostico = vista === 'verdiagnostico';
     });
   }
   ngAfterViewInit(): void {
