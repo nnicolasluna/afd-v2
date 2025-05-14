@@ -18,16 +18,22 @@
     color: white;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 
     &--blue {
-        background-color: transparentize(#5B9BD5,0.1);
+        background-color: transparentize(#5B9BD5, 0.1);
     }
 
     &--green {
-        background-color: transparentize(#70AD47,0.1);
+        background-color: transparentize(#70AD47, 0.1);
     }
 
     &--yellow {
-        background-color: transparentize(#FFC000,0.1);
+        background-color: transparentize(#FFC000, 0.1);
     }
+}
+
+.button-top-bar:hover {
+    background-color: white;
+    color: #70AD47;
 }

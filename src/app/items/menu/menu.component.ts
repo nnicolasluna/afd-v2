@@ -38,7 +38,6 @@ export class MenuComponent {
     else {
       this.modalStateService.mostrarrecu();
     }
-
   }
   mostrarAlternativas(btnSelected: any) {
     if (this.MunicipioMenu == '') {
@@ -48,5 +47,8 @@ export class MenuComponent {
       this.modalStateService.mostraralternativas();
     }
 
+  }
+  refreshAll() {
+    window.location.reload();
   }
 }

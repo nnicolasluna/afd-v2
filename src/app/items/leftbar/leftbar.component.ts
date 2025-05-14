@@ -8,12 +8,13 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
 })
 export class LeftbarComponent {
   mostrarleftCard: boolean = false;
-  alternarleftCard() {
-    this.mostrarleftCard = !this.mostrarleftCard;
-  }
   visible = false;
 
   constructor(private ModalStateService: ModalStateService) { }
+  
+  alternarleftCard() {
+    this.ModalStateService.cerrarVistas()
+  }
 
   ngOnInit() {
     this.ModalStateService.vistaActual$.subscribe(vista => {

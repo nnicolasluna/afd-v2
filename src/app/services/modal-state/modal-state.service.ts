@@ -43,4 +43,7 @@ export class ModalStateService {
   cerrarVistas() {
     this.vistaActual.next(null);
   }
+  cerrartresBtn() {
+    this.tresBtnActivo.next(null);
+  }
 }

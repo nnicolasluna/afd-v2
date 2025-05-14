@@ -25,6 +25,7 @@ export class DiagnosticoComponent {
 
   mostrarEvaluamos() {
     this.modalStateService.mostrarEvaluamos();
+    this.modalStateService.cerrartresBtn();
   }
   mostrarVerDiagnostico() {
     this.modalStateService.mostrarVerDiagnostico();
