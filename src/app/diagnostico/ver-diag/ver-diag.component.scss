@@ -4,7 +4,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-
+  max-height: 700px;
   top: 20%;
 }
 
@@ -104,13 +104,16 @@
 .botonesVolSig {
   display: flex;
   justify-content: space-between;
-
+  padding: 10px;
+  margin: 3px;
 }
 
 .btn {
   background-color: #14438F;
   color: white;
   border: solid #14438F 0px;
+min-width: 100px;
+
 
   &--sig {
     border-radius: 30px;
@@ -188,9 +191,12 @@
   align-items: center;
   cursor: pointer;
   padding: 0;
+  position: fixed;
+
 }
 
 mat-icon {
+  position: fixed;
   color: white;
 }
 
@@ -206,6 +212,14 @@ img {
 .firstCard {
   width: 50%;
   text-align: justify;
+
+  &--normal {
+    width: 50%;
+  }
+
+  &--big {
+    width: 65%;
+  }
 }
 
 .secondCard {
@@ -214,6 +228,14 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &--normal {
+    width: 50%;
+  }
+
+  &--small {
+    width: 35%;
+  }
 }
 
 /* table {
@@ -248,54 +270,68 @@ li {
 }
 
 .lessons-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff; /* Container background if needed, or just for centering */
-    padding: 0; /* Remove container padding if items have their own */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden; /* Needed for border-radius on children */
+  width: 90%;
+  margin: 20px auto;
+  background-color: #fff;
+  /* Container background if needed, or just for centering */
+  padding: 0;
+  /* Remove container padding if items have their own */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  /* Needed for border-radius on children */
 }
 
 
 .lesson-item {
-    display: flex; /* Use flexbox to align number and content */
-    align-items: flex-start; /* Align items to the top */
-    background-color: #3a3a3a; /* Dark background for each item */
-    color: #fff; /* White text */
-    padding: 15px 20px;
-    margin-bottom: 8px; /* Space between items */
+  display: flex;
+  /* Use flexbox to align number and content */
+  align-items: flex-start;
+  /* Align items to the top */
+  background-color: #3a3a3a;
+  /* Dark background for each item */
+  color: #fff;
+  /* White text */
+  padding: 15px 20px;
+  margin-bottom: 8px;
+  /* Space between items */
+  font-size: 0.7rem;
 }
 
 /* Remove bottom margin for the last item */
 .lesson-item:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 
 .lesson-number {
-    font-size: 2.5em; /* Large number font size */
-    font-weight: bold;
-    color: #5a9b3d; /* Green number color */
-    margin-right: 20px; /* Space between number and text */
-    flex-shrink: 0; /* Prevent the number from shrinking */
-    /* Optional: adjust line height if numbers are too tall/short */
-    line-height: 1;
+  font-size: 2.5em;
+  /* Large number font size */
+  font-weight: bold;
+  color: #5a9b3d;
+  /* Green number color */
+  margin-right: 20px;
+  /* Space between number and text */
+  flex-shrink: 0;
+  /* Prevent the number from shrinking */
+  /* Optional: adjust line height if numbers are too tall/short */
+  line-height: 1;
 }
 
 .lesson-content {
-    flex-grow: 1; /* Allow content to take up available space */
-    font-size: 1em;
-    /* Style for the bullet points if using <br> + characters */
-    /* Adjust padding/margin if using actual <ul><li> inside */
+  flex-grow: 1;
+  /* Allow content to take up available space */
+  font-size: 1em;
+  /* Style for the bullet points if using <br> + characters */
+  /* Adjust padding/margin if using actual <ul><li> inside */
 }
 
 /* If you were to use actual lists inside lesson-content */
 .lesson-content ul {
-    margin: 0;
-    padding-left: 20px;
+  margin: 0;
+  padding-left: 20px;
 }
 
 .lesson-content li {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }

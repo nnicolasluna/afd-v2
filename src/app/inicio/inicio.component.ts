@@ -18,6 +18,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarLeftBar = false;
   mostrarEvaluamos = false;
   mostrarVerDiagnostico = false;
+  mostrarrecu = true;
 
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
@@ -44,13 +45,15 @@ export class InicioComponent implements AfterViewInit {
   constructor(private http: HttpClient, private modalServiceState: ModalStateService) { }
 
   ngOnInit() {
-    this.modalServiceState.vistaActual$.subscribe(vista => {
-      this.mostrarCard = vista === 'card';
-      this.mostrarDiagnostico = vista === 'diagnostico';
-      this.mostrarLeftBar = vista === 'leftbar';
-      this.mostrarEvaluamos = vista === 'evaluamos';
-      this.mostrarVerDiagnostico = vista === 'verdiagnostico';
-    });
+    this.modalServiceState.vistaActual$.subscribe(
+      vista => {
+        this.mostrarCard = vista === 'card';
+        this.mostrarDiagnostico = vista === 'diagnostico';
+        this.mostrarLeftBar = vista === 'leftbar';
+        this.mostrarEvaluamos = vista === 'evaluamos';
+        this.mostrarVerDiagnostico = vista === 'verdiagnostico';
+        this.mostrarrecu = vista === 'recuperacion';
+      });
   }
   ngAfterViewInit(): void {
     this.initMap();

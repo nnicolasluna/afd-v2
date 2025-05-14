@@ -15,6 +15,8 @@ import { DiagnosticoComponent } from './diagnostico/diagnostico.component';
 import { EvaluamosComponent } from './diagnostico/evaluamos/evaluamos.component';
 import { VerDiagComponent } from './diagnostico/ver-diag/ver-diag.component';
 import { TableComponent } from './items/componentes/table/table.component';
+import { BotonesDiagRecuAlteComponent } from './items/componentes/botones-diag-recu-alte/botones-diag-recu-alte.component';
+import { CardGenericoComponent } from './items/componentes/card-generico/card-generico.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { TableComponent } from './items/componentes/table/table.component';
     DiagnosticoComponent,
     EvaluamosComponent,
     VerDiagComponent,
-    TableComponent
+    TableComponent,
+    BotonesDiagRecuAlteComponent,
+    CardGenericoComponent
   ],
   imports: [
     BrowserModule,

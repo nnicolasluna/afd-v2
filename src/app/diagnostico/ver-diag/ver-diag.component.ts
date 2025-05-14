@@ -12,6 +12,8 @@ export class VerDiagComponent {
   ExtenderBar: boolean = true;
   constructor(private modalStateService: ModalStateService) { }
 
+
+  json='assets/Datos_tablas/PalosBlancos/actores.json'
   nextStep() {
     if (this.currentStep < 3 - 1) {
       this.currentStep++;

@@ -1,0 +1,24 @@
+<div class="bar_main">
+    <div class="card" *ngIf="ExtenderBar">
+        <div class="card-header">
+
+            <div class="card-title">{{Municipio}}</div>
+            <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
+        </div>
+        <div class="platform-list">
+            <div class="title">
+                {{titulo}}
+            </div>
+
+            <ng-content></ng-content>
+        </div>
+    </div>
+
+    <div class="button_action">
+        <button class="btn_act" (click)="extenderBar()">
+            <mat-icon fontIcon="arrow_left" *ngIf="ExtenderBar"></mat-icon>
+            <mat-icon fontIcon="arrow_right" *ngIf="!ExtenderBar"></mat-icon>
+        </button>
+    </div>
+
+</div>

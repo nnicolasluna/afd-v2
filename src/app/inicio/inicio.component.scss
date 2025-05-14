@@ -6,3 +6,18 @@
     height: 100vh;
     /* z-index: -1; */
 }
+
+p {
+
+    text-align: center;
+    margin-bottom: 10px;
+}
+.boton{
+    padding: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    &--azul{
+        background-color: #14438F;
+    }
+}

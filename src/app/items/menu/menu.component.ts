@@ -25,4 +25,7 @@ export class MenuComponent {
   verLocalizacion(){
     this.localizacionUsuario.emit('true');
   }
+  mostrarRecu():void{
+    this.modalStateService.mostrarrecu();
+  }
 }

@@ -1,9 +1,19 @@
 <app-cabecera></app-cabecera>
+<app-botones-diag-recu-alte>
+</app-botones-diag-recu-alte>
 <div id="map"></div>
 <app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
 <app-menu (localizacionUsuario)="locateUser($event)"></app-menu>
 <app-simple-card *ngIf="mostrarCard" [municipio]="municipio"></app-simple-card>
 <app-diagnostico *ngIf="mostrarDiagnostico" [MunicipioDiag]="municipio"></app-diagnostico>
 <app-leftbar *ngIf="mostrarLeftBar"></app-leftbar>
-<app-evaluamos [Municipio]="municipio" *ngIf="mostrarEvaluamos" (locationEvaluamos) = "evaluamos($event)" ></app-evaluamos>
+<app-evaluamos [Municipio]="municipio" *ngIf="mostrarEvaluamos" (locationEvaluamos)="evaluamos($event)"></app-evaluamos>
 <app-ver-diag [Municipio]="municipio" *ngIf="mostrarVerDiagnostico"></app-ver-diag>
+<app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" *ngIf="mostrarrecu">
+    <p>Identificación de acciones para la recuperación y restauración de áreas afectadas por incendios forestales</p>
+    <button class="boton boton--azul">Ver Acciones </button>
+</app-card-generico>
+<app-card-generico [Municipio]="municipio" [titulo]="'Alternativas al uso de fuego'" *ngIf="mostrarrecu">
+    <p>Identificación y diseño de prácticas alternativas al uso de fuego</p>
+    <button class="boton boton--azul">Ver Alternativas </button>
+</app-card-generico>

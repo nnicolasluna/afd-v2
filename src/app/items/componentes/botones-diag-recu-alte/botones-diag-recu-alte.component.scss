@@ -1,0 +1,33 @@
+.tres-botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    z-index: 999;
+
+}
+
+.button-top-bar {
+    max-width: 200px;
+    min-height: 60px;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+
+    &--blue {
+        background-color: transparentize(#5B9BD5,0.1);
+    }
+
+    &--green {
+        background-color: transparentize(#70AD47,0.1);
+    }
+
+    &--yellow {
+        background-color: transparentize(#FFC000,0.1);
+    }
+}
