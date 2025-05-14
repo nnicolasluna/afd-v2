@@ -18,7 +18,10 @@ export class InicioComponent implements AfterViewInit {
   mostrarLeftBar = false;
   mostrarEvaluamos = false;
   mostrarVerDiagnostico = false;
-  mostrarrecu = true;
+  mostrarrecu = false;
+  mostraralternativas = false;
+  mostraralter_rightbar = false;
+  mostrartrebotones = false;
 
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
@@ -53,7 +56,13 @@ export class InicioComponent implements AfterViewInit {
         this.mostrarEvaluamos = vista === 'evaluamos';
         this.mostrarVerDiagnostico = vista === 'verdiagnostico';
         this.mostrarrecu = vista === 'recuperacion';
+        this.mostraralternativas = vista === 'alternativas';
+        this.mostraralter_rightbar = vista === 'alter-rightbar';
       });
+    this.modalServiceState.tresBtnAct$.subscribe
+      (data => {
+        this.mostrartrebotones = data === 'tresBtn';
+      })
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -190,8 +199,6 @@ export class InicioComponent implements AfterViewInit {
           if (!this.map.zoomControl) {
             L.control.zoom({ position: 'topright' }).addTo(this.map);
           }
-        } else {
-          console.log('gaaaa')
         }
       },
       error: err => {
@@ -221,10 +228,10 @@ export class InicioComponent implements AfterViewInit {
     this.limpiarMapa();
     this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
     this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
+    this.modalServiceState.mostrarTresBtn();
   }
   evaluamos(MunucipioSelecionado: any): void {
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === MunucipioSelecionado);
-    console.log(ciudadEncontrada)
     if (ciudadEncontrada) {
       this.limpiarMapa();
       const newCenter: L.LatLngExpression = [ciudadEncontrada.lat, ciudadEncontrada.lon];

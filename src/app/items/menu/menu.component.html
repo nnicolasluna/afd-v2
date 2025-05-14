@@ -12,15 +12,15 @@
         </li>
     </ol>
     <ol class="icons_right">
-        <li class="iconplustext" (click)="toggleDiagnostico()"  [class.activo]="mostrarDiagnostico">
+        <li class="iconplustext" (click)="toggleDiagnostico('DIAGNOSTICO')"  [class.activo]="mostrarDiagnostico">
             <mat-icon fontIcon="monitor_heart"></mat-icon>
             <span>DIAGNOSTICO</span>
         </li>
-        <li class="iconplustext" (click)="mostrarRecu()">
+        <li class="iconplustext" (click)="mostrarRecu('RECUPERCIÓN')">
             <mat-icon fontIcon="forest"></mat-icon>
             <span>RECUPERCIÓN Y RESTAURACIÓN</span>
         </li>
-        <li class="iconplustext">
+        <li class="iconplustext" (click)="mostrarAlternativas('ALTERNATIVAS')">
             <mat-icon fontIcon="alt_route"></mat-icon>
             <span>ALTERNATIVAS AL USO DE FUEGO</span>
         </li>

@@ -1,0 +1,52 @@
+<div class="bar_main">
+    <div class="card card--big">
+        <div class="card-header">
+            <div class="card-title">{{option}}</div>
+            <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
+        </div>
+        <div class="platform-list">
+            <div class="row">
+                <div class="municipios">
+                    <div class="municipio" (click)="selectLocation('San Buenaventura')">
+                        <img src="assets/IconosMunicipios/SanBuenaventura.png">
+                        <span>San Buenaventura</span>
+                    </div>
+                    <div class="municipio" (click)="selectLocation('Palos Blancos')">
+                        <img src="assets/IconosMunicipios/Palos Blancos.png">
+                        <span>Palos Blancos</span>
+                    </div>
+                </div>
+                <div class="bar"></div>
+                <div class="departamento">La Paz</div>
+            </div>
+            <div class="row">
+                <div class="municipios">
+                    <div class="municipio" (click)="selectLocation('San Borja')">
+                        <img src="assets/IconosMunicipios/San Borja.png">
+                        <span>San Borja</span>
+                    </div>
+                    <div class="municipio" (click)="selectLocation('Rurrenabaque')">
+                        <img src="assets/IconosMunicipios/Rurrenabaque.png">
+                        <span>Rurrenabaque</span>
+                    </div>
+                </div>
+                <div class="bar"></div>
+                <div class="departamento">Beni</div>
+            </div>
+            <div class="row">
+                <div class="municipios">
+                    <div class="municipio" (click)="selectLocation('Vinto')">
+                        <img src="assets/IconosMunicipios/Vinto.png">
+                        <span>Vinto</span>
+                    </div>
+                    <div class="municipio" (click)="selectLocation('Tiquipaya')">
+                        <img src="assets/IconosMunicipios/Tiquipaya.png">
+                        <span>Tiquipaya</span>
+                    </div>
+                </div>
+                <div class="bar"></div>
+                <div class="departamento">Cochabamba</div>
+            </div>
+        </div>
+    </div>
+</div>

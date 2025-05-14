@@ -7,25 +7,46 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
 })
 export class MenuComponent {
   @Output() localizacionUsuario = new EventEmitter<string>();
+  @Input() MunicipioMenu: string | undefined;
 
   mostrarDiagnostico: boolean = false;
-  @Input() MunicipioMenu: string | undefined;
 
   constructor(private modalStateService: ModalStateService) { }
   alternarleftCard() {
     this.modalStateService.mostrarleftbar();
   }
-  toggleDiagnostico(): void {
+  toggleDiagnostico(btnSelected: any): void {
     this.mostrarDiagnostico = !this.mostrarDiagnostico;
-    this.modalStateService.mostrarDiagnostico(); // mostrar diagnóstico
+    if (this.MunicipioMenu == '') {
+      this.modalStateService.mostrarAlter_rightbar(btnSelected);
+    }
+    else {
+      this.modalStateService.mostrarDiagnostico();
+    }
+
   }
   ocultarDiagnostico(): void {
     this.mostrarDiagnostico = false;
   }
-  verLocalizacion(){
+  verLocalizacion() {
     this.localizacionUsuario.emit('true');
   }
-  mostrarRecu():void{
-    this.modalStateService.mostrarrecu();
+  mostrarRecu(btnSelected: any): void {
+    if (this.MunicipioMenu == '') {
+      this.modalStateService.mostrarAlter_rightbar(btnSelected);
+    }
+    else {
+      this.modalStateService.mostrarrecu();
+    }
+
+  }
+  mostrarAlternativas(btnSelected: any) {
+    if (this.MunicipioMenu == '') {
+      this.modalStateService.mostrarAlter_rightbar(btnSelected);
+    }
+    else {
+      this.modalStateService.mostraralternativas();
+    }
+
   }
 }

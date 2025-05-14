@@ -17,6 +17,7 @@ import { VerDiagComponent } from './diagnostico/ver-diag/ver-diag.component';
 import { TableComponent } from './items/componentes/table/table.component';
 import { BotonesDiagRecuAlteComponent } from './items/componentes/botones-diag-recu-alte/botones-diag-recu-alte.component';
 import { CardGenericoComponent } from './items/componentes/card-generico/card-generico.component';
+import { AlterRightbarComponent } from './items/alter-rightbar/alter-rightbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { CardGenericoComponent } from './items/componentes/card-generico/card-ge
     VerDiagComponent,
     TableComponent,
     BotonesDiagRecuAlteComponent,
-    CardGenericoComponent
+    CardGenericoComponent,
+    AlterRightbarComponent
   ],
   imports: [
     BrowserModule,
