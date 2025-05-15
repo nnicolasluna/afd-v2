@@ -1,8 +1,14 @@
 <app-cabecera></app-cabecera>
 <app-botones-diag-recu-alte *ngIf="mostrartrebotones"></app-botones-diag-recu-alte>
-<div id="map"></div>
+<div class="maps-container">
+    <div id="map" class="map"></div>
+    <div id="map2" class="map"></div>
+    <div class="map-slider">
+        <input type="range" min="0" max="100" value="50" class="slider" id="mapRange" (input)="updateMapWidth($event)">
+    </div>
+</div>
 <app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
-<app-menu (localizacionUsuario)="locateUser($event)" [MunicipioMenu]="municipio"></app-menu>
+<!-- <app-menu (localizacionUsuario)="locateUser($event)" [MunicipioMenu]="municipio"></app-menu> -->
 <app-simple-card *ngIf="mostrarCard" [municipio]="municipio"></app-simple-card>
 <app-diagnostico *ngIf="mostrarDiagnostico" [MunicipioDiag]="municipio"></app-diagnostico>
 <app-leftbar *ngIf="mostrarLeftBar"></app-leftbar>
@@ -16,4 +22,5 @@
     <p>Identificación y diseño de prácticas alternativas al uso de fuego</p>
     <button class="boton boton--azul">Ver Alternativas </button>
 </app-card-generico>
-<app-alter-rightbar (locationSelected)="handleLocationSelection($event)"*ngIf="mostraralter_rightbar"></app-alter-rightbar>
+<app-alter-rightbar (locationSelected)="handleLocationSelection($event)"
+    *ngIf="mostraralter_rightbar"></app-alter-rightbar>

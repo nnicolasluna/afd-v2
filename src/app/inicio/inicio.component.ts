@@ -11,7 +11,9 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent implements AfterViewInit {
-  private map!: L.Map;
+  private map1!: L.Map;
+  private map2!: L.Map;
+
   municipio = '';
   mostrarCard = false;
   mostrarDiagnostico = false;
@@ -22,6 +24,7 @@ export class InicioComponent implements AfterViewInit {
   mostraralternativas = false;
   mostraralter_rightbar = false;
   mostrartrebotones = false;
+  mostrarMapa2 = false;
 
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
@@ -36,14 +39,7 @@ export class InicioComponent implements AfterViewInit {
     { municipio: 'Vinto', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Vinto.geo.json', color: '#3521E8', lat: -17.383333, lon: -66.3 },
     { municipio: 'Tiquipaya', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Tiqui.geo.json', color: '#C7914A', lat: -17.333333, lon: -66.216667 }
   ];
-  /* ciudades = [
-    { nombre: 'San Buenaventura', lat: -14.45812, lon: -67.58674599999999 },
-    { nombre: 'Palos Blancos', lat: -15.583, lon: -67.25 },
-    { nombre: 'San Borja', lat: -14.8583, lon: -66.7475 },
-    { nombre: 'Rurrenabaque', lat: -14.442222, lon: -67.528333 },
-    { nombre: 'Vinto', lat: -17.383333, lon: -66.3 },
-    { nombre: 'Tiquipaya', lat: -17.333333, lon: -66.216667 }
-  ]; */
+
   private geoLayers: { [key: string]: L.GeoJSON } = {};
   constructor(private http: HttpClient, private modalServiceState: ModalStateService) { }
 
@@ -77,7 +73,7 @@ export class InicioComponent implements AfterViewInit {
   }
 
   private initMap(): void {
-    this.map = L.map('map', {
+    this.map1 = L.map('map', {
       center: [-16.5, -64.15],
       zoom: 5,
       scrollWheelZoom: false,
@@ -85,23 +81,57 @@ export class InicioComponent implements AfterViewInit {
       zoomControl: false,
       doubleClickZoom: false
     });
-    this.map.setZoom(5.5);
+    this.map1.setZoom(5.5);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
-    }).addTo(this.map);
+    }).addTo(this.map1);
     const labelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18,
       pane: 'labels'
     });
 
-    if (!this.map.getPane('labels')) {
-      this.map.createPane('labels');
-      this.map.getPane('labels')!.style.zIndex = '';
-      this.map.getPane('labels')!.style.pointerEvents = 'none';
+    if (!this.map1.getPane('labels')) {
+      this.map1.createPane('labels');
+      this.map1.getPane('labels')!.style.zIndex = '';
+      this.map1.getPane('labels')!.style.pointerEvents = 'none';
     }
 
-    labelsLayer.addTo(this.map);
+    labelsLayer.addTo(this.map1);
   }
+  private iniciarmapa2(municipio: any): void {
+    console.log('llego aca mrd')
+    this.map2 = L.map('map2', {
+      center: [-16.5, -64.15], // Valor temporal hasta que cargue el GeoJSON
+      zoom: 13
+    });
+
+    // Capa base satelital
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18
+    }).addTo(this.map2);
+
+
+    // Cargar el GeoJSON y centrar el mapa en su extensión
+    this.http.get<any>(municipio).subscribe((geojsonData) => {
+      const geojsonLayer = L.geoJSON(geojsonData, {
+        style: {
+          // Borde rojo
+          weight: 2,              // Grosor del borde
+          fillColor: '#8FC938',   // Color de relleno
+          fillOpacity: 0.5        // Opacidad del relleno
+        }
+      }).addTo(this.map2);
+      // Obtener los límites del GeoJSON y hacer fit
+      /* this.map2.fitBounds(geojsonLayer.getBounds()); */
+      this.map2.flyToBounds(geojsonLayer.getBounds(), {
+        padding: [120, 120],
+        duration: 1.2,
+      });
+    });
+    /* this.synchronizeMaps(); */
+  }
+
+
   private cargarMunicipio(mun: any, color: any): void {
     this.http.get<any>(mun.source).subscribe({
       next: data => {
@@ -113,7 +143,7 @@ export class InicioComponent implements AfterViewInit {
             fillColor: mun.color
           }
         });
-        layer.addTo(this.map);
+        layer.addTo(this.map1);
         this.geoLayers[mun.municipio] = layer;
         mun.state = true;
       },
@@ -122,7 +152,29 @@ export class InicioComponent implements AfterViewInit {
       }
     });
   }
+  updateMapWidth(event: Event): void {
+    const sliderValue = (event.target as HTMLInputElement).value;
+    const percent = parseInt(sliderValue, 10);
 
+    // Update clip paths based on slider value
+    document.getElementById('map')!.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    document.getElementById('map2')!.style.clipPath = `inset(0 0 0 ${percent}%)`;
+  }
+  private synchronizeMaps(): void {
+    // Sync map1 to map2
+    this.map1.on('move', () => {
+      this.map2.setView(this.map1.getCenter(), this.map1.getZoom(), {
+        animate: false
+      });
+    });
+
+    // Sync map2 to map1
+    this.map2.on('move', () => {
+      this.map1.setView(this.map2.getCenter(), this.map2.getZoom(), {
+        animate: false
+      });
+    });
+  }
   private sideByside(mun: any): void {
     const requests = [
       this.http.get<any>(mun.source),
@@ -153,14 +205,14 @@ export class InicioComponent implements AfterViewInit {
         });
 
         // Agregar ambas capas al mapa
-        layerLeft.addTo(this.map);
-        layerRight.addTo(this.map);
+        layerLeft.addTo(this.map1);
+        layerRight.addTo(this.map1);
 
         // Crear y agregar el control Side-by-Side
         /* const sideBySide = L.control.sideBySide(layerLeft, layerRight); */
         const sideBySide = (L.control as any).sideBySide(layerLeft, layerRight);
 
-        sideBySide.addTo(this.map);
+        sideBySide.addTo(this.map1);
       },
       error: err => {
         console.error('Error al cargar los GeoJSON:', err);
@@ -179,25 +231,25 @@ export class InicioComponent implements AfterViewInit {
             fillColor: fillColor
           }
         });
-        layer.addTo(this.map);
+        layer.addTo(this.map1);
 
         // Guardar la capa
         this.geoLayers[mun.municipio] = layer;
 
 
         const bounds = layer.getBounds();
-        this.map.flyToBounds(bounds, {
+        this.map1.flyToBounds(bounds, {
           padding: [120, 120],
           duration: 1.2,
         });
-        if (this.map) {
-          this.map.scrollWheelZoom.enable();
-          this.map.dragging.enable();
-          this.map.doubleClickZoom.enable();
+        if (this.map1) {
+          this.map1.scrollWheelZoom.enable();
+          this.map1.dragging.enable();
+          this.map1.doubleClickZoom.enable();
 
           // Solo si nunca agregaste zoomControl
-          if (!this.map.zoomControl) {
-            L.control.zoom({ position: 'topright' }).addTo(this.map);
+          if (!this.map1.zoomControl) {
+            L.control.zoom({ position: 'topright' }).addTo(this.map1);
           }
         }
       },
@@ -216,7 +268,7 @@ export class InicioComponent implements AfterViewInit {
           fillOpacity: 0
         }
       });
-      layer.addTo(this.map);
+      layer.addTo(this.map1);
       this.geoLayers[dep.departamento] = layer;
       dep.state = true;
     });
@@ -224,7 +276,7 @@ export class InicioComponent implements AfterViewInit {
   handleLocationSelection(MunucipioSelecionado: any): void {
     this.municipio = MunucipioSelecionado.municipio;
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
-    this.map.flyTo(newCenter, 7.5);
+    this.map1.flyTo(newCenter, 7.5);
     this.limpiarMapa();
     this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
     this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
@@ -234,16 +286,19 @@ export class InicioComponent implements AfterViewInit {
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === MunucipioSelecionado);
     if (ciudadEncontrada) {
       this.limpiarMapa();
+      this.mostrarMapa2 = true
       const newCenter: L.LatLngExpression = [ciudadEncontrada.lat, ciudadEncontrada.lon];
-      /* this.map.flyTo(newCenter, 10); */
-      this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938');
+      /* this.map1.flyTo(newCenter, 10); */
+      /* this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938'); */
       this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C');
+      this.iniciarmapa2(ciudadEncontrada.source);
+
     }
   }
   toggleDepartamento(dep: any): void {
     if (dep.state) {
       // Ocultar
-      this.map.removeLayer(this.geoLayers[dep.departamento]);
+      this.map1.removeLayer(this.geoLayers[dep.departamento]);
       dep.state = false;
     } else {
       // Mostrar
@@ -251,15 +306,15 @@ export class InicioComponent implements AfterViewInit {
     }
   }
   private limpiarMapa(): void {
-    this.map.eachLayer((layer: L.Layer) => {
+    this.map1.eachLayer((layer: L.Layer) => {
       if (!(layer instanceof L.TileLayer)) {
-        this.map.removeLayer(layer);
+        this.map1.removeLayer(layer);
       }
     });
     this.departamentos.forEach(dep => dep.state = false);
   }
   locateUser(mesaje: string): void {
-    if (!this.map) {
+    if (!this.map1) {
       return;
     }
 
@@ -269,7 +324,7 @@ export class InicioComponent implements AfterViewInit {
         const lng = position.coords.longitude;
         const userLocation = L.latLng(lat, lng);
 
-        this.map.setView(userLocation, 16);
+        this.map1.setView(userLocation, 16);
 
         // L.marker(userLocation).addTo(this.map)
         //   .bindPopup('Tu ubicación actual').openPopup();
