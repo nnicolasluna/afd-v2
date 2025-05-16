@@ -29,5 +29,6 @@ export class DiagnosticoComponent {
   }
   mostrarVerDiagnostico() {
     this.modalStateService.mostrarVerDiagnostico();
+    this.modalStateService.cerrartresBtn();
   }
 }

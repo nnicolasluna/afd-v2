@@ -1,0 +1,14 @@
+.text {
+    max-height: 400px;
+    overflow-y: auto;
+    color: white;
+
+    &--title {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &--normal {
+        text-align: justify;
+    }
+}

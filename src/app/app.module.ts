@@ -18,6 +18,7 @@ import { TableComponent } from './items/componentes/table/table.component';
 import { BotonesDiagRecuAlteComponent } from './items/componentes/botones-diag-recu-alte/botones-diag-recu-alte.component';
 import { CardGenericoComponent } from './items/componentes/card-generico/card-generico.component';
 import { AlterRightbarComponent } from './items/alter-rightbar/alter-rightbar.component';
+import { TextComponent } from './items/componentes/text/text.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { AlterRightbarComponent } from './items/alter-rightbar/alter-rightbar.co
     TableComponent,
     BotonesDiagRecuAlteComponent,
     CardGenericoComponent,
-    AlterRightbarComponent
+    AlterRightbarComponent,
+    TextComponent
   ],
   imports: [
     BrowserModule,

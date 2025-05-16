@@ -1,0 +1,28 @@
+{
+  "headers": [
+    { "key": "institucion", "header": "Institucion" },
+    { "key": "tematicas", "header": "Tematicas" },
+    { "key": "comunidades", "header": "Comunidades" },
+    { "key": "temporalidad", "header": "Temporalidad de la intervención" }
+  ],
+  "rows": [
+    {
+      "institucion": "Gobierno Central (MDRyT)",
+      "tematicas": "Producción de plantines forestales y reforestación",
+      "comunidades": "No especificadas",
+      "temporalidad": "2023 - 2024"
+    },
+    {
+      "institucion": "Gobernación de La Paz",
+      "tematicas": "Campañas de prevención y concienciación sobre incendios",
+      "comunidades": "Área II, Área V, Área VII",
+      "temporalidad": "2023 - 2024"
+    },
+    {
+      "institucion": "FAO",
+      "tematicas": "Coordinación en acciones de prevención y respuesta a incendios",
+      "comunidades": "No especificadas",
+      "temporalidad": "2023 - 2024"
+    }
+  ]
+}

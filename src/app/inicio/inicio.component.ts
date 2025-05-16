@@ -11,6 +11,7 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent implements AfterViewInit {
+  private map!: L.Map;
   private map1!: L.Map;
   private map2!: L.Map;
 
@@ -73,7 +74,7 @@ export class InicioComponent implements AfterViewInit {
   }
 
   private initMap(): void {
-    this.map1 = L.map('map', {
+    this.map = L.map('map', {
       center: [-16.5, -64.15],
       zoom: 5,
       scrollWheelZoom: false,
@@ -81,53 +82,126 @@ export class InicioComponent implements AfterViewInit {
       zoomControl: false,
       doubleClickZoom: false
     });
-    this.map1.setZoom(5.5);
+    this.map.setZoom(5.5);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
-    }).addTo(this.map1);
+    }).addTo(this.map);
     const labelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18,
       pane: 'labels'
     });
 
-    if (!this.map1.getPane('labels')) {
-      this.map1.createPane('labels');
-      this.map1.getPane('labels')!.style.zIndex = '';
-      this.map1.getPane('labels')!.style.pointerEvents = 'none';
+    if (!this.map.getPane('labels')) {
+      this.map.createPane('labels');
+      this.map.getPane('labels')!.style.zIndex = '';
+      this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
 
-    labelsLayer.addTo(this.map1);
+    labelsLayer.addTo(this.map);
   }
   private iniciarmapa2(municipio: any): void {
-    console.log('llego aca mrd')
+    this.mostrarMapa2 = true
+    setTimeout(() => {
+      this.map1 = L.map('map1', {
+        center: [-16.5, -64.15],
+        zoom: 5,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+      this.map2 = L.map('map2', {
+        center: [-16.5, -64.15],
+        zoom: 5,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+
+
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 18
+      }).addTo(this.map1);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 18
+      }).addTo(this.map2);
+
+      this.http.get<any>(municipio).subscribe((geojsonData) => {
+        const geojsonLayer1 = L.geoJSON(geojsonData, {
+          style: {
+            weight: 2,
+            fillColor: '#8FC938',
+            fillOpacity: 0.5,
+            color: '#8FC938',
+          }
+        }).addTo(this.map1);
+
+        this.map1.flyToBounds(geojsonLayer1.getBounds(), {
+          padding: [120, 120],
+          duration: 1.2,
+        });
+      });
+
+      this.http.get<any>('assets/geojson/LaPaz/Municipios/quemado/quemas_sanbuena.geo.json').subscribe((geojsonData) => {
+        const geojsonLayer2 = L.geoJSON(geojsonData, {
+          style: {
+            weight: 2,
+            fillColor: '#D7191C',
+            fillOpacity: 0.5,
+            color: '#D7191C',
+          }
+        }).addTo(this.map2);
+
+        this.map2.flyToBounds(geojsonLayer2.getBounds(), {
+          padding: [120, 120],
+          duration: 1.2,
+        });
+      });
+    }, 0);
+    /* this.map1 = L.map('map1', {
+      center: [-16.5, -64.15],
+      zoom: 5.5
+    });
     this.map2 = L.map('map2', {
-      center: [-16.5, -64.15], // Valor temporal hasta que cargue el GeoJSON
-      zoom: 13
+      center: [-16.5, -64.15],
+      zoom: 5.5
     });
 
-    // Capa base satelital
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18
+    }).addTo(this.map1);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
     }).addTo(this.map2);
 
-
-    // Cargar el GeoJSON y centrar el mapa en su extensión
     this.http.get<any>(municipio).subscribe((geojsonData) => {
-      const geojsonLayer = L.geoJSON(geojsonData, {
+      const geojsonLayer1 = L.geoJSON(geojsonData, {
         style: {
-          // Borde rojo
-          weight: 2,              // Grosor del borde
-          fillColor: '#8FC938',   // Color de relleno
-          fillOpacity: 0.5        // Opacidad del relleno
+          weight: 2,
+          fillColor: '#8FC938',
+          fillOpacity: 0.5
         }
-      }).addTo(this.map2);
-      // Obtener los límites del GeoJSON y hacer fit
-      /* this.map2.fitBounds(geojsonLayer.getBounds()); */
-      this.map2.flyToBounds(geojsonLayer.getBounds(), {
+      }).addTo(this.map1);
+
+      this.map1.flyToBounds(geojsonLayer1.getBounds(), {
         padding: [120, 120],
         duration: 1.2,
       });
     });
+
+    this.http.get<any>('assets/geojson/LaPaz/Municipios/quemado/quemas_sanbuena.geo.json').subscribe((geojsonData) => {
+      const geojsonLayer2 = L.geoJSON(geojsonData, {
+        style: {
+          weight: 2,
+          fillColor: '#D7191C',
+          fillOpacity: 0.5
+        }
+      }).addTo(this.map2);
+
+      this.map2.flyToBounds(geojsonLayer2.getBounds(), {
+        padding: [120, 120],
+        duration: 1.2,
+      });
+    }); */
     /* this.synchronizeMaps(); */
   }
 
@@ -143,7 +217,7 @@ export class InicioComponent implements AfterViewInit {
             fillColor: mun.color
           }
         });
-        layer.addTo(this.map1);
+        layer.addTo(this.map);
         this.geoLayers[mun.municipio] = layer;
         mun.state = true;
       },
@@ -157,7 +231,7 @@ export class InicioComponent implements AfterViewInit {
     const percent = parseInt(sliderValue, 10);
 
     // Update clip paths based on slider value
-    document.getElementById('map')!.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    document.getElementById('map1')!.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
     document.getElementById('map2')!.style.clipPath = `inset(0 0 0 ${percent}%)`;
   }
   private synchronizeMaps(): void {
@@ -175,50 +249,7 @@ export class InicioComponent implements AfterViewInit {
       });
     });
   }
-  private sideByside(mun: any): void {
-    const requests = [
-      this.http.get<any>(mun.source),
-      this.http.get<any>(mun.quemado)
-    ];
 
-    // Esperar a que ambas peticiones terminen
-    forkJoin(requests).subscribe({
-      next: ([sourceData, quemadoData]) => {
-        // Crear capa izquierda (source)
-        const layerLeft = L.geoJSON(sourceData, {
-          style: {
-            color: '#0000FF', // Azul
-            weight: 2,
-            fillOpacity: 0.5,
-            fillColor: '#0000FF'
-          }
-        });
-
-        // Crear capa derecha (quemado)
-        const layerRight = L.geoJSON(quemadoData, {
-          style: {
-            color: '#FF0000', // Rojo
-            weight: 2,
-            fillOpacity: 0.5,
-            fillColor: '#FF0000'
-          }
-        });
-
-        // Agregar ambas capas al mapa
-        layerLeft.addTo(this.map1);
-        layerRight.addTo(this.map1);
-
-        // Crear y agregar el control Side-by-Side
-        /* const sideBySide = L.control.sideBySide(layerLeft, layerRight); */
-        const sideBySide = (L.control as any).sideBySide(layerLeft, layerRight);
-
-        sideBySide.addTo(this.map1);
-      },
-      error: err => {
-        console.error('Error al cargar los GeoJSON:', err);
-      }
-    });
-  }
 
   private cargarMunicipioPersonalizado(mun: any, color: any, fillColor: any): void {
     this.http.get<any>(mun).subscribe({
@@ -231,25 +262,25 @@ export class InicioComponent implements AfterViewInit {
             fillColor: fillColor
           }
         });
-        layer.addTo(this.map1);
+        layer.addTo(this.map);
 
         // Guardar la capa
         this.geoLayers[mun.municipio] = layer;
 
 
         const bounds = layer.getBounds();
-        this.map1.flyToBounds(bounds, {
+        this.map.flyToBounds(bounds, {
           padding: [120, 120],
           duration: 1.2,
         });
-        if (this.map1) {
-          this.map1.scrollWheelZoom.enable();
-          this.map1.dragging.enable();
-          this.map1.doubleClickZoom.enable();
+        if (this.map) {
+          this.map.scrollWheelZoom.enable();
+          this.map.dragging.enable();
+          this.map.doubleClickZoom.enable();
 
           // Solo si nunca agregaste zoomControl
-          if (!this.map1.zoomControl) {
-            L.control.zoom({ position: 'topright' }).addTo(this.map1);
+          if (!this.map.zoomControl) {
+            L.control.zoom({ position: 'topright' }).addTo(this.map);
           }
         }
       },
@@ -268,29 +299,37 @@ export class InicioComponent implements AfterViewInit {
           fillOpacity: 0
         }
       });
-      layer.addTo(this.map1);
+      layer.addTo(this.map);
       this.geoLayers[dep.departamento] = layer;
       dep.state = true;
     });
   }
   handleLocationSelection(MunucipioSelecionado: any): void {
+    if (this.mostrarMapa2) {
+      this.mostrarMapa2 = false
+      setTimeout(() => {
+        this.initMap();
+        this.map.flyTo(newCenter, 7.5);
+      }, 0)
+    }
     this.municipio = MunucipioSelecionado.municipio;
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
-    this.map1.flyTo(newCenter, 7.5);
+    this.map.flyTo(newCenter, 7.5);
     this.limpiarMapa();
     this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
     this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
     this.modalServiceState.mostrarTresBtn();
   }
   evaluamos(MunucipioSelecionado: any): void {
+    /* this.mostrarMapa2 = true */
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === MunucipioSelecionado);
     if (ciudadEncontrada) {
       this.limpiarMapa();
-      this.mostrarMapa2 = true
-      const newCenter: L.LatLngExpression = [ciudadEncontrada.lat, ciudadEncontrada.lon];
+
+      /* const newCenter: L.LatLngExpression = [ciudadEncontrada.lat, ciudadEncontrada.lon]; */
       /* this.map1.flyTo(newCenter, 10); */
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938'); */
-      this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C');
+      /* this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C'); */
       this.iniciarmapa2(ciudadEncontrada.source);
 
     }
@@ -298,7 +337,7 @@ export class InicioComponent implements AfterViewInit {
   toggleDepartamento(dep: any): void {
     if (dep.state) {
       // Ocultar
-      this.map1.removeLayer(this.geoLayers[dep.departamento]);
+      this.map.removeLayer(this.geoLayers[dep.departamento]);
       dep.state = false;
     } else {
       // Mostrar
@@ -306,15 +345,15 @@ export class InicioComponent implements AfterViewInit {
     }
   }
   private limpiarMapa(): void {
-    this.map1.eachLayer((layer: L.Layer) => {
+    this.map.eachLayer((layer: L.Layer) => {
       if (!(layer instanceof L.TileLayer)) {
-        this.map1.removeLayer(layer);
+        this.map.removeLayer(layer);
       }
     });
     this.departamentos.forEach(dep => dep.state = false);
   }
   locateUser(mesaje: string): void {
-    if (!this.map1) {
+    if (!this.map) {
       return;
     }
 
@@ -324,7 +363,7 @@ export class InicioComponent implements AfterViewInit {
         const lng = position.coords.longitude;
         const userLocation = L.latLng(lat, lng);
 
-        this.map1.setView(userLocation, 16);
+        this.map.setView(userLocation, 16);
 
         // L.marker(userLocation).addTo(this.map)
         //   .bindPopup('Tu ubicación actual').openPopup();

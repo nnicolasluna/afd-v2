@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
 
 @Component({
@@ -6,37 +6,55 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
   templateUrl: './ver-diag.component.html',
   styleUrls: ['./ver-diag.component.scss']
 })
-export class VerDiagComponent {
+export class VerDiagComponent implements OnInit {
   @Input() Municipio: string | undefined;
   currentStep = 0;
   ExtenderBar: boolean = true;
+  actores: string = '';
+  apoyoProy: string = '';
+  preparacion: string = '';
   constructor(private modalStateService: ModalStateService) { }
 
+  municipios = [
+    { Municipio: 'Palos Blancos', preparacion: 'assets/Datos_tablas/PalosBlancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/PalosBlancos/apoyoProyectos.json', actores: 'assets/Datos_tablas/PalosBlancos/actores.json' },
+    { Municipio: 'San Buenaventura', preparacion: 'assets/Datos_tablas/PalosBlancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/SanBuenaventura/apoyoProyectos.json', actores: 'assets/Datos_tablas/SanBuenaventura/actores.json' },
+  ];
 
-  json='assets/Datos_tablas/PalosBlancos/actores.json'
-  nextStep() {
-    if (this.currentStep < 3 - 1) {
-      this.currentStep++;
-    }
-
-    if (this.currentStep === 3) {
-      this.ExtenderBar = false;
-      this.currentStep = 1;
-    }
+ngOnInit(): void {
+  if(this.Municipio) {
+  const municipioData = this.municipios.find(m => m.Municipio === this.Municipio);
+  if (municipioData) {
+    this.actores = municipioData.actores;
+    this.apoyoProy = municipioData.apoyoProy;
+    this.preparacion = municipioData.preparacion;
+  } else {
+    console.warn(`Municipio "${this.Municipio}" no encontrado en la lista.`);
+  }
+}
+  }
+nextStep() {
+  if (this.currentStep < 3 - 1) {
+    this.currentStep++;
   }
 
-  prevStep() {
-    if (this.currentStep > 0) {
-      this.currentStep--;
-    }
+  if (this.currentStep === 3) {
+    this.ExtenderBar = false;
+    this.currentStep = 1;
   }
-  mostrarDiagnostico(): void {
-    this.modalStateService.mostrarDiagnostico();
+}
+
+prevStep() {
+  if (this.currentStep > 0) {
+    this.currentStep--;
   }
-  extenderBar() {
-    this.ExtenderBar = !this.ExtenderBar;
-  }
-  onCerrarClick() {
-    this.modalStateService.cerrarVistas();
-  }
+}
+mostrarDiagnostico(): void {
+  this.modalStateService.mostrarDiagnostico();
+}
+extenderBar() {
+  this.ExtenderBar = !this.ExtenderBar;
+}
+onCerrarClick() {
+  this.modalStateService.cerrarVistas();
+}
 }

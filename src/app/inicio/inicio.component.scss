@@ -8,6 +8,15 @@
 }
 
 #map {
+    position: fixed;
+    top: 30;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
+}
+
+#map1 {
     clip-path: inset(0 50% 0 0);
 }
 
@@ -33,7 +42,16 @@
 
 .slider {
     width: 100%;
-    cursor: col-resize;
+    cursor: pointer
+}
+
+.slider::-webkit-slider-runnable-track {
+   background: transparent; 
+    border-color: transparent; 
+    border-style: none; 
+    box-shadow: none; 
+    height: 0;
+    width: 0;
 }
 
 .maps-container {

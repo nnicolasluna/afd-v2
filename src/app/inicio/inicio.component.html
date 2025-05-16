@@ -1,19 +1,28 @@
 <app-cabecera></app-cabecera>
 <app-botones-diag-recu-alte *ngIf="mostrartrebotones"></app-botones-diag-recu-alte>
-<div class="maps-container">
-    <div id="map" class="map"></div>
+<!-- MAPAS -->
+<div id="map"  *ngIf="!mostrarMapa2"></div>
+<div class="maps-container" *ngIf="mostrarMapa2">
+    <div id="map1" class="map"></div>
     <div id="map2" class="map"></div>
     <div class="map-slider">
         <input type="range" min="0" max="100" value="50" class="slider" id="mapRange" (input)="updateMapWidth($event)">
     </div>
 </div>
+
+<app-alter-rightbar (locationSelected)="handleLocationSelection($event)"
+    *ngIf="mostraralter_rightbar">
+</app-alter-rightbar>
 <app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
-<!-- <app-menu (localizacionUsuario)="locateUser($event)" [MunicipioMenu]="municipio"></app-menu> -->
+<app-menu (localizacionUsuario)="locateUser($event)" [MunicipioMenu]="municipio"></app-menu>
 <app-simple-card *ngIf="mostrarCard" [municipio]="municipio"></app-simple-card>
 <app-diagnostico *ngIf="mostrarDiagnostico" [MunicipioDiag]="municipio"></app-diagnostico>
 <app-leftbar *ngIf="mostrarLeftBar"></app-leftbar>
 <app-evaluamos [Municipio]="municipio" *ngIf="mostrarEvaluamos" (locationEvaluamos)="evaluamos($event)"></app-evaluamos>
 <app-ver-diag [Municipio]="municipio" *ngIf="mostrarVerDiagnostico"></app-ver-diag>
+
+
+
 <app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" *ngIf="mostrarrecu">
     <p>Identificación de acciones para la recuperación y restauración de áreas afectadas por incendios forestales</p>
     <button class="boton boton--azul">Ver Acciones </button>
@@ -22,5 +31,3 @@
     <p>Identificación y diseño de prácticas alternativas al uso de fuego</p>
     <button class="boton boton--azul">Ver Alternativas </button>
 </app-card-generico>
-<app-alter-rightbar (locationSelected)="handleLocationSelection($event)"
-    *ngIf="mostraralter_rightbar"></app-alter-rightbar>

@@ -18,7 +18,7 @@
                     <div class="dobleCard">
                         <div class="firstCard firstCard--normal">
                             <div class="title-2 title-2--black">Preparación</div>
-                            El municipio de San Buenaventura se encuentra ubicado al norte del departamento de La Paz y
+                         <!--    El municipio de San Buenaventura se encuentra ubicado al norte del departamento de La Paz y
                             pertenece a la provincia Abel Iturralde. El municipio de San Buenaventura colinda al norte y
                             oeste con el municipio de Ixiamas, departamento de La Paz, al este con el municipio de
                             Rurrenabaque y al nor este con el municipio de Reyes, ambos del departamento del Beni; al
@@ -32,49 +32,13 @@
                             maíz, arroz, yuca, plátano, copoazú, papaya, cacao y caña de azúcar. La quema de pastizales
                             redujo drásticamente la disponibilidad de alimento para el ganado, causando su
                             debilitamiento. Además, la disminución del caudal de los ríos afectó directamente las
-                            actividades agrícolas y ganaderas.
+                            actividades agrícolas y ganaderas. -->
+                            <app-text [data]="preparacion"></app-text>
                         </div>
                         <div class="secondCard secondCard--normal">
                             <div class="title-2 title-2--green">Mapeo de Apoyos y Proyectos similares pasados o actuales
                             </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Institución</th>
-                                        <th>Temáticas</th>
-                                        <th>Comunidades</th>
-                                        <th>Temporalidad de la intervención</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Practical Action</td>
-                                        <td>
-                                            <ul>
-                                                <li>Programa de Resiliencia Climática</li>
-                                                <li>Recuperación post incendios</li>
-                                                <li>Rehabilitación de sistemas de agua y recuperación de medios de vida
-                                                    post incendios</li>
-                                            </ul>
-                                        </td>
-                                        <td>San Miguel, Capaina, Tres Hermanos, Villa Alcira, Bella Altura, Altamarani,
-                                            Buena Vista, Tumpasa, San Antonio, San Silvestre</td>
-                                        <td>Nov 2024 – Dic 2027</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fundación Natura</td>
-                                        <td>
-                                            <ul>
-                                                <li>Acuerdos de Conservación</li>
-                                                <li>Protección de fuentes de agua</li>
-                                                <li>Reforestación</li>
-                                            </ul>
-                                        </td>
-                                        <td>Toma de agua "Agua dulce", Altamarani</td>
-                                        <td>Nov 2024 – Dic 2026</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <app-table [jsonUrl]="apoyoProy"></app-table>
                         </div>
                     </div>
                 </div>
@@ -82,11 +46,11 @@
                     <div class="dobleCard">
                         <div class="firstCard firstCard--big">
                             <div class="title-2 title-2--green">Mapeo de Actores</div>
-                            <app-table [jsonUrl]="json"></app-table>
+                            <app-table [jsonUrl]="actores"></app-table>
                         </div>
                         <div class="secondCard secondCard--small">
                             <div class="title-2 title-2--green">Lecciones Aprendidas</div>
-                            
+
                         </div>
                     </div>
                 </div>

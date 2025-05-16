@@ -6,8 +6,9 @@
     /* Mejora el scroll en dispositivos táctiles */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     border-radius: 30px;
+    max-height: 400px;
 }
 
 .table {

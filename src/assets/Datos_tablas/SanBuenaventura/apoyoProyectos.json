@@ -1,0 +1,22 @@
+{
+  "headers": [
+    { "key": "institucion", "header": "Institucion" },
+    { "key": "tematicas", "header": "Tematicas" },
+    { "key": "comunidades", "header": "Comunidades" },
+    { "key": "temporalidad", "header": "Temporalidad de la intervención" }
+  ],
+  "rows": [
+    {
+      "institucion": "Practical Action",
+      "tematicas": "- Programa de Resiliencia Climática\n- Recuperación post incendios Rehabilitación de sistemas de agua y recuperación de medios de vida post incendios",
+      "comunidades": "San Miguel, Capaina, Tres Hermanos, Villa Alcira, Bella Altura, Altamarani, Buena Vista, Tumupasa, San Antonio, San Silvestre",
+      "temporalidad": "Nov 2024 – Dic 2027"
+    },
+    {
+      "institucion": "Fundación Natura",
+      "tematicas": "- Acuerdos de Conservación\n- Protección de fuentes de agua\nReforestación",
+      "comunidades": "Toma de agua \"Agua dulce\", Altamarani",
+      "temporalidad": "Nov 2024 – Dic 2026"
+    }
+  ]
+}

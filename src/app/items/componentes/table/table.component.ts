@@ -25,7 +25,6 @@ export class TableComponent implements OnInit {
           this.columns = response.headers;
           this.data = response.rows;
           this.loading = false;
-          console.log(this.columns )
         },
         error: (err) => {
           console.error('Error cargando el JSON:', err);
