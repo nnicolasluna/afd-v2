@@ -2,8 +2,6 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { ModalStateService } from '../services/modal-state/modal-state.service';
-import { forkJoin } from 'rxjs';
-
 
 @Component({
   selector: 'app-inicio',
@@ -25,6 +23,7 @@ export class InicioComponent implements AfterViewInit {
   mostraralternativas = false;
   mostraralter_rightbar = false;
   mostrartrebotones = false;
+  mostrartrebotonEvaluamos = false;
   mostrarMapa2 = false;
 
   departamentos = [
@@ -32,13 +31,122 @@ export class InicioComponent implements AfterViewInit {
     { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
     { departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Cochabamba.geo.json', state: true },
   ];
+  /*  municipios = [
+     { municipio: 'San Buenaventura', departamento: 'La Paz', source: 'assets/geojson/LaPaz/Municipios/SanBuenaventura.geo.json', color: '#FF5C5CB5' },
+     { municipio: 'Palos Blancos', departamento: 'La Paz', source: 'assets/geojson/LaPaz/Municipios/PalosBlancos.geo.json', color: '#F4A21ABD' },
+     { municipio: 'San Borja', departamento: 'Beni', source: 'assets/geojson/Beni/Municipios/SanBorja.geo.json', color: '#45818E' },
+     { municipio: 'Rurrenabaque', departamento: 'Beni', source: 'assets/geojson/Beni/Municipios/Rurre.geo.json', color: '#8FCE00' },
+     { municipio: 'Vinto', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Vinto.geo.json', color: '#3521E8' },
+     { municipio: 'Tiquipaya', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Tiqui.geo.json', color: '#C7914A' }
+   ]; */
   municipios = [
-    { municipio: 'San Buenaventura', departamento: 'La Paz', source: 'assets/geojson/LaPaz/Municipios/SanBuenaventura.geo.json', quemado: 'assets/geojson/LaPaz/Municipios/quemado/quemas_sanbuena.geo.json', color: '#FF5C5CB5', lat: -14.45812, lon: -67.58674599999999 },
-    { municipio: 'Palos Blancos', departamento: 'La Paz', source: 'assets/geojson/LaPaz/Municipios/PalosBlancos.geo.json', color: '#F4A21ABD', lat: -15.583, lon: -67.25 },
-    { municipio: 'San Borja', departamento: 'Beni', source: 'assets/geojson/Beni/Municipios/SanBorja.geo.json', color: '#45818E', lat: -14.8583, lon: -66.7475 },
-    { municipio: 'Rurrenabaque', departamento: 'Beni', source: 'assets/geojson/Beni/Municipios/Rurre.geo.json', color: '#8FCE00', lat: -14.442222, lon: -67.528333 },
-    { municipio: 'Vinto', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Vinto.geo.json', color: '#3521E8', lat: -17.383333, lon: -66.3 },
-    { municipio: 'Tiquipaya', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Tiqui.geo.json', color: '#C7914A', lat: -17.333333, lon: -66.216667 }
+    {
+      municipio: 'San Buenaventura',
+      departamento: 'La Paz',
+      source: 'assets/geojson/LaPaz/Municipios/SanBuenaventura.geo.json',
+      color: '#FF5C5CB5',
+      bounds: [[-14.595647073317162, -68.08062043756617],
+      [-13.949129563336342, -67.47255082174567]],
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746458264450preNDVISanBuena',
+          nbr: 'aceaa:a_1746457357110preNBRSanBuena'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746459648105postNDVISanBuena',
+          nbr: 'aceaa:a_1746461096055PostNBRSanBuena'
+        }
+      }
+    },
+    {
+      municipio: 'Palos Blancos',
+      departamento: 'La Paz',
+      source: 'assets/geojson/LaPaz/Municipios/PalosBlancos.geo.json',
+      color: '#F4A21ABD',
+      bounds: [[-15.937101287092842, -67.66398180879155],
+      [-14.921915184509372, -66.79540076057638]],
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746452622394preNDVIPalosBlancos',
+          nbr: 'aceaa:a_1746452806527preNBRPalosBlancos'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746458795037postNDVIPalosBlancos',
+          nbr: 'aceaa:a_1746460441687PostNBRPalosBlancos'
+        }
+      }
+    },
+    {
+      municipio: 'San Borja',
+      departamento: 'Beni',
+      source: 'assets/geojson/Beni/Municipios/SanBorja.geo.json',
+      color: '#45818E',
+      bounds: [[-15.807833717708043, -67.29180978658083],
+      [-14.310701465194448, -66.52105527280628]],
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746457864518preNDVISanBorja',
+          nbr: 'aceaa:a_1746456545640preNBRSanBorja'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746459396083postNDVISanBorja',
+          nbr: 'aceaa:a_1746460827267PostNBRSanBorja'
+        }
+      }
+    },
+    {
+      municipio: 'Rurrenabaque',
+      departamento: 'Beni',
+      source: 'assets/geojson/Beni/Municipios/Rurre.geo.json',
+      color: '#8FCE00',
+      bounds: [[-15.04651151441675, -67.55968740430527], [-14.343220478479576, -67.0736988355966]],
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746457664348preNDVIRurrenabaque',
+          nbr: 'aceaa:a_1746464225095preNBRRurrenabaque'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746459230710postNDVIRurrenabaque',
+          nbr: 'aceaa:a_1746461005205postNBRRurrenabaque'
+        }
+      }
+    },
+    {
+      municipio: 'Vinto',
+      departamento: 'Cochabamba',
+      source: 'assets/geojson/Cocha/Municipios/Vinto.geo.json',
+      color: '#3521E8',
+      bounds: [[-17.425969038992537, -66.45925118125885],
+      [-17.257175597106478, -66.28695430976472]],
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746458448842preNDVIVinto',
+          nbr: 'aceaa:a_1746457186315preNBRVinto'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746460151272postNDVIVinto',
+          nbr: 'aceaa:a_1746461278454PostNBRVinto'
+        }
+      }
+    },
+    {
+      municipio: 'Tiquipaya',
+      departamento: 'Cochabamba',
+      source: 'assets/geojson/Cocha/Municipios/Tiqui.geo.json',
+      color: '#C7914A',
+      bounds: [[-17.3745854047409, -66.29890190304351],
+      [-17.071134501765325, -66.09399618673585]],
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746458375180preNDVITiquipaya',
+          nbr: 'aceaa:a_1746457245470preNBRTiquipaya'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746460308299postNDVITiquipaya',
+          nbr: 'aceaa:a_1746461236706PostNBRTiquipaya'
+        }
+      }
+    }
   ];
 
   private geoLayers: { [key: string]: L.GeoJSON } = {};
@@ -60,6 +168,12 @@ export class InicioComponent implements AfterViewInit {
       (data => {
         this.mostrartrebotones = data === 'tresBtn';
       })
+    this.modalServiceState.BtnEvaluamos$.subscribe(
+      data => {
+        this.mostrartrebotonEvaluamos = data === 'btnEvaluamos';
+
+      }
+    )
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -157,51 +271,6 @@ export class InicioComponent implements AfterViewInit {
         });
       });
     }, 0);
-    /* this.map1 = L.map('map1', {
-      center: [-16.5, -64.15],
-      zoom: 5.5
-    });
-    this.map2 = L.map('map2', {
-      center: [-16.5, -64.15],
-      zoom: 5.5
-    });
-
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 18
-    }).addTo(this.map1);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 18
-    }).addTo(this.map2);
-
-    this.http.get<any>(municipio).subscribe((geojsonData) => {
-      const geojsonLayer1 = L.geoJSON(geojsonData, {
-        style: {
-          weight: 2,
-          fillColor: '#8FC938',
-          fillOpacity: 0.5
-        }
-      }).addTo(this.map1);
-
-      this.map1.flyToBounds(geojsonLayer1.getBounds(), {
-        padding: [120, 120],
-        duration: 1.2,
-      });
-    });
-
-    this.http.get<any>('assets/geojson/LaPaz/Municipios/quemado/quemas_sanbuena.geo.json').subscribe((geojsonData) => {
-      const geojsonLayer2 = L.geoJSON(geojsonData, {
-        style: {
-          weight: 2,
-          fillColor: '#D7191C',
-          fillOpacity: 0.5
-        }
-      }).addTo(this.map2);
-
-      this.map2.flyToBounds(geojsonLayer2.getBounds(), {
-        padding: [120, 120],
-        duration: 1.2,
-      });
-    }); */
     /* this.synchronizeMaps(); */
   }
 
@@ -330,8 +399,8 @@ export class InicioComponent implements AfterViewInit {
       /* this.map1.flyTo(newCenter, 10); */
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938'); */
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C'); */
-      this.iniciarmapa2(ciudadEncontrada.source);
-
+      //this.iniciarmapa2(ciudadEncontrada.source);
+      this.sidebysideWMS(ciudadEncontrada);
     }
   }
   toggleDepartamento(dep: any): void {
@@ -395,4 +464,107 @@ export class InicioComponent implements AfterViewInit {
       alert('La geolocalización no es soportada por este navegador.');
     }
   }
+  /* private sidebysideWMS(): void {
+    this.mostrarMapa2 = true
+    setTimeout(() => {
+      this.map1 = L.map('map1', {
+        center: [-16.5, -64.15],
+        zoom: 5,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+      this.map2 = L.map('map2', {
+        center: [-16.5, -64.15],
+        zoom: 5,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+
+
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 18
+      }).addTo(this.map1);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 18
+      }).addTo(this.map2);
+
+      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms?service=WMS&version=1.1.0&request=GetMap&layers=aceaa%3Aa_1746457664348preNDVIRurrenabaque&bbox=-67.55968740430527%2C-15.04651151441675%2C-67.0736988355966%2C-14.343220478479576&width=530&height=768&srs=EPSG%3A4326&styles=&format=application/openlayers', {
+        layers: 'aceaa:a_1746457664348preNDVIRurrenabaque',
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA',
+      }).addTo(this.map1);
+      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms?service=WMS&version=1.1.0&request=GetMap&layers=aceaa%3Aa_1746459230710postNDVIRurrenabaque&bbox=-67.55968740430527%2C-15.04651151441675%2C-67.0736988355966%2C-14.343220478479576&width=530&height=768&srs=EPSG%3A4326&styles=&format=application/openlayers', {
+        layers: 'aceaa:a_1746457664348preNDVIRurrenabaque',
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA',
+      }).addTo(this.map2);
+
+    }, 0);
+  }
+ */
+
+  private sidebysideWMS(municipio: any): void {
+    this.mostrarMapa2 = true;
+    /*  const bounds = L.latLngBounds(
+       [-15.04651151441675, -67.55968740430527], // Suroeste (SW)
+       [-14.343220478479576, -67.0736988355966]  // Noreste (NE)
+     ); */
+    const bounds = L.latLngBounds(municipio.bounds);
+    console.log(municipio.bounds)
+    setTimeout(() => {
+      this.map1 = L.map('map1', {
+        center: [-15.7, -67.3], // Ajustado al centro aproximado de la capa
+        zoom: 10,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+
+      this.map2 = L.map('map2', {
+        center: [-15.7, -67.3],
+        zoom: 10,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+
+      // Base layer para ambos mapas
+      const baseLayerUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+
+      L.tileLayer(baseLayerUrl, {
+        maxZoom: 18
+      }).addTo(this.map1);
+
+      L.tileLayer(baseLayerUrl, {
+        maxZoom: 18
+      }).addTo(this.map2);
+      // Capa WMS para el mapa 1 (PRE NDVI)
+      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+        layers: municipio.wms.pre.ndvi,
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA'
+      }).addTo(this.map1);
+
+      // Capa WMS para el mapa 2 (POST NDVI)
+      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+        layers: municipio.wms.post.ndvi,
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA'
+      }).addTo(this.map2);
+      // Ajusta ambos mapas al bounding box
+      this.map1.fitBounds(bounds);
+      this.map2.fitBounds(bounds);
+    }, 0);
+  }
+
 }

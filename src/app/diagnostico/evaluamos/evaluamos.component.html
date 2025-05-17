@@ -10,8 +10,10 @@
         </div>
         <div class="platform-list">
             <div class="botonesVolSig">
-                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0">Volver</button>
-                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 3 - 1">Siguiente</button>
+                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0"
+                    [style.visibility]="currentStep === 0 ? 'hidden' : 'visible'">Volver</button>
+                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 3 - 1"
+                    [style.visibility]="currentStep === 3 - 1 ? 'hidden' : 'visible'">Siguiente</button>
             </div>
 
             <div [ngSwitch]="currentStep" class="content">

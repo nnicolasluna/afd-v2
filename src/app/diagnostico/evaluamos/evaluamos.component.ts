@@ -30,7 +30,9 @@ export class EvaluamosComponent {
       this.ExtenderBar = false;
       this.locationEvaluamos.emit(this.Municipio);
       this.currentStep = 1;
+      this.modalStateService.mostrarBtnEvaluamos();
     }
+
   }
 
   prevStep() {
@@ -47,5 +49,5 @@ export class EvaluamosComponent {
   onCerrarClick() {
     this.modalStateService.cerrarVistas();
   }
- 
+
 }

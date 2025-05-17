@@ -20,6 +20,8 @@ import { CardGenericoComponent } from './items/componentes/card-generico/card-ge
 import { AlterRightbarComponent } from './items/alter-rightbar/alter-rightbar.component';
 import { TextComponent } from './items/componentes/text/text.component';
 import { GenericlistComponent } from './items/componentes/genericlist/genericlist.component';
+import { BotonesEvaluamosComponent } from './items/componentes/botones-evaluamos/botones-evaluamos.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,13 +39,16 @@ import { GenericlistComponent } from './items/componentes/genericlist/genericlis
     CardGenericoComponent,
     AlterRightbarComponent,
     TextComponent,
-    GenericlistComponent
+    GenericlistComponent,
+    BotonesEvaluamosComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,11 +7,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ModalStateService {
   private vistaActual = new BehaviorSubject<'alter-rightbar' | 'alternativas' | 'recuperacion' | 'card' | 'diagnostico' | 'leftbar' | 'evaluamos' | 'verdiagnostico' | null>(null);
   private botonActivoMenu = new BehaviorSubject<string>('');
-  private tresBtnActivo = new BehaviorSubject<'tresBtn'|null>(null);
+  private tresBtnActivo = new BehaviorSubject<'tresBtn' | null>(null);
+  private btnEvaluamos = new BehaviorSubject<'btnEvaluamos' | null>(null);
   data$: Observable<string> = this.botonActivoMenu.asObservable();
   vistaActual$ = this.vistaActual.asObservable();
   tresBtnAct$ = this.tresBtnActivo.asObservable();
- 
+  BtnEvaluamos$ = this.btnEvaluamos.asObservable();
+
   mostrarAlter_rightbar(botonSeleccionado: any) {
     this.botonActivoMenu.next(botonSeleccionado);
     this.vistaActual.next('alter-rightbar');
@@ -45,5 +47,11 @@ export class ModalStateService {
   }
   cerrartresBtn() {
     this.tresBtnActivo.next(null);
+  }
+  mostrarBtnEvaluamos() {
+    this.btnEvaluamos.next('btnEvaluamos');
+  }
+  cerrarBtnEvaluamos() {
+    this.btnEvaluamos.next(null);
   }
 }
