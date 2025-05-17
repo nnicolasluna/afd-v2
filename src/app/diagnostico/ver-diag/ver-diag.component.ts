@@ -13,11 +13,12 @@ export class VerDiagComponent implements OnInit {
   actores: string = '';
   apoyoProy: string = '';
   preparacion: string = '';
+  leccionesAprendidas: string = '';
   constructor(private modalStateService: ModalStateService) { }
 
   municipios = [
-    { Municipio: 'Palos Blancos', preparacion: 'assets/Datos_tablas/PalosBlancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/PalosBlancos/apoyoProyectos.json', actores: 'assets/Datos_tablas/PalosBlancos/actores.json' },
-    { Municipio: 'San Buenaventura', preparacion: 'assets/Datos_tablas/PalosBlancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/SanBuenaventura/apoyoProyectos.json', actores: 'assets/Datos_tablas/SanBuenaventura/actores.json' },
+    { Municipio: 'Palos Blancos', preparacion: 'assets/Datos_tablas/PalosBlancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/PalosBlancos/apoyoProyectos.json', actores: 'assets/Datos_tablas/PalosBlancos/actores.json',leccionesAprendidas :'assets/Datos_tablas/PalosBlancos/leccionesAprendidas.json'},
+    { Municipio: 'San Buenaventura', preparacion: 'assets/Datos_tablas/PalosBlancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/SanBuenaventura/apoyoProyectos.json', actores: 'assets/Datos_tablas/SanBuenaventura/actores.json' ,leccionesAprendidas :''},
   ];
 
 ngOnInit(): void {
@@ -27,20 +28,21 @@ ngOnInit(): void {
     this.actores = municipioData.actores;
     this.apoyoProy = municipioData.apoyoProy;
     this.preparacion = municipioData.preparacion;
+    this.leccionesAprendidas = municipioData.leccionesAprendidas;
   } else {
     console.warn(`Municipio "${this.Municipio}" no encontrado en la lista.`);
   }
 }
   }
 nextStep() {
-  if (this.currentStep < 3 - 1) {
+  if (this.currentStep < 6 - 1) {
     this.currentStep++;
   }
-
+/* 
   if (this.currentStep === 3) {
     this.ExtenderBar = false;
     this.currentStep = 1;
-  }
+  } */
 }
 
 prevStep() {

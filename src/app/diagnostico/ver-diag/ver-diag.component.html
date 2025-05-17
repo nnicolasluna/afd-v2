@@ -18,21 +18,6 @@
                     <div class="dobleCard">
                         <div class="firstCard firstCard--normal">
                             <div class="title-2 title-2--black">Preparación</div>
-                         <!--    El municipio de San Buenaventura se encuentra ubicado al norte del departamento de La Paz y
-                            pertenece a la provincia Abel Iturralde. El municipio de San Buenaventura colinda al norte y
-                            oeste con el municipio de Ixiamas, departamento de La Paz, al este con el municipio de
-                            Rurrenabaque y al nor este con el municipio de Reyes, ambos del departamento del Beni; al
-                            sur y oeste con el municipio de Apolo del departamento de La Paz. El 17 de septiembre del
-                            2023 se inicia el primer incendio, a nivel urbano, en la zona de Cotoca, siendo atendido con
-                            los recursos del GAM, el apoyo de guardaparques, efectivos de la Base Naval Ballivián,
-                            bomberos voluntarios y la colaboración de la población en general. Con el paso de los días,
-                            los incendios se intensificaron, afectando a los tres distritos del municipio: Distrito I
-                            (San Buenaventura), Distrito II (Tumupasa) y Distrito III (San José de Uchupiamonas), junto
-                            a sus comunidades. Se registraron pérdidas totales o parciales en cultivos de cítricos,
-                            maíz, arroz, yuca, plátano, copoazú, papaya, cacao y caña de azúcar. La quema de pastizales
-                            redujo drásticamente la disponibilidad de alimento para el ganado, causando su
-                            debilitamiento. Además, la disminución del caudal de los ríos afectó directamente las
-                            actividades agrícolas y ganaderas. -->
                             <app-text [data]="preparacion"></app-text>
                         </div>
                         <div class="secondCard secondCard--normal">
@@ -50,14 +35,76 @@
                         </div>
                         <div class="secondCard secondCard--small">
                             <div class="title-2 title-2--green">Lecciones Aprendidas</div>
-
+                            <app-genericlist [jsonPath]="leccionesAprendidas"></app-genericlist>
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="3">
+                    <div class="dobleCard">
+                        <div class="firstCard firstCard--small">
+                            <div class="title-2 title-2--black">Análisis Situacional</div>
+                            <div class="lista-contenedor">
+                                <div class="item">
+                                    <div class="numero-circulo">1</div>
+                                    <div class="texto">Recolección de información primaria y secundaria por medio de
+                                        diálogos, mapas parlantes, entrevistas.</div>
+                                </div>
+                                <div class="item">
+                                    <div class="numero-circulo">2</div>
+                                    <div class="texto">Análisis de información con el método de Telaraña de Bersntein
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="secondCard secondCard--big">
+                            <img src="assets/imagenes/analisisSituacional.png">
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="4">
+                    <div class="contenedor-principal">
+                        <div class="encabezado-verde">
+                            <div class="numero-circulo-encabezado">1</div>
+                            <div class="texto-encabezado">Recolección de Información</div>
+                        </div>
+                        <div class="item-con-icono">
+                            <div class="icono-contenedor">
+                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                            </div>
+                            <div class="texto-item">
+                                Institucionalización del Manejo<br>Integral del Fuego (MIF)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dobleCard">
+                        <div class="firstCard firstCard--normal">
+                            <app-text [data]="preparacion"></app-text>
+                        </div>
+                        <div class="secondCard secondCard--normal">
+                            <app-text [data]="preparacion"></app-text>
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="5">
+                    <div class="dobleCard">
+                        <div class="firstCard firstCard--small">
+                            <div class="contenedor-principal">
+                                <div class="encabezado-verde">
+                                    <div class="numero-circulo-encabezado">2</div>
+                                    <div class="texto-encabezado">Análisis de Información</div>
+                                </div>
+                                <app-text [data]="preparacion"></app-text>
+                            </div>
+                        </div>
+                        <div class="secondCard secondCard--big">
+                            <img src="assets/imagenes/analisisSituacional.png">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="botonesVolSig">
-                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0">Volver</button>
-                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 4 - 1">Siguiente</button>
+                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0"  [style.visibility]="currentStep === 0 ? 'hidden' : 'visible'">Volver</button>
+                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 6 - 1" [style.visibility]="currentStep === 6 - 1 ? 'hidden' : 'visible'">Siguiente</button>
             </div>
         </div>
     </div>

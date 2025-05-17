@@ -19,6 +19,7 @@ import { BotonesDiagRecuAlteComponent } from './items/componentes/botones-diag-r
 import { CardGenericoComponent } from './items/componentes/card-generico/card-generico.component';
 import { AlterRightbarComponent } from './items/alter-rightbar/alter-rightbar.component';
 import { TextComponent } from './items/componentes/text/text.component';
+import { GenericlistComponent } from './items/componentes/genericlist/genericlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { TextComponent } from './items/componentes/text/text.component';
     BotonesDiagRecuAlteComponent,
     CardGenericoComponent,
     AlterRightbarComponent,
-    TextComponent
+    TextComponent,
+    GenericlistComponent
   ],
   imports: [
     BrowserModule,

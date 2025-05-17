@@ -112,16 +112,15 @@
   background-color: #14438F;
   color: white;
   border: solid #14438F 0px;
-min-width: 100px;
+  min-width: 100px;
+  border-radius: 30px;
+  padding: 8px 2px;
+  margin-bottom: 5px;
+}
 
-
-  &--sig {
-    border-radius: 30px;
-  }
-
-  &--vol {
-    border-radius: 30px;
-  }
+.btn:hover {
+  background-color: white;
+  color: #14438F;
 }
 
 .title {
@@ -334,4 +333,135 @@ li {
 
 .lesson-content li {
   margin-bottom: 5px;
+}
+
+.lista-contenedor {
+  display: flex;
+  flex-direction: column;
+  /* Apila los elementos verticalmente */
+  gap: 20px;
+  /* Espacio entre los elementos de la lista */
+  width: 95%;
+  /* Ancho máximo para el contenedor */
+}
+
+.item {
+  display: flex;
+  /* Organiza el círculo y el texto en una fila */
+  align-items: flex-start;
+  /* Alinea los elementos al inicio verticalmente */
+  gap: 15px;
+  /* Espacio entre el círculo y el texto */
+}
+
+.numero-circulo {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #f0f0f0;
+  /* Borde del círculo */
+  border-radius: 50%;
+  /* Hace que el div sea un círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  /* Evita que el círculo se encoja */
+}
+
+.texto {
+  line-height: 1.5;
+  /* Mejora la legibilidad del texto */
+}
+
+
+
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Alinea los hijos a la izquierda */
+  gap: 5px;
+  /* Espacio entre el encabezado y el item con icono */
+  width: 100%;
+  /* Ajusta según necesites */
+}
+
+/* Estilos para el encabezado verde */
+.encabezado-verde {
+  background-color: #1e532d;
+  /* Un verde oscuro similar al de la imagen */
+  color: white;
+  padding: 10px 20px 10px 15px;
+  /* Ajusta el padding */
+  border-radius: 20px;
+  /* Redondeo superior izquierdo */
+  /* Redondeo inferior izquierdo */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  /* Para que no ocupe todo el ancho del contenedor principal */
+}
+
+.numero-circulo-encabezado {
+  width: 24px;
+  /* Ajusta el tamaño del círculo */
+  height: 24px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  /* Ajusta el tamaño del número */
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.texto-encabezado {
+  font-size: 18px;
+  /* Ajusta el tamaño del texto */
+  font-weight: bold;
+}
+
+/* Estilos para el item con icono */
+.item-con-icono {
+  display: flex;
+  align-items: center;
+  /* Centra el ícono y el texto verticalmente */
+  gap: 15px;
+  /* Espacio entre el ícono y el texto */
+  /* padding-left: 20px; */
+  /* Un poco de indentación si es necesario */
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.icono-contenedor {
+  flex-shrink: 0;
+  /* Evita que el contenedor del ícono se encoja */
+}
+
+.icono-fuego {
+  width: 60px;
+  /* Ajusta el tamaño de tu ícono PNG */
+  height: 60px;
+  /* Ajusta el tamaño de tu ícono PNG */
+  /* Si tu ícono ya tiene el borde circular y el fondo, no necesitas más estilos aquí.
+       Si es solo la llama y quieres recrear el círculo con CSS: */
+  /* border: 3px solid orange; 
+       border-radius: 50%;
+       padding: 5px;
+       background-color: white; */
+}
+
+.texto-item {
+  font-size: 16px;
+  /* Ajusta el tamaño del texto */
+  line-height: 1.4;
+  text-align: center;
+  font-weight: bold;
 }

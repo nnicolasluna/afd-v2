@@ -12,11 +12,9 @@ export class TextComponent implements OnInit {
   title:string='';
   constructor(private http: HttpClient) { }
 ngOnInit() {
-  console.log(this.data)
     if (this.data) {
       this.http.get<any>(this.data).subscribe({
         next: (response) => {
-          console.log(response)
           this.title = response.titulo;
           this.text = response.parrafos;
         },
