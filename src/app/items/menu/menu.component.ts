@@ -46,7 +46,12 @@ export class MenuComponent {
     else {
       this.modalStateService.mostraralternativas();
     }
-
+  }
+  mostrarConvenios() {
+    this.modalStateService.mostrarConvenios();
+  }
+  mostrarManuales() {
+    this.modalStateService.mostrarManuales();
   }
   refreshAll() {
     window.location.reload();

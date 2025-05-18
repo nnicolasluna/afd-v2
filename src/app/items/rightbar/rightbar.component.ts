@@ -30,5 +30,6 @@ export class RightbarComponent {
     this.locationSelected.emit(ciudadEncontrada);
     this.rightBarToMenu=Municipio
     this.modalstateService.mostrarCard();
+    this.modalstateService.cerrarBtnEvaluamos();
   }
 }

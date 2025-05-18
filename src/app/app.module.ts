@@ -22,6 +22,8 @@ import { TextComponent } from './items/componentes/text/text.component';
 import { GenericlistComponent } from './items/componentes/genericlist/genericlist.component';
 import { BotonesEvaluamosComponent } from './items/componentes/botones-evaluamos/botones-evaluamos.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ConveniosComponent } from './convenios/convenios.component';
+import { ManualesComponent } from './manuales/manuales.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     TextComponent,
     GenericlistComponent,
     BotonesEvaluamosComponent,
+    ConveniosComponent,
+    ManualesComponent,
     
   ],
   imports: [

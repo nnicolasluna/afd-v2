@@ -2,16 +2,16 @@
     <button class="button-top-bar button-top-bar--black"
         matTooltip="Índice de Calcinación Normalizada Diseñado para detectar áreas quemadas y evaluar su severidad. Es un indicador que ayuda a identificar las zonas que fueron más afectadas por el fuego en un incendio.
 Cuanto más alto es el valor, más quemada está la vegetación o el suelo. Se obtiene analizando imágenes satelitales antes y después del incendio."
-        matTooltipClass="tooltip">Índice de calcinación NBR</button>
+        matTooltipClass="tooltip" [class.activo]="botonseleccionado===1" (click)="seleccionarBoton(1)">Índice de calcinación NBR</button>
     <button class="button-top-bar button-top-bar--black" matTooltip="Índice de Vegetación de Diferencia Normalizada Este índice muestra qué tan saludable está la vegetación.
 Se calcula usando imágenes satelitales y permite ver si las plantas están verdes y creciendo, o si están secas o dañadas.
-Es útil para comparar la vegetación antes y después de un incendio.">Índice de Vegetación NDVI</button>
+Es útil para comparar la vegetación antes y después de un incendio." [class.activo]="botonseleccionado===2" (click)="seleccionarBoton(2)">Índice de Vegetación NDVI</button>
     <button class="button-top-bar button-top-bar--black" matTooltip="Diferencia Normalizada de Relación de quemado Es un índice que se usa para medir los cambios causados por incendios forestales.
 Al comparar las imágenes antes y después del fuego, este valor nos dice si hubo mucha o poca afectación.
-Sirve para detectar áreas quemadas de forma precisa.">Diferencia Normalizada DNBR</button>
-    <button class="button-top-bar button-top-bar--black">Recurrencia de Áreas Quemadas</button>
-    <button class="button-top-bar button-top-bar--black">Análisis de la Flora y Fauna</button>
-    <button class="button-top-bar button-top-bar--black">Áreas Afectadas</button>
-    <button class="button-top-bar button-top-bar--black">Áreas Restauración</button>
-    <button class="button-top-bar button-top-bar--black">Áreas Restauración Pasiva</button>
+Sirve para detectar áreas quemadas de forma precisa."[class.activo]="botonseleccionado===3" (click)="seleccionarBoton(3)">Diferencia Normalizada DNBR</button>
+    <button class="button-top-bar button-top-bar--black"[class.activo]="botonseleccionado===4" (click)="seleccionarBoton(4)">Recurrencia de Áreas Quemadas</button>
+    <button class="button-top-bar button-top-bar--black"[class.activo]="botonseleccionado===5" (click)="seleccionarBoton(5)">Análisis de la Flora y Fauna</button>
+    <button class="button-top-bar button-top-bar--black"[class.activo]="botonseleccionado===6" (click)="seleccionarBoton(6)">Áreas Afectadas</button>
+    <button class="button-top-bar button-top-bar--black"[class.activo]="botonseleccionado===7" (click)="seleccionarBoton(7)">Áreas Restauración</button>
+    <button class="button-top-bar button-top-bar--black"[class.activo]="botonseleccionado===8" (click)="seleccionarBoton(8)">Áreas Restauración Pasiva</button>
 </div>

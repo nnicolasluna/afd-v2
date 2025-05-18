@@ -24,8 +24,12 @@ export class InicioComponent implements AfterViewInit {
   mostraralter_rightbar = false;
   mostrartrebotones = false;
   mostrartrebotonEvaluamos = false;
+  mostrarConvenios = false;
+  mostrarManuales = false;
   mostrarMapa2 = false;
 
+  bounds: any
+  indice: any
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
     { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
@@ -163,6 +167,8 @@ export class InicioComponent implements AfterViewInit {
         this.mostrarrecu = vista === 'recuperacion';
         this.mostraralternativas = vista === 'alternativas';
         this.mostraralter_rightbar = vista === 'alter-rightbar';
+        this.mostrarConvenios = vista === 'convenios';
+        this.mostrarManuales = vista === 'manuales';
       });
     this.modalServiceState.tresBtnAct$.subscribe
       (data => {
@@ -400,7 +406,7 @@ export class InicioComponent implements AfterViewInit {
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938'); */
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C'); */
       //this.iniciarmapa2(ciudadEncontrada.source);
-      this.sidebysideWMS(ciudadEncontrada);
+      this.sidebysideWMS(ciudadEncontrada, 'nbr');
     }
   }
   toggleDepartamento(dep: any): void {
@@ -509,15 +515,33 @@ export class InicioComponent implements AfterViewInit {
   }
  */
 
-  private sidebysideWMS(municipio: any): void {
+
+  actualizarIndice(event: { indice: string, muni: string }) {
+    this.indice = event.indice;
+    const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
+    this.sidebysideWMS(ciudadEncontrada, event.indice)
+    console.log(event.indice, event.muni)
+  }
+  sidebysideWMS(muni: any, indice: string): void {
     this.mostrarMapa2 = true;
-    /*  const bounds = L.latLngBounds(
-       [-15.04651151441675, -67.55968740430527], // Suroeste (SW)
-       [-14.343220478479576, -67.0736988355966]  // Noreste (NE)
-     ); */
-    const bounds = L.latLngBounds(municipio.bounds);
-    console.log(municipio.bounds)
+    let layer1 = ''
+    let layer2 = ''
+    if (indice === 'nbr') {
+      layer1 = muni!.wms.pre.nbr;
+      layer2 = muni!.wms.post.nbr;
+    }
+    if (indice === 'ndvi') {
+      layer1 = muni!.wms.pre.ndvi;
+      layer2 = muni!.wms.post.ndvi;
+    }
+    const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
+      if (this.map1) {
+        this.map1.remove();
+      }
+      if (this.map2) {
+        this.map2.remove();
+      }
       this.map1 = L.map('map1', {
         center: [-15.7, -67.3], // Ajustado al centro aproximado de la capa
         zoom: 10,
@@ -546,7 +570,7 @@ export class InicioComponent implements AfterViewInit {
       }).addTo(this.map2);
       // Capa WMS para el mapa 1 (PRE NDVI)
       L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
-        layers: municipio.wms.pre.ndvi,
+        layers: layer1,
         format: 'image/png',
         transparent: true,
         version: '1.1.0',
@@ -555,7 +579,7 @@ export class InicioComponent implements AfterViewInit {
 
       // Capa WMS para el mapa 2 (POST NDVI)
       L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
-        layers: municipio.wms.post.ndvi,
+        layers: layer2,
         format: 'image/png',
         transparent: true,
         version: '1.1.0',
