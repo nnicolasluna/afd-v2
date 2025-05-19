@@ -1,0 +1,35 @@
+{
+  "municipio": "San Borja",
+  "headers": [
+    {
+      "key": "institucion",
+      "header": "Institución"
+    },
+    {
+      "key": "tematicas",
+      "header": "Temáticas"
+    },
+    {
+      "key": "comunidades",
+      "header": "Comunidades"
+    },
+    {
+      "key": "temporalidad_de_la_intervencion",
+      "header": "Temporalidad de la intervención"
+    }
+  ],
+  "rows": [
+    {
+      "institucion": "RB Estación Biológica del Beni (EBB) - Proyecto financiado por UNESCO",
+      "tematicas": "Reforestación,Parcelas SAF",
+      "comunidades": "10 comunidades del Gran Concejo Chiman",
+      "temporalidad_de_la_intervencion": "Nov 2024 – Dic 2025"
+    },
+    {
+      "institucion": "Defensa Civil",
+      "tematicas": "Proporcionó 2,500 plantines de cacao y 2,500 de cítricos para las 135 comunidades afectadas, principalmente interculturales.\",Entregó 400 bolsas de balanceado para ganado a través de las subalcaldías campesina e indígena.,Participó en la declaración de desastre del municipio en octubre de 2023.",
+      "comunidades": "No precisa",
+      "temporalidad_de_la_intervencion": "2023-2024"
+    }
+  ]
+}

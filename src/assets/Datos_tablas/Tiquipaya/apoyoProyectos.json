@@ -1,0 +1,59 @@
+{
+  "municipio": "Tiquipaya",
+  "headers": [
+    {
+      "key": "institucion",
+      "header": "Institución"
+    },
+    {
+      "key": "tematicas",
+      "header": "Temáticas"
+    },
+    {
+      "key": "comunidades",
+      "header": "Comunidades"
+    },
+    {
+      "key": "temporalidad_de_la_intervencion",
+      "header": "Temporalidad de la intervención"
+    }
+  ],
+  "rows": [
+    {
+      "institucion": "Gobierno Autónomo Municipal de Tiquipaya",
+      "tematicas": "Prevención y respuesta ante incendios, monitoreo, capacitación",
+      "comunidades": "Linkopata, Molinos y otras comunidades",
+      "temporalidad_de_la_intervencion": "Permanente"
+    },
+    {
+      "institucion": "Gobernación de Cochabamba – UGR",
+      "tematicas": "Prevención y control de incendios, alerta temprana",
+      "comunidades": "Municipios con focos de calor",
+      "temporalidad_de_la_intervencion": "Permanente"
+    },
+    {
+      "institucion": "Parque Nacional Tunari – SERNAP",
+      "tematicas": "Protección de ecosistemas, control de incendios, educación ambiental",
+      "comunidades": "Áreas dentro del parque y comunidades circundantes",
+      "temporalidad_de_la_intervencion": "Permanente"
+    },
+    {
+      "institucion": "ONG Armonía",
+      "tematicas": "Reforestación, formación de brigadas comunitarias, dotación de herramientas",
+      "comunidades": "Linkopata, Molinos, Parque Nacional Tunari",
+      "temporalidad_de_la_intervencion": "En ejecución (2023 - 2024)"
+    },
+    {
+      "institucion": "ONG SANAPI",
+      "tematicas": "Prevención de incendios forestales, sensibilización ambiental",
+      "comunidades": "Varias comunidades en Tiquipaya",
+      "temporalidad_de_la_intervencion": "En ejecución (2023 - 2024)"
+    },
+    {
+      "institucion": "Tunari Sin Fuego",
+      "tematicas": "Monitoreo comunitario, reforestación, capacitación en manejo de fuego",
+      "comunidades": "Molinos y otras comunidades cercanas al Parque Tunari",
+      "temporalidad_de_la_intervencion": "En ejecución (2023 - 2024)"
+    }
+  ]
+}

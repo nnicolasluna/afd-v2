@@ -15,8 +15,9 @@ ngOnInit() {
     if (this.data) {
       this.http.get<any>(this.data).subscribe({
         next: (response) => {
+
           this.title = response.titulo;
-          this.text = response.parrafos;
+          this.text = response.parrafo;
         },
         error: (err) => {
           console.error('Error cargando el JSON:', err);

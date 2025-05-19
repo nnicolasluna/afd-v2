@@ -1,0 +1,53 @@
+{
+    "municipio": "San Borja",
+    "headers": [
+        {
+            "key": "actor",
+            "header": "Actor"
+        },
+        {
+            "key": "funciones_principales",
+            "header": "Funciones principales"
+        },
+        {
+            "key": "capacidades",
+            "header": "Capacidades"
+        },
+        {
+            "key": "limitaciones",
+            "header": "Limitaciones"
+        }
+    ],
+    "rows": [
+        {
+            "actor": "Unidad de Gestión de Riesgo Municipal (UGR)",
+            "funciones_principales": "Implementar y supervisar planes de contingencia contra incendios y sequías.",
+            "capacidades": "Coordinar con comunidades indígenas, campesinas y otras instituciones locales.\",Monitorear focos de calor con plataformas como SIMB y Satrifo.\",\"Proveer alimentación, combustible y agua durante emergencias.\",Declarar emergencias y gestionar EDAN.,Presupuesto anual de 450 mil Bs.\",\"Personal: 1 jefe, 1 técnico y 1 secretaria.\",\"Equipamiento: 8 mochilas, 4 bate fuegos, 4 trajes completos y un carro bombero.\",Comunicación a través de canales locales y grupos de WhatsApp para el SAT.,Coordinación con subalcaldías indígenas y campesinas.,Compras de tanques de agua y cisternas para abastecer a comunidades.",
+            "limitaciones": "Débil funcionamiento del SAT (falta de personal capacitado y datos en tiempo real).,Reacción lenta en eventos de magnitud.,Escasez de proyectos de restauración a largo plazo.,Recursos limitados para cobertura total de incendios.,Problemas para asegurar apoyo constante de bomberos en algunos años.,Dependencia de insumos externos para proyectos de recuperación."
+        },
+        {
+            "actor": "Reserva de la Biosfera Estación Biológica del Beni (EBB)",
+            "funciones_principales": "Monitorear y proteger el área de la reserva.,Implementar acciones de prevención como delimitaciones y muelles de protección.,Brindar capacitaciones a comunidades y bomberos forestales.,Gestionar anillos de protección y sistemas de líneas de defensa.",
+            "capacidades": "Presupuesto: 39 mil Bs (2023), 49 mil Bs (2024)\",\"Personal: 1 director, 1 jefe de protección, 1 administradora, 7 guardaparques hombres, 1 guardaparque mujer.\",\"Equipamiento: 8 mochilas, 8 bate fuegos, herramientas manuales.\",\"Coordinación con UNESCO, WCS y Gobernación para proyectos y apoyo técnico.\",Sistema de prevención y líneas de defensa en áreas críticas.,Experiencia en capacitación de bomberos y manejo de incendios.",
+            "limitaciones": "Recursos limitados y débil apoyo gubernamental.,Áreas de difícil acceso limitan la capacidad de respuesta.,Escaso monitoreo en ecosistemas afectados.,\"Conflictos recurrentes con actores locales (caza ilegal, ganadería, ocupación de tierras).\",Falta de drones y logística para mejorar la respuesta en zonas remotas."
+        },
+        {
+            "actor": "Gran Concejo Chimán",
+            "funciones_principales": "Coordinar con UGR y otras instituciones para prevención y control de incendios.,Apoyar la distribución de agua y recursos en comunidades afectadas.,Gestionar la organización comunitaria para prevención y mitigación de incendios.",
+            "capacidades": "Participación activa en brigadas de respuesta.,Coordinación con comunidades indígenas para talleres de prevención.\",\"Entrega de recursos como agua, tanques y alimentos durante emergencias.\",Canales de comunicación directa con comunidades rurales.",
+            "limitaciones": "Recursos insuficientes para atender la totalidad de las necesidades.,Dependencia de apoyo logístico de otras instituciones para atender emergencias."
+        },
+        {
+            "actor": "Bomberos Voluntarios de San Borja",
+            "funciones_principales": "Controlar incendios y apoyar en la respuesta en áreas críticas,Participar en capacitaciones y talleres organizados por EBB y la UGR.,Organización comunitaria para movilización durante emergencias.",
+            "capacidades": "Equipo de 8 personas organizadas.,Experiencia en control de incendios.,Participación en capacitaciones brindadas por la UGR y EBB.,Pólizas de seguro para bomberos (proporcionadas en Ixiamas).",
+            "limitaciones": "Falta de estabilidad y continuidad del grupo.,Equipamiento limitado.,Dependencia de apoyo externo para garantizar recursos básicos como seguros y capacitación."
+        },
+        {
+            "actor": "Defensa Civil",
+            "funciones_principales": "Gestionar y coordinar recursos nacionales para la atención de desastres.,Realizar fichas EDAN en comunidades afectadas.,Apoyar en la distribución de insumos y plantines para la recuperación post-incendio.",
+            "capacidades": "Apoyo con recursos (plantines de cacao y cítricos, balanceado para ganado).\",Gestión de viviendas para familias afectadas (aunque limitada).,Respuesta en coordinación con otras instituciones locales y subalcaldías.",
+            "limitaciones": "Limitada capacidad para cubrir todas las necesidades identificadas en los EDAN.,Proyectos incompletos (solo 4 viviendas entregadas de las comprometidas)."
+        }
+    ]
+}

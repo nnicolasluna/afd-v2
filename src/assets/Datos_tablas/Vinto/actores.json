@@ -1,0 +1,47 @@
+{
+    "municipio": "Vinto",
+    "headers": [
+        {
+            "key": "actor",
+            "header": "Actor"
+        },
+        {
+            "key": "funciones_principales",
+            "header": "Funciones principales"
+        },
+        {
+            "key": "capacidades",
+            "header": "Capacidades "
+        },
+        {
+            "key": "limitaciones",
+            "header": "Limitaciones"
+        }
+    ],
+    "rows": [
+        {
+            "actor": "Gobierno Autónomo Municipal",
+            "funciones_principales": "Monitoreo de incendios. ,Prevención y campañas de sensibilización. ,Atención y respuesta a incendios. ,Coordinación con la UGR Departamental. ,Ejecución del plan de contingencia.",
+            "capacidades": "Presupuesto anual: Bs. 200.000. ,Equipamiento: casco, guantes, botas, esclavina, lentes, chaqueta, pantalón, mochilas, batefuego.,Monitoreo mediante SIMB y cámaras de la UGR Departamental.",
+            "limitaciones": "Requiere apoyo de la Gobernación para la atención de incendios. ,Recursos limitados para cubrir todas las comunidades."
+        },
+        {
+            "actor": "Comunidad Kotani",
+            "funciones_principales": "Aplicación de normativas locales. ,Participación en acciones de control de incendios.",
+            "capacidades": "Prohibición de quema con multa de Bs. 200. ,Asamblea comunitaria cada 15 del mes.",
+            "limitaciones": "No cuenta con brigada ni equipamiento. ,No realiza monitoreo de focos de calor. ,Falta de caminos y accesos para atención de incendios."
+        },
+        {
+            "actor": "Comunidad Combuyo Chico",
+            "funciones_principales": "Coordinación con el municipio para la atención de incendios. ,Aplicación de sanciones a infractores.",
+            "capacidades": "Brigada comunal de 10 personas. ,Sanción de Bs. 500 por iniciar fuego. ,Asamblea comunitaria cada 20 del mes.",
+            "limitaciones": "No realiza acciones post-evento."
+        },
+        {
+            "actor": "Comunidad Combuyo",
+            "funciones_principales": "Coordinación con el municipio para la respuesta a incendios. ,Aplicación de sanciones ambientales. ,Reforestación post-incendios.",
+            "capacidades": "Multa de 2.000 plantines reforestados para infractores. ,Asamblea comunitaria el último miércoles del mes.",
+            "limitaciones": "No cuenta con brigada comunal ni equipamiento. ,Atención de incendios con baldes. Dificultades por falta de caminos y accesos."
+        }
+    ]
+}

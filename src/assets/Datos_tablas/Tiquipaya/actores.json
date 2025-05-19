@@ -1,0 +1,59 @@
+{
+    "municipio": "Tiquipaya",
+    "headers": [
+        {
+            "key": "actor",
+            "header": "Actor"
+        },
+        {
+            "key": "funciones_principales",
+            "header": "Funciones principales"
+        },
+        {
+            "key": "capacidades",
+            "header": "Capacidades "
+        },
+        {
+            "key": "limitaciones",
+            "header": "Limitaciones"
+        }
+    ],
+    "rows": [
+        {
+            "actor": "Gobierno Autónomo Municipal de Tiquipaya",
+            "funciones_principales": "Coordinación y ejecución de acciones de prevención y respuesta ante incendios forestales",
+            "capacidades": "Monitoreo de focos de calor y reportes de incendios,Presupuesto anual: Bs. 900.000 ,Equipamiento: Mochilas forestales, rastrillos, azadones, batefuegos, EPP ,Monitoreo en coordinación con la Gobernación y MMAyA",
+            "limitaciones": "Dificultades en accesibilidad por falta de caminos ,Falta de equipo especializado para la respuesta rápida"
+        },
+        {
+            "actor": "Comunidad Linkopata",
+            "funciones_principales": "Organización comunitaria y apoyo en la prevención y respuesta a incendios",
+            "capacidades": "Brigada comunal de 10 personas ,Coordinación con GAM y ONGs Armonía y SANAPI",
+            "limitaciones": "No realizan acciones post-evento específicas"
+        },
+        {
+            "actor": "Comunidad Molinos",
+            "funciones_principales": "Organización comunitaria, prevención y reforestación",
+            "capacidades": "Brigada comunal de 33 personas ,Herramientas de atención a incendios ,Coordinación con Tunari Sin Fuego y comunidades vecinas",
+            "limitaciones": "Falta de equipos actualizados ,Dificultad de acceso a algunas zonas"
+        },
+        {
+            "actor": "Unidad de Gestión de Riesgos Departamental",
+            "funciones_principales": "Coordinación a nivel departamental para la prevención y respuesta a incendios",
+            "capacidades": "Presupuesto anual: Bs. 1.182.000 ,Equipamiento: Kit de intervención, cisternas, camionetas equipadas ,Sistema de monitoreo NASA FIRMS y cámaras de vigilancia",
+            "limitaciones": "Requiere mayor personal para una respuesta efectiva en todo el departamento"
+        },
+        {
+            "actor": "Parque Nacional Tunari – SERNAP",
+            "funciones_principales": "Protección del Parque Nacional Tunari, prevención y control de incendios",
+            "capacidades": "Presupuesto anual: Bs. 50.000 ,Equipamiento: mochila forestal, pala forestal, matafuego, motosierra, vehículo de emergencia",
+            "limitaciones": "Requiere mayor apoyo técnico y logístico ,Necesidad de ampliar acciones de educación ambiental"
+        },
+        {
+            "actor": "Proyecto de Restauración Armonía",
+            "funciones_principales": "Reforestación y recuperación de áreas afectadas por incendios",
+            "capacidades": "Presupuesto anual: Bs. 35.000 - Bs. 50.000 ,Equipamiento: chaquetón, pantalón, botas, casco, mochila forestal, rastrillos, palas ,Coordinación con GAMs, Gobernación y ONGs",
+            "limitaciones": "Falta de financiamiento para expansión de proyectos ,Necesidad de mayor coordinación interinstitucional"
+        }
+    ]
+}

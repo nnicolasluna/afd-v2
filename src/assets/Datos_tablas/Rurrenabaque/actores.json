@@ -1,0 +1,59 @@
+{
+    "municipio": "Rurrenabaque",
+    "headers": [
+        {
+            "key": "actor",
+            "header": "Actor"
+        },
+        {
+            "key": "funciones_principales",
+            "header": "Funciones principales"
+        },
+        {
+            "key": "capacidades",
+            "header": "Capacidades"
+        },
+        {
+            "key": "limitaciones",
+            "header": "Limitaciones"
+        }
+    ],
+    "rows": [
+        {
+            "actor": "Dirección de Gestión de Riesgo Municipal (DGR)",
+            "funciones_principales": "Monitoreo de focos de calor mediante plataformas (SIMB, NASA Firms).",
+            "capacidades": "Declaratoria de emergencias y desastres.,Capacitación en manejo integral del fuego y brigadas de bomberos.,Presupuesto promedio anual de 450.000 Bs.,\"Equipamiento básico contra incendios (mochilas, batefuegos, rastrillos).\",Sistema de Alerta Temprana funcional.,No generan datos vectoriales/ rasterizados.,Priorización limitada a zonas de recarga hídrica.,Falta de una unidad especializada de monitoreo.",
+            "limitaciones": "No generan datos vectoriales/ rasterizados.,Priorización limitada a zonas de recarga hídrica.,Falta de una unidad especializada de monitoreo."
+        },
+        {
+            "actor": "Dirección de Desarrollo Económico Municipal",
+            "funciones_principales": "Monitoreo y análisis de áreas quemadas.,Capacitación en control de incendios.,Gestión y formación de brigadas forestales.,Rehabilitación de sistemas productivos afectados (ej. cacao).",
+            "capacidades": "Presupuesto promedio anual de 800.000 Bs.,en promedio.\",Personal capacitado en control y manejo de fuego.,Generación de mapas vectoriales y ráster para planificación.",
+            "limitaciones": "Ausencia de un plan de contingencia propio.,Respuesta limitada por falta de coordinación con algunas áreas productivas."
+        },
+        {
+            "actor": "Reserva de la Biosfera y TCO Pilón Lajas (RB TCO PL)",
+            "funciones_principales": "Protección de áreas críticas.,Formación de brigadas y capacitación en manejo integral del fuego.,Monitoreo de incendios y generación de datos vectoriales/rasterizados.",
+            "capacidades": "Equipamiento especializado para control de incendios.,Plan de contingencia aprobado y presupuesto asignado.,Coordinación con COEM y SERNAP Nacional.",
+            "limitaciones": "Presupuesto operativo limitado (40.000 Bs anuales, promedio).\",Recursos humanos insuficientes para atender múltiples incendios simultáneamente."
+        },
+        {
+            "actor": "Concejo Regional T’simane Mosetén (CRTM)",
+            "funciones_principales": "Monitoreo ambiental y social en comunidades.,Campañas de prevención de incendios.,Elaboración de protocolos de atención y recuperación productiva.",
+            "capacidades": "Coordinación con WCS, GAM y otros actores.\",Equipo básico contra incendios donado por WCS.,Apoyo financiero para capacitación y respuesta de incendios.,Experiencia en manejo de conflictos locales.",
+            "limitaciones": "Falta de capacitación en análisis de datos técnicos.,Limitado alcance en comunicación en comunidades remotas.,Recursos financieros insuficientes."
+        },
+        {
+            "actor": "Practical Action",
+            "funciones_principales": "Gestión de recursos para proyectos de recuperación post-incendios.,Capacitación en manejo del fuego y sistemas agroforestales.,Participación en recuperación de fuentes de agua y reforestación.",
+            "capacidades": "Presupuesto proyectado para 2025-2027 (250.000 USD).,Generación de datos vectoriales y ráster para planificación.,Coordinación efectiva con GAM y actores.",
+            "limitaciones": "No cuentan con equipamiento especializado contra incendios.,Desafíos en adaptar las normativas de desmonte y quema a las condiciones climáticas cambiantes."
+        },
+        {
+            "actor": "Fundación Natura",
+            "funciones_principales": "Conservación de fuentes de agua.,Identificación de áreas prioritarias para reforestación y recuperación hídrica.,Generación de datos sobre impacto de incendios en microcuencas.",
+            "capacidades": "Proyectos de conservación en áreas críticas.,Generación de datos vectoriales y ráster.,Implementación de proyectos de reforestación en cabeceras de cuenca.",
+            "limitaciones": "Falta de equipamiento para acciones directas contra incendios.,Recursos financieros y técnicos concentrados en objetivos específicos de conservación."
+        }
+    ]
+}

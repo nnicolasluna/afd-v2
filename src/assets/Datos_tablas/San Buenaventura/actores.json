@@ -1,58 +1,71 @@
 {
-  "headers": [
-    { "key": "actor", "header": "Actor" },
-    { "key": "funciones", "header": "Funciones" },
-    { "key": "capacidades", "header": "Capacidades" },
-    { "key": "limitaciones", "header": "Limitaciones" }
-  ],
-  "rows": [
-    {
-      "actor": "GAM, Unidad de Gestión de Riesgos (UGR)",
-      "funciones": "Coordinación de acciones de prevención, monitoreo, respuesta y recuperación ante incendios.\nSupervisión de Planes de Contingencia y Sistemas de Emergencia y Desastres.\nAtención a emergencias y tomas de agua.",
-      "capacidades": "Presupuesto: 2023: 50 Mil Bs, 2024: 70 Mil Bs. (2024 en formulación).\nMonitoreo: Plataformas Sirina, Satrifo y NASA Firms.\nSpots de Alerta Temprana SAT.\nCoordinación interinstitucional con Base Naval Boliviana, PN Madidi, SIPTA, otros.\nFormación de brigadas civiles y campañas de prevención.",
-      "limitaciones": "- Equipamiento insuficiente.\n- No se cuenta con personal técnico permanente (despeje de tareas de monitoreo).\n- SAT con limitaciones por falta de datos en tiempo real y demora en la respuesta."
-    },
-    {
-      "actor": "GAM, Dirección de Desarrollo Productivo",
-      "funciones": "- Monitoreo de focos de calor y sus efectos en áreas agrícolas y ganaderas.\n- Coordinación con la ABT y la UGR.\n- Evaluación de impactos agropecuarios (EIAN).\n- Capacitación y asistencia técnica en prevención y manejo del fuego.",
-      "capacidades": "- Presupuesto anual 2024: 200 Mil Bs.\n- Coordinación con entidades externas como FAO, Practical Action y WCS.\n- Capacitación y asistencia en manejo del fuego.\n- Bomberos Voluntarios \"Feroz\" con equipamiento básico.",
-      "limitaciones": "- No cuenta con equipamiento específico.\n- No interviene directamente en la elaboración de planes de contingencia.\n- Enfocado solo en eventos críticos.\n- Limitada coordinación con otras unidades del GAM.\n- Falta de campañas de prevención propias."
-    },
-    {
-      "actor": "Practical Action",
-      "funciones": "Apoyo técnico y financiero en resiliencia climática y recuperación post incendios.\n- Coordinación en la restauración de sistemas productivos y fuentes de agua.\n- Promoción de sistemas agroforestales sostenibles (SAF).",
-      "capacidades": "Presupuesto: 150 Mil USD (2023-2024), proyectado a 250 Mil USD (2025-2027).\n- Monitoreo mediante imágenes satelitales.\n- Coordinación con CIPTA, UGR y otros.\n- Organización de talleres de capacitación y formación de brigadas comunales.",
-      "limitaciones": "- Sin equipamiento específico para respuesta a incendios.\n- No interviene directamente en la respuesta a emergencias.\n- Coordinación limitada con el COEM."
-    },
-    {
-      "actor": "CIPTA (Consejo Indígena del Pueblo Tacana)",
-      "funciones": "- Representar a las comunidades Tacana.\n- Colaborar en la prevención y control de incendios.\n- Promover prácticas sostenibles en sistemas productivos.",
-      "capacidades": "- Coordinación con Practical Action, FAO y otras instituciones.\n- Participación activa en proyectos de restauración de sistemas productivos y reforestación.",
-      "limitaciones": "- Dependencia de financiamiento externo para ejecutar proyectos.\n- Limitaciones en la capacidad técnica y recursos propios."
-    },
-    {
-      "actor": "Parque Nacional Madidi",
-      "funciones": "- Monitorear y proteger recursos naturales en el área protegida.\n- Colaborar en la respuesta ante incendios en áreas críticas.",
-      "capacidades": "- Coordinación con UGR, Base Naval y Bomberos \"Feroz\".\n- Equipamiento básico proporcionado por el GAM y donaciones de comodato.",
-      "limitaciones": "- Equipamiento insuficiente para enfrentar incendios de gran magnitud.\n- Recursos humanos limitados en relación a la extensión del área protegida."
-    },
-    {
-      "actor": "WCS - Programa Bolivia",
-      "funciones": "- Apoyo técnico y financiero en proyectos de conservación y restauración.\n- Investigación y monitoreo.\n- Capacitación y campañas de sensibilización.",
-      "capacidades": "- Financiamiento de proyectos específicos.\n- Apoyo en la creación de áreas protegidas municipales.\n- Apoyo logístico y técnico en áreas de conservación.",
-      "limitaciones": "- Enfocado en proyectos específicos, lo que puede limitar la respuesta inmediata a emergencias.\n- Dependencia de financiamiento externo."
-    },
-    {
-      "actor": "FAO (Organización de las Naciones Unidas para la Alimentación y la Agricultura)",
-      "funciones": "- Promover prácticas sostenibles en sistemas productivos.\n- Apoyo técnico en manejo del fuego y restauración de ecosistemas.",
-      "capacidades": "- Presencia técnica en campañas de prevención y talleres de capacitación.\n- Coordinación con GAM, Practical Action y otras instancias locales.",
-      "limitaciones": "- Intervenciones limitadas por la duración de los proyectos.\n- No cuenta con equipamiento directo para la respuesta a emergencias por incendios."
-    },
-    {
-      "actor": "Bomberos Voluntarios \"Perez\"",
-      "funciones": "Respuesta a emergencias por incendios forestales.\nCapacitación y formación de brigadas comunitarias.",
-      "capacidades": "- Equipamiento básico proporcionado por el GAM (batefuegos, mochilas, palas, hachas).\n- Coordinación con UGR y Parque Nacional Madidi.",
-      "limitaciones": "- Limitaciones en equipamiento y personal.\n- Personal voluntario, lo que puede afectar la disponibilidad para emergencias continuas."
-    }
-  ]
+    "munucipio": "San Buenaventura",
+    "headers": [
+        {
+            "key": "actor",
+            "header": "Actor"
+        },
+        {
+            "key": "funciones_principales",
+            "header": "Funciones principales"
+        },
+        {
+            "key": "capacidades",
+            "header": "Capacidades "
+        },
+        {
+            "key": "limitaciones",
+            "header": "Limitaciones"
+        }
+    ],
+    "rows": [
+        {
+            "actor": "GAM, Unidad de Gestión de Riesgos (UGR)",
+            "funciones_principales": "Coordinación de acciones de prevención, monitoreo, respuesta y recuperación ante incendios. ",
+            "capacidades": "Supervisión de Planes de Contingencia y Declaratorias de Emergencia y Desastres.,Atención a zonas críticas y tomas de agua.,\"Presupuesto: 2023: 50 mil Bs, 2024: 70 mil Bs, 2025: 120 mil Bs.\",\"Monitoreo con plataformas SIMB, Satrifo y NASA Firms.\",Protocolos de Alerta Temprana (SAT).,\"Coordinación interinstitucional con Base Naval Ballivián, PN Madidi y Bomberos Feroz.\",Formación de brigadas civiles y talleres de prevención.",
+            "limitaciones": "Equipamiento insuficiente.,No se cuenta con personal técnico permanente (despido reciente del técnico de monitoreo).,SAT con limitaciones por falta de datos en tiempo real y lentitud en la respuesta."
+        },
+        {
+            "actor": "GAM, Dirección de Desarrollo Productivo",
+            "funciones_principales": "Monitoreo de focos de calor e incendios en áreas agrícolas y ganaderas.,Coordinación con la ABT y la UGR.,Evaluación de impactos agropecuarios (EDAN).,Capacitación y asistencia técnica en prevención y manejo del fuego.",
+            "capacidades": "Presupuesto anual 2024: 200 mil Bs.\",\"Coordinación con entidades externas como FAO, Practical Action y WCS.\",Capacitación de técnicos en manejo del fuego.,\"Bomberos Voluntarios Feroz con equipamiento básico.\"",
+            "limitaciones": "No cuenta con equipamiento específico.,No participa directamente en la elaboración del plan de contingencia.,Reacción lenta ante eventos críticos.,Limitada coordinación con otras unidades del GAM.,Falta de campañas de prevención propias."
+        },
+        {
+            "actor": "Practical Action",
+            "funciones_principales": "Apoyo técnico y financiero en resiliencia climática y recuperación post incendios.,Coordinación en la restauración de sistemas productivos y fuentes de agua.,Promoción de sistemas agroforestales sostenibles (SAF).",
+            "capacidades": "Presupuesto: 150 mil USD (2023-2024), proyectado a 250 mil USD (2025-2027).\",Monitoreo mediante especialista SIG.,\"Coordinación con CIPTA, CIMTA y UGR.\",Organización de talleres de capacitación y formación de brigadas comunales.",
+            "limitaciones": "Sin equipamiento específico para respuesta a incendios.,No participa directamente en la respuesta a emergencias.,Coordinación limitada con el COEM."
+        },
+        {
+            "actor": "CIPTA (Consejo Indígena del Pueblo Tacana)",
+            "funciones_principales": "Representar a las comunidades Tacana.,Colaborar en la prevención y control de incendios.,Promover prácticas sostenibles en sistemas productivos.",
+            "capacidades": "Coordinación con Practical Action, WCS, FAO y otras instituciones.\",Participación activa en proyectos de restauración de sistemas productivos y reforestación.",
+            "limitaciones": "Dependencia de financiamiento externo para ejecutar proyectos.,Limitaciones en la capacidad técnica y recursos propios."
+        },
+        {
+            "actor": "Parque Nacional Madidi",
+            "funciones_principales": "Monitorear y proteger recursos naturales en el área protegida.,Colaborar en la respuesta ante incendios en áreas críticas.",
+            "capacidades": "Coordinación con UGR, Base Naval y Bomberos Feroz.\",Equipamiento básico proporcionado por el GAM en calidad de comodato.",
+            "limitaciones": "Equipamiento insuficiente para enfrentar incendios de gran magnitud.,Recursos humanos limitados en relación a la extensión del área protegida."
+        },
+        {
+            "actor": "WCS – Programa Bolivia",
+            "funciones_principales": "Apoyo técnico y financiero en proyectos de conservación y restauración.,Colaboración en capacitación y campañas de sensibilización.",
+            "capacidades": "Financiamiento de proyectos específicos, como la creación de áreas protegidas municipales.\",Apoyo logístico y técnico en temas de conservación.",
+            "limitaciones": "Enfocado en proyectos específicos, lo que puede limitar la respuesta inmediata a emergencias.\",Dependencia de financiamiento externo."
+        },
+        {
+            "actor": "FAO (Organización de las Naciones Unidas para la Alimentación y la Agricultura)",
+            "funciones_principales": "Promover prácticas sostenibles en sistemas productivos.,Apoyo técnico en manejo del fuego y restauración de ecosistemas.,Presencia técnica en campañas de prevención y talleres de capacitación.",
+            "capacidades": "Coordinación con GAM, Practical Action y otras entidades locales.\"",
+            "limitaciones": "Intervenciones limitadas por la duración de los proyectos.,No cuenta con equipamiento directo para la atención de emergencias por incendios."
+        },
+        {
+            "actor": "Bomberos Voluntarios “Feroz”",
+            "funciones_principales": "Respuesta a emergencias por incendios forestales.,Capacitación y formación de brigadas comunitarias.",
+            "capacidades": "Equipamiento básico proporcionado por el GAM (bate fuegos, mochilas, palas, hachas).\",Coordinación con UGR y Parque Nacional Madidi.",
+            "limitaciones": "Limitaciones en equipamiento y financiamiento.\",\"Personal voluntario, lo que puede afectar la disponibilidad para emergencias continuas.\""
+        }
+    ]
 }

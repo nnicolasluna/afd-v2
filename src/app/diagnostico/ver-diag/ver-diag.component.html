@@ -61,12 +61,14 @@
                         </div>
                     </div>
                 </div>
-                <div *ngSwitchCase="4">
+                <div *ngSwitchCase="4"><!-- ////////////////////////////////////////////////////////////////////// -->
                     <div class="contenedor-principal">
                         <div class="encabezado-verde">
                             <div class="numero-circulo-encabezado">1</div>
                             <div class="texto-encabezado">Recolección de Información</div>
                         </div>
+                    </div>
+                    <div class="contenedorSwitch4">
                         <div class="item-con-icono">
                             <div class="icono-contenedor">
                                 <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
@@ -75,13 +77,69 @@
                                 Institucionalización del Manejo<br>Integral del Fuego (MIF)
                             </div>
                         </div>
-                    </div>
-                    <div class="dobleCard">
-                        <div class="firstCard firstCard--normal">
-                            <app-text [data]="recoleccionDeInfo1"></app-text>
+                        <div class="dobleCard">
+                            <div class="firstCard firstCard--normal">
+                                <app-text [data]="recoleccionInsMif"></app-text>
+                            </div>
+                            <div class="secondCard secondCard--normal">
+                                <app-text [data]="recoleccionLocMif"></app-text>
+                            </div>
                         </div>
-                        <div class="secondCard secondCard--normal">
-                            <app-text [data]="preparacion"></app-text>
+                    </div>
+                    <div class="contenedorSwitch4">
+                        <div class="item-con-icono">
+                            <div class="icono-contenedor">
+                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                            </div>
+                            <div class="texto-item">
+                                Reducción de riesgos a través de la <br>prevención y control de incendios forestales
+                            </div>
+                        </div>
+                        <div class="dobleCard">
+                            <div class="firstCard firstCard--normal">
+                                <app-text [data]="recoleccionInsRed"></app-text>
+                            </div>
+                            <div class="secondCard secondCard--normal">
+                                <app-text [data]="recoleccionLocRed"></app-text>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenedorSwitch4">
+                        <div class="item-con-icono">
+                            <div class="icono-contenedor">
+                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                            </div>
+                            <div class="texto-item">
+                                Atención de desastres y/o emergencias a través de la <br>preparación, alerta, respuesta
+                                y rehabilitación
+                            </div>
+                        </div>
+                        <div class="dobleCard">
+                            <div class="firstCard firstCard--normal">
+                                <app-text [data]="recoleccionInsAtn"></app-text>
+                            </div>
+                            <div class="secondCard secondCard--normal">
+                                <app-text [data]="recoleccionLocAtn"></app-text>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenedorSwitch4">
+                        <div class="item-con-icono">
+                            <div class="icono-contenedor">
+                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                            </div>
+                            <div class="texto-item">
+                                Promoción de Alternativas al uso del fuego en las prácticas<br> agropecuarias a través
+                                de parcelas demostrativas
+                            </div>
+                        </div>
+                        <div class="dobleCard">
+                            <div class="firstCard firstCard--normal">
+                                <app-text [data]="recoleccionInsPro"></app-text>
+                            </div>
+                            <div class="secondCard secondCard--normal">
+                                <app-text [data]="recoleccionLocPro"></app-text>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,7 +151,13 @@
                                     <div class="numero-circulo-encabezado">2</div>
                                     <div class="texto-encabezado">Análisis de Información</div>
                                 </div>
-                                <app-text [data]="preparacion"></app-text>
+                                <div>
+                                    En base a la información que se recopila respecto a los cuatro (4) componentes de la
+                                    EPMIF, se puede identificar indicadores y co-indicadores relevantes asignando una
+                                    ponderación de valoración, en el marco del método de “Telaraña de Bersnstein”, el
+                                    cual, es un procedimiento que permite visualizar las condiciones de los municipios y
+                                    actores locales en relación a una “situación ideal”
+                                </div>
                             </div>
                         </div>
                         <div class="secondCard secondCard--big">
@@ -103,8 +167,10 @@
                 </div>
             </div>
             <div class="botonesVolSig">
-                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0"  [style.visibility]="currentStep === 0 ? 'hidden' : 'visible'">Volver</button>
-                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 6 - 1" [style.visibility]="currentStep === 6 - 1 ? 'hidden' : 'visible'">Siguiente</button>
+                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0"
+                    [style.visibility]="currentStep === 0 ? 'hidden' : 'visible'">Volver</button>
+                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 6 - 1"
+                    [style.visibility]="currentStep === 6 - 1 ? 'hidden' : 'visible'">Siguiente</button>
             </div>
         </div>
     </div>

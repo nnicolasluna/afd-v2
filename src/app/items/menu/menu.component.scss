@@ -77,7 +77,7 @@ ol {
     @include flex-container(row, space-around); // Usa el mixin
     background-color: #1F631C;
     position: fixed;
-    top: 90%;
+    bottom: 0;
     width: 100%;
 }
 
@@ -122,6 +122,7 @@ ol {
     padding: 0;
     margin: 0;
 }
+
 .iconplustext.activo,
 .iconplustext:hover {
     background-color: darken(#009E2D, 15%);

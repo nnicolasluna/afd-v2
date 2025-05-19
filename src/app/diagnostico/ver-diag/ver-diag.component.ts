@@ -12,25 +12,61 @@ export class VerDiagComponent implements OnInit {
   ExtenderBar: boolean = true;
   actores: string = '';
   apoyoProy: string = '';
-  preparacion: string = '';
+  preparacion: string = ''
   leccionesAprendidas: string = '';
-  recoleccionDeInfo1: string = '';
+  recoleccionInsMif: string = '';
+  recoleccionLocMif: string = '';
+  recoleccionInsRed: string = '';
+  recoleccionLocRed: string = '';
+  recoleccionInsAtn: string = '';
+  recoleccionLocAtn: string = '';
+  recoleccionInsPro: string = '';
+  recoleccionLocPro: string = '';
   constructor(private modalStateService: ModalStateService) { }
-  direcion = 'assets/Datos_tablas/'
+  direcciones = {
+    "direccion_base": "assets/Datos_tablas/",
+    "archivos": {
+      "preparacion": "preparacion.json",
+      "actores": "actores.json",
+      "apoyos": "apoyoProyectos.json",
+      "lecciones_aprendidas": "leccionesAprendidas.json",
+      "recoleccion_info": {
+        "atencion_locales": "arencionLocales.json",
+        "atencion_institucional": "atencionInstitucional.json",
+        "mif_institucional": "mifInstitucional.json",
+        "mif_locales": "mifLocales.json",
+        "promocion_institucional": "promocionInstitucional.json",
+        "promocion_locales": "promocionLocales.json",
+        "reduccion_institucional": "reduccionInstitucional.json",
+        "reduccion_locales": "reduccionLocales.json"
+      }
+    }
+  }
   municipios = [
-    { Municipio: 'Palos Blancos', preparacion: 'assets/Datos_tablas/Palos Blancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/Palos Blancos/apoyoProyectos.json', actores: 'assets/Datos_tablas/Palos Blancos/actores.json', leccionesAprendidas: 'assets/Datos_tablas/Palos Blancos/leccionesAprendidas.json', recoleccionDeInfo1:'recoleccion1.json'},
-    { Municipio: 'San Buenaventura', preparacion: 'assets/Datos_tablas/Palos Blancos/preparacion.json', apoyoProy: 'assets/Datos_tablas/San Buenaventura/apoyoProyectos.json', actores: 'assets/Datos_tablas/San Buenaventura/actores.json', leccionesAprendidas: '', recoleccionDeInfo1:'' },
+    { Municipio: 'Palos Blancos' },
+    { Municipio: 'San Buenaventura' },
+    { Municipio: 'San Borja' },
+    { Municipio: 'Rurrenabaque' },
+    { Municipio: 'Vinto' },
+    { Municipio: 'Tiquipaya' }
   ];
 
   ngOnInit(): void {
     if (this.Municipio) {
       const municipioData = this.municipios.find(m => m.Municipio === this.Municipio);
       if (municipioData) {
-        this.actores = municipioData.actores;
-        this.apoyoProy = municipioData.apoyoProy;
-        this.preparacion = municipioData.preparacion;
-        this.leccionesAprendidas = municipioData.leccionesAprendidas;
-        this.recoleccionDeInfo1 = this.direcion+municipioData.Municipio+'/'+municipioData.recoleccionDeInfo1;
+        this.actores = this.direcciones.direccion_base + municipioData.Municipio + '/' + this.direcciones.archivos.actores;
+        this.apoyoProy = this.direcciones.direccion_base + municipioData.Municipio + '/' + this.direcciones.archivos.apoyos;
+        this.preparacion = this.direcciones.direccion_base + municipioData.Municipio + '/' + this.direcciones.archivos.preparacion;
+        this.leccionesAprendidas = this.direcciones.direccion_base + municipioData.Municipio + '/' + this.direcciones.archivos.lecciones_aprendidas;
+        this.recoleccionInsMif = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.mif_institucional;
+        this.recoleccionLocMif = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.mif_locales;
+        this.recoleccionInsRed = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.reduccion_institucional;
+        this.recoleccionLocRed = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.reduccion_locales;
+        this.recoleccionInsAtn = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.atencion_institucional;
+        this.recoleccionLocAtn = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.atencion_locales;
+        this.recoleccionInsPro = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.promocion_institucional;
+        this.recoleccionLocPro = this.direcciones.direccion_base + municipioData.Municipio + '/recoleccionInfo/' + this.direcciones.archivos.recoleccion_info.promocion_locales;
       } else {
         console.warn(`Municipio "${this.Municipio}" no encontrado en la lista.`);
       }
