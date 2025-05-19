@@ -8,9 +8,14 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
 export class MenuComponent {
   @Output() localizacionUsuario = new EventEmitter<string>();
   @Input() MunicipioMenu: string | undefined;
+  vistaActualActiva: string | null = null;
 
   mostrarDiagnostico: boolean = false;
-
+  ngOnInit() {
+    this.modalStateService.vistaActual$.subscribe(vista => {
+      this.vistaActualActiva = vista;
+    });
+  }
   constructor(private modalStateService: ModalStateService) { }
   alternarleftCard() {
     this.modalStateService.mostrarleftbar();
@@ -52,6 +57,9 @@ export class MenuComponent {
   }
   mostrarManuales() {
     this.modalStateService.mostrarManuales();
+  }
+   mostrarTalleres() {
+    this.modalStateService.mostrartalleres();
   }
   refreshAll() {
     window.location.reload();

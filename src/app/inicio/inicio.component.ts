@@ -12,6 +12,9 @@ export class InicioComponent implements AfterViewInit {
   private map!: L.Map;
   private map1!: L.Map;
   private map2!: L.Map;
+  private map3!: L.Map;
+  private lupaOverlay?: L.ImageOverlay;
+
 
   municipio = '';
   mostrarCard = false;
@@ -26,8 +29,10 @@ export class InicioComponent implements AfterViewInit {
   mostrartrebotonEvaluamos = false;
   mostrarConvenios = false;
   mostrarManuales = false;
-  mostrarMapa2 = false;
+  mostrarTalleres = false;
 
+  mostrarMapa2 = false;
+  mostrarMapa3 = false;
   bounds: any
   indice: any
   departamentos = [
@@ -35,14 +40,6 @@ export class InicioComponent implements AfterViewInit {
     { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
     { departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Cochabamba.geo.json', state: true },
   ];
-  /*  municipios = [
-     { municipio: 'San Buenaventura', departamento: 'La Paz', source: 'assets/geojson/LaPaz/Municipios/SanBuenaventura.geo.json', color: '#FF5C5CB5' },
-     { municipio: 'Palos Blancos', departamento: 'La Paz', source: 'assets/geojson/LaPaz/Municipios/PalosBlancos.geo.json', color: '#F4A21ABD' },
-     { municipio: 'San Borja', departamento: 'Beni', source: 'assets/geojson/Beni/Municipios/SanBorja.geo.json', color: '#45818E' },
-     { municipio: 'Rurrenabaque', departamento: 'Beni', source: 'assets/geojson/Beni/Municipios/Rurre.geo.json', color: '#8FCE00' },
-     { municipio: 'Vinto', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Vinto.geo.json', color: '#3521E8' },
-     { municipio: 'Tiquipaya', departamento: 'Cochabamba', source: 'assets/geojson/Cocha/Municipios/Tiqui.geo.json', color: '#C7914A' }
-   ]; */
   municipios = [
     {
       municipio: 'San Buenaventura',
@@ -59,7 +56,8 @@ export class InicioComponent implements AfterViewInit {
         post: {
           ndvi: 'aceaa:a_1746459648105postNDVISanBuena',
           nbr: 'aceaa:a_1746461096055PostNBRSanBuena'
-        }
+        },
+        dnbr: 'aceaa:a_1747538623598sanbuena_dnbr1'
       }
     },
     {
@@ -77,7 +75,8 @@ export class InicioComponent implements AfterViewInit {
         post: {
           ndvi: 'aceaa:a_1746458795037postNDVIPalosBlancos',
           nbr: 'aceaa:a_1746460441687PostNBRPalosBlancos'
-        }
+        },
+        dnbr: 'aceaa:a_1747576386958dNBR1_pb'
       }
     },
     {
@@ -95,7 +94,9 @@ export class InicioComponent implements AfterViewInit {
         post: {
           ndvi: 'aceaa:a_1746459396083postNDVISanBorja',
           nbr: 'aceaa:a_1746460827267PostNBRSanBorja'
-        }
+        },
+        dnbr: 'aceaa:a_1747589538998dNBR_sb1'
+
       }
     },
     {
@@ -107,12 +108,13 @@ export class InicioComponent implements AfterViewInit {
       wms: {
         pre: {
           ndvi: 'aceaa:a_1746457664348preNDVIRurrenabaque',
-          nbr: 'aceaa:a_1746464225095preNBRRurrenabaque'
+          nbr: 'aceaa:a_1746456908941preNBRRurrenabaque'
         },
         post: {
           ndvi: 'aceaa:a_1746459230710postNDVIRurrenabaque',
-          nbr: 'aceaa:a_1746461005205postNBRRurrenabaque'
-        }
+          nbr: 'aceaa:a_1746460712250PostNBRRurrenabaque'
+        },
+        dnbr: 'aceaa:a_1747538931290rure_dnbr1'
       }
     },
     {
@@ -130,7 +132,8 @@ export class InicioComponent implements AfterViewInit {
         post: {
           ndvi: 'aceaa:a_1746460151272postNDVIVinto',
           nbr: 'aceaa:a_1746461278454PostNBRVinto'
-        }
+        },
+        dnbr: 'aceaa:a_1747536074621vinto2'
       }
     },
     {
@@ -148,7 +151,8 @@ export class InicioComponent implements AfterViewInit {
         post: {
           ndvi: 'aceaa:a_1746460308299postNDVITiquipaya',
           nbr: 'aceaa:a_1746461236706PostNBRTiquipaya'
-        }
+        },
+        dnbr: 'aceaa:a_1747538444570tiquipaya_dnbr1'
       }
     }
   ];
@@ -169,6 +173,8 @@ export class InicioComponent implements AfterViewInit {
         this.mostraralter_rightbar = vista === 'alter-rightbar';
         this.mostrarConvenios = vista === 'convenios';
         this.mostrarManuales = vista === 'manuales';
+        this.mostrarTalleres = vista === 'talleres';
+
       });
     this.modalServiceState.tresBtnAct$.subscribe
       (data => {
@@ -379,17 +385,41 @@ export class InicioComponent implements AfterViewInit {
       dep.state = true;
     });
   }
+  agregarOverlayLupa(center: L.LatLngExpression): void {
+    // Elimina overlay anterior si existe
+    if (this.lupaOverlay) {
+      this.map.removeLayer(this.lupaOverlay);
+    }
+
+    // Calcula bounds alrededor del centro
+    const lat = (center as L.LatLngTuple)[0];
+    const lng = (center as L.LatLngTuple)[1];
+    const bounds = L.latLngBounds(
+      [lat - 0.5, lng - 0.5],
+      [lat + 0.5, lng + 0.5]
+    );
+
+    this.lupaOverlay = L.imageOverlay('assets/png/Vector.png', bounds, {
+      opacity: 0.8,
+      interactive: false
+    }).addTo(this.map);
+  }
   handleLocationSelection(MunucipioSelecionado: any): void {
-    if (this.mostrarMapa2) {
+    if (this.mostrarMapa2 || this.mostrarMapa3) {
       this.mostrarMapa2 = false
+      this.mostrarMapa3 = false
+
       setTimeout(() => {
         this.initMap();
         this.map.flyTo(newCenter, 7.5);
-      }, 0)
+/*         this.agregarOverlayLupa(newCenter);
+ */      }, 0)
     }
     this.municipio = MunucipioSelecionado.municipio;
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
     this.map.flyTo(newCenter, 7.5);
+/*     this.agregarOverlayLupa(newCenter);
+ */
     this.limpiarMapa();
     this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
     this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
@@ -470,60 +500,20 @@ export class InicioComponent implements AfterViewInit {
       alert('La geolocalización no es soportada por este navegador.');
     }
   }
-  /* private sidebysideWMS(): void {
-    this.mostrarMapa2 = true
-    setTimeout(() => {
-      this.map1 = L.map('map1', {
-        center: [-16.5, -64.15],
-        zoom: 5,
-        dragging: false,
-        zoomControl: false,
-        doubleClickZoom: false
-      });
-      this.map2 = L.map('map2', {
-        center: [-16.5, -64.15],
-        zoom: 5,
-        dragging: false,
-        zoomControl: false,
-        doubleClickZoom: false
-      });
-
-
-      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 18
-      }).addTo(this.map1);
-      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 18
-      }).addTo(this.map2);
-
-      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms?service=WMS&version=1.1.0&request=GetMap&layers=aceaa%3Aa_1746457664348preNDVIRurrenabaque&bbox=-67.55968740430527%2C-15.04651151441675%2C-67.0736988355966%2C-14.343220478479576&width=530&height=768&srs=EPSG%3A4326&styles=&format=application/openlayers', {
-        layers: 'aceaa:a_1746457664348preNDVIRurrenabaque',
-        format: 'image/png',
-        transparent: true,
-        version: '1.1.0',
-        attribution: 'GeoServer ACEAA',
-      }).addTo(this.map1);
-      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms?service=WMS&version=1.1.0&request=GetMap&layers=aceaa%3Aa_1746459230710postNDVIRurrenabaque&bbox=-67.55968740430527%2C-15.04651151441675%2C-67.0736988355966%2C-14.343220478479576&width=530&height=768&srs=EPSG%3A4326&styles=&format=application/openlayers', {
-        layers: 'aceaa:a_1746457664348preNDVIRurrenabaque',
-        format: 'image/png',
-        transparent: true,
-        version: '1.1.0',
-        attribution: 'GeoServer ACEAA',
-      }).addTo(this.map2);
-
-    }, 0);
-  }
- */
-
 
   actualizarIndice(event: { indice: string, muni: string }) {
     this.indice = event.indice;
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
-    this.sidebysideWMS(ciudadEncontrada, event.indice)
-    console.log(event.indice, event.muni)
+    if (event.indice == 'nbr' || event.indice == 'ndvi') {
+      this.sidebysideWMS(ciudadEncontrada, event.indice)
+    }
+    if (event.indice == 'dnbr') {
+      this.simpleWMS(ciudadEncontrada, event.indice)
+    }
   }
   sidebysideWMS(muni: any, indice: string): void {
     this.mostrarMapa2 = true;
+    this.mostrarMapa3 = false;
     let layer1 = ''
     let layer2 = ''
     if (indice === 'nbr') {
@@ -536,6 +526,7 @@ export class InicioComponent implements AfterViewInit {
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
+
       if (this.map1) {
         this.map1.remove();
       }
@@ -590,5 +581,46 @@ export class InicioComponent implements AfterViewInit {
       this.map2.fitBounds(bounds);
     }, 0);
   }
+  simpleWMS(muni: any, indice: string) {
+    this.mostrarMapa2 = false;
+    this.mostrarMapa3 = true;
+    const layer1 = muni!.wms.dnbr;
 
+    const bounds = L.latLngBounds(muni.bounds);
+    setTimeout(() => {
+      if (this.map3) {
+        this.map3.remove();
+      }
+      this.map3 = L.map('map3', {
+        center: [-15.7, -67.3], // Ajustado al centro aproximado de la capa
+        zoom: 10,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+
+      // Base layer para ambos mapas
+      const baseLayerUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+
+      L.tileLayer(baseLayerUrl, {
+        maxZoom: 18
+      }).addTo(this.map3);
+
+
+      // Capa WMS para el mapa 1 (PRE NDVI)
+      L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+        layers: layer1,
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA'
+      }).addTo(this.map3);
+
+      // Capa WMS para el mapa 2 (POST NDVI)
+
+      // Ajusta ambos mapas al bounding box
+      this.map3.fitBounds(bounds);
+
+    }, 0);
+  }
 }

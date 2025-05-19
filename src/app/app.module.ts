@@ -24,6 +24,7 @@ import { BotonesEvaluamosComponent } from './items/componentes/botones-evaluamos
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ConveniosComponent } from './convenios/convenios.component';
 import { ManualesComponent } from './manuales/manuales.component';
+import { TalleresComponent } from './talleres/talleres.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { ManualesComponent } from './manuales/manuales.component';
     BotonesEvaluamosComponent,
     ConveniosComponent,
     ManualesComponent,
+    TalleresComponent,
     
   ],
   imports: [

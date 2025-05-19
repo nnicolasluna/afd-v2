@@ -16,8 +16,18 @@
     /* z-index: -1; */
 }
 
+#map3 {
+    position: fixed;
+    top: 30;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
+}
+
 #map1 {
     clip-path: inset(0 50% 0 0);
+
 }
 
 #map2 {
@@ -38,6 +48,7 @@
     margin: 0 auto;
     width: 90%;
     transform: translateY(-50%);
+    cursor: ew-resize;
 }
 
 .slider {
@@ -46,10 +57,10 @@
 }
 
 .slider::-webkit-slider-runnable-track {
-   background: transparent; 
-    border-color: transparent; 
-    border-style: none; 
-    box-shadow: none; 
+    background: transparent;
+    border-color: transparent;
+    border-style: none;
+    box-shadow: none;
     height: 0;
     width: 0;
 }

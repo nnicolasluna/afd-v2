@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalStateService {
-  private vistaActual = new BehaviorSubject<'manuales' | 'convenios' | 'alter-rightbar' | 'alternativas' | 'recuperacion' | 'card' | 'diagnostico' | 'leftbar' | 'evaluamos' | 'verdiagnostico' | null>(null);
+  private vistaActual = new BehaviorSubject<'talleres' | 'manuales' | 'convenios' | 'alter-rightbar' | 'alternativas' | 'recuperacion' | 'card' | 'diagnostico' | 'leftbar' | 'evaluamos' | 'verdiagnostico' | null>(null);
   private botonActivoMenu = new BehaviorSubject<string>('');
   private tresBtnActivo = new BehaviorSubject<'tresBtn' | null>(null);
   private btnEvaluamos = new BehaviorSubject<'btnEvaluamos' | null>(null);
@@ -25,10 +25,30 @@ export class ModalStateService {
     this.vistaActual.next('card');
   }
   mostrarManuales() {
-    this.vistaActual.next('manuales');
+    const current = this.vistaActual.getValue();
+    if (current === 'manuales') {
+      this.vistaActual.next(null);
+    } else {
+      this.vistaActual.next('manuales');
+
+    }
+  }
+  mostrartalleres() {
+    const current = this.vistaActual.getValue();
+    if (current === 'talleres') {
+      this.vistaActual.next(null);
+    } else {
+      this.vistaActual.next('talleres');
+
+    }
   }
   mostrarDiagnostico() {
-    this.vistaActual.next('diagnostico');
+    const current = this.vistaActual.getValue();
+    if (current === 'diagnostico') {
+      this.vistaActual.next(null);
+    } else {
+      this.vistaActual.next('diagnostico');
+    }
   }
   mostrarleftbar() {
     this.vistaActual.next('leftbar');
@@ -40,13 +60,23 @@ export class ModalStateService {
     this.vistaActual.next('verdiagnostico');
   }
   mostrarrecu() {
-    this.vistaActual.next('recuperacion');
+    const current = this.vistaActual.getValue();
+    if (current === 'recuperacion') {
+      this.vistaActual.next(null);
+    } else {
+      this.vistaActual.next('recuperacion');
+    }
   }
   mostrarConvenios() {
     this.vistaActual.next('convenios');
   }
   mostraralternativas() {
-    this.vistaActual.next('alternativas');
+    const current = this.vistaActual.getValue();
+    if (current === 'alternativas') {
+      this.vistaActual.next(null);
+    } else {
+      this.vistaActual.next('alternativas');
+    }
   }
   cerrarVistas() {
     this.vistaActual.next(null);

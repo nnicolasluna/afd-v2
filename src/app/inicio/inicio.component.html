@@ -11,7 +11,8 @@
         <input type="range" min="0" max="100" value="50" class="slider" id="mapRange" (input)="updateMapWidth($event)">
     </div>
 </div>
-
+<div id="map3" *ngIf="mostrarMapa3"></div>
+<app-talleres *ngIf="mostrarTalleres"></app-talleres>
 <app-alter-rightbar (locationSelected)="handleLocationSelection($event)" *ngIf="mostraralter_rightbar">
 </app-alter-rightbar>
 <app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
