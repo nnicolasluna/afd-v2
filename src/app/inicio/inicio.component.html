@@ -6,6 +6,7 @@
 <div id="map" *ngIf="!mostrarMapa2"></div>
 <div class="maps-container" *ngIf="mostrarMapa2">
     <div id="map1" class="map"></div>
+    <div class="map-divider" ><div class="object"></div></div>
     <div id="map2" class="map"></div>
     <div class="map-slider">
         <input type="range" min="0" max="100" value="50" class="slider" id="mapRange" (input)="updateMapWidth($event)">
