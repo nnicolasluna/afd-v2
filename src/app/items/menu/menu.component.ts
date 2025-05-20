@@ -31,12 +31,18 @@ export class MenuComponent {
 
   }
   ocultarDiagnostico(): void {
+    this.modalStateService.cerrarBtnEvaluamos();
+
     this.mostrarDiagnostico = false;
   }
   verLocalizacion() {
+    this.modalStateService.cerrarBtnEvaluamos();
+
     this.localizacionUsuario.emit('true');
   }
   mostrarRecu(btnSelected: any): void {
+    this.modalStateService.cerrarBtnEvaluamos();
+
     if (this.MunicipioMenu == '') {
       this.modalStateService.mostrarAlter_rightbar(btnSelected);
     }
@@ -45,6 +51,8 @@ export class MenuComponent {
     }
   }
   mostrarAlternativas(btnSelected: any) {
+    this.modalStateService.cerrarBtnEvaluamos();
+
     if (this.MunicipioMenu == '') {
       this.modalStateService.mostrarAlter_rightbar(btnSelected);
     }
@@ -54,12 +62,18 @@ export class MenuComponent {
   }
   mostrarConvenios() {
     this.modalStateService.mostrarConvenios();
+    this.modalStateService.cerrarBtnEvaluamos();
+
   }
   mostrarManuales() {
     this.modalStateService.mostrarManuales();
+    this.modalStateService.cerrarBtnEvaluamos();
+
   }
-   mostrarTalleres() {
+  mostrarTalleres() {
     this.modalStateService.mostrartalleres();
+    this.modalStateService.cerrarBtnEvaluamos();
+
   }
   refreshAll() {
     window.location.reload();

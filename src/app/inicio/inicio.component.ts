@@ -308,12 +308,42 @@ export class InicioComponent implements AfterViewInit {
     });
   }
   updateMapWidth(event: Event): void {
-    const sliderValue = (event.target as HTMLInputElement).value;
-    const percent = parseInt(sliderValue, 10);
+    const inputElement = event.target as HTMLInputElement;
+    const value = parseInt(inputElement.value, 10);
+    const map1 = document.querySelector('#map1') as HTMLElement;
+    const map2 = document.querySelector('#map2') as HTMLElement;
+    if (map1 && map2) {
+      map1.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+      map2.style.clipPath = `inset(0 0 0 ${value}%)`;
+    }
+    const mapDivider = document.querySelector('.map-divider') as HTMLElement;
 
-    // Update clip paths based on slider value
-    document.getElementById('map1')!.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-    document.getElementById('map2')!.style.clipPath = `inset(0 0 0 ${percent}%)`;
+    const sliderValue = (event.target as HTMLInputElement).value;
+
+    if (mapDivider) {
+      // Obtenemos el ancho del contenedor padre de mapDivider o del mapa1 como alternativa
+      let containerWidth;
+      const parentElement = mapDivider.parentElement;
+
+      if (parentElement) {
+        containerWidth = parentElement.offsetWidth;
+      } else if (map1) {
+        // Si no hay padre, usamos el ancho total del mapa como referencia
+        containerWidth = map1.offsetWidth * 2; // Multiplicamos por 2 ya que el mapa1 es la mitad
+      } else {
+        // Valor predeterminado en caso de que nada esté disponible
+        containerWidth = window.innerWidth;
+      }
+
+      const dividerPosition = (containerWidth * value) / 100;
+      mapDivider.style.left = `${dividerPosition}px`;
+    }
+    setTimeout(() => {
+      if (this.map1 && this.map2) {
+        this.map1.invalidateSize();
+        this.map2.invalidateSize();
+      }
+    }, 100);
   }
   private synchronizeMaps(): void {
     // Sync map1 to map2
@@ -418,8 +448,8 @@ export class InicioComponent implements AfterViewInit {
     this.municipio = MunucipioSelecionado.municipio;
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
     this.map.flyTo(newCenter, 7.5);
-/*     this.agregarOverlayLupa(newCenter);
- */
+    /*     this.agregarOverlayLupa(newCenter);
+     */
     this.limpiarMapa();
     this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
     this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
@@ -579,6 +609,17 @@ export class InicioComponent implements AfterViewInit {
       // Ajusta ambos mapas al bounding box
       this.map1.fitBounds(bounds);
       this.map2.fitBounds(bounds);
+      this.map1.on('move', () => {
+        this.map2.setView(this.map1.getCenter(), this.map1.getZoom(), {
+          animate: false
+        });
+      });
+
+      this.map2.on('move', () => {
+        this.map1.setView(this.map2.getCenter(), this.map2.getZoom(), {
+          animate: false
+        });
+      });
     }, 0);
   }
   simpleWMS(muni: any, indice: string) {
