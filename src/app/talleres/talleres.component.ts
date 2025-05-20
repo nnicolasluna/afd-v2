@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class TalleresComponent {
   primerapantalla = true
   segundapantalla = false
+  tecerapantalla_participantes = false
+  tecerapantalla_desarrollo = false
   lapaz = true
   cocha = false
   beni = false
@@ -22,6 +24,7 @@ export class TalleresComponent {
   botonVermas() {
     this.primerapantalla = !this.primerapantalla
     this.segundapantalla = !this.primerapantalla
+    console.log(this.primerapantalla, this.segundapantalla)
   }
   verDeptbtn(dept: string) {
     if (dept === 'La Paz') {
@@ -45,5 +48,13 @@ export class TalleresComponent {
 
     }
   }
- 
+  verParticipantes() {
+    this.segundapantalla = !this.segundapantalla
+    this.tecerapantalla_participantes = !this.tecerapantalla_participantes
+  }
+  verDesarrollo() {
+    this.segundapantalla = !this.segundapantalla
+    this.tecerapantalla_desarrollo = !this.tecerapantalla_desarrollo
+  }
+
 }

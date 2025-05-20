@@ -1,9 +1,9 @@
   .container-main {
       position: fixed;
-      top: 7%;
+      top: 8%;
       background-color: transparentize(#161616CC, 0.1);
       width: 100%;
-      height: 84%;
+      height: 80%;
 
       color: white;
 
@@ -21,6 +21,7 @@
 
   .taller-container {
       bottom: 0;
+      top: 0;
       padding-top: 20px;
       padding-left: 20px;
       padding-right: 20px;
@@ -40,6 +41,7 @@
 
       &--red {
           background: #FF4400;
+          margin-top: -20px;
       }
 
       &--other {
@@ -112,6 +114,7 @@
 
   .description {
       text-align: justify;
+      font-size: 15px;
   }
 
   .topTimeLine {
@@ -139,13 +142,16 @@
   }
 
   .timeLineContent {
+      height: 35%;
+      width: 30%;
       display: flex;
       flex-direction: column;
-      padding-top: 30px;
+      /* padding-top: 30px; */
       top: 0;
 
       &--mid {
-          margin-top: 16.6%;
+          margin-top: 12.6%;
+          height: 35%;
       }
   }
 
@@ -192,6 +198,7 @@
           font-weight: bold;
           font-size: 25px;
       }
+
   }
 
   .btnMuni {
@@ -242,9 +249,22 @@
       background-color: #161616;
       color: white;
 
-      .title {
+      &--normal {
+          width: 40%;
+      }
+
+      &--big {
+          width: 80%;
+      }
+
+      &--xbig {
+          width: 98%;
+      }
+
+      &__title {
           font-weight: bold;
-          margin-bottom: 5px;
+          padding: 15px;
+          font-size: 20px;
       }
 
       .content {
@@ -257,9 +277,15 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          padding-top: 30px;
           width: 100%;
           border-bottom: solid 1px white;
+      }
+
+      &__desarrollo {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
       }
 
       &__footer {
@@ -268,6 +294,30 @@
           justify-content: space-around;
           padding: 10px;
       }
+
+      &__participantes {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+      }
+
+      &__butonHeader {
+          height: fit-content;
+          background-color: #14438F;
+          border-radius: 0 50px 50px 0;
+          width: fit-content;
+          padding: 5px 30px;
+          color: white;
+          border: none;
+      }
+
+      &__butonHeader:hover {
+          background-color: white;
+          color: #14438F;
+      }
+
   }
 
   .btncardleft {
@@ -280,15 +330,17 @@
       &__btn {
           background-color: #1F631C;
           border-radius: 30px;
-          padding: 10px 30px;
+          padding: 5px 30px;
           border: none;
           color: white;
+          width: 30%;
       }
 
       :hover {
           background-color: white;
           color: #1F631C;
       }
+
   }
 
   .localization {
@@ -307,10 +359,10 @@
       display: flex;
       align-items: center;
       flex-direction: column;
+      height: fit-content;
+      padding-top: 30px;
+      padding-bottom: 30px;
 
-      .title {
-          padding-top: 30px;
-      }
 
       &__body {
           display: flex;
@@ -334,4 +386,68 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+  }
+
+  .buttonContent {
+      width: 25%;
+      padding-top: 10px;
+
+      &__desarrollo {
+          background-color: #242425;
+          color: white;
+          border-radius: 0 50px 50px 0;
+          border: none;
+          padding: 15px;
+          margin-top: 3px;
+          margin-bottom: 3px;
+          text-align: left;
+          width: 100%;
+      }
+
+  }
+
+  .desarrollo {
+      width: 75%;
+      height: 100%;
+
+      &__title {
+          width: 100%;
+          text-align: center;
+          height: 5%;
+          font-weight: bold;
+          font-size: 15px;
+      }
+
+      &__content {
+          width: 100%;
+          height: 95%;
+          background-color: #13351A;
+          padding: 10px;
+          text-align: center;
+      }
+
+      &__contentIcos {
+        width: 100%;
+        background-color: red;
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 5px;
+          place-items: center;
+      }
+
+      &__icon {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          text-align: center;
+          border-radius: 5px;
+          width: 120px;
+          height: 120px;
+
+          &--blue1 {
+              background-color: #375991;
+          }
+      }
   }

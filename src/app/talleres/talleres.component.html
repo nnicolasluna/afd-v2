@@ -98,9 +98,9 @@
             </div>
         </div>
         <div class="doublecard">
-            <div class="tallerCardleft">
+            <div class="tallerCardleft tallerCardleft--normal">
                 <div class="tallerCardleft__body">
-                    <div class="title">Desarrollo de las Mesas Técnicas Participativas</div>
+                    <div class="tallerCardleft__title">Desarrollo de las Mesas Técnicas Participativas</div>
                     <div class="content">Durante el desarrollo de la mesa de trabajo en el municipio de Rurrenabaque, se
                         contó con la participación de representantes de comunidades indígenas, técnicos del municipio,
                         representantes de Defensa Civil y representantes del Área Protegida Pilón Laja, siendo esta mesa
@@ -111,8 +111,9 @@
                         afectadas.
                     </div>
                     <div class="btncardleft">
-                        <button class="btncardleft__btn">Ver Participantes</button>
-                        <button class="btncardleft__btn">Ver el Desarrollo de la mesa de trabajo</button>
+                        <button class="btncardleft__btn" (click)="verParticipantes()">Ver Participantes</button>
+                        <button class="btncardleft__btn" (click)="verDesarrollo()">Ver el Desarrollo de la mesa de
+                            trabajo</button>
                     </div>
 
                 </div>
@@ -137,7 +138,7 @@
                 </div>
             </div>
             <div class="tallerCardright">
-                <div class="title">Desarrollo de las Mesas Técnicas Participativas</div>
+                <div class="title">Galería de Imágenes</div>
                 <div class="tallerCardright__body">
                     <div class="cont_img">
                         <img src="assets/logos/bicentenario_vertical.png" alt="">
@@ -146,6 +147,122 @@
                     <div class="cont_img">
                         <img src="assets/logos/bicentenario_vertical.png" alt="">
                         Reunión 16 Enero 2025
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="terceraPantallaTalleres-Participantes" *ngIf="tecerapantalla_participantes">
+        <div class="tallerCardleft tallerCardleft--big">
+            <div class="tallerCardleft__body">
+                <div class="tallerCardleft__participantes">
+                    <button class="tallerCardleft__butonHeader" (click)="verParticipantes()">Regresar</button>
+                    <div class="tallerCardleft__title">Participantes</div>
+                    <mat-icon class="tallerCardleft__icon" fontIcon="groups"></mat-icon>
+                </div>
+
+                <div class="main-container">
+
+                </div>
+            </div>
+            <div class="tallerCardleft__footer">
+                <div class="localization">
+                    <mat-icon fontIcon="my_location"></mat-icon>
+                    <div class="textFooter">
+                        <div class="title_card">Localización</div>
+                        Beni - Rurrenabaque
+                        <div>
+                            Auditorio del Gobierno Autónomo Municipal de Rurrenabaque
+                        </div>
+                    </div>
+                </div>
+                <div class="localization">
+                    <mat-icon fontIcon="calendar_month"></mat-icon>
+                    <div class="textFooter">
+                        <div class="title_card">Fecha</div>
+                        16 Enero de 2025
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="terceraPantallaTalleres-Desarrollo" *ngIf="tecerapantalla_desarrollo">
+        <div class="tallerCardleft tallerCardleft--xbig">
+            <div class="tallerCardleft__desarrollo">
+                <div class="buttonContent">
+                    <button class="tallerCardleft__butonHeader" (click)="verDesarrollo()">Regresar</button>
+                    <button class="buttonContent__desarrollo">1. Definición de criterios técnicos y
+                        socioambientales</button>
+                    <button class="buttonContent__desarrollo">2. Identificar y priorizar áreas para la
+                        restauración</button>
+                    <button class="buttonContent__desarrollo">3. Identificar acciones de restauración y/o recuperación y
+                        principales necesidades</button>
+                    <button class="buttonContent__desarrollo">4. Identificación de las fortalezas, limitaciones,
+                        oportunidades,
+                        amenazas, prioridades
+                        identificadas</button>
+                    <button class="buttonContent__desarrollo">5. Elaboración del acta de acuerdos y validación</button>
+                </div>
+                <div class="desarrollo">
+                    <div class="desarrollo__title">Desarrollo de la mesa de Trabajo</div>
+                    <div class="desarrollo__content">
+                        <div>Se realizó la presentación de la metodología de construcción de criterios técnicos y
+                            socio-ambientales, donde se explicó las variables seleccionadas:</div>
+                        <div class="desarrollo__contentIcos">
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                                Densidad Poblacional
+                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            </div>
+                        </div>
+                        <div>En base al análisis de los criterios técnicos y socioambientales, los participantes
+                            consideraron de importancia alta incorporar un criterio adicional, siendo este la
+                            identificación de los Ojos de agua o toma de agua, consideradas como áreas de alto valor de
+                            conservación.</div>
                     </div>
                 </div>
             </div>
