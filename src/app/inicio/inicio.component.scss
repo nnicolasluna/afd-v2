@@ -38,7 +38,15 @@
     left: 0;
     clip-path: inset(0 0 0 50%);
 }
-
+.object{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    position: fixed;
+    top: 50%;
+    margin-left: -12px;
+    transform: rotate(45deg);
+}
 .map-slider {
     position: absolute;
     top: 50%;

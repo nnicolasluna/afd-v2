@@ -12,7 +12,7 @@
 }
 
 .button-top-bar {
-width: 9%;
+    width: fit-content;
     min-height: 60px;
     padding: 10px 30px;
     color: white;
@@ -20,6 +20,8 @@ width: 9%;
     border: none;
     cursor: pointer;
     margin: 10px;
+    font-size: 0.9rem;
+    text-align: center;
 
     &--black {
         background-color: transparentize(#272323, 0.1);
@@ -27,6 +29,7 @@ width: 9%;
 
 
 }
+
 .button-top-bar.activo,
 .button-top-bar:hover {
     background-color: #1F631C;
