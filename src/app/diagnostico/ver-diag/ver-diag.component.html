@@ -11,8 +11,10 @@
         <div class="platform-list">
             <div [ngSwitch]="currentStep" class="content">
                 <div *ngSwitchCase="0">
-                    <div class="title-2 title-2--black">Actividades</div>
-                    <img src="assets/imagenes/diagramaVerdiagnostico.png">
+                    <div class="Actividades">
+                        <div class="title-2 title-2--black">Actividades</div>
+                        <img src="assets/imagenes/diagramaVerdiagnostico.png">
+                    </div>
                 </div>
                 <div *ngSwitchCase="1">
                     <div class="dobleCard">
@@ -30,11 +32,11 @@
                 <div *ngSwitchCase="2">
                     <div class="dobleCard">
                         <div class="firstCard firstCard--big">
-                            <div class="title-2 title-2--green">Mapeo de Actores</div>
+                            <div class="title-2 title-2--greenV2">Mapeo de Actores</div>
                             <app-table [jsonUrl]="actores"></app-table>
                         </div>
                         <div class="secondCard secondCard--small">
-                            <div class="title-2 title-2--green">Lecciones Aprendidas</div>
+                            <div class="title-2 title-2--greenV2">Lecciones Aprendidas</div>
                             <app-genericlist [jsonPath]="leccionesAprendidas"></app-genericlist>
                         </div>
                     </div>
@@ -71,7 +73,7 @@
                     <div class="contenedorSwitch4">
                         <div class="item-con-icono">
                             <div class="icono-contenedor">
-                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                                <img src="assets/imagenes/MIF.png" alt="Icono Fuego" class="icono-fuego">
                             </div>
                             <div class="texto-item">
                                 Institucionalización del Manejo<br>Integral del Fuego (MIF)
@@ -89,7 +91,7 @@
                     <div class="contenedorSwitch4">
                         <div class="item-con-icono">
                             <div class="icono-contenedor">
-                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                                <img src="assets/imagenes/reduccion.png" alt="Icono Fuego" class="icono-fuego">
                             </div>
                             <div class="texto-item">
                                 Reducción de riesgos a través de la <br>prevención y control de incendios forestales
@@ -107,7 +109,7 @@
                     <div class="contenedorSwitch4">
                         <div class="item-con-icono">
                             <div class="icono-contenedor">
-                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                                <img src="assets/imagenes/atencion.jpg" alt="Icono Fuego" class="icono-fuego">
                             </div>
                             <div class="texto-item">
                                 Atención de desastres y/o emergencias a través de la <br>preparación, alerta, respuesta
@@ -126,7 +128,7 @@
                     <div class="contenedorSwitch4">
                         <div class="item-con-icono">
                             <div class="icono-contenedor">
-                                <img src="nombre_de_tu_imagen.png" alt="Icono Fuego" class="icono-fuego">
+                                <img src="assets/imagenes/promocion.jpg" alt="Icono Fuego" class="icono-fuego">
                             </div>
                             <div class="texto-item">
                                 Promoción de Alternativas al uso del fuego en las prácticas<br> agropecuarias a través
@@ -151,7 +153,7 @@
                                     <div class="numero-circulo-encabezado">2</div>
                                     <div class="texto-encabezado">Análisis de Información</div>
                                 </div>
-                                <div>
+                                <div class="AnalisiInformacio">
                                     En base a la información que se recopila respecto a los cuatro (4) componentes de la
                                     EPMIF, se puede identificar indicadores y co-indicadores relevantes asignando una
                                     ponderación de valoración, en el marco del método de “Telaraña de Bersnstein”, el
@@ -161,25 +163,28 @@
                             </div>
                         </div>
                         <div class="secondCard secondCard--big">
-                            <img src="assets/imagenes/analisisSituacional.png">
+                            <div class="AnalisiInformacio">
+                                <img src="assets/imagenes/telarana.png">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="botonesVolSig">
-                <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0"
-                    [style.visibility]="currentStep === 0 ? 'hidden' : 'visible'">Volver</button>
-                <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 6 - 1"
-                    [style.visibility]="currentStep === 6 - 1 ? 'hidden' : 'visible'">Siguiente</button>
-            </div>
+
+        </div>
+        <div class="botonesVolSig">
+            <button class="btn btn--vol" (click)="prevStep()" [disabled]="currentStep === 0"
+                [style.visibility]="currentStep === 0 ? 'hidden' : 'visible'">Volver</button>
+            <button class="btn btn--sig" (click)="nextStep()" [disabled]="currentStep === 6 - 1"
+                [style.visibility]="currentStep === 6 - 1 ? 'hidden' : 'visible'">Siguiente</button>
         </div>
     </div>
 
-    <div class="button_action">
+    <!-- <div class="button_action">
         <button class="btn_act" (click)="extenderBar()">
             <mat-icon fontIcon="arrow_left" *ngIf="ExtenderBar"></mat-icon>
             <mat-icon fontIcon="arrow_right" *ngIf="!ExtenderBar"></mat-icon>
         </button>
-    </div>
+    </div> -->
 
 </div>

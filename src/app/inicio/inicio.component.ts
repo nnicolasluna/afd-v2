@@ -609,7 +609,7 @@ export class InicioComponent implements AfterViewInit {
       // Ajusta ambos mapas al bounding box
       this.map1.fitBounds(bounds);
       this.map2.fitBounds(bounds);
-      this.map1.on('move', () => {
+      /* this.map1.on('move', () => {
         this.map2.setView(this.map1.getCenter(), this.map1.getZoom(), {
           animate: false
         });
@@ -619,7 +619,7 @@ export class InicioComponent implements AfterViewInit {
         this.map1.setView(this.map2.getCenter(), this.map2.getZoom(), {
           animate: false
         });
-      });
+      }); */
     }, 0);
   }
   simpleWMS(muni: any, indice: string) {

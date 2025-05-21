@@ -1,5 +1,5 @@
 .table-responsive {
-    overflow-x: auto;
+    /* overflow-x: auto; */
     overflow-y: auto;
     /* Agrega scroll horizontal si el contenido excede el ancho */
     -webkit-overflow-scrolling: touch;
@@ -8,13 +8,32 @@
     justify-content: center;
     align-items: start;
     border-radius: 30px;
-    max-height: 450px;
+    height: 100%;
+    /* max-height: 500px; */
+
 }
 
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #272323E5;
+    border-radius: 10px;
+
+}
+
+.table-responsive::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #5E5E5E;
+    border-radius: 10px;
+}
+table{
+    text-align: center;
+}
 .table {
     width: 90%;
     border-collapse: collapse;
-
+    text-align: center;
     color: white;
     font-size: 0.8rem;
 }
@@ -56,9 +75,6 @@
     text-align: left;
 
 }
-
-
-
 .table tbody tr:first-child td {
     border-top: none;
 }
