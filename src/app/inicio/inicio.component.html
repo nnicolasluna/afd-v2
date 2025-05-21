@@ -6,7 +6,9 @@
 <div id="map" *ngIf="!mostrarMapa2"></div>
 <div class="maps-container" *ngIf="mostrarMapa2">
     <div id="map1" class="map"></div>
-    <div class="map-divider" ><div class="object"></div></div>
+    <div class="map-divider">
+        <div class="object"></div>
+    </div>
     <div id="map2" class="map"></div>
     <div class="map-slider">
         <input type="range" min="0" max="100" value="50" class="slider" id="mapRange" (input)="updateMapWidth($event)">
@@ -26,11 +28,13 @@
 <app-convenios *ngIf="mostrarConvenios"></app-convenios>
 <app-manuales *ngIf="mostrarManuales"></app-manuales>
 
-<app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" *ngIf="mostrarrecu">
+<app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" *ngIf="mostrarrecu"
+    [tamContenedor]="'card--small'">
     <p>Identificación de acciones para la recuperación y restauración de áreas afectadas por incendios forestales</p>
     <button class="boton boton--azul">Ver Acciones </button>
 </app-card-generico>
-<app-card-generico [Municipio]="municipio" [titulo]="'Alternativas al uso de fuego'" *ngIf="mostraralternativas">
+<app-alternativas [municipio]="municipio" *ngIf="mostraralternativas"></app-alternativas>
+<!-- <app-card-generico [Municipio]="municipio" [titulo]="'Alternativas al uso de fuego'" *ngIf="mostraralternativas">
     <p>Identificación y diseño de prácticas alternativas al uso de fuego</p>
     <button class="boton boton--azul">Ver Alternativas </button>
-</app-card-generico>
+</app-card-generico> -->

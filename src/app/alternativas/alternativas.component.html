@@ -1,0 +1,33 @@
+<app-card-generico [Municipio]="municipio" [titulo]="'Alternativas al uso de fuego'" *ngIf="mostrarPantalla1"[tamContenedor]="'card--small'">
+    <div class="ContenedorPrimeraVIsta">
+        <p>Identificación de acciones para la recuperación y restauración de áreas afectadas por incendios forestales
+        </p>
+        <button class="boton boton--azul" (click)="VerAlternativas()">Ver Alternativas</button>
+    </div>
+</app-card-generico>
+<app-card-generico [Municipio]="municipio" mostrarPantalla1 *ngIf="mostrarPantalla2"[tamContenedor]="'card--big'">
+  <div class="contenedorDoble">
+      <div>
+        <div class="title title--bold">Alternativas al uso de fuego</div>
+        <div class="text">
+            Entrega Secador Solar en el emprendimiento de la OMIN (Palos Blancos).
+            Con detalles de la misma de:
+            Construcción infraestructura metálica y cobertura con policarbonato y colocado de 6 ventanas para secado
+            solar, para la producción de harina de harina de plátano
+        </div>
+        <button class="boton boton--azul" (click)="VerFotografias()">Ver Fotografías</button>
+    </div>
+    <div>
+        <div class="title">Alternativas al uso de fuego</div>
+        <div class="text">
+            Entrega Secador Solar en el emprendimiento de la OMIN (Palos Blancos).
+            Con detalles de la misma de:
+            Construcción infraestructura metálica y cobertura con policarbonato y colocado de 6 ventanas para secado
+            solar, para la producción de harina de harina de plátano
+        </div>
+    </div>
+  </div>
+</app-card-generico>
+<app-card-generico [Municipio]="municipio" mostrarPantalla1 *ngIf="mostrarPantalla3"[tamContenedor]="'card--big'">
+
+</app-card-generico>

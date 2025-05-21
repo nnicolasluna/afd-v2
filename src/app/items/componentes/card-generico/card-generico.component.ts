@@ -8,6 +8,7 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
 export class CardGenericoComponent {
   @Input() Municipio: string | undefined;
   @Input() titulo: string | undefined;
+  @Input() tamContenedor: string = '';
 
   ExtenderBar: boolean = true;
 

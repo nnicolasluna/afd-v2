@@ -1,11 +1,16 @@
 .card {
     color: white;
-    width: 320px;
+    
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    /*     position: fixed; */
     top: 20%;
+    &--small{
+        width: 320px;
+    }
+    &--big{
+        width: 60%;
+    }
 }
 
 .card-header {

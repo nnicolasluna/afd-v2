@@ -1,0 +1,40 @@
+.ContenedorPrimeraVIsta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+button {
+    background-color: #14438F;
+    color: white;
+    width: fit-content;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: white;
+    color: #14438F;
+}
+
+.title {
+    text-align: center;
+
+    padding-bottom: 5px;
+    padding: 10px 30px;
+    background-color: #161616;
+    border-radius: 10px;
+
+    &--bold {
+        font-weight: bolder;
+    }
+}
+
+.contenedorDoble {
+    display: flex;
+    flex-direction: row;
+}

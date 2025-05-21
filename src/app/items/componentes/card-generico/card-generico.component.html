@@ -1,12 +1,12 @@
 <div class="bar_main">
-    <div class="card" *ngIf="ExtenderBar">
+    <div class="card" *ngIf="ExtenderBar" [ngClass]="tamContenedor">
         <div class="card-header">
 
             <div class="card-title">{{Municipio}}</div>
             <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
         </div>
         <div class="platform-list">
-            <div class="title">
+            <div class="title" *ngIf="titulo">
                 {{titulo}}
             </div>
 

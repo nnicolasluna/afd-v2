@@ -63,16 +63,19 @@ export class MenuComponent {
   mostrarConvenios() {
     this.modalStateService.mostrarConvenios();
     this.modalStateService.cerrarBtnEvaluamos();
+    this.modalStateService.cerrartresBtn()
 
   }
   mostrarManuales() {
     this.modalStateService.mostrarManuales();
     this.modalStateService.cerrarBtnEvaluamos();
+    this.modalStateService.cerrartresBtn()
 
   }
   mostrarTalleres() {
     this.modalStateService.mostrartalleres();
     this.modalStateService.cerrarBtnEvaluamos();
+    this.modalStateService.cerrartresBtn()
 
   }
   refreshAll() {
