@@ -19,6 +19,7 @@ export class TalleresComponent {
   tecerapantalla_participantes = false
   tecerapantalla_desarrollo = false
   datosMunicipioSelecionado: any;
+  Numerotaller: string = ''
   regiones: Region[] = [
     {
       nombre: 'La Paz',
@@ -36,14 +37,14 @@ export class TalleresComponent {
       municipioInicial: 'Tiquipaya'
     }
   ];
-SubMenu_definicion = true
-SubMenu_identificar = false
-SubMenu_acciones = false
-SubMenu_foda = false
-SubMenu_acta = false
+  SubMenu_definicion = true
+  SubMenu_identificar = false
+  SubMenu_acciones = false
+  SubMenu_foda = false
+  SubMenu_acta = false
 
-activeButton: number = 1; 
- botonActivomenu(buttonNumber: number) {
+  activeButton: number = 1;
+  botonActivomenu(buttonNumber: number) {
     this.activeButton = buttonNumber;
   }
 
@@ -51,29 +52,35 @@ activeButton: number = 1;
   municipioSeleccionado: Municipio | undefined;
 
   constructor() {
-    this.seleccionarRegion(this.regiones[0]);
-    this.seleccionarMunicipio(this.regiones[0].municipios.find(m => m.nombre === this.regiones[0].municipioInicial)!);
+    /* this.seleccionarRegion(this.regiones[0]);
+    this.seleccionarMunicipio(this.regiones[0].municipios.find(m => m.nombre === this.regiones[0].municipioInicial)!); */
   }
-
-  seleccionarRegion(region: Region): void {
+  botonVertaller(taller: string) {
+    this.primerapantalla = !this.primerapantalla
+    this.taller2 = !this.primerapantalla
+    this.Numerotaller = taller
+    this.seleccionarRegion(this.regiones[0],taller);
+    this.seleccionarMunicipio(this.regiones[0].municipios.find(m => m.nombre === this.regiones[0].municipioInicial)!,taller);
+  }
+  seleccionarRegion(region: Region,taller:string): void {
     this.regionSeleccionada = region;
-    this.seleccionarMunicipio(region.municipios.find(m => m.nombre === region.municipioInicial)!);
+    this.seleccionarMunicipio(region.municipios.find(m => m.nombre === region.municipioInicial)!,taller);
   }
 
-  seleccionarMunicipio(municipio: Municipio): void {
+  seleccionarMunicipio(municipio: Municipio,taller:string): void {
     this.municipioSeleccionado = municipio;
     const nombreMunicipio = this.municipioSeleccionado.nombre;
-    if (this.datos_organizados.hasOwnProperty(nombreMunicipio)) {
-      this.datosMunicipioSelecionado = this.datos_organizados[nombreMunicipio as keyof typeof this.datos_organizados];
-    } else {
+    if (taller==='TALLER 2') {
+      if (this.datos_organizados.hasOwnProperty(nombreMunicipio)) {
+        this.datosMunicipioSelecionado = this.datos_organizados[nombreMunicipio as keyof typeof this.datos_organizados];
+      }
+    }
+    else {
       this.datosMunicipioSelecionado = [];
     }
   }
 
-  botonVertaller2() {
-    this.primerapantalla = !this.primerapantalla
-    this.taller2 = !this.primerapantalla
-  }
+
 
   verParticipantes() {
     this.taller2 = !this.taller2
@@ -143,9 +150,21 @@ activeButton: number = 1;
       {
         "Contenido": "Elaboración del acta de acuerdos y validación",
         "Descripcion": {
-          "Texto":"En el marco de la mesa de trabajo efectuada en el municipio de San Buenaventura, los participantes de diferentes comunidades e instituciones participaron activamente en la identificación de las zonas más afectadas por los incendios forestales, generando la necesidad de implementar acciones inmediatas para su recuperación. Durante el desarrollo de la mesa, se analizó el estado de las áreas afectadas y se propusieron acciones de reforestación con especies nativas forestales maderables y no maderables, así como el fortalecimiento de capacidades en la prevención y control de incendios forestales. El acta de acuerdos fue elaborada en base a los aportes, discusiones y propuestas presentadas por los participantes, asegurando que las acciones fueran inclusivas, adaptadas a la realidad del municipio y alineadas con los objetivos del proyecto. Posteriormente, se socializó el acta elaborada y en base a ello se procedió con la validación del documento, mediante la firma de los representantes de las comunidades, autoridades municipales y otros actores presentes, garantizando así el compromiso colectivo para la ejecución de las acciones identificadas."
+          "Texto": "En el marco de la mesa de trabajo efectuada en el municipio de San Buenaventura, los participantes de diferentes comunidades e instituciones participaron activamente en la identificación de las zonas más afectadas por los incendios forestales, generando la necesidad de implementar acciones inmediatas para su recuperación. Durante el desarrollo de la mesa, se analizó el estado de las áreas afectadas y se propusieron acciones de reforestación con especies nativas forestales maderables y no maderables, así como el fortalecimiento de capacidades en la prevención y control de incendios forestales. El acta de acuerdos fue elaborada en base a los aportes, discusiones y propuestas presentadas por los participantes, asegurando que las acciones fueran inclusivas, adaptadas a la realidad del municipio y alineadas con los objetivos del proyecto. Posteriormente, se socializó el acta elaborada y en base a ello se procedió con la validación del documento, mediante la firma de los representantes de las comunidades, autoridades municipales y otros actores presentes, garantizando así el compromiso colectivo para la ejecución de las acciones identificadas."
         }
-      }
+      },
+      {
+        "Lugar": "Salón del Parque Nacional Madidi",
+        "Fecha": "13 de enero de 2025",
+        "Participantes": [
+          "Representantes de la comunidad Bella Altura",
+          "Representantes de la comunidad Altamarani",
+          "Representantes del Consejo Indígena del Pueblo Tacana",
+          "Representantes del Gobierno Autónomo Municipal de San Buenaventura",
+          "Representantes del Parque Nacional Madidi",
+          "Representante de la OTB Tres Hermanos"
+        ]
+      },
     ],
     "Palos Blancos": [
       {
@@ -227,9 +246,21 @@ activeButton: number = 1;
         "Descripcion": {
           "Texto": "En el marco de la mesa de trabajo efectuada en el municipio de Palos Blancos, los participantes de diferentes comunidades e instituciones participaron activamente en la identificación de las zonas más afectadas por los incendios forestales, generando la necesidad de implementar acciones inmediatas para su recuperación. Durante el desarrollo de la mesa, se analizó el estado de las áreas afectadas y se propusieron acciones de reforestación en sitios afectados por incendios forestales y ojos de agua, para ello se consideraron especies nativas forestales maderables y no maderables, así como la implementación de sistemas agroforestales, y el fortalecimiento de capacidades en la prevención y control de incendios forestales.",
         }
+      },
+      {
+        "Lugar": "Auditorio del Gobierno Autónomo de Palos Blancos",
+        "Fecha": "24 de enero de 2025",
+        "Participantes": [
+          "Representantes del Gobierno Autónomo Municipal de Palos Blancos",
+          "Representantes de la Comunidad San Miguel de Huachi",
+          "Representantes del Distrito 5",
+          "Representantes del Área 7",
+          "Representantes de la OPIM",
+          "Representantes de la Conservación Internacional Bolivia"
+        ]
       }
     ],
-    "Rurrenabaque ": [
+    "Rurrenabaque": [
       {
         "Intro": "Durante el desarrollo de la mesa de trabajo en el municipio de Rurrenabaque, se contó con la participación de representantes de comunidades indígenas, técnicos del municipio, representantes de Defensa Civil y representantes del Área Protegida Pilón Laja, siendo esta mesa un espacio importante para la socialización y validación de los criterios técnicos y socioambientales identificados, así como para el intercambio de conocimientos y perspectivas sobre las áreas afectadas por incendios forestales. Además, permitió identificar las principales necesidades y definir acciones estratégicas para la restauración y recuperación de las áreas afectadas. En ese sentido, a continuación, se presentan los principales aportes de los participantes de la mesa de trabajo.",
       },
@@ -295,7 +326,19 @@ activeButton: number = 1;
         "Descripcion": {
           "Texto": "En el marco de la mesa de trabajo realizada para la restauración de áreas quemadas en el municipio de Rurrenabaque, se identificaron las comunidades más afectadas entre ellas: Retiro, El Paraíso, Carmen Florida, Real Bent, San Antonio de Sant, La Embocada del Quiquibey, Asunción del Quiquibey, Puerto Motor y Rurrenabaque, donde los representantes de diferentes comunidades participaron activamente en la identificación de las zonas más afectadas por los incendios forestales, generando la necesidad de implementar acciones para su recuperación. Durante la mesa, se analizó el estado de las áreas afectadas y se propusieron acciones de recuperación, como la reforestación con especies nativas forestales maderables, no maderables y frutales. El acta de acuerdos fue elaborada con base en las discusiones y propuestas presentadas por los comunarios, asegurando que las estrategias de restauración fueran inclusivas, adaptadas a la realidad del municipio y alineadas con los objetivos del proyecto. Posteriormente, el documento fue validado mediante la firma de los representantes de las comunidades, autoridades municipales y otros actores, garantizando así el compromiso colectivo para la ejecución de las acciones.",
         }
-      }
+      },
+      {
+        "Lugar": "Auditorio del Gobierno Autónomo Municipal de Rurrenabaque",
+        "Fecha": "14 de enero de 2025",
+        "Participantes": [
+          "Representantes del Gobierno Autónomo Municipal de Rurrenabaque",
+          "Representantes de Defensa Civil",
+          "Representantes del Consejo Regional Tsiname Moseten (CRTM)",
+          "Representantes del Área Protegida Pilón Lajas",
+          "Representantes de OMI - PL",
+          "Representantes de la comunidad Rio Hondo"
+        ]
+      },
     ],
     "Tiquipaya": [
       {
@@ -363,7 +406,18 @@ activeButton: number = 1;
         "Descripcion": {
           "Texto": "En el marco de la mesa de trabajo realizada para la restauración de áreas quemadas en el municipio de Tiquipaya, se identificó a la comunidad de Molinos como una de las más afectadas por los incendios forestales. Los representantes de esta comunidad participaron activamente en la identificación de las zonas dañadas, destacando acciones para su recuperación. Durante la mesa, en la que también estuvieron presentes personal de la ABT, SERNAP y Gobernación y otros actores, se analizó el estado de las áreas afectadas y se propusieron acciones inmediatas, como es el caso de la implementación de vertientes artificiales y cortinas rompefuegos, y reforestación con SAFs. El acta de acuerdos fue elaborada con base en las discusiones y propuestas presentadas por los comunarios, asegurando que las acciones fueran inclusivas, adaptadas a la realidad del municipio y alineadas con los objetivos del proyecto. Posteriormente, el documento fue validado mediante la firma de los representantes de las comunidades, autoridades municipales, personal de la ABT y otros actores involucrados, garantizando así el compromiso colectivo para la ejecución de las acciones.",
         }
-      }
+      },
+      {
+        "Lugar": "Auditorio del Gobierno Autónomo Municipal de Tiquipaya",
+        "Fecha": "16 de enero de 2025",
+        "Participantes": [
+          "Representantes del Gobierno Autónomo Municipal de Tiquipaya",
+          "Representantes del Gobierno Autónomo Departamental de Cochabamba",
+          "Representantes de la Comunidad Molinos",
+          "Representantes del Área Protegida Parque Nacional Tunari",
+          "Representantes de la Autoridad de Fiscalización y Control Social de Bosques y Tierra (ABT), departamental Cochabamba."
+        ]
+      },
     ],
     "San Borja": [
       {
@@ -428,10 +482,27 @@ activeButton: number = 1;
         "Descripcion": {
           "Texto": "En el marco de la mesa de trabajo efectuada en el municipio de San Borja, los participantes de diferentes comunidades e instituciones participaron activamente en la identificación de las zonas más afectadas por los incendios forestales, generando la necesidad de implementar acciones inmediatas para su recuperación. Durante el desarrollo de la mesa, se analizó el estado de las áreas afectadas y se propusieron acciones de reforestación en sitios con la presencia de ojos de agua, para ello se consideraron especies nativas forestales maderables y no maderables, así como la implementación de sistemas agroforestales, y el fortalecimiento de capacidades en la prevención y control de incendios forestales. El acta de acuerdos fue elaborada en base a los aportes, discusiones y propuestas presentadas por los participantes, asegurando que las acciones fueran inclusivas, adaptadas a la realidad del municipio y alineadas con los objetivos del proyecto. Posteriormente, se socializó el acta elaborada y en base a ello se procedió con la validación del documento, mediante la firma de los representantes de las comunidades, autoridades municipales y otros actores presentes, garantizando así el compromiso colectivo para la ejecución de las acciones identificadas.",
         }
-      }
+      },
+      {
+        "Lugar": "Auditorio del Gobierno Autónomo de San Borja",
+        "Fecha": "23 de enero de 2025",
+        "Participantes": [
+          "Representantes del Gobierno Autónomo Municipal de San Borja",
+          "Representantes de la Comunidad Pachiuval",
+          "Representantes del Gran Consejo Tsiname",
+          "Representantes de la Autoridad de Fiscalización y Control Social de Bosques y Tierra (ABT)",
+          "Representantes de la Subalcaldía de Yucumo",
+          "Representantes de la Subalcaldía de El Palmar",
+          "Representantes de la Comunidad Rio Hondo",
+          "Representantes de la Comunidad Inca Suyo",
+          "Representantes de la Comunidad Jerusalén",
+          "Representantes de la Comunidad Toronjal",
+          "Representantes de la Comunidad Manguito"
+        ]
+      },
     ],
     "Vinto": [
-       {
+      {
         "Intro": "Durante el desarrollo de la mesa de trabajo en el municipio de Vinto, se contó con la participación de representantes de entidades gubernamentales a nivel municipal y departamental, así como de comunidades locales e institucionales como el SERNAP y la ABT departamental de Cochabamba. Esta mesa de trabajo se consolidó como un espacio para la socialización y validación de criterios técnicos y socioambientales, así como para el intercambio de conocimientos sobre las áreas afectadas por incendios forestales. Además, permitió identificar las principales necesidades y definir acciones estratégicas para su restauración y recuperación. En ese sentido, a continuación, se describen los principales aportes de los participantes de la mesa de trabajo."
       },
       {
@@ -509,7 +580,18 @@ activeButton: number = 1;
         "Descripcion": {
           "Texto": "En el marco de la mesa de trabajo realizada en el municipio de Vinto, se identificaron las comunidades de Combuyo, Pairumani y Tajra como las más afectadas por los incendios forestales, con base en la evaluación técnica y la participación activa de los representantes comunales. Durante la mesa de trabajo, donde participaron representantes de la Comunidad Combuyo Chico, técnicos del SERNAP, técnicos de la ABT, técnicos de la Gobernación y técnicos del gobierno municipal, se realizó la identificación de las áreas priorizadas. Como resultado, se propusieron acciones de recuperación, tales como la reforestación con especies nativas, exóticas y frutales, fortalecimiento de capacidades e intercambio de experiencias, entre otros. El acta de acuerdo se elaboró con base a las necesidades identificadas por los participantes, asegurando que las acciones de restauración estuvieran alineadas con los objetivos del proyecto, adaptadas a las condiciones socioambientales del municipio. Posteriormente, el documento fue validado mediante la firma de los representantes de las comunidades, autoridades municipales, representantes del Área Protegida Tunari, técnicos de la ABT, formalizando así el compromiso interinstitucional para la ejecución de las acciones propuestas. ",
         }
-      }
+      },
+      {
+        "Lugar": "Auditorio del Gobierno Autónomo Municipal de Vinto",
+        "Fecha": "17 de enero de 2025",
+        "Participantes": [
+          "Representantes del Gobierno Autónomo Municipal de Vinto",
+          "Representantes del Gobierno Autónomo Departamental de Cochabamba",
+          "Representantes de la Comunidad Combuyo Chico",
+          "Representantes del Área Protegida Parque Nacional Tunari",
+          "Representantes de la Autoridad de Fiscalización y Control Social de Bosques y Tierra (ABT), departamental Cochabamba."
+        ]
+      },
     ]
   }
 }

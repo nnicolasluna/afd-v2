@@ -1,7 +1,7 @@
 <div class="container-main">
     <div class="primeraPantallaTalleres" *ngIf="primerapantalla">
         <div class="topTimeLine">
-            <div class="timeLineContent timeLineContent__1">
+            <div class="timeLineContent timeLineContent__1" (click)="botonVertaller('TALLER 1')">
                 <div class="taller-container">
                     <div class="cicleandBar">
                         <div class="timeline-circle timeline-circle--orange"></div>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="bar bar--orange"></div>
             </div>
-            <div class="timeLineContent timeLineContent__3" (click)="botonVertaller2()">
+            <div class="timeLineContent timeLineContent__3" (click)="botonVertaller('TALLER 2')">
                 <div class="bar bar--red"></div>
                 <div class="taller-container">
                     <div class="cicleandBar">
@@ -49,7 +49,7 @@
                 </div>
 
             </div>
-            <div class="timeLineContent timeLineContent__2">
+            <div class="timeLineContent timeLineContent__2" (click)="botonVertaller('TALLER 3')">
                 <div class="taller-container">
                     <div class="cicleandBar">
                         <div class="timeline-circle timeline-circle--other"></div>
@@ -72,40 +72,55 @@
             </div>
             <div class="timeLineContent timeLineContent__4"></div>
         </div>
-        <button class="btnPrimeraPantalla">Ver Mas</button>
+        <!-- <button class="btnPrimeraPantalla"></button> -->
     </div>
     <div class="segundaPantallaTalleres" *ngIf="taller2">
-        <div class="NumeroTaller">TALLER 2</div>
-        <div class="btnDepto">
+        <div class="NumeroTaller">{{Numerotaller}}</div>
+        <div class="btnDepto" *ngIf="Numerotaller!='TALLER 3'">
             <button class="btnDepto__1" [ngClass]="{'active': regionSeleccionada?.nombre === region.nombre }"
-                *ngFor="let region of regiones" (click)="seleccionarRegion(region)">
+                *ngFor="let region of regiones" (click)="seleccionarRegion(region,Numerotaller)">
                 {{ region.nombre }}
             </button>
         </div>
-        <div class="btnMuni">
+        <div class="btnMuni" *ngIf="Numerotaller!='TALLER 3'">
             <div class="btnMuni2">
                 <div class="btnMuni__1" [ngClass]="{'active': municipioSeleccionado?.nombre === municipio.nombre }"
-                    *ngFor="let municipio of regionSeleccionada!.municipios" (click)="seleccionarMunicipio(municipio) ">
+                    *ngFor="let municipio of regionSeleccionada!.municipios"
+                    (click)="seleccionarMunicipio(municipio,Numerotaller) ">
                     {{ municipio.nombre }}
                 </div>
             </div>
         </div>
+        <div class="btnMuni" *ngIf="Numerotaller=='TALLER 3'"></div>
+        <div class="btnDepto" *ngIf="Numerotaller=='TALLER 3'"></div>
         <div class="doublecard">
             <div class="tallerCardleft tallerCardleft--normal">
                 <div class="tallerCardleft__body">
                     <div class="tallerCardleft__title">Desarrollo de las Mesas Técnicas Participativas</div>
-                    <div class="content">
-                        <!-- Durante el desarrollo de la mesa de trabajo en el municipio de Rurrenabaque, se
-                        contó con la participación de representantes de comunidades indígenas, técnicos del municipio,
-                        representantes de Defensa Civil y representantes del Área Protegida Pilón Laja, siendo esta mesa
-                        un espacio importante para la socialización y validación de los criterios técnicos y
-                        socioambientales identificados, así como para el intercambio de conocimientos y perspectivas
-                        sobre las áreas afectadas por incendios forestales. Además, permitió identificar las principales
-                        necesidades y definir acciones estratégicas para la restauración y recuperación de las áreas
-                        afectadas. -->
-                        {{datosMunicipioSelecionado[0].Intro}}
+                    <div class="content" *ngIf="Numerotaller==='TALLER 2'">
+                        {{datosMunicipioSelecionado[0]?.Intro}}
                     </div>
-                    <div class="btncardleft">
+                    <div class="content" *ngIf="Numerotaller==='TALLER 1'">
+                        La Autoridad Plurinacional de la Madre Tierra (APMT), en coordinación con el Ministerio de Medio
+                        Ambiente y Agua (MMAyA), programó la presentación del Servicio de apoyo – Fortalecimiento
+                        técnico e institucional para el diseño e implementación de acciones de recuperación/restauración
+                        en áreas afectadas por incendios y de prácticas alternativas al uso de fuego a través de
+                        sistemas productivos sustentables, en acompañamiento a la Autoridad Plurinacional de la Madre
+                        Tierra (APMT). Esta iniciativa tiene como parte el municipio de Palos Blancos del departamento
+                        de La Paz. En este marco, la APMT realizó una reunión de arranque para presentar formalmente la
+                        iniciativa y coordinar la implementación de las acciones previstas en el territorio. La
+                        Autoridad Plurinacional de la Madre Tierra (APMT), en coordinación con el Ministerio de Medio
+                        Ambiente y Agua (MMAyA), programó la presentación del Servicio de apoyo – Fortalecimiento
+                        técnico e institucional para el diseño e implementación de acciones de recuperación/restauración
+                        en áreas afectadas por incendios y de prácticas alternativas al uso de fuego a través de
+                        sistemas productivos sustentables, en acompañamiento a la Autoridad Plurinacional de la Madre
+                        Tierra (APMT). Esta iniciativa tiene como parte el municipio de
+                        {{municipioSeleccionado?.nombre}} del departamento
+                        de {{regionSeleccionada?.nombre}}. En este marco, la APMT realizó una reunión de arranque para
+                        presentar formalmente la
+                        iniciativa y coordinar la implementación de las acciones previstas en el territorio.
+                    </div>
+                    <div class="btncardleft" *ngIf="Numerotaller!='TALLER 1'">
                         <button class="btncardleft__btn" (click)="verParticipantes()">Ver Participantes</button>
                         <button class="btncardleft__btn" (click)="verDesarrollo()">Ver el Desarrollo de la mesa de
                             trabajo</button>
@@ -117,9 +132,9 @@
                         <mat-icon fontIcon="my_location"></mat-icon>
                         <div class="textFooter">
                             <div class="title_card">Localización</div>
-                            Beni - Rurrenabaque
+                            {{regionSeleccionada?.nombre}} - {{municipioSeleccionado?.nombre}}
                             <div>
-                                Auditorio del Gobierno Autónomo Municipal de Rurrenabaque
+                                {{datosMunicipioSelecionado[6]?.Lugar}}
                             </div>
                         </div>
                     </div>
@@ -127,7 +142,7 @@
                         <mat-icon fontIcon="calendar_month"></mat-icon>
                         <div class="textFooter">
                             <div class="title_card">Fecha</div>
-                            16 Enero de 2025
+                            {{datosMunicipioSelecionado[6]?.Fecha}}
                         </div>
                     </div>
                 </div>
@@ -137,11 +152,11 @@
                 <div class="tallerCardright__body">
                     <div class="cont_img">
                         <img src="assets/logos/bicentenario_vertical.png" alt="">
-                        Reunión 16 Enero 2025
+                        {{datosMunicipioSelecionado[6]?.Fecha}}
                     </div>
                     <div class="cont_img">
                         <img src="assets/logos/bicentenario_vertical.png" alt="">
-                        Reunión 16 Enero 2025
+                        {{datosMunicipioSelecionado[6]?.Fecha}}
                     </div>
                 </div>
             </div>
@@ -157,9 +172,12 @@
                     <div class="tallerCardleft__title">Participantes</div>
                     <mat-icon class="tallerCardleft__icon" fontIcon="groups"></mat-icon>
                 </div>
-
-                <div class="main-container">
-
+                <div class="participantesContainer">
+                    <div class="participantesContainer__obj"
+                        *ngFor="let participante of datosMunicipioSelecionado[6].Participantes; let i = index"
+                        [ngClass]="'color-' + i">
+                        {{participante}}
+                    </div>
                 </div>
             </div>
             <div class="tallerCardleft__footer">
@@ -167,9 +185,9 @@
                     <mat-icon fontIcon="my_location"></mat-icon>
                     <div class="textFooter">
                         <div class="title_card">Localización</div>
-                        Beni - Rurrenabaque
+                        {{regionSeleccionada?.nombre}} - {{municipioSeleccionado?.nombre}}
                         <div>
-                            Auditorio del Gobierno Autónomo Municipal de Rurrenabaque
+                            {{datosMunicipioSelecionado[6].Lugar}}
                         </div>
                     </div>
                 </div>
@@ -177,7 +195,7 @@
                     <mat-icon fontIcon="calendar_month"></mat-icon>
                     <div class="textFooter">
                         <div class="title_card">Fecha</div>
-                        16 Enero de 2025
+                        {{datosMunicipioSelecionado[6].Fecha}}
                     </div>
                 </div>
             </div>
@@ -216,52 +234,52 @@
                         </div>
                         <div class="desarrollo__contentIcos">
                             <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                                <div class="desarrollo__textIcon">Densidad Poblacional</div>
+                                <img src="assets/talleres/iconos/icon10.png" alt="">
                             </div>
                             <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                                <div class="desarrollo__textIcon">Caminos</div>
+                                <img src="assets/talleres/iconos/icon9.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--orange_1">
+                                <div class="desarrollo__textIcon">Potencial Producctivo</div>
+                                <img src="assets/talleres/iconos/icon3.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--green1">
+                                <div class="desarrollo__textIcon">Bosques</div>
+                                <img src="assets/talleres/iconos/icon11.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--green2">
+                                <div class="desarrollo__textIcon">Severidad de Incendios</div>
+                                <img src="assets/talleres/iconos/icon7.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--red1">
+                                <div class="desarrollo__textIcon">Frecuencia de Quemas</div>
+                                <img src="assets/talleres/iconos/icon6.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--orange2">
+                                <div class="desarrollo__textIcon">Tenencia de Tierras</div>
+                                <img src="assets/talleres/iconos/icon5.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--red2">
+                                <div class="desarrollo__textIcon">Biomasa Subterranea</div>
+                                <img src="assets/talleres/iconos/icon12.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--green3">
+                                <div class="desarrollo__textIcon">Pendiente</div>
+                                <img src="assets/talleres/iconos/icon4.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--brown">
+                                <div class="desarrollo__textIcon">Precipitación Media</div>
+                                <img src="assets/talleres/iconos/icon8.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--green4">
+                                <div class="desarrollo__textIcon">Vulnerabilidad al Cambio climatico</div>
+                                <img src="assets/talleres/iconos/icon1.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
-                                Densidad Poblacional
-                                <img src="assets/imagenes/iconos/icon1.png" alt="">
+                            <div class="desarrollo__icon desarrollo__icon--blue2">
+                                <div class="desarrollo__textIcon">Escenarios Climáticos</div>
+                                <img src="assets/talleres/iconos/icon2.png" alt="">
                             </div>
                         </div>
                         <div class="desarrollo__bot">
@@ -285,28 +303,32 @@
                     <div class="desarrollo__content" *ngIf="activeButton===4">
                         <div class="desarrollo__subText">
                             <div class="swot-grid">
-                                <div class="swot-box fortalezas">
+                                <div class="swot-box swot-box__fortalezas">
                                     <h2>Fortalezas</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Fortalezas">{{ item }}</li>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Fortalezas">{{
+                                            item }}</li>
                                     </ul>
                                 </div>
-                                <div class="swot-box debilidades">
+                                <div class="swot-box swot-box__debilidades">
                                     <h2>Debilidades</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Debilidades">{{ item }}</li>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Debilidades">{{
+                                            item }}</li>
                                     </ul>
                                 </div>
-                                <div class="swot-box oportunidades">
+                                <div class="swot-box swot-box__oportunidades">
                                     <h2>Oportunidades</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Oportunidades">{{ item }}</li>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Oportunidades">
+                                            {{ item }}</li>
                                     </ul>
                                 </div>
-                                <div class="swot-box amenazas">
+                                <div class="swot-box swot-box__amenazas">
                                     <h2>Amenazas</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Amenazas">{{ item }}</li>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Amenazas">{{
+                                            item }}</li>
                                     </ul>
                                 </div>
                             </div>
