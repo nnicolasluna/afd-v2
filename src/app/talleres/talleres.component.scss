@@ -28,7 +28,7 @@
       width: 500px;
       display: flex;
       flex-direction: row;
-      height: 40%;
+
   }
 
   .timeline-line {
@@ -119,9 +119,13 @@
 
   .topTimeLine {
       width: 100%;
-      display: flex;
-      flex-direction: row;
       height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+          "item1 . item2"
+          ". item3 .";
   }
 
   .bar {
@@ -142,17 +146,34 @@
   }
 
   .timeLineContent {
-      height: 35%;
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      /* padding-top: 30px; */
-      top: 0;
-
-      &--mid {
-          margin-top: 12.6%;
-          height: 35%;
+      &__1 {
+          grid-area: item1;
       }
+
+      &__2 {
+          grid-area: item2;
+      }
+
+      &__3 {
+          grid-area: item3;
+          margin-top: -10px;
+      }
+
+      &__4 {
+          grid-area: llena1;
+      }
+  }
+
+  .talleres {
+      background-color: #161616;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+  }
+
+  .talleres:hover {
+      background-color: transparentize(#161616CC, 0.1);
+      ;
   }
 
   .btnPrimeraPantalla {
@@ -320,6 +341,13 @@
 
   }
 
+  .Bigtitle {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      padding: 30px 10px;
+  }
+
   .btncardleft {
       display: flex;
       flex-direction: row;
@@ -403,11 +431,15 @@
           text-align: left;
           width: 100%;
       }
+      &__desarrollo.active {
+        background-color: white;
+        color: #242425;
+      }
 
   }
 
   .desarrollo {
-      width: 75%;
+      width: 100%;
       height: 100%;
 
       &__title {
@@ -416,19 +448,28 @@
           height: 5%;
           font-weight: bold;
           font-size: 15px;
+          padding: 15px;
+      }
+
+      &__subText {
+          padding: 15px;
       }
 
       &__content {
           width: 100%;
           height: 95%;
           background-color: #13351A;
-          padding: 10px;
+          /* padding: 10px; */
           text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          overflow-y: auto;
+          overflow-x: hidden;
       }
 
       &__contentIcos {
-        width: 100%;
-        background-color: red;
+          width: 100%;
           display: grid;
           grid-template-columns: repeat(6, 1fr);
           gap: 5px;
@@ -450,4 +491,57 @@
               background-color: #375991;
           }
       }
+      &__bot{
+        width: 90%;
+        padding: 10px;
+
+      }
+      &__acciones{
+        padding: 5px;
+        background-color: #242425;
+        text-align: start;
+        margin-bottom: 3px;
+        border-radius: 5px;
+      }
   }
+  .swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Let columns share equal available space */
+  /* Remove grid-template-rows to allow rows to auto-size */
+  gap: 10px;
+  /* Remove the fixed width to let it expand based on content */
+}
+
+.swot-box {
+  padding: 15px;
+  border-radius: 5px;
+  overflow: auto; /* Add scroll if content overflows */
+}
+
+.fortalezas {
+  background-color: #a7d98d;
+}
+
+.debilidades {
+  background-color: #b19cd9;
+}
+
+.oportunidades {
+  background-color: #ffe082;
+}
+
+.amenazas {
+  background-color: #f48fb1;
+}
+
+.swot-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.swot-box ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 0;
+}

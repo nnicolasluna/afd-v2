@@ -1,13 +1,13 @@
 <div class="container-main">
     <div class="primeraPantallaTalleres" *ngIf="primerapantalla">
         <div class="topTimeLine">
-            <div class="timeLineContent">
+            <div class="timeLineContent timeLineContent__1">
                 <div class="taller-container">
                     <div class="cicleandBar">
                         <div class="timeline-circle timeline-circle--orange"></div>
                         <div class="timeline-line timeline-line--orange"></div>
                     </div>
-                    <div>
+                    <div class="talleres">
                         <div class="title title--orange">Taller 1</div>
                         <div class="date">10 Octubre 2024</div>
                         <div class="imgTex">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="bar bar--orange"></div>
             </div>
-            <div class="timeLineContent timeLineContent--mid">
+            <div class="timeLineContent timeLineContent__3" (click)="botonVertaller2()">
                 <div class="bar bar--red"></div>
                 <div class="taller-container">
                     <div class="cicleandBar">
@@ -30,7 +30,7 @@
                         <div class="timeline-circle timeline-circle--red"></div>
 
                     </div>
-                    <div>
+                    <div class="talleres">
                         <div class="title title--red">Taller 2</div>
                         <div class="date">13-24 Enero 2025</div>
                         <div class="imgTex">
@@ -49,13 +49,13 @@
                 </div>
 
             </div>
-            <div class="timeLineContent">
+            <div class="timeLineContent timeLineContent__2">
                 <div class="taller-container">
                     <div class="cicleandBar">
                         <div class="timeline-circle timeline-circle--other"></div>
                         <div class="timeline-line timeline-line--other"></div>
                     </div>
-                    <div>
+                    <div class="talleres">
                         <div class="title title--other">Taller 3</div>
                         <div class="date">26 Febrero 2025</div>
                         <div class="imgTex">
@@ -70,30 +70,23 @@
                 </div>
                 <div class="bar bar--other"></div>
             </div>
-            <button class="btnPrimeraPantalla" (click)="botonVermas()">Ver Mas</button>
+            <div class="timeLineContent timeLineContent__4"></div>
         </div>
+        <button class="btnPrimeraPantalla">Ver Mas</button>
     </div>
-    <div class="segundaPantallaTalleres" *ngIf="segundapantalla">
+    <div class="segundaPantallaTalleres" *ngIf="taller2">
         <div class="NumeroTaller">TALLER 2</div>
         <div class="btnDepto">
-            <button class="btnDepto__1" [ngClass]="{'active': lapaz}" (click)="verDeptbtn('La Paz')">La
-                Paz</button>
-            <button class="btnDepto__1" [ngClass]="{'active': cocha}" (click)="verDeptbtn('Cocha')">Cochabamba</button>
-            <button class="btnDepto__1" [ngClass]="{'active': beni}" (click)="verDeptbtn('Beni')">Beni</button>
+            <button class="btnDepto__1" [ngClass]="{'active': regionSeleccionada?.nombre === region.nombre }"
+                *ngFor="let region of regiones" (click)="seleccionarRegion(region)">
+                {{ region.nombre }}
+            </button>
         </div>
         <div class="btnMuni">
             <div class="btnMuni2">
-                <div class="btnMuni__1" [ngClass]="{'active': pb}" *ngIf="lapaz">Palos
-                    Blancos</div>
-                <div class="btnMuni__1" [ngClass]="{'active': sb}" *ngIf="lapaz">San
-                    Buenaventura</div>
-                <div class="btnMuni__1" [ngClass]="{'active': ru}" *ngIf="beni">
-                    Rurrenabaque</div>
-                <div class="btnMuni__1" [ngClass]="{'active': sbor}" *ngIf="beni">San Borja
-                </div>
-                <div class="btnMuni__1" [ngClass]="{'active': tiq}" *ngIf="cocha">Tiquipaya
-                </div>
-                <div class="btnMuni__1" [ngClass]="{'active': vi}" *ngIf="cocha">Vinto
+                <div class="btnMuni__1" [ngClass]="{'active': municipioSeleccionado?.nombre === municipio.nombre }"
+                    *ngFor="let municipio of regionSeleccionada!.municipios" (click)="seleccionarMunicipio(municipio) ">
+                    {{ municipio.nombre }}
                 </div>
             </div>
         </div>
@@ -101,14 +94,16 @@
             <div class="tallerCardleft tallerCardleft--normal">
                 <div class="tallerCardleft__body">
                     <div class="tallerCardleft__title">Desarrollo de las Mesas Técnicas Participativas</div>
-                    <div class="content">Durante el desarrollo de la mesa de trabajo en el municipio de Rurrenabaque, se
+                    <div class="content">
+                        <!-- Durante el desarrollo de la mesa de trabajo en el municipio de Rurrenabaque, se
                         contó con la participación de representantes de comunidades indígenas, técnicos del municipio,
                         representantes de Defensa Civil y representantes del Área Protegida Pilón Laja, siendo esta mesa
                         un espacio importante para la socialización y validación de los criterios técnicos y
                         socioambientales identificados, así como para el intercambio de conocimientos y perspectivas
                         sobre las áreas afectadas por incendios forestales. Además, permitió identificar las principales
                         necesidades y definir acciones estratégicas para la restauración y recuperación de las áreas
-                        afectadas.
+                        afectadas. -->
+                        {{datosMunicipioSelecionado[0].Intro}}
                     </div>
                     <div class="btncardleft">
                         <button class="btncardleft__btn" (click)="verParticipantes()">Ver Participantes</button>
@@ -153,7 +148,9 @@
         </div>
     </div>
     <div class="terceraPantallaTalleres-Participantes" *ngIf="tecerapantalla_participantes">
+        <div class="Bigtitle">{{municipioSeleccionado?.nombre}}</div>
         <div class="tallerCardleft tallerCardleft--big">
+
             <div class="tallerCardleft__body">
                 <div class="tallerCardleft__participantes">
                     <button class="tallerCardleft__butonHeader" (click)="verParticipantes()">Regresar</button>
@@ -188,27 +185,35 @@
 
     </div>
     <div class="terceraPantallaTalleres-Desarrollo" *ngIf="tecerapantalla_desarrollo">
+        <div class="Bigtitle">{{municipioSeleccionado?.nombre}}</div>
         <div class="tallerCardleft tallerCardleft--xbig">
             <div class="tallerCardleft__desarrollo">
                 <div class="buttonContent">
                     <button class="tallerCardleft__butonHeader" (click)="verDesarrollo()">Regresar</button>
-                    <button class="buttonContent__desarrollo">1. Definición de criterios técnicos y
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(1)"
+                        [class.active]="activeButton === 1">1. Definición de criterios técnicos y
                         socioambientales</button>
-                    <button class="buttonContent__desarrollo">2. Identificar y priorizar áreas para la
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(2)"
+                        [class.active]="activeButton === 2">2. Identificar y priorizar áreas para la
                         restauración</button>
-                    <button class="buttonContent__desarrollo">3. Identificar acciones de restauración y/o recuperación y
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(3)"
+                        [class.active]="activeButton === 3">3. Identificar acciones de restauración y/o recuperación y
                         principales necesidades</button>
-                    <button class="buttonContent__desarrollo">4. Identificación de las fortalezas, limitaciones,
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(4)"
+                        [class.active]="activeButton === 4">4. Identificación de las fortalezas, limitaciones,
                         oportunidades,
                         amenazas, prioridades
                         identificadas</button>
-                    <button class="buttonContent__desarrollo">5. Elaboración del acta de acuerdos y validación</button>
+                    <button class="buttonContent__desarrollo" [class.active]="activeButton === 5"
+                        (click)="botonActivomenu(5)" [class.active]="activeButton === 5">5. Elaboración del acta de
+                        acuerdos y validación</button>
                 </div>
                 <div class="desarrollo">
                     <div class="desarrollo__title">Desarrollo de la mesa de Trabajo</div>
-                    <div class="desarrollo__content">
-                        <div>Se realizó la presentación de la metodología de construcción de criterios técnicos y
-                            socio-ambientales, donde se explicó las variables seleccionadas:</div>
+                    <div class="desarrollo__content" *ngIf="activeButton===1">
+                        <div class="desarrollo__subText">
+                            {{datosMunicipioSelecionado[1].Descripcion.Texto}}
+                        </div>
                         <div class="desarrollo__contentIcos">
                             <div class="desarrollo__icon desarrollo__icon--blue1">
                                 Densidad Poblacional
@@ -259,10 +264,59 @@
                                 <img src="assets/imagenes/iconos/icon1.png" alt="">
                             </div>
                         </div>
-                        <div>En base al análisis de los criterios técnicos y socioambientales, los participantes
-                            consideraron de importancia alta incorporar un criterio adicional, siendo este la
-                            identificación de los Ojos de agua o toma de agua, consideradas como áreas de alto valor de
-                            conservación.</div>
+                        <div class="desarrollo__bot">
+                            {{datosMunicipioSelecionado[1].Descripcion.Adicional}}
+                        </div>
+                    </div>
+                    <div class="desarrollo__content" *ngIf="activeButton===2">
+                        <div class="desarrollo__subText">
+                            {{datosMunicipioSelecionado[2].Descripcion}}
+                        </div>
+                    </div>
+                    <div class="desarrollo__content" *ngIf="activeButton===3">
+                        <div class="desarrollo__subText">
+                            {{datosMunicipioSelecionado[3].Descripcion.Texto}}
+                            <div class="desarrollo__acciones"
+                                *ngFor="let accion of datosMunicipioSelecionado[3].Descripcion.Acciones; let i = index">
+                                {{ i + 1 }}. {{ accion }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desarrollo__content" *ngIf="activeButton===4">
+                        <div class="desarrollo__subText">
+                            <div class="swot-grid">
+                                <div class="swot-box fortalezas">
+                                    <h2>Fortalezas</h2>
+                                    <ul>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Fortalezas">{{ item }}</li>
+                                    </ul>
+                                </div>
+                                <div class="swot-box debilidades">
+                                    <h2>Debilidades</h2>
+                                    <ul>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Debilidades">{{ item }}</li>
+                                    </ul>
+                                </div>
+                                <div class="swot-box oportunidades">
+                                    <h2>Oportunidades</h2>
+                                    <ul>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Oportunidades">{{ item }}</li>
+                                    </ul>
+                                </div>
+                                <div class="swot-box amenazas">
+                                    <h2>Amenazas</h2>
+                                    <ul>
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Amenazas">{{ item }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desarrollo__content" *ngIf="activeButton===5">
+                        <div class="desarrollo__subText">
+                            {{datosMunicipioSelecionado[5].Descripcion.Texto}}
+
+                        </div>
                     </div>
                 </div>
             </div>
