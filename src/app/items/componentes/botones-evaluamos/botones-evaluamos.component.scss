@@ -35,3 +35,16 @@
     background-color: #1F631C;
     color: white;
 }
+
+:host ::ng-deep .example {
+    text-transform: uppercase;
+    text-align: justify !important;
+    color: red !important;
+}
+
+
+.example {
+    --mdc-plain-tooltip-container-color: #272323E5;
+    --mdc-plain-tooltip-supporting-text-color: white;
+    font-size: 11px;
+}

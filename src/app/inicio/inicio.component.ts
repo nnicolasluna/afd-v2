@@ -2,7 +2,9 @@ import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { ModalStateService } from '../services/modal-state/modal-state.service';
-
+interface WMSOptions extends L.WMSOptions {
+  opacity?: number;
+}
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -76,7 +78,16 @@ export class InicioComponent implements AfterViewInit {
           ndvi: 'aceaa:a_1746458795037postNDVIPalosBlancos',
           nbr: 'aceaa:a_1746460441687PostNBRPalosBlancos'
         },
-        dnbr: 'aceaa:a_1747576386958dNBR1_pb'
+        dnbr: 'aceaa:a_1747576386958dNBR1_pb',
+        FaunaFlora: {
+          b: 'aceaa:layer_bosques__palos_blancos_w0088',
+          pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
+          cp: 'aceaa:layer_comunidades__palos_blancos_12lr2',
+          lm: 'aceaa:layer_limite_municipal__palos_blancos_e1wjf',
+          aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
+          tco: 'aceaa:layer_tcos__palos_blancos_veodq',
+          ap: 'aceaa:layer_areas_protegidas_palos_blancos_nuobfg',
+        }
       }
     },
     {
@@ -84,6 +95,25 @@ export class InicioComponent implements AfterViewInit {
       departamento: 'Beni',
       source: 'assets/geojson/Beni/Municipios/SanBorja.geo.json',
       color: '#45818E',
+      bounds: [[-15.04651151441675, -67.55968740430527], [-14.343220478479576, -67.0736988355966]],
+
+      wms: {
+        pre: {
+          ndvi: 'aceaa:a_1746457664348preNDVIRurrenabaque',
+          nbr: 'aceaa:a_1746456908941preNBRRurrenabaque'
+        },
+        post: {
+          ndvi: 'aceaa:a_1746459230710postNDVIRurrenabaque',
+          nbr: 'aceaa:a_1746460712250PostNBRRurrenabaque'
+        },
+        dnbr: 'aceaa:a_1747538931290rure_dnbr1'
+      },
+    },
+    {
+      municipio: 'Rurrenabaque',
+      departamento: 'Beni',
+      source: 'assets/geojson/Beni/Municipios/Rurre.geo.json',
+      color: '#8FCE00',
       bounds: [[-15.807833717708043, -67.29180978658083],
       [-14.310701465194448, -66.52105527280628]],
       wms: {
@@ -97,24 +127,6 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747589538998dNBR_sb1'
 
-      }
-    },
-    {
-      municipio: 'Rurrenabaque',
-      departamento: 'Beni',
-      source: 'assets/geojson/Beni/Municipios/Rurre.geo.json',
-      color: '#8FCE00',
-      bounds: [[-15.04651151441675, -67.55968740430527], [-14.343220478479576, -67.0736988355966]],
-      wms: {
-        pre: {
-          ndvi: 'aceaa:a_1746457664348preNDVIRurrenabaque',
-          nbr: 'aceaa:a_1746456908941preNBRRurrenabaque'
-        },
-        post: {
-          ndvi: 'aceaa:a_1746459230710postNDVIRurrenabaque',
-          nbr: 'aceaa:a_1746460712250PostNBRRurrenabaque'
-        },
-        dnbr: 'aceaa:a_1747538931290rure_dnbr1'
       }
     },
     {
@@ -201,14 +213,14 @@ export class InicioComponent implements AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [-16.5, -64.15],
+      center: [-16.5, -67],
       zoom: 5,
       scrollWheelZoom: false,
       dragging: false,
       zoomControl: false,
       doubleClickZoom: false
     });
-    this.map.setZoom(5.5);
+    this.map.setZoom(7.4);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
     }).addTo(this.map);
@@ -222,6 +234,24 @@ export class InicioComponent implements AfterViewInit {
       this.map.getPane('labels')!.style.zIndex = '';
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
+    const blinkingIcon = L.divIcon({
+      /*  html:'<span style="color: white; font-size: 22px; padding: 10px 20px;">Rurre</span>', */
+      className: 'pulse-marker',
+      iconSize: [7, 7],
+      iconAnchor: [12.5, 12.5],
+    });
+
+    L.marker([-14.6406, -67.5113], { icon: blinkingIcon }).addTo(this.map);
+
+    L.marker([-14.4867, -67.5020], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-14.8885, -66.5840], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-14.8938, -66.6035], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-17.3611, -66.3385], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-17.3154, -66.2065], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-15.2992, -67.4668], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-15.5862, -67.2501], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-14.3019, -67.5422], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-14.3325, -67.5601], { icon: blinkingIcon }).addTo(this.map);
 
     labelsLayer.addTo(this.map);
   }
@@ -229,7 +259,7 @@ export class InicioComponent implements AfterViewInit {
     this.mostrarMapa2 = true
     setTimeout(() => {
       this.map1 = L.map('map1', {
-        center: [-16.5, -64.15],
+        center: [-16.5, -67.0],
         zoom: 5,
         dragging: false,
         zoomControl: false,
@@ -540,6 +570,10 @@ export class InicioComponent implements AfterViewInit {
     if (event.indice == 'dnbr') {
       this.simpleWMS(ciudadEncontrada, event.indice)
     }
+    if (event.indice == 'FloraFauna') {
+      this.WMSVarios(ciudadEncontrada)
+      // this.simpleWMS(ciudadEncontrada, event.indice)
+    }
   }
   sidebysideWMS(muni: any, indice: string): void {
     this.mostrarMapa2 = true;
@@ -625,8 +659,10 @@ export class InicioComponent implements AfterViewInit {
   simpleWMS(muni: any, indice: string) {
     this.mostrarMapa2 = false;
     this.mostrarMapa3 = true;
-    const layer1 = muni!.wms.dnbr;
-
+    let layer1 = ''
+    if (indice == 'dnbr') {
+      layer1 = muni!.wms.dnbr;
+    }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
       if (this.map3) {
@@ -660,6 +696,79 @@ export class InicioComponent implements AfterViewInit {
       // Capa WMS para el mapa 2 (POST NDVI)
 
       // Ajusta ambos mapas al bounding box
+      this.map3.fitBounds(bounds);
+
+    }, 0);
+  }
+  WMSVarios(muni: any) {
+    this.mostrarMapa2 = false;
+    this.mostrarMapa3 = true;
+    const faunaFloraLayersConfig = muni!.wms.FaunaFlora
+    const bounds = L.latLngBounds(muni.bounds);
+    setTimeout(() => {
+      if (this.map3) {
+        this.map3.remove();
+      }
+      this.map3 = L.map('map3', {
+        center: [-15.7, -67.3], // Centro aproximado
+        zoom: 10,
+        dragging: false,
+        zoomControl: false,
+        doubleClickZoom: false
+      });
+
+      const baseLayerUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+      L.tileLayer(baseLayerUrl, {
+        maxZoom: 18
+      }).addTo(this.map3);
+
+      const wmsBaseUrl = 'https://geoserver.bits.bo/geoserver/aceaa/wms';
+      /* const wmsOptions = {
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA',
+        opacity: 0.7
+      }; */
+      const defaultWmsOptions: WMSOptions = {
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0',
+        attribution: 'GeoServer ACEAA'
+      };
+      /* const wmsLayers: { [key: string]: L.TileLayer.WMS } = {};
+      for (const layerName in faunaFloraLayersConfig) {
+        if (faunaFloraLayersConfig.hasOwnProperty(layerName)) {
+          const layers = faunaFloraLayersConfig[layerName as keyof typeof faunaFloraLayersConfig];
+          wmsLayers[layerName] = L.tileLayer.wms(wmsBaseUrl, {
+            layers: layers,
+            ...wmsOptions
+          });
+          wmsLayers[layerName].addTo(this.map3); // Initially add all layers
+        }
+      } */
+      const wmsLayers: { [key: string]: L.TileLayer.WMS } = {};
+      for (const layerName in faunaFloraLayersConfig) {
+        if (faunaFloraLayersConfig.hasOwnProperty(layerName)) {
+          const layerId = layerName as keyof typeof faunaFloraLayersConfig;
+          const layers = faunaFloraLayersConfig[layerId];
+          let layerOptions: WMSOptions = { ...defaultWmsOptions };
+
+          // Aplica transparencia a capas específicas (ejemplo: 'b' y 'aq')
+          if (layerName === 'ap') {
+            layerOptions = { ...layerOptions, opacity: 0.7 };
+          }
+          if (layerName === 'b') {
+            layerOptions = { ...layerOptions, opacity: 0.8 };
+          }
+          wmsLayers[layerName] = L.tileLayer.wms(wmsBaseUrl, {
+            layers: layers,
+            ...(layerOptions as L.WMSOptions) // Aseguramos que cumpla con L.WMSOptions
+          });
+          wmsLayers[layerName].addTo(this.map3); // Initially add all layers
+        }
+      }
+      L.control.layers({}, wmsLayers).addTo(this.map3);
       this.map3.fitBounds(bounds);
 
     }, 0);
