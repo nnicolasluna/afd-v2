@@ -32,6 +32,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarConvenios = false;
   mostrarManuales = false;
   mostrarTalleres = false;
+  mostrarLeyenda = false;
 
   mostrarMapa2 = false;
   mostrarMapa3 = false;
@@ -168,7 +169,68 @@ export class InicioComponent implements AfterViewInit {
       }
     }
   ];
-
+  leyenda = {
+    "NBR": [
+      {
+        "color": "#D7191C",
+        "description": "Áreas fuertemente afectadas, con probabilidad de áreas quemadas."
+      },
+      {
+        "color": "#E03D2D",
+        "description": "Zonas con daños importantes en la vegetación, impacto moderado por incendios."
+      },
+      {
+        "color": "#F58D52",
+        "description": "Áreas con afectación leve, posible daño menor a la vegetación."
+      },
+      {
+        "color": "#FED690",
+        "description": "Sin cambios visibles. Vegetación estable o sin señales de incendio."
+      },
+      {
+        "color": "#F8FA72",
+        "description": "Vegetación saludable, con signos de recuperación."
+      },
+      {
+        "color": "#BEEC82",
+        "description": "Vegetación sana y con buena cobertura."
+      },
+      {
+        "color": "#7ACE2B",
+        "description": "Vegetación muy saludable, densa y sin estrés."
+      }
+    ],
+    "DNBR": [
+      {
+        "color": "#6B8E23",
+        "text": "Alto crecimiento de vegetación posterior al fuego"
+      },
+      {
+        "color": "#ADD8E6",
+        "text": "Bajo crecimiento de vegetación posterior al fuego"
+      },
+      {
+        "color": "#32CD32",
+        "text": "Zonas estables o sin quemar"
+      },
+      {
+        "color": "#FFFF00",
+        "text": "Zonas quemadas con gravedad baja"
+      },
+      {
+        "color": "#FFA500",
+        "text": "Zonas quemadas con gravedad moderada-baja"
+      },
+      {
+        "color": "#FF4500",
+        "text": "Zonas quemadas con gravedad moderada-alta"
+      },
+      {
+        "color": "#800080",
+        "text": "Zonas quemadas con gravedad alta"
+      }
+    ]
+  }
   private geoLayers: { [key: string]: L.GeoJSON } = {};
   constructor(private http: HttpClient, private modalServiceState: ModalStateService) { }
 
@@ -186,7 +248,7 @@ export class InicioComponent implements AfterViewInit {
         this.mostrarConvenios = vista === 'convenios';
         this.mostrarManuales = vista === 'manuales';
         this.mostrarTalleres = vista === 'talleres';
-
+        this.mostrarLeyenda = vista == 'leyenda'
       });
     this.modalServiceState.tresBtnAct$.subscribe
       (data => {
@@ -562,10 +624,12 @@ export class InicioComponent implements AfterViewInit {
   }
 
   actualizarIndice(event: { indice: string, muni: string }) {
+    this.modalServiceState.mostrarLeyenda();
     this.indice = event.indice;
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
     if (event.indice == 'nbr' || event.indice == 'ndvi') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
+
     }
     if (event.indice == 'dnbr') {
       this.simpleWMS(ciudadEncontrada, event.indice)
@@ -598,7 +662,7 @@ export class InicioComponent implements AfterViewInit {
         this.map2.remove();
       }
       this.map1 = L.map('map1', {
-        center: [-15.7, -67.3], // Ajustado al centro aproximado de la capa
+        center: [-15.7, -67.3],
         zoom: 10,
         dragging: false,
         zoomControl: false,
@@ -612,10 +676,7 @@ export class InicioComponent implements AfterViewInit {
         zoomControl: false,
         doubleClickZoom: false
       });
-
-      // Base layer para ambos mapas
       const baseLayerUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
-
       L.tileLayer(baseLayerUrl, {
         maxZoom: 18
       }).addTo(this.map1);
@@ -623,7 +684,6 @@ export class InicioComponent implements AfterViewInit {
       L.tileLayer(baseLayerUrl, {
         maxZoom: 18
       }).addTo(this.map2);
-      // Capa WMS para el mapa 1 (PRE NDVI)
       L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
         layers: layer1,
         format: 'image/png',
@@ -631,8 +691,6 @@ export class InicioComponent implements AfterViewInit {
         version: '1.1.0',
         attribution: 'GeoServer ACEAA'
       }).addTo(this.map1);
-
-      // Capa WMS para el mapa 2 (POST NDVI)
       L.tileLayer.wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
         layers: layer2,
         format: 'image/png',
@@ -640,21 +698,10 @@ export class InicioComponent implements AfterViewInit {
         version: '1.1.0',
         attribution: 'GeoServer ACEAA'
       }).addTo(this.map2);
-      // Ajusta ambos mapas al bounding box
       this.map1.fitBounds(bounds);
       this.map2.fitBounds(bounds);
-      /* this.map1.on('move', () => {
-        this.map2.setView(this.map1.getCenter(), this.map1.getZoom(), {
-          animate: false
-        });
-      });
-
-      this.map2.on('move', () => {
-        this.map1.setView(this.map2.getCenter(), this.map2.getZoom(), {
-          animate: false
-        });
-      }); */
     }, 0);
+    this.modalServiceState.mostrarLeyenda()
   }
   simpleWMS(muni: any, indice: string) {
     this.mostrarMapa2 = false;

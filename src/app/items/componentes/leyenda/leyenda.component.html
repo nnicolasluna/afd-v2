@@ -1,0 +1,17 @@
+<div class="leyendaMain leyendaMain--small">
+    <div class="leyendaMain__title">
+        {{Municipio}}
+    </div>
+    <div class="leyendaMain__body">
+        <div class="leyendaMain__leyenda">Leyenda</div>
+        <!-- <div class="leyendaMain__subtitle">{{subTitulo}}</div> -->
+
+        <ul class="leyendaMain__content">
+            <li *ngFor="let item of datos.items" class="items">
+                <div class="items__icono" [style.background-color]="item.color" [style.border-radius]="tipoFigura"></div>
+                <div class="items__texto">{{ item.text }}</div>
+            </li>
+        </ul>
+
+    </div>
+</div>

@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalStateService {
-  private vistaActual = new BehaviorSubject<'talleres' | 'manuales' | 'convenios' | 'alter-rightbar' | 'alternativas' | 'recuperacion' | 'card' | 'diagnostico' | 'leftbar' | 'evaluamos' | 'verdiagnostico' | null>(null);
+  private vistaActual = new BehaviorSubject<'leyenda' |'talleres' | 'manuales' | 'convenios' | 'alter-rightbar' | 'alternativas' | 'recuperacion' | 'card' | 'diagnostico' | 'leftbar' | 'evaluamos' | 'verdiagnostico' | null>(null);
   private botonActivoMenu = new BehaviorSubject<string>('');
   private tresBtnActivo = new BehaviorSubject<'tresBtn' | null>(null);
   private btnEvaluamos = new BehaviorSubject<'btnEvaluamos' | null>(null);
@@ -55,6 +55,9 @@ export class ModalStateService {
   }
   mostrarEvaluamos() {
     this.vistaActual.next('evaluamos');
+  }
+  mostrarLeyenda() {
+    this.vistaActual.next('leyenda');
   }
   mostrarVerDiagnostico() {
     this.vistaActual.next('verdiagnostico');

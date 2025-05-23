@@ -26,6 +26,7 @@ import { ConveniosComponent } from './convenios/convenios.component';
 import { ManualesComponent } from './manuales/manuales.component';
 import { TalleresComponent } from './talleres/talleres.component';
 import { AlternativasComponent } from './alternativas/alternativas.component';
+import { LeyendaComponent } from './items/componentes/leyenda/leyenda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { AlternativasComponent } from './alternativas/alternativas.component';
     ManualesComponent,
     TalleresComponent,
     AlternativasComponent,
+    LeyendaComponent,
     
   ],
   imports: [

@@ -1,0 +1,15 @@
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-leyenda',
+  templateUrl: './leyenda.component.html',
+  styleUrls: ['./leyenda.component.scss']
+})
+export class LeyendaComponent {
+  @Input() Municipio: string = '';
+  @Input() subTitulo: string = '';
+  @Input() datos: any;
+  @Input() tipoFigura: any;
+
+
+}
