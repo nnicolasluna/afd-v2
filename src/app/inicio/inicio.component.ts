@@ -569,51 +569,7 @@ export class InicioComponent implements AfterViewInit {
       dep.state = true;
     });
   }
-  agregarOverlayLupa(lat: any, log: any): void {
-    // Elimina overlay anterior si existe
-    /*  if (this.lupaOverlay) {
-       this.map.removeLayer(this.lupaOverlay);
-     }
- 
-     // Calcula bounds alrededor del centro
-     const lat = (center as L.LatLngTuple)[0];
-     const lng = (center as L.LatLngTuple)[1];
-     const bounds = L.latLngBounds(
-       [lat - 0.5, lng - 0.5],
-       [lat + 0.5, lng + 0.5]
-     );
- 
-     this.lupaOverlay = L.imageOverlay('assets/png/Vector.png', bounds, {
-       opacity: 0.8,
-       interactive: false
-     }).addTo(this.map); */
-    const customIcon = L.icon({
-      iconUrl: 'assets/png/Vector.png',  // Ruta a tu imagen
-      iconSize: [50, 50],               // Tamaño en píxeles
-      iconAnchor: [25, 25],             // Punto del ícono que se alinea con la coordenada
-    });
-    console.log(lat, log)
-    L.marker([lat, log], { icon: customIcon }).addTo(this.map);
-  }
-  handleLocationSelection(MunucipioSelecionado: any): void {
-    if (this.mostrarMapa2 || this.mostrarMapa3) {
-      this.mostrarMapa2 = false
-      this.mostrarMapa3 = false
-
-      setTimeout(() => {
-        this.initMap();
-      }, 0)
-    }
-    this.municipio = MunucipioSelecionado.municipio;
-    const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
-    this.map.flyTo(newCenter, 7.5);
-    /* this.agregarOverlayLupa(MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun); */
-
-    this.limpiarMapa();
-    this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
-    this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
-    this.modalServiceState.mostrarTresBtn();
-
+  agregarOverlayLupa(MunucipioSelecionado: any): void {
 
     const customIcon = L.icon({
       iconUrl: 'assets/png/Vector.png',
@@ -642,6 +598,55 @@ export class InicioComponent implements AfterViewInit {
 
     });
     L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon4 }).addTo(this.map);
+  }
+  handleLocationSelection(MunucipioSelecionado: any): void {
+    if (this.mostrarMapa2 || this.mostrarMapa3) {
+      this.mostrarMapa2 = false
+      this.mostrarMapa3 = false
+
+      setTimeout(() => {
+        this.initMap();
+        this.agregarOverlayLupa(MunucipioSelecionado);
+      }, 0)
+    }
+    this.municipio = MunucipioSelecionado.municipio;
+    const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
+    this.map.flyTo(newCenter, 7.5);
+
+
+    this.limpiarMapa();
+    this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
+    this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
+    this.modalServiceState.mostrarTresBtn();
+    this.agregarOverlayLupa(MunucipioSelecionado);
+    /* 
+        const customIcon = L.icon({
+          iconUrl: 'assets/png/Vector.png',
+          iconSize: [50, 50],
+          iconAnchor: [50, 50], // centro
+        });
+        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon }).addTo(this.map);
+        const customIcon2 = L.icon({
+          iconUrl: 'assets/png/Polygon.png',
+          iconSize: [110, 110],
+          iconAnchor: [25, 25],
+    
+        });
+        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon2 }).addTo(this.map);
+        const customIcon3 = L.icon({
+          iconUrl: 'assets/png/Ellipse.png',
+          iconSize: [100, 100],
+          iconAnchor: [5, -24],
+    
+        });
+        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon3 }).addTo(this.map);
+        const customIcon4 = L.icon({
+          iconUrl: MunucipioSelecionado.png,
+          iconSize: [60, 60],
+          iconAnchor: [-12, -45],
+    
+        });
+        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon4 }).addTo(this.map); */
   }
   evaluamos(MunucipioSelecionado: any): void {
     /* this.mostrarMapa2 = true */
