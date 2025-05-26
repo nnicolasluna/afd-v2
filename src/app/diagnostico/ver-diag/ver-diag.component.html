@@ -25,7 +25,7 @@
                         <div class="secondCard secondCard--normal">
                             <div class="title-2 title-2--green">Mapeo de Apoyos y Proyectos similares pasados o actuales
                             </div>
-                            <app-table [jsonUrl]="apoyoProy"*ngIf="Municipio!='Vinto'"></app-table>
+                            <app-table [jsonUrl]="apoyoProy" *ngIf="Municipio!='Vinto'"></app-table>
                             <div *ngIf="Municipio=='Vinto'">
                                 No se identificaron apoyos o proyectos similares. La mayor parte de esfuerzos están
                                 orientados a monitoreo, combate de fuego y atención de emergencias.
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="secondCard secondCard--big">
-                            <img src="assets/imagenes/analisisSituacional.png">
+                            <div class="secondCard__contenedorImg"><img src="assets/imagenes/analisisSituacional.png"></div>
                         </div>
                     </div>
                 </div>

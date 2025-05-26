@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { ModalStateService } from 'src/app/services/modal-state/modal-state.serv
   styleUrls: ['./rightbar.component.scss']
 })
 export class RightbarComponent {
+  @Input() mostrarRightBar :boolean = true
   @Output() locationSelected = new EventEmitter<any>();
   rightBarToMenu: string = ''
     constructor(private modalstateService: ModalStateService) { } // Inyecta el servicio
@@ -19,7 +20,7 @@ export class RightbarComponent {
     { departamento: 'Cochabamba', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Vinto', color: '#3521E8', latMun: -17.383333, lonMun: -66.3 },
     { departamento: 'Cochabamba', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Tiquipaya', color: '#C7914A', latMun: -17.333333, lonMun: -66.216667 }
   ];
-  mostrarRightBar: boolean = true;
+
   alternarRightBar() {
     this.mostrarRightBar = !this.mostrarRightBar;
   }

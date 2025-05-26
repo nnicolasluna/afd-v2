@@ -7,9 +7,9 @@
         <!-- <div class="leyendaMain__subtitle">{{subTitulo}}</div> -->
 
         <ul class="leyendaMain__content">
-            <li *ngFor="let item of datos.items" class="items">
+            <li *ngFor="let item of datos" class="items">
                 <div class="items__icono" [style.background-color]="item.color" [style.border-radius]="tipoFigura"></div>
-                <div class="items__texto">{{ item.text }}</div>
+                <div class="items__texto">{{ item.description }}</div>
             </li>
         </ul>
 

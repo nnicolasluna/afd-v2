@@ -11,7 +11,7 @@ export class BotonesEvaluamosComponent {
    tooltipClass = 'custom-tooltip';
   @Input() municipio!: string;
   @Output() tipoBotonIndice = new EventEmitter<{ indice: string, muni: string }>();
-  botonseleccionado = 1;
+  botonseleccionado = 9;
   seleccionarBoton(numero: number) {
     this.botonseleccionado = numero;
     console.log(numero)
@@ -27,6 +27,9 @@ export class BotonesEvaluamosComponent {
     }
     if (numero === 5) {
       indiceselecionado = 'FloraFauna'
+    }
+     if (numero === 9) {
+      indiceselecionado = 'focosCalor'
     }
     this.tipoBotonIndice.emit({ indice: indiceselecionado, muni: this.municipio });
   }

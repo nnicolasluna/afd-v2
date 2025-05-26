@@ -18,7 +18,7 @@
 <app-talleres *ngIf="mostrarTalleres"></app-talleres>
 <app-alter-rightbar (locationSelected)="handleLocationSelection($event)" *ngIf="mostraralter_rightbar">
 </app-alter-rightbar>
-<app-rightbar (locationSelected)="handleLocationSelection($event)"></app-rightbar>
+<app-rightbar (locationSelected)="handleLocationSelection($event)" [mostrarRightBar]="mostrarRightBar"></app-rightbar>
 <app-menu (localizacionUsuario)="locateUser($event)" [MunicipioMenu]="municipio"></app-menu>
 <app-simple-card *ngIf="mostrarCard" [municipio]="municipio"></app-simple-card>
 <app-diagnostico *ngIf="mostrarDiagnostico" [MunicipioDiag]="municipio"></app-diagnostico>

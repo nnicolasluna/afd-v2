@@ -297,6 +297,11 @@ mat-icon {
   &--small {
     width: 35%;
   }
+  &__contenedorImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* table {

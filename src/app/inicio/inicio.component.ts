@@ -38,6 +38,8 @@ export class InicioComponent implements AfterViewInit {
   mostrarMapa3 = false;
   bounds: any
   indice: any
+  leyandaActiva: any
+  mostrarRightBar: boolean = true
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
     { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
@@ -60,7 +62,8 @@ export class InicioComponent implements AfterViewInit {
           ndvi: 'aceaa:a_1746459648105postNDVISanBuena',
           nbr: 'aceaa:a_1746461096055PostNBRSanBuena'
         },
-        dnbr: 'aceaa:a_1747538623598sanbuena_dnbr1'
+        dnbr: 'aceaa:a_1747538623598sanbuena_dnbr1',
+        focosCalor: 'aceaa:layer_focos_de_calor__san_buenaventura_9vf0rk',
       }
     },
     {
@@ -80,6 +83,7 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746460441687PostNBRPalosBlancos'
         },
         dnbr: 'aceaa:a_1747576386958dNBR1_pb',
+        focosCalor: 'aceaa:layer_focos_de_calor__palos_blancos_nyusnf',
         FaunaFlora: {
           b: 'aceaa:layer_bosques__palos_blancos_w0088',
           pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
@@ -107,7 +111,9 @@ export class InicioComponent implements AfterViewInit {
           ndvi: 'aceaa:a_1746459230710postNDVIRurrenabaque',
           nbr: 'aceaa:a_1746460712250PostNBRRurrenabaque'
         },
-        dnbr: 'aceaa:a_1747538931290rure_dnbr1'
+        dnbr: 'aceaa:a_1747538931290rure_dnbr1',
+        focosCalor: 'aceaa:layer_san_borja__focos_de_calor_sno9f',
+
       },
     },
     {
@@ -126,7 +132,9 @@ export class InicioComponent implements AfterViewInit {
           ndvi: 'aceaa:a_1746459396083postNDVISanBorja',
           nbr: 'aceaa:a_1746460827267PostNBRSanBorja'
         },
-        dnbr: 'aceaa:a_1747589538998dNBR_sb1'
+        dnbr: 'aceaa:a_1747589538998dNBR_sb1',
+        focosCalor: 'aceaa:layer_focos_de_calor__rurranabaque_cdmg5',
+
 
       }
     },
@@ -146,7 +154,9 @@ export class InicioComponent implements AfterViewInit {
           ndvi: 'aceaa:a_1746460151272postNDVIVinto',
           nbr: 'aceaa:a_1746461278454PostNBRVinto'
         },
-        dnbr: 'aceaa:a_1747536074621vinto2'
+        dnbr: 'aceaa:a_1747536074621vinto2',
+        focosCalor: 'aceaa:layer_vinto__focos_de_calor_zpk08',
+
       }
     },
     {
@@ -165,7 +175,9 @@ export class InicioComponent implements AfterViewInit {
           ndvi: 'aceaa:a_1746460308299postNDVITiquipaya',
           nbr: 'aceaa:a_1746461236706PostNBRTiquipaya'
         },
-        dnbr: 'aceaa:a_1747538444570tiquipaya_dnbr1'
+        dnbr: 'aceaa:a_1747538444570tiquipaya_dnbr1',
+        focosCalor: 'aceaa:layer_tiquipaya__focos_de_calor_slxrf',
+
       }
     }
   ];
@@ -203,34 +215,84 @@ export class InicioComponent implements AfterViewInit {
     "DNBR": [
       {
         "color": "#6B8E23",
-        "text": "Alto crecimiento de vegetación posterior al fuego"
+        "description": "Alto crecimiento de vegetación posterior al fuego"
       },
       {
         "color": "#ADD8E6",
-        "text": "Bajo crecimiento de vegetación posterior al fuego"
+        "description": "Bajo crecimiento de vegetación posterior al fuego"
       },
       {
         "color": "#32CD32",
-        "text": "Zonas estables o sin quemar"
+        "description": "Zonas estables o sin quemar"
       },
       {
         "color": "#FFFF00",
-        "text": "Zonas quemadas con gravedad baja"
+        "description": "Zonas quemadas con gravedad baja"
       },
       {
         "color": "#FFA500",
-        "text": "Zonas quemadas con gravedad moderada-baja"
+        "description": "Zonas quemadas con gravedad moderada-baja"
       },
       {
         "color": "#FF4500",
-        "text": "Zonas quemadas con gravedad moderada-alta"
+        "description": "Zonas quemadas con gravedad moderada-alta"
       },
       {
         "color": "#800080",
-        "text": "Zonas quemadas con gravedad alta"
+        "description": "Zonas quemadas con gravedad alta"
+      }
+    ],
+    "NDVI": [
+      {
+        "color": "#F3C8E2",
+        "description": "Superficies sin vegetación, como cuerpos de agua, rocas, nieve o suelos muy degradados."
+      },
+      {
+        "color": "#F4D9E9",
+        "description": "Áreas con muy poca o ninguna vegetación. Puede incluir suelos desnudos, zonas urbanas o caminos."
+      },
+      {
+        "color": "#DEEEC9",
+        "description": "Vegetación escasa o débil, como pastizales pobres o cultivos en etapa inicial."
+      },
+      {
+        "color": "#9BD26C",
+        "description": "Vegetación en buen estado. Se observan pastos densos, cultivos sanos o bosques abiertos."
+      },
+      {
+        "color": "#4DAC26",
+        "description": "Vegetación muy densa y saludable, como selvas, bosques frondosos o cultivos en su máximo crecimiento."
+      }
+    ],
+    "FocosCarlo": [
+      {
+        "color": "#E49635",
+        "description": "Focos de Calor - Junio 2023"
+      },
+      {
+        "color": "#EA6E34",
+        "description": "Focos de Calor - Julio 2023"
+      },
+      {
+        "color": "#F15932",
+        "description": "Focos de Calor - Agosto 2023"
+      },
+      {
+        "color": "#3D96B4",
+        "description": "Focos de Calor - Octubre 2023"
+      },
+      {
+        "color": "#CA1B11",
+        "description": "Focos de Calor - Noviembre 2023"
+      },
+      {
+        "color": "#C2E99D",
+        "description": "Focos de Calor - Diciembre 2023"
       }
     ]
   }
+
+
   private geoLayers: { [key: string]: L.GeoJSON } = {};
   constructor(private http: HttpClient, private modalServiceState: ModalStateService) { }
 
@@ -275,14 +337,14 @@ export class InicioComponent implements AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [-16.5, -67],
+      center: [-16, -67],
       zoom: 5,
       scrollWheelZoom: false,
       dragging: false,
       zoomControl: false,
       doubleClickZoom: false
     });
-    this.map.setZoom(7.4);
+    this.map.setZoom(6.4);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 18
     }).addTo(this.map);
@@ -558,16 +620,19 @@ export class InicioComponent implements AfterViewInit {
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938'); */
       /* this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C'); */
       //this.iniciarmapa2(ciudadEncontrada.source);
-      this.sidebysideWMS(ciudadEncontrada, 'nbr');
+
+      //  this.sidebysideWMS(ciudadEncontrada, 'nbr');
+      /* this.modalServiceState.mostrarLeyenda() */
+      this.simpleWMS(ciudadEncontrada, 'focosCalor')
+
+
     }
   }
   toggleDepartamento(dep: any): void {
     if (dep.state) {
-      // Ocultar
       this.map.removeLayer(this.geoLayers[dep.departamento]);
       dep.state = false;
     } else {
-      // Mostrar
       this.cargarDepartamento(dep);
     }
   }
@@ -596,26 +661,8 @@ export class InicioComponent implements AfterViewInit {
         //   .bindPopup('Tu ubicación actual').openPopup();
 
       }, (error: GeolocationPositionError) => { // Especifica el tipo de error
-        console.error('Error al obtener la ubicación:', error);
 
         let errorMessage = 'No se pudo obtener tu ubicación actual.';
-
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            errorMessage = 'Permiso denegado: No has permitido que el navegador acceda a tu ubicación. Para usar esta función, debes cambiar los permisos del sitio en la configuración de tu navegador.';
-            break;
-          case error.POSITION_UNAVAILABLE:
-            errorMessage = 'Ubicación no disponible: No se pudo determinar tu ubicación. Asegúrate de tener GPS o WiFi activado.';
-            break;
-          case error.TIMEOUT:
-            errorMessage = 'Tiempo de espera agotado: La solicitud para obtener tu ubicación tardó demasiado.';
-            break;
-          default:
-            errorMessage = 'Ocurrió un error desconocido al obtener tu ubicación.';
-            break;
-        }
-
-        alert(errorMessage);
 
       });
     } else {
@@ -624,12 +671,15 @@ export class InicioComponent implements AfterViewInit {
   }
 
   actualizarIndice(event: { indice: string, muni: string }) {
+
     this.modalServiceState.mostrarLeyenda();
     this.indice = event.indice;
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
-    if (event.indice == 'nbr' || event.indice == 'ndvi') {
+    if (event.indice == 'nbr') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
-
+    }
+    if (event.indice == 'ndvi') {
+      this.sidebysideWMS(ciudadEncontrada, event.indice)
     }
     if (event.indice == 'dnbr') {
       this.simpleWMS(ciudadEncontrada, event.indice)
@@ -638,8 +688,12 @@ export class InicioComponent implements AfterViewInit {
       this.WMSVarios(ciudadEncontrada)
       // this.simpleWMS(ciudadEncontrada, event.indice)
     }
+    if (event.indice == 'focosCalor') {
+      this.simpleWMS(ciudadEncontrada, event.indice)
+    }
   }
   sidebysideWMS(muni: any, indice: string): void {
+    this.mostrarRightBar = false
     this.mostrarMapa2 = true;
     this.mostrarMapa3 = false;
     let layer1 = ''
@@ -647,10 +701,15 @@ export class InicioComponent implements AfterViewInit {
     if (indice === 'nbr') {
       layer1 = muni!.wms.pre.nbr;
       layer2 = muni!.wms.post.nbr;
+
+      this.leyandaActiva = this.leyenda.NBR
+      this.mostrarLeyenda = true;
     }
     if (indice === 'ndvi') {
       layer1 = muni!.wms.pre.ndvi;
       layer2 = muni!.wms.post.ndvi;
+      this.leyandaActiva = this.leyenda.NDVI
+      this.mostrarLeyenda = true;
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
@@ -701,7 +760,7 @@ export class InicioComponent implements AfterViewInit {
       this.map1.fitBounds(bounds);
       this.map2.fitBounds(bounds);
     }, 0);
-    this.modalServiceState.mostrarLeyenda()
+    /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
     this.mostrarMapa2 = false;
@@ -709,6 +768,13 @@ export class InicioComponent implements AfterViewInit {
     let layer1 = ''
     if (indice == 'dnbr') {
       layer1 = muni!.wms.dnbr;
+      this.leyandaActiva = this.leyenda.DNBR
+      this.mostrarLeyenda = true;
+    }
+    if (indice == 'focosCalor') {
+      layer1 = muni!.wms.focosCalor;
+      this.leyandaActiva = this.leyenda.FocosCarlo
+      this.mostrarLeyenda = true;
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
