@@ -33,6 +33,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarManuales = false;
   mostrarTalleres = false;
   mostrarLeyenda = false;
+  mostrarRecuperacion = false
 
   mostrarMapa2 = false;
   mostrarMapa3 = false;
@@ -310,7 +311,9 @@ export class InicioComponent implements AfterViewInit {
         this.mostrarConvenios = vista === 'convenios';
         this.mostrarManuales = vista === 'manuales';
         this.mostrarTalleres = vista === 'talleres';
-        this.mostrarLeyenda = vista == 'leyenda'
+        this.mostrarLeyenda = vista == 'leyenda';
+        this.mostrarRecuperacion = vista == 'recuperacion'
+
       });
     this.modalServiceState.tresBtnAct$.subscribe
       (data => {
@@ -365,17 +368,16 @@ export class InicioComponent implements AfterViewInit {
       iconAnchor: [12.5, 12.5],
     });
 
-    L.marker([-14.6406, -67.5113], { icon: blinkingIcon }).addTo(this.map);
-
-    L.marker([-14.4867, -67.5020], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-14.8885, -66.5840], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-14.8938, -66.6035], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-17.3611, -66.3385], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-17.3154, -66.2065], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-15.2992, -67.4668], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-15.5862, -67.2501], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-14.3019, -67.5422], { icon: blinkingIcon }).addTo(this.map);
-    L.marker([-14.3325, -67.5601], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([-14.6406, 67.5112], { icon: blinkingIcon }).addTo(this.map); //Asuncion del Quiquibey
+    L.marker([-14.4867, -67.5020], { icon: blinkingIcon }).addTo(this.map);//Carmen Florida
+    L.marker([-14.8885, -66.5840], { icon: blinkingIcon }).addTo(this.map);//Pachiuval
+    L.marker([-14.8938, -66.6035], { icon: blinkingIcon }).addTo(this.map);//Tierra Santa
+    L.marker([-17.3611, -66.3385], { icon: blinkingIcon }).addTo(this.map);//Combuyo
+    L.marker([-17.3154, -66.2065], { icon: blinkingIcon }).addTo(this.map);//Mayorazgo Molinos
+    L.marker([-15.2992, -67.4668], { icon: blinkingIcon }).addTo(this.map);//Inicua Bajo
+    L.marker([-15.5862, -67.2501], { icon: blinkingIcon }).addTo(this.map);//Palos Blancos
+    L.marker([-14.3019, -67.5422], { icon: blinkingIcon }).addTo(this.map);//Tres Hermanos
+    L.marker([-14.3325, -67.5601], { icon: blinkingIcon }).addTo(this.map);//Altamarani
 
     labelsLayer.addTo(this.map);
   }

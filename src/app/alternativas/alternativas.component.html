@@ -12,14 +12,47 @@
             <div class="title title--bold">Alternativas al uso de fuego</div>
             <div class="text">
                 {{descripcion[0].descripcion}}
+                <div class="blackBox" *ngIf="descripcion && descripcion.length > 0 && descripcion[0].tablas && descripcion[0].extraData">
+                    <div class="blackBox__item" *ngFor="let item of descripcion[0].extraData">
+                        <div>{{ item.extradata }}</div>
+                    </div>
+                </div>
             </div>
-            <button class="boton boton--azul" (click)="VerFotografias()">Ver Fotografías</button>
+            <button class="boton boton--azul" (click)="VerFotografias()" *ngIf="municipio !== 'Rurrenabaque' && municipio !== 'San Borja'">Ver Fotografías</button>
         </div>
         <div class="contenedorDoble__card">
-           <div></div>
+            <div class="kit-brigada">
+                <div class="tiuloCard tiuloCard__main">{{ descripcion[0].tablas.tabla1.comunidad }}</div>
+                <div class="tiuloCard">{{ descripcion[0].tablas.tabla1.tipo }}</div>
+                <div class="items-grid">
+                    <div *ngFor="let item of descripcion[0].tablas.tabla1.datosTabla" class="item">
+                        <div class="name">
+                            <div class="quantity">{{ item.Piezas }}</div>
+                            {{ item.Equipo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="descripcion && descripcion.length > 0 && descripcion[0].tablas && descripcion[0].tablas.tabla2"
+                class="kit-brigada">
+                <div class="tiuloCard tiuloCard__main">{{ descripcion[0].tablas.tabla2?.comunidad }}</div>
+                <div class="tiuloCard">{{ descripcion[0].tablas.tabla2?.tipo }}</div>
+                <div class="items-grid">
+                    <div *ngFor="let item of descripcion[0].tablas.tabla2?.datosTabla" class="item">
+                        <div class="name">
+                            <div class="quantity">{{ item.Piezas }}</div>
+                            {{ item.Equipo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </app-card-generico>
 <app-card-generico [Municipio]="municipio" *ngIf="mostrarPantalla3" [tamContenedor]="'card--big'">
+    <div class="title title--bold">Alternativas al uso de fuego</div>
+    <div class="kit-brigada">
+        <div class="tiuloCard tiuloCard__main">FOTOGRAFIAS</div>
 
+    </div>
 </app-card-generico>

@@ -28,12 +28,13 @@
 <app-convenios *ngIf="mostrarConvenios"></app-convenios>
 <app-manuales *ngIf="mostrarManuales"></app-manuales>
 
-<app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" *ngIf="mostrarrecu"
+<!-- <app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" *ngIf="mostrarrecu"
     [tamContenedor]="'card--small'">
     <p>Identificación de acciones para la recuperación y restauración de áreas afectadas por incendios forestales</p>
     <button class="boton boton--azul">Ver Acciones </button>
-</app-card-generico>
+</app-card-generico> -->
 <app-alternativas [municipio]="municipio" *ngIf="mostraralternativas"></app-alternativas>
+<app-recuperacion [municipio]="municipio" *ngIf="mostrarrecu"></app-recuperacion>
 <!-- <app-card-generico [Municipio]="municipio" [titulo]="'Alternativas al uso de fuego'" *ngIf="mostraralternativas">
     <p>Identificación y diseño de prácticas alternativas al uso de fuego</p>
     <button class="boton boton--azul">Ver Alternativas </button>

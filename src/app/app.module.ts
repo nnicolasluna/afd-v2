@@ -27,6 +27,7 @@ import { ManualesComponent } from './manuales/manuales.component';
 import { TalleresComponent } from './talleres/talleres.component';
 import { AlternativasComponent } from './alternativas/alternativas.component';
 import { LeyendaComponent } from './items/componentes/leyenda/leyenda.component';
+import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { LeyendaComponent } from './items/componentes/leyenda/leyenda.component'
     TalleresComponent,
     AlternativasComponent,
     LeyendaComponent,
+    RecuperacionComponent,
     
   ],
   imports: [

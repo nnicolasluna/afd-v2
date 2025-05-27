@@ -31,7 +31,7 @@ button:hover {
     &--bold {
         font-weight: bold;
         font-size: 18px;
-
+        margin-bottom: 5px;
     }
 }
 
@@ -59,7 +59,7 @@ button:hover {
 
 .kit-brigada {
     background-color: #68706480;
-    padding: 5px;
+    padding: 10px;
     border-radius: 8px;
     margin-bottom: 5px;
     text-align: center;
@@ -79,9 +79,8 @@ button:hover {
 .items-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 10px;
     font-size: 10px;
-    justify-items: center;
 }
 
 .item {
