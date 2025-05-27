@@ -1,15 +1,31 @@
 .card {
     color: white;
-    
+
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     top: 20%;
-    &--small{
+
+
+}
+
+.bar_main {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 15%;
+    align-items: center;
+    flex-direction: row;
+
+    height: 60%;
+
+
+    &--small {
         width: 320px;
     }
-    &--big{
-        width: 60%;
+
+    &--big {
+        width: 1000px;
     }
 }
 
@@ -136,7 +152,7 @@
     padding: 10px 30px;
     background-color: #161616;
     border-radius: 10px;
-    
+
 }
 
 .content {
@@ -151,16 +167,7 @@
 
 }
 
-.bar_main {
-    display: flex;
-    position: fixed;
-    left: 0;
-    top: 15%;
-    align-items: center;
-    flex-direction: row;
-    height: 60%;
 
-}
 
 .btn_act {
     background-color: #272323;
@@ -221,6 +228,7 @@ mat-icon {
     background-color: #00ff66;
     margin: 0 auto;
 }
+
 .text {
     width: 50%;
     text-align: center;

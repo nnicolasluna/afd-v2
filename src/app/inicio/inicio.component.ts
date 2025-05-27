@@ -96,7 +96,7 @@ export class InicioComponent implements AfterViewInit {
       }
     },
     {
-      municipio: 'San Borja',
+      municipio: 'Rurrenabaque',
       departamento: 'Beni',
       source: 'assets/geojson/Beni/Municipios/SanBorja.geo.json',
       color: '#45818E',
@@ -117,7 +117,7 @@ export class InicioComponent implements AfterViewInit {
       },
     },
     {
-      municipio: 'Rurrenabaque',
+      municipio: 'San Borja',
       departamento: 'Beni',
       source: 'assets/geojson/Beni/Municipios/Rurre.geo.json',
       color: '#8FCE00',
@@ -605,8 +605,13 @@ export class InicioComponent implements AfterViewInit {
       this.mostrarMapa3 = false
 
       setTimeout(() => {
+        this.limpiarMapa();
+
         this.initMap();
         this.agregarOverlayLupa(MunucipioSelecionado);
+        this.municipio = MunucipioSelecionado.municipio;
+        const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
+        this.map.flyTo(newCenter, 7.5);
       }, 0)
     }
     this.municipio = MunucipioSelecionado.municipio;

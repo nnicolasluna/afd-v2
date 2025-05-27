@@ -24,17 +24,25 @@ button:hover {
 .title {
     text-align: center;
 
-    padding-bottom: 5px;
     padding: 10px 30px;
     background-color: #161616;
     border-radius: 10px;
 
     &--bold {
-        font-weight: bolder;
+        font-weight: bold;
     }
 }
 
 .contenedorDoble {
     display: flex;
     flex-direction: row;
+    text-align: justify;
+    justify-content: space-around;
+    width: 100%;
+
+
+    &__card {
+            width: 45%;
+
+    }
 }
