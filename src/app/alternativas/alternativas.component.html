@@ -12,13 +12,15 @@
             <div class="title title--bold">Alternativas al uso de fuego</div>
             <div class="text">
                 {{descripcion[0].descripcion}}
-                <div class="blackBox" *ngIf="descripcion && descripcion.length > 0 && descripcion[0].tablas && descripcion[0].extraData">
+                <div class="blackBox"
+                    *ngIf="descripcion && descripcion.length > 0 && descripcion[0].tablas && descripcion[0].extraData">
                     <div class="blackBox__item" *ngFor="let item of descripcion[0].extraData">
                         <div>{{ item.extradata }}</div>
                     </div>
                 </div>
             </div>
-            <button class="boton boton--azul" (click)="VerFotografias()" *ngIf="municipio !== 'Rurrenabaque' && municipio !== 'San Borja'">Ver Fotografías</button>
+            <button class="boton boton--azul" (click)="VerFotografias()"
+                *ngIf="municipio !== 'Rurrenabaque' && municipio !== 'San Borja'">Ver Fotografías</button>
         </div>
         <div class="contenedorDoble__card">
             <div class="kit-brigada">
@@ -51,8 +53,12 @@
 </app-card-generico>
 <app-card-generico [Municipio]="municipio" *ngIf="mostrarPantalla3" [tamContenedor]="'card--big'">
     <div class="title title--bold">Alternativas al uso de fuego</div>
-    <div class="kit-brigada">
+    <div class="galeria_main">
         <div class="tiuloCard tiuloCard__main">FOTOGRAFIAS</div>
-
+        <div class="gallery-container">
+            <div class="foto-item" *ngFor="let image of descripcion[0].fotografias">
+                <img [src]="rutaBaseImagenes+descripcion[0].municipio+'/'+image" alt="Imagen del municipio">
+            </div>
+        </div>
     </div>
 </app-card-generico>

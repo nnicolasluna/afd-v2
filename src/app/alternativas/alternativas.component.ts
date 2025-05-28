@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AlternativasComponent {
   @Input() municipio: string | undefined;
   descripcion: any
+  rutaBaseImagenes: string = 'assets/imagenes/FotosAlternativas/';
   alternativas = [
     {
       "municipio": "Palos Blancos",
@@ -33,7 +34,17 @@ export class AlternativasComponent {
             }
           ]
         }
-      }
+      },
+      "fotografias": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "7.jpg",
+        "6.jpg",
+        "8.jpg",
+      ]
     },
     {
       "municipio": "San Buenaventura",
@@ -49,7 +60,13 @@ export class AlternativasComponent {
             }
           ]
         }
-      }
+      },
+      "fotografias": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg"
+      ]
     },
     {
       "municipio": "Tiquipaya",
@@ -148,7 +165,20 @@ export class AlternativasComponent {
           ]
         }
       },
-
+      "fotografias": [
+        "1.jpeg",
+        "2.jpeg",
+        "3.jpeg",
+        "4.jpeg",
+        "5.jpeg",
+        "7.jpeg",
+        "6.jpeg",
+        "8.jpeg",
+        "9.jpeg",
+        "10.jpeg",
+        "11.jpeg",
+        "12.jpeg",
+      ]
     },
     {
       "municipio": "Vinto",
@@ -160,7 +190,7 @@ export class AlternativasComponent {
         {
           "extradata": "Elaboración de Productos Organicos"
         }
-      ],  
+      ],
       "tablas": {
         "tabla1": {
           "comunidad": "Gobierno Autónomo Municipal de Vinto",
@@ -219,6 +249,20 @@ export class AlternativasComponent {
           ]
         }
       },
+      "fotografias": [
+        "1.jpeg",
+        "2.jpeg",
+        "3.jpeg",
+        "4.jpeg",
+        "5.jpeg",
+        "7.jpeg",
+        "6.jpeg",
+        "8.jpeg",
+        "9.jpeg",
+        "10.jpeg",
+        "11.jpeg",
+        "12.jpeg",
+      ]
     },
     {
       "municipio": "Rurrenabaque",
@@ -227,7 +271,7 @@ export class AlternativasComponent {
         {
           "extradata": "Comunidad Carmen Florida"
         }
-      ],  
+      ],
       "tablas": {
         "tabla1": {
           "comunidad": "Comunidad Carmen Florida",

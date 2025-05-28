@@ -68,10 +68,12 @@
 </app-card-generico>
 <app-card-generico [Municipio]="municipio" *ngIf="mostrarPantalla3" [tamContenedor]="'bar_main--big'">
     <div class="title title--bold">Recuperación y Restauración</div>
-    <div class="title title--bold">FOTOGRAFIAS</div>
-    <div class="gallery-container">
+    <div class="galeria_main">
+        <div class="tiuloCard tiuloCard__main">FOTOGRAFIAS</div>
+        <div class="gallery-container">
         <div class="foto-item" *ngFor="let image of mucipioSelecionado[0].fotografias">
             <img [src]="rutaBaseImagenes+mucipioSelecionado[0].municipio+'/'+image" alt="Imagen del municipio">
         </div>
+    </div>
     </div>
 </app-card-generico>
