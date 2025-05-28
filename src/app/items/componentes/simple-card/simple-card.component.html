@@ -5,10 +5,18 @@
     </div>
     <div class="card-body">
         <div class="card-info">
-            <p><strong>Departamento:</strong> La Paz</p>
-            <p><strong>Área Protegida Nacional:</strong> RBTCO Pilón Lajas</p>
-            <p><strong>Pueblo Indígena:</strong> Moseten</p>
-            <p><strong>Provincia:</strong> Sur Yungas</p>
+            <div class="card-info__contentText">
+                <div class="card-info--bold">Departamento:</div> {{municipioEncontrado.departamento}}
+            </div>
+            <div class="card-info__contentText">
+                <div class="card-info--bold">Área Protegida Nacional:</div> {{municipioEncontrado.areaProtegida}}
+            </div>
+            <div class="card-info__contentText">
+                <div class="card-info--bold">Territorios Comunitarios de Origen:</div> {{municipioEncontrado.comunarioOrigen}}
+            </div>
+            <div class="card-info__contentText">
+                <div class="card-info--bold">Provincia:</div>{{municipioEncontrado.provincia}}
+            </div>
         </div>
         <div class="card-stats">
             <div class="stat-box">
@@ -18,14 +26,6 @@
             <div class="stat-box">
                 <p class="stat-value">38.793 habitantes</p>
                 <p class="stat-label">Población Proyectada</p>
-            </div>
-            <div class="stat-box">
-                <p class="stat-value">294</p>
-                <p class="stat-label">Comunidades</p>
-            </div>
-            <div class="stat-box">
-                <p class="stat-value">Accidentada</p>
-                <p class="stat-label">Topografía</p>
             </div>
         </div>
     </div>

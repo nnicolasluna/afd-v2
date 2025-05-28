@@ -17,8 +17,8 @@ export class RightbarComponent {
     { departamento: 'La Paz', provincia: 'Abel Iturralde', AreaProt: 'PN ANMI Madidi', publoIndigena: 'Tacna', municipio: 'Palos Blancos', png: 'assets/IconosMunicipios/Palos Blancos.png', color: '#F4A21ABD', latMun: -15.583, lonMun: -67.25 },
     { departamento: 'Beni', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'San Borja', png: 'assets/IconosMunicipios/Rurrenabaque.png', color: '#45818E', latMun: -14.8583, lonMun: -66.7475 },
     { departamento: 'Beni', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Rurrenabaque', png: 'assets/IconosMunicipios/San Borja.png', color: '#8FCE00', latMun: -14.688621, lonMun: -67.305708 },
-    { departamento: 'Cochabamba', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Vinto', png: 'assets/IconosMunicipios/Vinto.png', color: '#3521E8', latMun: -17.3422, lonMun: -66.374089 },
-    { departamento: 'Cochabamba', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Tiquipaya', png: 'assets/IconosMunicipios/Tiquipaya.png', color: '#C7914A', latMun: -17.188597, lonMun: -66.202027 }
+    { departamento: 'Cochabamba', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Vinto', png: 'assets/IconosMunicipios/Vinto.png', color: '#3521E8', latMun: -17.361136266187586, lonMun: -66.338472044796234 },
+    { departamento: 'Cochabamba', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'Tiquipaya', png: 'assets/IconosMunicipios/Tiquipaya.png', color: '#C7914A', latMun: -17.315427603500169, lonMun: -66.206486187544854 },
   ];
 
   alternarRightBar() {
@@ -30,7 +30,6 @@ export class RightbarComponent {
     const ciudadEncontrada = this.ciudades.find(ciudad => ciudad.municipio === Municipio);
     this.locationSelected.emit(ciudadEncontrada);
     this.rightBarToMenu = Municipio
-    this.modalstateService.mostrarCard();
     this.modalstateService.cerrarBtnEvaluamos();
   }
 }

@@ -330,17 +330,19 @@ export class InicioComponent implements AfterViewInit {
     this.initMap();
     this.departamentos.forEach(
       dep => {
-        this.cargarDepartamento(dep);
+        this.cargarDepartamento(dep.source);
       }
     );
     this.municipios.forEach(mun => {
-      this.cargarMunicipio(mun, '#FDE9A0');
+      this.cargarMunicipio(mun.source, '#FDE9A0', mun.color);
     });
+    //this.cargarDepartamento('assets/geojson/municipio_afd.geo.json');
+
   }
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [-16, -67],
+      center: [-16, -65],
       zoom: 5,
       scrollWheelZoom: false,
       dragging: false,
@@ -361,20 +363,23 @@ export class InicioComponent implements AfterViewInit {
       this.map.getPane('labels')!.style.zIndex = '';
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
-  
-    this.PulseIcons(-15.5862, -67.2501) //palos blancos
-    this.PulseIcons(-15.2992, -67.4668) // Inicua Bajo
-    this.PulseIcons(-14.4867, -67.5020) //Carmen Florida
-    this.PulseIcons(-14.3826149047, -67.3040525119)  //Asuncion del Quiquibey
-    this.PulseIcons(-14.8885, -66.5840) //Pachiuval
-    this.PulseIcons(-14.8938, -66.6035) //Tierra Santa
- 
+
+    this.PulseIcons(-66.583986063547712, -14.888469024881504)
+    this.PulseIcons(-67.511256977542558, -14.640596957397738)
+    this.PulseIcons(-67.502035253202479, -14.486743690229083)
+    this.PulseIcons(-66.603523521731546, -14.893767021419279)
+    this.PulseIcons(-66.338472044796234, -17.361136266187586)
+    this.PulseIcons(-67.466772951849521, -15.299242026007526)
+    this.PulseIcons(-67.542160663186792, -14.301949370763342)
+    this.PulseIcons(-67.250119785935283, -15.586222016452332)
+    this.PulseIcons(-67.560121032584576, -14.332509679746231)
+    this.PulseIcons(-66.206486187544854, -17.315427603500169)
     labelsLayer.addTo(this.map);
   }
-  PulseIcons(lat: any, long: any) {
+  PulseIcons(long: any, lat: any) {
     const blinkingIcon = L.divIcon({
       className: 'pulse-marker',
-      iconSize: [7, 7],
+      iconSize: [6, 6],
       /* iconAnchor: [0, 0], */
     });
 
@@ -442,20 +447,19 @@ export class InicioComponent implements AfterViewInit {
   }
 
 
-  private cargarMunicipio(mun: any, color: any): void {
-    this.http.get<any>(mun.source).subscribe({
+  private cargarMunicipio(mun: any, color: any, Municipiocolor: any): void {
+    this.http.get<any>(mun).subscribe({
       next: data => {
         const layer = L.geoJSON(data, {
           style: {
             color: color,
             weight: 2,
             fillOpacity: 0.5,
-            fillColor: mun.color
+            fillColor: Municipiocolor
           }
         });
         layer.addTo(this.map);
         this.geoLayers[mun.municipio] = layer;
-        mun.state = true;
       },
       error: err => {
         console.error(`Error al cargar el municipio ${mun.municipio}:`, err);
@@ -500,22 +504,6 @@ export class InicioComponent implements AfterViewInit {
       }
     }, 100);
   }
-  private synchronizeMaps(): void {
-    // Sync map1 to map2
-    this.map1.on('move', () => {
-      this.map2.setView(this.map1.getCenter(), this.map1.getZoom(), {
-        animate: false
-      });
-    });
-
-    // Sync map2 to map1
-    this.map2.on('move', () => {
-      this.map1.setView(this.map2.getCenter(), this.map2.getZoom(), {
-        animate: false
-      });
-    });
-  }
-
 
   private cargarMunicipioPersonalizado(mun: any, color: any, fillColor: any): void {
     this.http.get<any>(mun).subscribe({
@@ -557,7 +545,7 @@ export class InicioComponent implements AfterViewInit {
   }
 
   private cargarDepartamento(dep: any): void {
-    this.http.get<any>(dep.source).subscribe(data => {
+    this.http.get<any>(dep).subscribe(data => {
       const layer = L.geoJSON(data, {
         style: {
           color: 'gold',
@@ -567,7 +555,6 @@ export class InicioComponent implements AfterViewInit {
       });
       layer.addTo(this.map);
       this.geoLayers[dep.departamento] = layer;
-      dep.state = true;
     });
   }
   agregarOverlayLupa(MunucipioSelecionado: any): void {
@@ -618,41 +605,17 @@ export class InicioComponent implements AfterViewInit {
     this.municipio = MunucipioSelecionado.municipio;
     const newCenter: L.LatLngExpression = [MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun];
     this.map.flyTo(newCenter, 7.5);
+    this.modalServiceState.mostrarCard();
 
 
     this.limpiarMapa();
-    this.cargarDepartamento(this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento));
-    this.cargarMunicipio(this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio), '#FDE9A0')
+    const departamentoEncontrado = this.departamentos.find(dpts => dpts.departamento === MunucipioSelecionado.departamento);
+    const MunicipioEncontrado = this.municipios.find(mun => mun.municipio === MunucipioSelecionado.municipio);
+
+    this.cargarDepartamento(departamentoEncontrado?.source);
+    this.cargarMunicipio(MunicipioEncontrado?.source, '#FDE9A0', MunicipioEncontrado?.color)
     this.modalServiceState.mostrarTresBtn();
     this.agregarOverlayLupa(MunucipioSelecionado);
-    /* 
-        const customIcon = L.icon({
-          iconUrl: 'assets/png/Vector.png',
-          iconSize: [50, 50],
-          iconAnchor: [50, 50], // centro
-        });
-        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon }).addTo(this.map);
-        const customIcon2 = L.icon({
-          iconUrl: 'assets/png/Polygon.png',
-          iconSize: [110, 110],
-          iconAnchor: [25, 25],
-    
-        });
-        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon2 }).addTo(this.map);
-        const customIcon3 = L.icon({
-          iconUrl: 'assets/png/Ellipse.png',
-          iconSize: [100, 100],
-          iconAnchor: [5, -24],
-    
-        });
-        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon3 }).addTo(this.map);
-        const customIcon4 = L.icon({
-          iconUrl: MunucipioSelecionado.png,
-          iconSize: [60, 60],
-          iconAnchor: [-12, -45],
-    
-        });
-        L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon4 }).addTo(this.map); */
   }
   evaluamos(MunucipioSelecionado: any): void {
     /* this.mostrarMapa2 = true */

@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"name": "comunidades_afd",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ogc_fid": 10555, "nombre_dep": "Beni", "nombre_c_2": "Pachiuval", "lat": "-14.5318488490", "long": "-66.3502349829", "x": 759941.00237100001, "y": 8352601.0046199998 }, "geometry": { "type": "Point", "coordinates": [ -66.583986063547712, -14.888469024881504 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 10731, "nombre_dep": "Beni", "nombre_c_2": "Asuncion del Quiquibey", "lat": "-14.3826149047", "long": "-67.3040525119", "x": 660331.03151899995, "y": 8380898.386429999 }, "geometry": { "type": "Point", "coordinates": [ -67.511256977542558, -14.640596957397738 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 11111, "nombre_dep": "Beni", "nombre_c_2": "Carmen Florida", "lat": "-14.2912277285", "long": "-67.3007326912", "x": 661436.29542700003, "y": 8397913.1683900002 }, "geometry": { "type": "Point", "coordinates": [ -67.502035253202479, -14.486743690229083 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 11154, "nombre_dep": "Beni", "nombre_c_2": "Tierra Santa", "lat": "-14.5337561277", "long": "-66.3612684678", "x": 757831.56755899999, "y": 8352037.2877700003 }, "geometry": { "type": "Point", "coordinates": [ -66.603523521731546, -14.893767021419279 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 16781, "nombre_dep": "Cochabamba", "nombre_c_2": "Combuyo", "lat": "-17.2140090558", "long": "-66.2018499361", "x": 782837.643989, "y": 8078532.3273 }, "geometry": { "type": "Point", "coordinates": [ -66.338472044796234, -17.361136266187586 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 18216, "nombre_dep": "La Paz", "nombre_c_2": "Inicua Bajo\n", "lat": "-15.1757271294", "long": "-67.2800382627", "x": 664618.91694799997, "y": 8307994.7973600002 }, "geometry": { "type": "Point", "coordinates": [ -67.466772951849521, -15.299242026007526 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 19532, "nombre_dep": "La Paz", "nombre_c_2": "Tres Hermanos", "lat": "-14.1807017735", "long": "-67.3231778387", "x": 657240.47057100001, "y": 8418384.9282699991 }, "geometry": { "type": "Point", "coordinates": [ -67.542160663186792, -14.301949370763342 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 22719, "nombre_dep": "La Paz", "nombre_c_2": "Palos Blancos", "lat": "-15.3510399259", "long": "-67.1500431229", "x": 687628.00260799995, "y": 8276063.5487400005 }, "geometry": { "type": "Point", "coordinates": [ -67.250119785935283, -15.586222016452332 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 23188, "nombre_dep": "La Paz", "nombre_c_2": "Altamarani", "lat": "-14.1957034847", "long": "-67.3336435717", "x": 655281.91298000002, "y": 8415016.1833900008 }, "geometry": { "type": "Point", "coordinates": [ -67.560121032584576, -14.332509679746231 ] } },
+{ "type": "Feature", "properties": { "ogc_fid": 14153, "nombre_dep": "Cochabamba", "nombre_c_2": "Mayorazgo Molinos", "lat": "-17.1855539373", "long": "-66.1223350275", "x": 796946.22434800002, "y": 8083394.4791299989 }, "geometry": { "type": "Point", "coordinates": [ -66.206486187544854, -17.315427603500169 ] } }
+]
+}

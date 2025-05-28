@@ -1,6 +1,6 @@
 .card {
     color: white;
-    width: 320px;
+    width: 390px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -41,31 +41,55 @@
 .card-body {
     background-color: #272323E5;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card-info {
     border-bottom: 1px;
+    width: 95%;
+    color: white;
+    background-color: #161616B2;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+
+    &__contentText {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &--bold {
+        font-weight: bold;
+        font-size: 17px;
+        padding-right: 4px;
+    }
 }
 
-.card-info p {
+/* .card-info p {
     margin: 8px 0;
     font-size: 0.9em;
 }
-
-.card-info strong {
+ */
+/* .card-info strong {
     color: #ccc;
-}
+} */
 .card-stats {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 10px; /* Space between stat boxes */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns */
+    gap: 10px;
+    /* Space between stat boxes */
 
 }
 
 .stat-box {
-    background-color: #388e3c; /* Green color for stat boxes */
+    background-color: #388e3c;
+    /* Green color for stat boxes */
     border-radius: 8px;
-    
+    padding: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -82,5 +106,6 @@
 .stat-label {
     font-size: 0.8em;
     margin: 0;
-    color: #eee; /* Slightly lighter color for labels */
+    color: #eee;
+    /* Slightly lighter color for labels */
 }
