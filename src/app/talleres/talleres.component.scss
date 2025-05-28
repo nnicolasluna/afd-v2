@@ -26,7 +26,8 @@
       padding-top: 20px;
       padding-left: 20px;
       padding-right: 20px;
-      width: 500px;
+      /*       width: 500px;
+ */
       display: flex;
       flex-direction: row;
 
@@ -49,6 +50,12 @@
           background: #CE6514;
       }
 
+      &--green {
+          background: #A4F522;
+          margin-top: -20px;
+
+      }
+
   }
 
   .timeline-circle {
@@ -68,6 +75,10 @@
 
       &--other {
           background: #CE6514;
+      }
+
+      &--green {
+          background: #A4F522;
       }
   }
 
@@ -93,6 +104,10 @@
 
       &--other {
           color: #CE6514;
+      }
+
+      &--green {
+          color: #A4F522;
       }
   }
 
@@ -121,11 +136,11 @@
   .topTimeLine {
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto auto;
       grid-template-areas:
-          "item1 . item2"
-          ". item3 .";
+          "item1 . item2 ."
+          ". item3 . item4";
   }
 
   .bar {
@@ -142,6 +157,10 @@
 
       &--other {
           background-color: #CE6514;
+      }
+
+      &--green {
+          background: #A4F522;
       }
   }
 
@@ -160,7 +179,9 @@
       }
 
       &__4 {
-          grid-area: llena1;
+          grid-area: item4;
+          margin-top: -10px;
+
       }
   }
 
@@ -464,6 +485,8 @@
 
       &__subText {
           padding: 15px;
+          text-align: justify;
+
       }
 
       &__content {
@@ -497,7 +520,7 @@
           border-radius: 10px;
           width: 120px;
           height: 120px;
-          
+
 
           &--blue1 {
               background-color: #375991;
@@ -549,10 +572,10 @@
       }
 
       &__textIcon {
-        font-size: 12px;
-        width: 80%;
-        height: 20%;
-        margin-bottom: 5px;
+          font-size: 12px;
+          width: 80%;
+          height: 20%;
+          margin-bottom: 5px;
       }
 
       &__bot {
@@ -682,5 +705,27 @@
 
       .color-10 {
           background-color: #FFC2D8;
+      }
+  }
+
+  .participantesContainerTaller3 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      width: 90%;
+      height: 90%;
+      margin-bottom: 5px;
+
+      &__obj {
+          text-align: center;
+          padding: 15px;
+          min-height: 45px;
+          border-radius: 10px;
+          color: black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #FFFFFF;
+          font-size: 10px;
       }
   }

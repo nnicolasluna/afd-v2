@@ -70,7 +70,27 @@
                 </div>
                 <div class="bar bar--other"></div>
             </div>
-            <div class="timeLineContent timeLineContent__4"></div>
+            <div class="timeLineContent timeLineContent__4" (click)="botonVertaller('TALLER 4')">
+                <div class="bar bar--green"></div>
+                <div class="taller-container">
+                    <div class="cicleandBar">
+                        <div class="timeline-line timeline-line--green"></div>
+                        <div class="timeline-circle timeline-circle--green"></div>
+
+                    </div>
+                    <div class="talleres">
+                        <div class="title title--green">Taller 4</div>
+                        <div class="imgTex">
+                            <img class="imgTimeline" src="assets/logos/bicentenario_vertical.png">
+                            <div class="description">
+                                Talleres realizados en múltiples fechas los cuales fueron efectuados en diferentes
+                                Municipios, ya sea con un fin educativo Teórico o Practico.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <!-- <button class="btnPrimeraPantalla"></button> -->
     </div>
@@ -96,7 +116,14 @@
         <div class="doublecard">
             <div class="tallerCardleft tallerCardleft--normal">
                 <div class="tallerCardleft__body">
-                    <div class="tallerCardleft__title">Desarrollo de las Mesas Técnicas Participativas</div>
+                    <div class="tallerCardleft__title" *ngIf="Numerotaller==='TALLER 2'">Desarrollo de las Mesas
+                        Técnicas Participativas</div>
+                    <div class="tallerCardleft__title" *ngIf="Numerotaller==='TALLER 1'">Desarrollo del Taller de
+                        Arranque</div>
+                    <div class="tallerCardleft__title" *ngIf="Numerotaller==='TALLER 4'">
+                        {{datosMunicipioSelecionado.Titulo}}</div>
+                    <div class="tallerCardleft__title" *ngIf="Numerotaller==='TALLER 3'">
+                        {{datosMunicipioSelecionado.Titulo}}</div>
                     <div class="content" *ngIf="Numerotaller==='TALLER 2'">
                         {{datosMunicipioSelecionado[0]?.Intro}}
                     </div>
@@ -120,12 +147,21 @@
                         presentar formalmente la
                         iniciativa y coordinar la implementación de las acciones previstas en el territorio.
                     </div>
-                    <div class="btncardleft" *ngIf="Numerotaller!='TALLER 1'">
+                    <div class="content" *ngIf="Numerotaller==='TALLER 4'">
+                        {{datosMunicipioSelecionado.Contenido}}
+                    </div>
+                    <div class="content" *ngIf="Numerotaller==='TALLER 3'">
+                        {{datosMunicipioSelecionado.Contenido}}
+                    </div>
+                    <div class="btncardleft" *ngIf="Numerotaller!='TALLER 1'&&Numerotaller!='TALLER 4'">
                         <button class="btncardleft__btn" (click)="verParticipantes()">Ver Participantes</button>
                         <button class="btncardleft__btn" (click)="verDesarrollo()">Ver el Desarrollo de la mesa de
                             trabajo</button>
                     </div>
-
+                    <div class="btncardleft" *ngIf="Numerotaller=='TALLER 4'">
+                        <button class="btncardleft__btn"  *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'" (click)="verParticipantes()">Ver Fotos Taller Teorico</button>
+                        <button class="btncardleft__btn"  *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'" (click)="verDesarrollo()">Ver Fotos Taller Practico</button>
+                    </div>
                 </div>
                 <div class="tallerCardleft__footer">
                     <div class="localization">
@@ -133,16 +169,24 @@
                         <div class="textFooter">
                             <div class="title_card">Localización</div>
                             {{regionSeleccionada?.nombre}} - {{municipioSeleccionado?.nombre}}
-                            <div>
+                            <div *ngIf="Numerotaller=='TALLER 2'">
                                 {{datosMunicipioSelecionado[6]?.Lugar}}
                             </div>
                         </div>
                     </div>
                     <div class="localization">
                         <mat-icon fontIcon="calendar_month"></mat-icon>
-                        <div class="textFooter">
+                        <div class="textFooter" *ngIf="Numerotaller==='TALLER 2'">
                             <div class="title_card">Fecha</div>
                             {{datosMunicipioSelecionado[6]?.Fecha}}
+                        </div>
+                        <div class="textFooter" *ngIf="Numerotaller==='TALLER 4'">
+                            <div class="title_card">Fecha</div>
+                            {{datosMunicipioSelecionado.Fecha}}
+                        </div>
+                        <div class="textFooter" *ngIf="Numerotaller==='TALLER 3'">
+                            <div class="title_card">Fecha</div>
+                            {{datosMunicipioSelecionado.Fecha}}
                         </div>
                     </div>
                 </div>
@@ -152,11 +196,11 @@
                 <div class="tallerCardright__body">
                     <div class="cont_img">
                         <img src="assets/logos/bicentenario_vertical.png" alt="">
-                        {{datosMunicipioSelecionado[6]?.Fecha}}
                     </div>
                     <div class="cont_img">
                         <img src="assets/logos/bicentenario_vertical.png" alt="">
-                        {{datosMunicipioSelecionado[6]?.Fecha}}
+                        <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
+
                     </div>
                 </div>
             </div>
@@ -172,10 +216,16 @@
                     <div class="tallerCardleft__title">Participantes</div>
                     <mat-icon class="tallerCardleft__icon" fontIcon="groups"></mat-icon>
                 </div>
-                <div class="participantesContainer">
+                <div class="participantesContainer" *ngIf="Numerotaller==='TALLER 2'">
                     <div class="participantesContainer__obj"
                         *ngFor="let participante of datosMunicipioSelecionado[6].Participantes; let i = index"
                         [ngClass]="'color-' + i">
+                        {{participante}}
+                    </div>
+                </div>
+                <div class="participantesContainerTaller3" *ngIf="Numerotaller==='TALLER 3'">
+                    <div class="participantesContainerTaller3__obj"
+                        *ngFor="let participante of datosMunicipioSelecionado.Participantes; let i = index">
                         {{participante}}
                     </div>
                 </div>
@@ -186,16 +236,20 @@
                     <div class="textFooter">
                         <div class="title_card">Localización</div>
                         {{regionSeleccionada?.nombre}} - {{municipioSeleccionado?.nombre}}
-                        <div>
+                        <div *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[6].Lugar}}
                         </div>
                     </div>
                 </div>
                 <div class="localization">
                     <mat-icon fontIcon="calendar_month"></mat-icon>
-                    <div class="textFooter">
+                    <div class="textFooter" *ngIf="Numerotaller==='TALLER 2'">
                         <div class="title_card">Fecha</div>
                         {{datosMunicipioSelecionado[6].Fecha}}
+                    </div>
+                    <div class="textFooter" *ngIf="Numerotaller==='TALLER 3'">
+                        <div class="title_card">Fecha</div>
+                        {{datosMunicipioSelecionado.Fecha}}
                     </div>
                 </div>
             </div>
@@ -206,7 +260,7 @@
         <div class="Bigtitle">{{municipioSeleccionado?.nombre}}</div>
         <div class="tallerCardleft tallerCardleft--xbig">
             <div class="tallerCardleft__desarrollo">
-                <div class="buttonContent">
+                <div class="buttonContent" *ngIf="Numerotaller==='TALLER 2'">
                     <button class="tallerCardleft__butonHeader" (click)="verDesarrollo()">Regresar</button>
                     <button class="buttonContent__desarrollo" (click)="botonActivomenu(1)"
                         [class.active]="activeButton === 1">1. Definición de criterios técnicos y
@@ -226,13 +280,30 @@
                         (click)="botonActivomenu(5)" [class.active]="activeButton === 5">5. Elaboración del acta de
                         acuerdos y validación</button>
                 </div>
+                <div class="buttonContent" *ngIf="Numerotaller==='TALLER 3'">
+                    <button class="tallerCardleft__butonHeader" (click)="verDesarrollo()">Regresar</button>
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(1)"
+                        [class.active]="activeButton === 1">1. Protocolo de Autoridades y Organizadores</button>
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(2)"
+                        [class.active]="activeButton === 2">2. Introducción y Contextualización</button>
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(3)"
+                        [class.active]="activeButton === 3">3. Presentación Técnica</button>
+                    <button class="buttonContent__desarrollo" (click)="botonActivomenu(4)"
+                        [class.active]="activeButton === 4">4. Sesión de Retroalimentación</button>
+                    <button class="buttonContent__desarrollo" [class.active]="activeButton === 5"
+                        (click)="botonActivomenu(5)" [class.active]="activeButton === 5">5. Cierre y Compromiso</button>
+                </div>
                 <div class="desarrollo">
-                    <div class="desarrollo__title">Desarrollo de la mesa de Trabajo</div>
+                    <div class="desarrollo__title" *ngIf="Numerotaller==='TALLER 2'">Desarrollo de la mesa de Trabajo
+                    </div>
+                    <div class="desarrollo__title" *ngIf="Numerotaller==='TALLER 3'">Resultados
+                    </div>
+
                     <div class="desarrollo__content" *ngIf="activeButton===1">
-                        <div class="desarrollo__subText">
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[1].Descripcion.Texto}}
                         </div>
-                        <div class="desarrollo__contentIcos">
+                        <div class="desarrollo__contentIcos" *ngIf="Numerotaller==='TALLER 2'">
                             <div class="desarrollo__icon desarrollo__icon--blue1">
                                 <div class="desarrollo__textIcon">Densidad Poblacional</div>
                                 <img src="assets/talleres/iconos/icon10.png" alt="">
@@ -282,38 +353,54 @@
                                 <img src="assets/talleres/iconos/icon2.png" alt="">
                             </div>
                         </div>
-                        <div class="desarrollo__bot">
+                        <div class="desarrollo__bot" *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[1].Descripcion.Adicional}}
+                        </div>
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 3'">
+                            {{datosMunicipioSelecionado.Resultados.Protocolo}}
                         </div>
                     </div>
                     <div class="desarrollo__content" *ngIf="activeButton===2">
-                        <div class="desarrollo__subText">
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[2].Descripcion}}
+                        </div>
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 3'">
+                            {{datosMunicipioSelecionado.Resultados.Introduccion}}
                         </div>
                     </div>
                     <div class="desarrollo__content" *ngIf="activeButton===3">
-                        <div class="desarrollo__subText">
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[3].Descripcion.Texto}}
                             <div class="desarrollo__acciones"
                                 *ngFor="let accion of datosMunicipioSelecionado[3].Descripcion.Acciones; let i = index">
                                 {{ i + 1 }}. {{ accion }}
                             </div>
                         </div>
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 3'">
+                            Presentación Técnica: <br>
+                            {{datosMunicipioSelecionado.Resultados.Presentacion.Desrcipcion}}
+                            <div
+                                *ngFor="let accion of datosMunicipioSelecionado.Resultados.Presentacion.Temas; let i = index">
+                                {{ i + 1 }}. {{ accion }}
+                            </div>
+                        </div>
                     </div>
                     <div class="desarrollo__content" *ngIf="activeButton===4">
                         <div class="desarrollo__subText">
-                            <div class="swot-grid">
+                            <div class="swot-grid" *ngIf="Numerotaller==='TALLER 2'">
                                 <div class="swot-box swot-box__fortalezas">
                                     <h2>Fortalezas</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Fortalezas">{{
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Fortalezas">
+                                            {{
                                             item }}</li>
                                     </ul>
                                 </div>
                                 <div class="swot-box swot-box__debilidades">
                                     <h2>Debilidades</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Debilidades">{{
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Debilidades">
+                                            {{
                                             item }}</li>
                                     </ul>
                                 </div>
@@ -327,17 +414,34 @@
                                 <div class="swot-box swot-box__amenazas">
                                     <h2>Amenazas</h2>
                                     <ul>
-                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Amenazas">{{
+                                        <li *ngFor="let item of datosMunicipioSelecionado[4].Descripcion.Amenazas">
+                                            {{
                                             item }}</li>
                                     </ul>
                                 </div>
                             </div>
+                            <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 3'">
+                                Sesión de retroalimentación: <br>
+                                {{datosMunicipioSelecionado.Resultados.Sesion.Desrcipcion}}
+                                <div
+                                    *ngFor="let accion of datosMunicipioSelecionado.Resultados.Sesion.Temas; let i = index">
+                                    {{ i + 1 }}. {{ accion }}
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="desarrollo__content" *ngIf="activeButton===5">
-                        <div class="desarrollo__subText">
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[5].Descripcion.Texto}}
-
+                        </div>
+                        <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 3'">
+                            Cierre y compromiso: <br>
+                            {{datosMunicipioSelecionado.Resultados.Cierre.Desrcipcion}}
+                            <div
+                                *ngFor="let accion of datosMunicipioSelecionado.Resultados.Cierre.Temas; let i = index">
+                                {{ i + 1 }}. {{ accion }}
+                            </div>
                         </div>
                     </div>
                 </div>

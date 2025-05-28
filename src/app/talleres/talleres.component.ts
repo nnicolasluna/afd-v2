@@ -59,24 +59,30 @@ export class TalleresComponent {
     this.primerapantalla = !this.primerapantalla
     this.taller2 = !this.primerapantalla
     this.Numerotaller = taller
-    this.seleccionarRegion(this.regiones[0],taller);
-    this.seleccionarMunicipio(this.regiones[0].municipios.find(m => m.nombre === this.regiones[0].municipioInicial)!,taller);
+    this.seleccionarRegion(this.regiones[0], taller);
+    this.seleccionarMunicipio(this.regiones[0].municipios.find(m => m.nombre === this.regiones[0].municipioInicial)!, taller);
   }
-  seleccionarRegion(region: Region,taller:string): void {
+  seleccionarRegion(region: Region, taller: string): void {
     this.regionSeleccionada = region;
-    this.seleccionarMunicipio(region.municipios.find(m => m.nombre === region.municipioInicial)!,taller);
+    this.seleccionarMunicipio(region.municipios.find(m => m.nombre === region.municipioInicial)!, taller);
   }
 
-  seleccionarMunicipio(municipio: Municipio,taller:string): void {
+  seleccionarMunicipio(municipio: Municipio, taller: string): void {
     this.municipioSeleccionado = municipio;
     const nombreMunicipio = this.municipioSeleccionado.nombre;
-    if (taller==='TALLER 2') {
+    if (taller === 'TALLER 2') {
       if (this.datos_organizados.hasOwnProperty(nombreMunicipio)) {
         this.datosMunicipioSelecionado = this.datos_organizados[nombreMunicipio as keyof typeof this.datos_organizados];
       }
+      else {
+        this.datosMunicipioSelecionado = [];
+      }
     }
-    else {
-      this.datosMunicipioSelecionado = [];
+    if (taller === 'TALLER 4') {
+      this.datosMunicipioSelecionado = this.taller4.find(taller => taller.Municipio === municipio.nombre);
+    }
+    if (taller === 'TALLER 3') {
+      this.datosMunicipioSelecionado = this.taller3;
     }
   }
 
@@ -594,6 +600,118 @@ export class TalleresComponent {
       },
     ]
   }
+  taller4 = [
+    {
+      "Municipio": "Rurrenabaque",
+      "Titulo": "Desarrollo del Taller de PAUF",
+      "Fecha": "16 - 17 de mayo 2025",
+      "Contenido": "Se llevó a cabo el taller del Programa de Aprovechamiento y Uso Forestal (PAUF), organizado en dos jornadas con el objetivo de garantizar una formación integral a los participantes. Las actividades se dividieron en una sesión teórica, realizada el día 16 de mayo, y una sesión práctica, desarrollada el 17 de mayo.Esta estructura permitió combinar conocimientos conceptuales con experiencias aplicadas en campo, asegurando una mejor comprensión de los contenidos y fortaleciendo las capacidades técnicas de los asistentes en el manejo adecuado de los recursos forestales."
+    },
+    {
+      "Municipio": "San Borja",
+      "Fecha": "28 de abril de 2025",
+      "Titulo": "Desarrollo del Taller de Parcela Demostrativa Comunidad de Pachiuval",
+      "Contenido": "El 28 de abril de 2025 se llevó a cabo el Taller de Parcela Demostrativa, dirigido a la comunidad de Pachiuval, con el objetivo de fortalecer las capacidades locales en la implementación de prácticas sostenibles de uso del suelo y manejo agroecológico. La actividad permitió compartir conocimientos técnicos y experiencias prácticas orientadas a promover un aprovechamiento eficiente de los recursos naturales, fomentando la producción responsable"
+    },
+    {
+      "Municipio": "Tiquipaya",
+      "Fecha": "30 de abril de 2025",
+      "Titulo": "Desarrollo del Taller de Alternativas al Uso de Fuego",
+      "Contenido": "El 30 de abril de 2025 se llevó a cabo el Taller de Alternativas al Uso del Fuego en la comunidad de Molinos, con el objetivo de socializar y promover prácticas sostenibles que contribuyan a la prevención de incendios forestales.La actividad contó con la participación activa de comunarios de Molinos, así como representantes del Servicio Nacional de Áreas Protegidas (SERNAP) y personal técnico del Gobierno Autónomo Municipal de Tiquipaya (GAM Tiquipaya), generando un espacio de intercambio de conocimientos  y fortalecimiento de capacidades locales para la gestión integral del fuego."
+    },
+    {
+      "Municipio": "Vinto",
+      "Fecha": "29 de abril de 2025",
+      "Titulo": "Desarrollo del Taller de Alternativas al Uso de Fuego",
+      "Contenido": "El 29 de abril de 2025 se desarrolló el Taller de Alternativas al Uso del Fuego en la comunidad de Combuyo Chico, con el propósito de promover prácticas sostenibles y seguras en el manejo del territorio, orientadas a la prevención y reducción del riesgo de incendios forestales. La jornada contó con la participación activa de comunarios de Combuyo Chico y del personal técnico del Gobierno Autónomo Municipal de Vinto (GAM Vinto), generando un espacio de formación e intercambio de experiencias sobre técnicas productivas que reemplazan el uso tradicional del fuego, fortaleciendo así la gestión comunitaria del riesgo ambiental."
+    },
+    {
+      "Municipio": "Vinto-Tiquipaya",
+      "Fecha": "8 - 9 de mayo de 2025",
+      "Titulo": "Desarrollo del Taller de Recuperación/Restauración ",
+      "Contenido": "Los días 8 y 9 de mayo de 2025 se llevó a cabo el Taller de Recuperación y Restauración de Ecosistemas, con el objetivo de fortalecer los conocimientos teóricos y prácticos de los participantes en técnicas de restauración ecológica y manejo sostenible del paisaje. La primera jornada, de carácter teórico, se desarrolló en el salón Tejeyeque de la Escuela de Ciencias Forestales (ESFOR). La segunda jornada fue práctica y tuvo lugar en el Instituto de Agroforestería Mollesnejta, ubicado en el municipio de Vinto, donde los asistentes pudieron aplicar los conocimientos adquiridos a través de experiencias de campo,"
+    },
+    {
+      "Municipio": "San Buenaventura",
+      "Fecha": "22 - 23 de abril de 2025",
+      "Titulo": "Desarrollo del Taller de Jabones Naturales",
+      "Contenido": "En fechas 22 y 23 de abril de 2025, se llevó a cabo el Taller de Elaboración de Jabones Naturales, dirigido a miembros de la comunidad y actores locales de la comunidad de Tres Hermanos, con el propósito de promover alternativas productivas sostenibles, el aprovechamiento de recursos naturales disponibles en el territorio.Durante el taller, los participantes recibieron formación teórica y práctica sobre los principios básicos  de la elaboración de jabones artesanales, incluyendo la selección de ingredientes naturales"
+    },
+    {
+      "Municipio": "Palos Blancos",
+      "Fecha": "16 Mayo de 2025",
+      "Titulo": "Desarrollo del Secador Solar",
+      "Contenido": "Se llevó a cabo la construcción y acondicionamiento de un secador solar destinado a la producción de harina de plátano, en beneficio de la Organización de la Mujer Indígena Mosetén (OMIN), en el municipio de Palos Blancos. Esta acción fortalece las capacidades productivas, promoviendo la autonomía económica y el uso de tecnologías apropiadas que no dependen del uso del fuego, alineándose con los principios de sostenibilidad y reducción de riesgos ambientales."
+    }
+  ]
+  taller3 = {
+    "Titulo": "Desarrollo de las Mesas Técnicas Participativas",
+    "Fecha": "26 Febrero de 2025",
+    "Contenido": "Objetivo del taller estuvo centrado en presentar los resultados clave del diagnóstico y las acciones de recuperación y de prácticas alternativas al uso de fuego, identificadas en los municipios de San Buenaventura, Palos Blancos, Rurrenabaque, San Borja, Vinto y Tiquipaya, con el fin de facilitar el intercambio de conocimientos y experiencias entre los actores involucrados en la gestión de incendios forestales y la recuperación de ecosistemas. Asimismo, se busca establecer una hoja de ruta clara y detallada para la segunda fase del servicio de apoyo, el cual se centrará en la implementación efectiva de las acciones previamente identificadas, así como en el fortalecimiento de las capacidades locales, para asegurar la sostenibilidad de los esfuerzos a largo plazo.",
+    "Participantes": [
+      "Autoridad Plurinacional de la Madre Tierra APMT",
+      "Viceministerio de Defensa Civil (VIDECI)",
+      "Servicio Nacional de Áreas Protegidas (SERNAP):PN ANMI Madidi, RBTCO Pilón Lajas, PN Tunari, RB EBB",
+      "Museo Nacional de Historia Natural(MNHN)",
+      "Alianza Francesa para el Desarrollo (AFD)",
+      "Asistencia Técnica Internacional Unión Europea (ATI-UE)",
+      "Gobierno Autónomo Departamental de Cochabamba (GADC)",
+      "Gobierno Autónomo Municipal de San Buenaventura",
+      "Gobierno Autónomo Municipal de Palos Blancos",
+      "Gobierno Autónomo Municipal de Rurrenabaque",
+      "Gobierno Autónomo Municipal de San Borja",
+      "Gobierno Autónomo Municipal de Tiquipaya",
+      "Gobierno Autónomo Municipal de Vinto",
+      "Autoridad de Bosques y Tierras Regional Rurrenabaque",
+      "Autoridad de Bosques y Tierras Regional Cochabamba",
+      "VIDECI Regional Rurrenabaque",
+      "Consejo Regional Tsiman Moseten (CRTM)",
+      "Consejo Indígena del Pueblo Tacana (CIPTA)",
+      "Consejo Indígena de Mujeres Tacana (CIMTA)",
+      "Gran consejo Tsimane (GCTs)",
+      "Organización del Pueblo Indígena Mosetén (OPIM)",
+      "Organización de la Mujer Indígena Mosetén (OMIM)",
+      "Fundación Samay",
+      "Comunidades: Alta Marani, Tres Hermanos, Tumupasa (San Buenaventura), Asunción del Quiquibey, Carmen Florida (Rurrenabaque), Pachiuval, Tierra Santa(San Borja), Inicua Bajo(Palos Blancos), Combuyo Chico (Vinto), Los Molinos (Tiquipaya))",
+      "Instituto de Investigaciones Socio Económico (IISEC) de la Universidad Católica Boliviana",
+      "Equipo Ejecutor"
+    ],
+    "Resultados": {
+      "Protocolo": "Se dio la bienvenida a los participantes y se llevó a cabo la inauguración de este importante evento por parte de las autoridades de la APMT y AFD. Asimismo, los representantes de cada municipio realizaron breves alusiones en las que compartieron sus perspectivas, y expectativas respecto al taller.",
+      "Introduccion": "Introducción y Contextualización: Se brindó una breve explicación sobre las reglas del evento, seguida de la presentación 'Evaluación preliminar de fauna y flora afectada por incendios forestales en las Áreas Protegidas PN ANMI Madidi y RB-TCO Pilón Lajas', a cargo del Director Ejecutivo del Museo Nacional de Historia Natural. Posteriormente, se presentó una breve contextualización sobre las acciones que la APMT ha estado impulsando, así como el marco del servicio de apoyo de referencia y los objetivos del taller.",
+      "Presentacion": {
+        "Desrcipcion": "Se efectuaron presentaciones detalladas sobre los avances y resultados de la iniciativa, con los siguientes temas:",
+        "Temas": [
+          "Mapeo general de actores",
+          "Diagnóstico de los seis (6) municipios priorizados",
+          "Criterios de priorización y definición de áreas priorizadas",
+          "Equidad de Genero e Inclusión Social- Enfoque GESI",
+          "Identificación y diseñó de acciones de restauración y/o recuperación",
+          "Identificación y diseño de prácticas alternativas al uso de fuego"
+        ]
+      },
+      "Sesion": {
+        "Desrcipcion": "Se abrió un espacio de retroalimentación en el que los participantes pudieron compartir comentarios, sugerencias y recomendaciones, tomando en cuenta sus necesidades y expectativas. Este intercambio se llevó a cabo en un ambiente abierto y participativo, favoreciendo el diálogo y la mejora continua.",
+        "Temas": [
+          "El representante del GAM Tiquipaya, mencionó la importancia de realizar acciones de restauración a través del fortalecimiento de los viveros forestales municipales para la producción de especies forestales nativas, y acciones de cortinas corta fuegos como una técnica para prevenir y controlar los incendios forestales.",
+          "Es importante mencionar la importancia de la comunicación y articulación con los actores locales e institucionales. Asimismo, es importante fortalecer a los bomberos forestales con equipamiento y herramientas. El GAM Tiquipaya tiene el compromiso para realizar las acciones de restauración.",
+          "El representante del GAM Vinto, indica la importancia de fortalecer y equipar a los bomberos forestales, asimismo el fortalecimiento de viveros forestales con la producción de especies nativas. Asimismo, se tiene la predisposición de la comunidad Combuyo Chico para las acciones de restauración.",
+          "En el área del Parque Nacional Tunari los guardaparques son insuficientes, es importante trabajar en la gestión para el fortalecimiento institucional del SERNAP, para proteger el área protegida, así como las vertientes de agua.",
+          "En cuanto a los representantes del pueblo Chiman Mosetenes - Pilon Lajas, menciono la importancia de trabajar no solo en la vulnerabilidad en el tema de incendios, sino también en temas de sequía, lluvias, riadas que afectan a la agricultura; se tiene la necesidad de apoyo tanto nacional como internacional.",
+          "La Organización de Mujeres Indígenas Mosetenes, mencionaron que cuentan con una política de O minería. Se dedican a la agricultura, pero con los eventos de cambio climático tratan de reforzar con las artesanías elaboradas. Acción inmediata en el fortalecimiento de viveros forestales, para reforestar los ojos de agua y áreas priorizadas para la conservación de recursos hídricos.",
+          "Asimismo, es importante la coordinación interinstitucional entre el GAM, comunidades, ABT, APMT, SERNAP para aunar esfuerzos en la restauración de las áreas afectadas."
+        ]
+
+      },
+      "Cierre": {
+        "Descripcion": "El taller concluyó con un resumen de los puntos clave, enfatizando el compromiso y validando el proceso de construccion del diagnostico desarrollado y los resultados alcanzados. En este sentido, los próximos pasos a seguir son los siguientes:",
+        "Temas": [
+          "Es importante que todos los participantes esten comprometidos para trabajar en el ajuste de los planes de acción de cada municipio, para validar los objetivos, un cronograma de actividades conjunto y los insumos, materiales, herramientas, entre otros que se vayan a definir.",
+          "Efectuar las visitas in situ en cada uno de los municipios, para realizar una adecuada planificación, y contar con un plan de acción acorde a las necesidades, y viable técnica, social, ambiental y economica.",
+          "Formar instructores líderes para el control y combate de incendios forestales en todos los municipios, para que estos puedan replicar los conocimientos a las comunidades, unidades educativas, instituciones, y otros Esto a iniciativa del grupo de bomberos forestales voluntarios de Tiquipaya.",
+          "En la segunda quincena de abril, se realizará un proceso de capacitación para fortalecer las capacidades en recuperación/restauracion de áreas afectadas por incendios forestales y en prácticas alternativas al uso del fuego, complementadas con una capacitación en combate contra el fuego a cargo de un especialista con el apoyo de los bomberos de Tiquipaya."
+        ]
+      }
+    }
+  }
 }
-
-
