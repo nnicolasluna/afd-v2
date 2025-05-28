@@ -1,11 +1,12 @@
 .card {
     color: white;
-    width: 320px;
+    width: 500px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     /*     position: fixed; */
     top: 20%;
+    font-size: 15px;
 }
 
 .card-header {
@@ -125,13 +126,16 @@
         padding-right: 10px 5px;
     }
 }
-.btn:hover{
+
+.btn:hover {
     background-color: white;
     color: #14438F;
 }
+
 .title {
     text-align: center;
-    font-weight: bolder;
+    font-size: 25px;
+    font-weight: bold;
     padding-bottom: 5px;
 }
 
@@ -155,7 +159,7 @@
     align-items: center;
     flex-direction: row;
     height: 60%;
-
+    /* width: 1000px; */
 }
 
 .btn_act {
@@ -216,4 +220,11 @@ mat-icon {
     height: 20px;
     background-color: #00ff66;
     margin: 0 auto;
+}
+
+.imagen1 {
+    width: 95%;
+}
+.metodologia{
+    margin-top: -15px;
 }

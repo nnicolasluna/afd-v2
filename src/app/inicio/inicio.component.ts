@@ -361,25 +361,24 @@ export class InicioComponent implements AfterViewInit {
       this.map.getPane('labels')!.style.zIndex = '';
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
+  
+    this.PulseIcons(-15.5862, -67.2501) //palos blancos
+    this.PulseIcons(-15.2992, -67.4668) // Inicua Bajo
+    this.PulseIcons(-14.4867, -67.5020) //Carmen Florida
+    this.PulseIcons(-14.3826149047, -67.3040525119)  //Asuncion del Quiquibey
+    this.PulseIcons(-14.8885, -66.5840) //Pachiuval
+    this.PulseIcons(-14.8938, -66.6035) //Tierra Santa
+ 
+    labelsLayer.addTo(this.map);
+  }
+  PulseIcons(lat: any, long: any) {
     const blinkingIcon = L.divIcon({
-      /*  html:'<span style="color: white; font-size: 22px; padding: 10px 20px;">Rurre</span>', */
       className: 'pulse-marker',
       iconSize: [7, 7],
-      iconAnchor: [12.5, 12.5],
+      /* iconAnchor: [0, 0], */
     });
 
-    L.marker([-14.6406, 67.5112], { icon: blinkingIcon }).addTo(this.map); //Asuncion del Quiquibey
-    L.marker([-14.4867, -67.5020], { icon: blinkingIcon }).addTo(this.map);//Carmen Florida
-    L.marker([-14.8885, -66.5840], { icon: blinkingIcon }).addTo(this.map);//Pachiuval
-    L.marker([-14.8938, -66.6035], { icon: blinkingIcon }).addTo(this.map);//Tierra Santa
-    L.marker([-17.3611, -66.3385], { icon: blinkingIcon }).addTo(this.map);//Combuyo
-    L.marker([-17.3154, -66.2065], { icon: blinkingIcon }).addTo(this.map);//Mayorazgo Molinos
-    L.marker([-15.2992, -67.4668], { icon: blinkingIcon }).addTo(this.map);//Inicua Bajo
-    L.marker([-15.5862, -67.2501], { icon: blinkingIcon }).addTo(this.map);//Palos Blancos
-    L.marker([-14.3019, -67.5422], { icon: blinkingIcon }).addTo(this.map);//Tres Hermanos
-    L.marker([-14.3325, -67.5601], { icon: blinkingIcon }).addTo(this.map);//Altamarani
-
-    labelsLayer.addTo(this.map);
+    L.marker([lat, long], { icon: blinkingIcon }).addTo(this.map);
   }
   private iniciarmapa2(municipio: any): void {
     this.mostrarMapa2 = true

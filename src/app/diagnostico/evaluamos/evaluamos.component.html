@@ -18,46 +18,22 @@
 
             <div [ngSwitch]="currentStep" class="content">
                 <div *ngSwitchCase="0">
-                    <div class="title">Metodología</div>
-                    Para llevar a cabo un análisis espacial de aptitud para la restauración, es importante integrar
-                    mapas de
-                    diferentes variables mediante un análisis multicriterio.
-                    Entre las plataformas disponibles, Sentinel-2 destaca por sus características técnicas avanzadas
-                    y su
-                    acceso libre, lo que facilita su uso en estudios ambientales. Para realizar un análisis de las
-                    cicatrices de quema, es necesario contar con imágenes obtenidas antes del evento, que sirvan
-                    como línea
-                    base, y con imágenes posteriores al incendio. Este conjunto de datos permite comparar las áreas
-                    afectadas y evaluar los cambios.
+                    <div class="metodologia">
+                        <div class="title">Metodología</div>
+                        Para llevar a cabo un análisis espacial de las áreas afectadas por los incendios, es fundamental
+                        realizar un análisis multitemporal empleando imágenes satelitales Sentinel-2, pre y post
+                        incendio. Este análisis permite detectar cambios en la cobertura del suelo y calcular índices
+                        espectrales como el NBR o el dNBR (diferencia de NBR), los cuales son útiles para delimitar las
+                        cicatrices de quemas y estimar la severidad del daño. Además, para identificar áreas con
+                        potencial de restauración ecológica, es necesario integrar variables ambientales (como
+                        pendiente, tipo de suelo, cobertura vegetal) y socioeconómicas (uso actual del suelo,
+                        accesibilidad, tenencia de la tierra). Toda esta información debe ser procesada mediante
+                        técnicas de análisis multicriterio, permitiendo una evaluación integral de las condiciones del
+                        territorio.
+                    </div>
                 </div>
                 <div *ngSwitchCase="1">
-                    <div class="diagram">
-                        <div class="node inicio">Inicio</div>
-
-                        <div class="line"></div>
-                        <div class="node">📍 Alcance Geográfico</div>
-
-                        <div class="line"></div>
-                        <div class="node">🛰️ Imágenes Satelitales</div>
-
-                        <div class="line"></div>
-                        <div class="node">📅 Selección de Temporalidad</div>
-
-                        <div class="line"></div>
-                        <div class="node">Generación del Mosaico</div>
-
-                        <div class="line"></div>
-                        <div class="node">🎨 Generación de Índices Espectrales</div>
-
-                        <div class="line"></div>
-                        <div class="row">
-                            <div class="node small">Índice de<br>Calcinación NBR</div>
-                            <div class="node small">Índice de<br>Vegetación NDVI</div>
-                        </div>
-
-                        <div class="line"></div>
-                        <div class="node small">Diferencia Normalizada<br>de Relación de Quemado</div>
-                    </div>
+                    <img class="imagen1" src="assets/imagenes/diagrama.png" alt="">
                 </div>
             </div>
 
