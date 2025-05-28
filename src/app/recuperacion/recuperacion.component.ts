@@ -10,10 +10,17 @@ export class RecuperacionComponent {
   mostrarPantalla1 = true;
   mostrarPantalla2 = false;
   mostrarPantalla3 = false;
-  mucipioSelecionado:any
+  mucipioSelecionado: any
+  rutaBaseImagenes: string = 'assets/imagenes/FotosRecuperacionYRestauracion/';
+
   verRecuperacion() {
     this.mostrarPantalla1 = !this.mostrarPantalla1
     this.mostrarPantalla2 = !this.mostrarPantalla2
+  }
+  verFotos() {
+    this.mostrarPantalla2 = !this.mostrarPantalla2
+    this.mostrarPantalla3 = !this.mostrarPantalla3
+    console.log(this.mucipioSelecionado[0].fotografias)
   }
 
   datosRecuperacion = [
@@ -94,9 +101,19 @@ export class RecuperacionComponent {
               "Equipo": "Palo Maria",
               "Piezas": null
             }
-          ]
+          ],
         }
-      }
+      },
+      "fotografias": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "7.jpg",
+        "6.jpg",
+        "8.jpg",
+      ]
     },
     {
       "municipio": "Tiquipaya",
@@ -175,7 +192,17 @@ export class RecuperacionComponent {
             }
           ]
         }
-      }
+      },
+      "fotografias": [
+        "1.jpeg",
+        "2.jpeg",
+        "3.jpeg",
+        "4.jpeg",
+        "5.jpeg",
+        "7.jpeg",
+        "6.jpeg",
+        "8.jpeg",
+      ]
     },
     {
       "municipio": "Vinto",
@@ -254,7 +281,17 @@ export class RecuperacionComponent {
             }
           ]
         }
-      }
+      },
+      "fotografias": [
+        "1.jpeg",
+        "2.jpeg",
+        "3.jpeg",
+        "4.jpeg",
+        "5.jpeg",
+        "7.jpeg",
+        "6.jpeg",
+        "8.jpeg",
+      ]
     },
     {
       "municipio": "Rurrenabaque",
@@ -272,9 +309,20 @@ export class RecuperacionComponent {
               "Equipo": "Plantines Forestales",
               "Piezas": "130"
             }
-          ]
+          ],
+
         }
-      }
+      },
+      "fotografias": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "7.jpg",
+        "6.jpg",
+        "8.jpg",
+      ]
     },
     {
       "municipio": "San Borja",
@@ -306,7 +354,17 @@ export class RecuperacionComponent {
             }
           ]
         }
-      }
+      },
+      "fotografias": [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "7.jpg",
+        "6.jpg",
+        "8.jpg",
+      ]
     }
   ]
   ngOnInit() {

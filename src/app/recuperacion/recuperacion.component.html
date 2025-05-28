@@ -1,5 +1,6 @@
-<app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" [tamContenedor]="'bar_main--small'" *ngIf="mostrarPantalla1">
-    <div class="ContenedorPrimeraVIsta" >
+<app-card-generico [Municipio]="municipio" [titulo]="'Recuperación y Restauración'" [tamContenedor]="'bar_main--small'"
+    *ngIf="mostrarPantalla1">
+    <div class="ContenedorPrimeraVIsta">
         <p>Identificación de acciones para la recuperación y restauración de áreas afectadas por incendios forestales
         </p>
         <button class="boton boton--azul" (click)="verRecuperacion()">Ver Acciones </button>
@@ -18,7 +19,8 @@
                     </div>
                 </div>
             </div>
-            <button class="boton boton--azul" *ngIf="municipio !== 'Palos Blancos'">Ver Fotografías</button>
+            <button class="boton boton--azul" *ngIf="municipio !== 'Palos Blancos'" (click)="verFotos()">Ver
+                Fotografías</button>
         </div>
         <div class="contenedorDoble__card">
             <div class="kit-brigada">
@@ -61,6 +63,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</app-card-generico>
+<app-card-generico [Municipio]="municipio" *ngIf="mostrarPantalla3" [tamContenedor]="'bar_main--big'">
+    <div class="title title--bold">Recuperación y Restauración</div>
+    <div class="title title--bold">FOTOGRAFIAS</div>
+    <div class="gallery-container">
+        <div class="foto-item" *ngFor="let image of mucipioSelecionado[0].fotografias">
+            <img [src]="rutaBaseImagenes+mucipioSelecionado[0].municipio+'/'+image" alt="Imagen del municipio">
         </div>
     </div>
 </app-card-generico>
