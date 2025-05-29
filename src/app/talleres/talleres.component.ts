@@ -16,6 +16,7 @@ interface Region {
 export class TalleresComponent {
   primerapantalla = true
   taller2 = false
+  galeriaPracticos = false
   tecerapantalla_participantes = false
   tecerapantalla_desarrollo = false
   datosMunicipioSelecionado: any;
@@ -96,9 +97,16 @@ export class TalleresComponent {
     this.taller2 = !this.taller2
     this.tecerapantalla_desarrollo = !this.tecerapantalla_desarrollo
   }
-
-
-
+tipoTaller:string=''
+  vergaleriaPracticos(tipo:string) {
+    this.galeriaPracticos = !this.galeriaPracticos
+    this.taller2 = !this.taller2
+    this.tipoTaller=tipo
+  }
+  imageNumbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8]; // Números de tus imágenes
+  getImageUrl(imageNumber: number, tipo:string): string {
+    return `assets/imagenes/Talleres/${this.Numerotaller}/${this.municipioSeleccionado?.nombre}/${tipo}/${imageNumber}.png`;
+  }
   datos_organizados = {
     "San Buenaventura": [
       {

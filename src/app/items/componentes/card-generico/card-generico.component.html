@@ -1,6 +1,6 @@
 <div class="bar_main">
     <div class="card" *ngIf="ExtenderBar" [ngClass]="tamContenedor">
-        <div class="card-header">
+        <div class="card-header" *ngIf="Municipio">
 
             <div class="card-title">{{Municipio}}</div>
             <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="button_action">
-        <button class="btn_act" (click)="extenderBar()">
+        <button class="btn_act" (click)="extenderBar()" *ngIf="Municipio">
             <mat-icon fontIcon="arrow_left" *ngIf="ExtenderBar"></mat-icon>
             <mat-icon fontIcon="arrow_right" *ngIf="!ExtenderBar"></mat-icon>
         </button>

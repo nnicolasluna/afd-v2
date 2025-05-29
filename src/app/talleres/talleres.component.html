@@ -76,9 +76,8 @@
                     <div class="cicleandBar">
                         <div class="timeline-line timeline-line--green"></div>
                         <div class="timeline-circle timeline-circle--green"></div>
-
                     </div>
-                    <div class="talleres">
+                    <div class="talleres talleres--special">
                         <div class="title title--green">Taller 4</div>
                         <div class="imgTex">
                             <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/5.png">
@@ -160,9 +159,9 @@
                     </div>
                     <div class="btncardleft" *ngIf="Numerotaller=='TALLER 4'">
                         <button class="btncardleft__btn" *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'"
-                            (click)="verParticipantes()">Ver Fotos Taller Teorico</button>
+                            (click)="vergaleriaPracticos('practico')">Ver Fotos Taller Teorico</button>
                         <button class="btncardleft__btn" *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'"
-                            (click)="verDesarrollo()">Ver Fotos Taller Practico</button>
+                            (click)="vergaleriaPracticos('teorico')">Ver Fotos Taller Practico</button>
                     </div>
                 </div>
                 <div class="tallerCardleft__footer">
@@ -176,8 +175,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="localization">
-                        <mat-icon fontIcon="calendar_month"></mat-icon>
+                    <div class="localization"*ngIf="Numerotaller!='TALLER 1'">
+                        <mat-icon fontIcon="calendar_month" ></mat-icon>
                         <div class="textFooter" *ngIf="Numerotaller==='TALLER 2'">
                             <div class="title_card">Fecha</div>
                             {{datosMunicipioSelecionado[6]?.Fecha}}
@@ -193,20 +192,25 @@
                     </div>
                 </div>
             </div>
-            <div class="tallerCardright">
-                <div class="title">Galería de Imágenes</div>
-                <div class="tallerCardright__body" *ngIf="Numerotaller!='TALLER 3'">
+            <!--  <div class="tallerCardright" *ngIf="municipioSeleccionado?.nombre!='Rurrenabaque' &&Numerotaller!='TALLER 4' "> -->
+            <div class="tallerCardright" *ngIf="Numerotaller!='TALLER 3' && Numerotaller!='TALLER 4'">
+                <div class="title">Galería de Imágenes {{Numerotaller}}</div>
+                <div class="tallerCardright__body">
                     <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/1.png">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/1.png">
                         <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
                     </div>
                     <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/2.png">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/2.png">
                         <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
 
                     </div>
                 </div>
-                <div class="tallerCardright__body" *ngIf="Numerotaller=='TALLER 3'">
+
+            </div>
+            <div class="tallerCardright" *ngIf="Numerotaller=='TALLER 3'">
+                <div class="title">Galería de Imágenes {{Numerotaller}}</div>
+                <div class="tallerCardright__body">
                     <div class="cont_img">
                         <img src="assets/imagenes/Talleres/{{Numerotaller}}/1.png">
                     </div>
@@ -215,6 +219,19 @@
                     </div>
                 </div>
             </div>
+            <div class="tallerCardright"
+                *ngIf="municipioSeleccionado?.nombre != 'Rurrenabaque' && Numerotaller == 'TALLER 4'">
+                <div class="title">Galería de Imágenes {{municipioSeleccionado?.nombre}}</div>
+                <div class="tallerCardright__body">
+                    <div class="cont_img">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/2.png">
+                    </div>
+                    <div class="cont_img">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/2.png">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="terceraPantallaTalleres-Participantes" *ngIf="tecerapantalla_participantes">
@@ -377,8 +394,10 @@
 
 
                             <div class="desarrollo__imagenes">
-                                <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/mapas/1.png">
-                                <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/mapas/2.png">
+                                <img
+                                    src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/mapas/1.png">
+                                <img
+                                    src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/mapas/2.png">
                             </div>
 
                             <!--//////////////////////////////////// -->
@@ -467,4 +486,16 @@
             </div>
         </div>
     </div>
+    <app-card-generico *ngIf="galeriaPracticos" [tamContenedor]="'card--big'">
+        <div class="tituloFtosTaller4">
+            <button class="botonRegresar" (click)="vergaleriaPracticos('practico')">Regresar</button>
+        </div>
+        <div class="tituloFtosTaller4"> FOTOGRAFÍAS TALLER PRACTICO</div>
+        <div class="gallery-container">
+            <div class="foto-item" *ngFor="let image of imageNumbers ; let i = index">
+                <img [src]="getImageUrl(i+1,tipoTaller)">
+
+            </div>
+        </div>
+    </app-card-generico>
 </div>

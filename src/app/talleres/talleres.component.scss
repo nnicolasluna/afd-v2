@@ -185,17 +185,20 @@
   }
 
   .talleres {
-      background-color: #161616;
+      background-color: transparentize(#161616CC, 0.1);
       border-radius: 10px;
       padding: 10px;
       cursor: pointer;
       height: fit-content;
+      &--special {
+          margin-top: 50%;
+      }
 
   }
 
   .talleres:hover {
-      background-color: transparentize(#161616CC, 0.1);
-      ;
+      background-color: #161616;
+
   }
 
   .btnPrimeraPantalla {
@@ -596,14 +599,16 @@
           border-radius: 5px;
           height: 100%;
       }
-      &__imagenes img{
-        width: 200px;
-        height: 200px;
-        padding: 10px;
+
+      &__imagenes img {
+          width: 200px;
+          height: 200px;
+          padding: 10px;
       }
-      &__imagenes{
-        display: flex;
-        justify-content: center;
+
+      &__imagenes {
+          display: flex;
+          justify-content: center;
       }
 
   }
@@ -743,4 +748,60 @@
           background-color: #FFFFFF;
           font-size: 10px;
       }
+  }
+
+  /*   .galeria_main {
+      background-color: #68706480;
+      padding: 5px;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      text-align: center;
+      border-left: solid 4px #68706480;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+  } */
+
+  .foto-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+  }
+
+  @media (max-width: 1200px) {
+      .gallery-container {
+          grid-template-columns: repeat(4, 1fr);
+      }
+  }
+
+  .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+      place-items: center;
+  }
+
+  .tituloFtosTaller4 {
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+  }
+
+  .botonRegresar {
+      background-color: #14438F;
+      color: white;
+      border: none;
+      border-radius: 0 10px 10px 0;
+      position: absolute;
+      left: 0;
+      padding: 5px 15px;
+  }
+
+  .botonRegresar:hover {
+      color: #14438F;
+      background-color: white;
+
   }
