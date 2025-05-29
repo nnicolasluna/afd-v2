@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-rightbar',
@@ -10,7 +11,12 @@ export class RightbarComponent {
   @Input() mostrarRightBar: boolean = true
   @Output() locationSelected = new EventEmitter<any>();
   rightBarToMenu: string = ''
-  constructor(private modalstateService: ModalStateService) { } // Inyecta el servicio
+  constructor(private modalstateService: ModalStateService, private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver.observe([Breakpoints.Handset]) 
+      .subscribe(result => {
+        this.mostrarRightBar = false; 
+      });
+  }
 
   ciudades = [
     { departamento: 'La Paz', provincia: 'Sur Yungas', AreaProt: 'RBTCO Pilon Lajas', publoIndigena: 'Moseten', municipio: 'San Buenaventura', png: 'assets/IconosMunicipios/SanBuenaventura.png', color: '#FF5C5CB5', latMun: -14.45812, lonMun: -67.58674599999999 },

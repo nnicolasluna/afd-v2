@@ -345,9 +345,11 @@ export class InicioComponent implements AfterViewInit {
       center: [-16, -65],
       zoom: 5,
       scrollWheelZoom: true,
-      dragging: false,
+      dragging: true,
       zoomControl: false,
-      doubleClickZoom: false
+      doubleClickZoom: false,
+      minZoom: 6,
+      maxZoom: 10
     });
     this.map.setZoom(6.4);
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -375,6 +377,12 @@ export class InicioComponent implements AfterViewInit {
     this.PulseIcons(-67.560121032584576, -14.332509679746231)
     this.PulseIcons(-66.206486187544854, -17.315427603500169)
     labelsLayer.addTo(this.map);
+    this.map.on('zoomend', () => {
+  
+      if (this.map.getZoom() === 6) {
+        this.map.setView([-16, -65]);
+      }
+    });
   }
   PulseIcons(long: any, lat: any) {
     const blinkingIcon = L.divIcon({
