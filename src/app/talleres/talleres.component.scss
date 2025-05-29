@@ -23,14 +23,9 @@
   .taller-container {
       bottom: 0;
       top: 0;
-      padding-top: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      /*       width: 500px;
- */
       display: flex;
       flex-direction: row;
-
+      height: 100%;
   }
 
   .timeline-line {
@@ -43,7 +38,6 @@
 
       &--red {
           background: #FF4400;
-          margin-top: -20px;
       }
 
       &--other {
@@ -52,7 +46,6 @@
 
       &--green {
           background: #A4F522;
-          margin-top: -20px;
 
       }
 
@@ -66,19 +59,19 @@
       background: transparent;
 
       &--orange {
-          background: #ffa500;
+          border: solid 2px #ffa500;
       }
 
       &--red {
-          background: #FF4400;
+          border: solid 2px #FF4400;
       }
 
       &--other {
-          background: #CE6514;
+          border: solid 2px #CE6514;
       }
 
       &--green {
-          background: #A4F522;
+          border: solid 2px #A4F522;
       }
   }
 
@@ -87,12 +80,14 @@
       justify-content: center;
       flex-direction: column;
       align-items: center;
+
   }
 
   .title {
       margin-left: 40px;
-      font-size: 24px;
+      /* font-size: 24px; */
       font-weight: bold;
+      font-size: 2vw;
 
       &--orange {
           color: #ffa500;
@@ -113,7 +108,8 @@
 
   .date {
       margin-left: 40px;
-      font-size: 28px;
+      font-size: 2vw;
+
       font-weight: bold;
       margin-bottom: 15px;
   }
@@ -121,6 +117,7 @@
   .imgTex {
       display: flex;
       flex-direction: row;
+
   }
 
   .imgTex img {
@@ -130,7 +127,8 @@
 
   .description {
       text-align: justify;
-      font-size: 14px;
+      height: 30%;
+      font-size: 0.8vw;
   }
 
   .topTimeLine {
@@ -171,17 +169,15 @@
 
       &__2 {
           grid-area: item2;
+
       }
 
       &__3 {
           grid-area: item3;
-          margin-top: -10px;
       }
 
       &__4 {
           grid-area: item4;
-          margin-top: -10px;
-
       }
   }
 
@@ -190,6 +186,8 @@
       border-radius: 10px;
       padding: 10px;
       cursor: pointer;
+      height: fit-content;
+
   }
 
   .talleres:hover {
@@ -312,8 +310,9 @@
       .content {
           text-align: justify;
           width: 95%;
-          font-size: 13px;
+          /* font-size: 13px; */
           margin: 10px;
+          font-size: 0.8vw;
       }
 
       &__body {
