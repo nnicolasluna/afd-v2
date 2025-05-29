@@ -11,7 +11,7 @@
                         <div class="title title--orange">Taller 1</div>
                         <div class="date">10 Octubre 2024</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/logos/bicentenario_vertical.png">
+                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/2.png">
                             <div class="description">
                                 Identificación y contacto con actores clave.
                                 Entrevistas y reuniones de presentaciones temáticas.
@@ -34,7 +34,7 @@
                         <div class="title title--red">Taller 2</div>
                         <div class="date">13-24 Enero 2025</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/logos/bicentenario_vertical.png">
+                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/3.png">
                             <div class="description">
                                 Documentar los procesos, acuerdos y lecciones aprendidas en las mesas de trabajo
                                 realizadas con el fin de establecer criterios técnicos y definir áreas priorizadas para
@@ -59,7 +59,7 @@
                         <div class="title title--other">Taller 3</div>
                         <div class="date">26 Febrero 2025</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/logos/bicentenario_vertical.png">
+                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/4.png">
                             <div class="description">
                                 Presentar los resultados de un proceso esencial de diagnostico e identificación de
                                 acciones de recuperación y practicas alternativas al uso de fuego en áreas afectadas por
@@ -81,7 +81,7 @@
                     <div class="talleres">
                         <div class="title title--green">Taller 4</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/logos/bicentenario_vertical.png">
+                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/5.png">
                             <div class="description">
                                 Talleres realizados en múltiples fechas los cuales fueron efectuados en diferentes
                                 Municipios, ya sea con un fin educativo Teórico o Practico.
@@ -159,8 +159,10 @@
                             trabajo</button>
                     </div>
                     <div class="btncardleft" *ngIf="Numerotaller=='TALLER 4'">
-                        <button class="btncardleft__btn"  *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'" (click)="verParticipantes()">Ver Fotos Taller Teorico</button>
-                        <button class="btncardleft__btn"  *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'" (click)="verDesarrollo()">Ver Fotos Taller Practico</button>
+                        <button class="btncardleft__btn" *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'"
+                            (click)="verParticipantes()">Ver Fotos Taller Teorico</button>
+                        <button class="btncardleft__btn" *ngIf="municipioSeleccionado?.nombre=='Rurrenabaque'"
+                            (click)="verDesarrollo()">Ver Fotos Taller Practico</button>
                     </div>
                 </div>
                 <div class="tallerCardleft__footer">
@@ -193,14 +195,23 @@
             </div>
             <div class="tallerCardright">
                 <div class="title">Galería de Imágenes</div>
-                <div class="tallerCardright__body">
+                <div class="tallerCardright__body" *ngIf="Numerotaller!='TALLER 3'">
                     <div class="cont_img">
-                        <img src="assets/logos/bicentenario_vertical.png" alt="">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/1.png">
+                        <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
                     </div>
                     <div class="cont_img">
-                        <img src="assets/logos/bicentenario_vertical.png" alt="">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/2.png">
                         <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
 
+                    </div>
+                </div>
+                <div class="tallerCardright__body" *ngIf="Numerotaller=='TALLER 3'">
+                    <div class="cont_img">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/1.png">
+                    </div>
+                    <div class="cont_img">
+                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/2.png">
                     </div>
                 </div>
             </div>
@@ -308,7 +319,7 @@
                                 <div class="desarrollo__textIcon">Densidad Poblacional</div>
                                 <img src="assets/talleres/iconos/icon10.png" alt="">
                             </div>
-                            <div class="desarrollo__icon desarrollo__icon--blue1">
+                            <div class="desarrollo__icon desarrollo__icon--morado">
                                 <div class="desarrollo__textIcon">Caminos</div>
                                 <img src="assets/talleres/iconos/icon9.png" alt="">
                             </div>
@@ -363,6 +374,14 @@
                     <div class="desarrollo__content" *ngIf="activeButton===2">
                         <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 2'">
                             {{datosMunicipioSelecionado[2].Descripcion}}
+
+
+                            <div class="desarrollo__imagenes">
+                                <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/mapas/1.png">
+                                <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/mapas/2.png">
+                            </div>
+
+                            <!--//////////////////////////////////// -->
                         </div>
                         <div class="desarrollo__subText" *ngIf="Numerotaller==='TALLER 3'">
                             {{datosMunicipioSelecionado.Resultados.Introduccion}}

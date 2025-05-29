@@ -24,7 +24,7 @@ export class TalleresComponent {
     {
       nombre: 'La Paz',
       municipios: [{ nombre: 'Palos Blancos' }, { nombre: 'San Buenaventura' }],
-      municipioInicial: 'Palos Blancos'
+      municipioInicial: 'Palos Blancos',
     },
     {
       nombre: 'Beni',

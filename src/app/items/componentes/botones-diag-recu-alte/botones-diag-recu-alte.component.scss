@@ -1,25 +1,30 @@
 .tres-botones {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 100%;
     position: fixed;
     top: 10%;
-    left: 30%;
     z-index: 999;
 
 }
 
 .button-top-bar {
+    flex: 1 1 30%;
     width: fit-content;
     max-width: 200px;
+    width: 10vw;
+    width: 5vw;
     min-height: 60px;
-    padding: 10px 30px;
+    height: auto;
     color: white;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    margin: 4px;
+    font-size: 4vw;
+    font-size: 14px;
 
     &--blue {
         background-color: transparentize(#5B9BD5, 0.1);

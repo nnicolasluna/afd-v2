@@ -16,7 +16,11 @@
     align-items: center;
     flex-direction: row;
 
-    height: 60%;
+    height: auto;
+    width: 90vw;
+    max-width: 1000px;
+    min-width: 300px;
+    min-height: 400px;
 
 
     &--small {
