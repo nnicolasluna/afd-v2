@@ -73,8 +73,35 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    border: solid 1px #ccc;
 }
 
 .card-action button:hover {
     background-color: #ccc;
+}
+
+.pdfContainer {
+    position: fixed;
+    top: 8%;
+    background-color: transparentize(#272323, 0.1);
+    width: 100%;
+    height: 80%;
+
+}
+.botonRegresar {
+    background-color: #14438F;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.botonRegresar:hover {
+    color: #14438F;
+    background-color: white;
 }

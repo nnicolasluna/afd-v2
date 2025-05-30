@@ -1,4 +1,4 @@
-<div class="main-card">
+<div class="main-card" *ngIf="mostrarManual">
     <div class="titulo">Convenios</div>
 
     <div class="card">
@@ -12,7 +12,7 @@
         </div>
         <div class="card-action">
             <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon">
-            <button>Ver Convenio</button>
+            <button (click)="ShowManual('ANEXO 2 MANUAL_PRELIMINAR_DE_ACCIONES_DE_RECUPERACIÓN_V1.2.pdf','Gobierno Autonomo Municipal de Tiquipaya')">Ver Convenio</button>
         </div>
     </div>
 
@@ -27,7 +27,11 @@
         </div>
         <div class="card-action">
             <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon">
-            <button>Ver Convenio</button>
+            <button (click)="ShowManual('ANEXO 2 MANUAL_PRELIMINAR_DE_ACCIONES_DE_RECUPERACIÓN_V1.2.pdf','Gobierno Autonomo Municipal de Vint')">Ver Convenio</button>
         </div>
     </div>
+</div>
+<div class="pdfContainer" *ngIf="!mostrarManual">
+    <button class="botonRegresar" (click)="ShowManual('','')">Regresar</button>
+    <app-pdf-viwer [direccion]="manual" [titulo]="titulo"></app-pdf-viwer>
 </div>

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./convenios.component.scss']
 })
 export class ConveniosComponent {
-
+  mostrarManual = true
+  manual: string = ''
+  titulo: string = ''
+  ShowManual(direccion: string, tituloPdf: string) {
+    this.mostrarManual = !this.mostrarManual
+    this.manual = direccion
+    this.titulo = tituloPdf
+  }
 }

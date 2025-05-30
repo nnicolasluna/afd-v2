@@ -1,40 +1,41 @@
-<div class="container-main">
+<div class="container-main" *ngIf="mostrarManual">
     <div class="title">MANUALES</div>
     <div class="container">
-        <div class="card">
+        <div class="card"
+            (click)="ShowManual('ANEXO 2 MANUAL_PRELIMINAR_DE_ACCIONES_DE_RECUPERACIÓN_V1.2.pdf','ACCIONES DE RECUPERACIÓN')">
             <div class="card__header">
                 <h3>ACCIONES<br>DE<br>RECUPERACIÓN</h3>
             </div>
             <div class="card__body">
                 <img src="assets/imagenes/manualPreliminar.png" alt="Acciones de recuperación">
-            </div>
-            <div class="card__footer">
                 <mat-icon fontIcon="arrow_downward"></mat-icon>
             </div>
+            <div class="card__footer">
+            </div>
         </div>
-        <div class="card">
+        <div class="card"
+            (click)="ShowManual('ANEXO 3 MANUAL_PRELIMINAR_DE_PRÁCTICAS_ALTERNATIVAS_AL_USO_DEL_FUEGO_V1.2.pdf ','PRÁCTICAS ALTERNATIVAS AL USO DEL FUEGO')">
             <div class="card__header">
-                <h3>ACCIONES<br>DE<br>RECUPERACIÓN</h3>
+                <h3>PRÁCTICAS<br>ALTERNATIVAS AL USO<br>DEL FUEGO</h3>
             </div>
             <div class="card__body">
                 <img src="assets/imagenes/practicasAlternativas.png" alt="Prácticas alternativas al fuego">
-            </div>
-            <div class="card__footer">
                 <mat-icon fontIcon="arrow_downward"></mat-icon>
             </div>
         </div>
-        <div class="card">
+        <div class="card"
+            (click)="ShowManual('Anexo 4. Manual para la evaluación de daños ambientales e impactos .pdf ','EVALUACION DE DAÑOS AMBIENTALES Y IMPACTOS')">
             <div class="card__header">
-                <h3>ACCIONES<br>DE<br>RECUPERACIÓN</h3>
+                <h3>EVALUACION DE<br>DAÑOS AMBIENTALES<br>Y IMPACTOS</h3>
             </div>
             <div class="card__body">
                 <img src="assets/imagenes/evaluacionDanos.png" alt="Evaluación de daños">
-            </div>
-            <div class="card__footer">
-                <div class="triangulo">
-                    <mat-icon fontIcon="arrow_downward"></mat-icon>
-                </div>
+                <mat-icon fontIcon="arrow_downward"></mat-icon>
             </div>
         </div>
     </div>
+</div>
+<div class="pdfContainer" *ngIf="!mostrarManual">
+    <button class="botonRegresar" (click)="ShowManual('','')">Regresar</button>
+    <app-pdf-viwer [direccion]="manual" [titulo]="titulo"></app-pdf-viwer>
 </div>

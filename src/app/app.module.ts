@@ -28,6 +28,7 @@ import { TalleresComponent } from './talleres/talleres.component';
 import { AlternativasComponent } from './alternativas/alternativas.component';
 import { LeyendaComponent } from './items/componentes/leyenda/leyenda.component';
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
+import { PdfViwerComponent } from './items/componentes/pdf-viwer/pdf-viwer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { RecuperacionComponent } from './recuperacion/recuperacion.component';
     AlternativasComponent,
     LeyendaComponent,
     RecuperacionComponent,
+    PdfViwerComponent,
     
   ],
   imports: [
