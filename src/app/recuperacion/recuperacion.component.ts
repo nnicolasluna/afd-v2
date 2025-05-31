@@ -20,7 +20,6 @@ export class RecuperacionComponent {
   verFotos() {
     this.mostrarPantalla2 = !this.mostrarPantalla2
     this.mostrarPantalla3 = !this.mostrarPantalla3
-    console.log(this.mucipioSelecionado[0].fotografias)
   }
 
   datosRecuperacion = [

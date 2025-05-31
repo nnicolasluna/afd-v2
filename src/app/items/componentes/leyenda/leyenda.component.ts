@@ -10,6 +10,6 @@ export class LeyendaComponent  {
   @Input() Municipio: string = '';
   @Input() subTitulo: string = '';
   @Input() datos: any[]=[];
-  @Input() tipoFigura: any;
+  @Input() tipo: any;
 
 }

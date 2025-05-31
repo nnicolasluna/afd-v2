@@ -6,12 +6,15 @@
         <div class="leyendaMain__leyenda">Leyenda</div>
         <!-- <div class="leyendaMain__subtitle">{{subTitulo}}</div> -->
 
-        <ul class="leyendaMain__content">
-            <li *ngFor="let item of datos" class="items">
-                <div class="items__icono" [style.background-color]="item.color" [style.border-radius]="tipoFigura"></div>
+        <div class="leyendaMain__content">
+            <div *ngFor="let item of datos" class="items">
+                <div *ngIf="tipo=='focosCalor'" class="items__icono" [style.background-color]="item.color"
+                    [style.border-radius]="'50%'"></div>
+                <div *ngIf="tipo!='focosCalor'" class="items__icono" [style.background-color]="item.color"
+                    [style.border-radius]="'0%'"></div>
                 <div class="items__texto">{{ item.description }}</div>
-            </li>
-        </ul>
+            </div>
+        </div>
 
     </div>
 </div>

@@ -15,7 +15,6 @@ export class InicioComponent implements AfterViewInit {
   private map1!: L.Map;
   private map2!: L.Map;
   private map3!: L.Map;
-  private lupaOverlay?: L.ImageOverlay;
 
 
   municipio = '';
@@ -34,13 +33,14 @@ export class InicioComponent implements AfterViewInit {
   mostrarTalleres = false;
   mostrarLeyenda = false;
   mostrarRecuperacion = false
-
+  tipoLeyenda: string = ''
   mostrarMapa2 = false;
   mostrarMapa3 = false;
   bounds: any
   indice: any
   leyandaActiva: any
   mostrarRightBar: boolean = true
+  TipoMapa: any
   departamentos = [
     { departamento: 'La Paz', source: 'assets/geojson/LaPaz/LaPaz.geo.json', state: true },
     { departamento: 'Beni', source: 'assets/geojson/Beni/Beni.geo.json', state: true },
@@ -65,6 +65,34 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747538623598sanbuena_dnbr1',
         focosCalor: 'aceaa:layer_focos_de_calor__san_buenaventura_9vf0rk',
+        quemas: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
+        FaunaFlora: {
+          b: 'aceaa:layer_bosques__san_buenaventura_0p6o6',
+          pcp: 'aceaa:layer_centros_poblados__san_buenaventura_3rx6dl',
+          cp: 'aceaa:layer_comunidades__san_buenaventura_2iutt',
+          lm: 'aceaa:layer_limite_municipal__san_buenaventura_4svij',
+          aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
+          tco: 'aceaa:layer_tcos__san_buenaventura_sqzft',
+          ap: 'aceaa:layer_areas_protegidas__san_buenaventura_8m4v5',
+        },
+        AreasAfectadas: {
+          af: 'aceaa:layer_areas_afectadas__san_buenaventura_7d67c',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__san_buenaventura_lkix1',
+          ed: 'aceaa:layer_educacion__san_buenaventura_vykej',
+          es: 'aceaa:layer_centros_de_salud__san_buenaventura_g3di2',
+          c: 'aceaa:layer_com__sanbuena_f2d5b',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
+        },
+        restauracion: {
+          af: 'aceaa:layer_restauracion__san_buena_3aj6h',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__san_buenaventura_lkix1',
+          ed: 'aceaa:layer_educacion__san_buenaventura_vykej',
+          es: 'aceaa:layer_centros_de_salud__san_buenaventura_g3di2',
+          c: 'aceaa:layer_com__sanbuena_f2d5b',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
+        },
       }
     },
     {
@@ -85,6 +113,7 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747576386958dNBR1_pb',
         focosCalor: 'aceaa:layer_focos_de_calor__palos_blancos_nyusnf',
+        quemas: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
         FaunaFlora: {
           b: 'aceaa:layer_bosques__palos_blancos_w0088',
           pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
@@ -93,7 +122,25 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
           tco: 'aceaa:layer_tcos__palos_blancos_veodq',
           ap: 'aceaa:layer_areas_protegidas_palos_blancos_nuobfg',
-        }
+        },
+        AreasAfectadas: {
+          af: 'aceaa:layer_areas_afectadas__palos_blancos_l7r6j',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__palos_blancos_6oztc',
+          ed: 'aceaa:layer_educacion__palo_blancos_0bauh',
+          es: 'aceaa:layer_centros_de_salud__palos_blancos_ba79mk',
+          c: 'aceaa:layer_com__palos_0z5xe',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
+        },
+        restauracion: {
+          af: 'aceaa:layer_restauracion__palos_b8p3mj',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__palos_blancos_6oztc',
+          ed: 'aceaa:layer_educacion__palo_blancos_0bauh',
+          es: 'aceaa:layer_centros_de_salud__palos_blancos_ba79mk',
+          c: 'aceaa:layer_com__palos_0z5xe',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
+        },
       }
     },
     {
@@ -114,7 +161,34 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747538931290rure_dnbr1',
         focosCalor: 'aceaa:layer_san_borja__focos_de_calor_sno9f',
-
+        quemas: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
+        FaunaFlora: {
+          b: 'aceaa:layer_bosques__rurrenabaque_nzou',
+          pcp: 'aceaa:',
+          cp: 'aceaa:layer_comunidades__rurrenabaque_3u86m',
+          lm: 'aceaa:layer_limite_municipal__rurrenabaque_im1s',
+          aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
+          tco: 'aceaa:layer_tcos__rurrenabaque_3cwei',
+          ap: 'aceaa:layer_areas_protegidas__rurrenabaque_54elx',
+        },
+        AreasAfectadas: {
+          af: 'aceaa:layer_areas_afectadas__rurrenabaque_nbi75',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__rurrenabaque_fjkee',
+          ed: 'aceaa:layer_educacion__rurrenabaque_cuua9',
+          es: 'aceaa:layer_centros_de_salud__rurrenabaque_fko8d',
+          c: 'aceaa:layer_com__rurre_qtmpih',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
+        },
+        restauracion: {
+          af: 'aceaa:layer_restauracion__rurre_p35e6',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__rurrenabaque_fjkee',
+          ed: 'aceaa:layer_educacion__rurrenabaque_cuua9',
+          es: 'aceaa:layer_centros_de_salud__rurrenabaque_fko8d',
+          c: 'aceaa:layer_com__rurre_qtmpih',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
+        },
       },
     },
     {
@@ -135,8 +209,34 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747589538998dNBR_sb1',
         focosCalor: 'aceaa:layer_focos_de_calor__rurranabaque_cdmg5',
-
-
+        quemas: 'aceaa:layer_quemas__san_borja_sw6j4',
+        FaunaFlora: {
+          b: 'aceaa:layer_bosques__san_borja_3k08u',
+          pcp: 'aceaa:layer_centros_poblados__san_borja_os7lj',
+          cp: 'aceaa:layer_comunidades__san_borja_xxxqn',
+          lm: 'aceaa:layer_limite_municipal__san_borja_9wnmdk',
+          aq: 'aceaa:layer_quemas__san_borja_sw6j4',
+          tco: 'aceaa:layer_tcos__san_borja_ihj72',
+          ap: 'aceaa:layer_areas_protegidas__san_borja_6igyd',
+        },
+        AreasAfectadas: {
+          af: 'aceaa:layer_areas_afectadas__san_borja_qb07d',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__san_borja_ytbtf',
+          ed: 'aceaa:layer_educacion__san_borja_spoo4',
+          es: 'aceaa:layer_centros_de_salud__san_borja_tbs5o',
+          c: 'aceaa:layer_com__sanborja_773kv',
+          lm: 'aceaa:layer_lim__sanbor_6cq47',
+        },
+        restauracion: {
+          af: 'aceaa:layer_restauracion__san_borja_o4n6y',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__san_borja_ytbtf',
+          ed: 'aceaa:layer_educacion__san_borja_spoo4',
+          es: 'aceaa:layer_centros_de_salud__san_borja_tbs5o',
+          c: 'aceaa:layer_com__sanborja_773kv',
+          lm: 'aceaa:layer_lim__sanbor_6cq47',
+        },
       }
     },
     {
@@ -157,7 +257,34 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747536074621vinto2',
         focosCalor: 'aceaa:layer_vinto__focos_de_calor_zpk08',
-
+        quemas: 'aceaa:layer_recurrencia_vinto_log5y',
+        FaunaFlora: {
+          b: 'aceaa:layer_bosques__vinto_1t2k4',
+          pcp: 'aceaa:',
+          cp: 'aceaa:layer_comunidades__vinto_rdrho',
+          lm: 'aceaa:layer_limite_municipal__vinto_tcdqo',
+          aq: 'aceaa:layer_recurrencia_vinto_log5y',
+          tco: 'aceaa:',
+          ap: 'aceaa:layer_areas_protegidas__vinto_beowz',
+        },
+        AreasAfectadas: {
+          af: 'aceaa:layer_areas_afectadas__vinto_nu4l8',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__vinto_7glcj',
+          ed: 'aceaa:layer_educacion__vinto_jygiq',
+          es: 'aceaa:layer_centros_de_salud__vinto_l0oeb',
+          c: 'aceaa:layer_com__vinto_2u1z9',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
+        },
+        restauracion: {
+          af: 'aceaa:layer_resturacion__vinto_i0aiw',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__vinto_7glcj',
+          ed: 'aceaa:layer_educacion__vinto_jygiq',
+          es: 'aceaa:layer_centros_de_salud__vinto_l0oeb',
+          c: 'aceaa:layer_com__vinto_2u1z9',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
+        },
       }
     },
     {
@@ -178,7 +305,34 @@ export class InicioComponent implements AfterViewInit {
         },
         dnbr: 'aceaa:a_1747538444570tiquipaya_dnbr1',
         focosCalor: 'aceaa:layer_tiquipaya__focos_de_calor_slxrf',
-
+        quemas: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
+        FaunaFlora: {
+          b: 'aceaa:layer_bosques_tiquipaya_e2qfg',
+          pcp: 'aceaa:layer_centros_poblados__tiquipaya_gsj6f',
+          cp: 'aceaa:layer_comunidades__tiquipaya_0h1xp',
+          lm: 'aceaa:layer_limite_municipal__tiquipaya_tj5nf',
+          aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
+          tco: 'aceaa:',
+          ap: 'aceaa:layer_areas_protegidas__tiquipaya_yzg2e',
+        },
+        AreasAfectadas: {
+          af: 'aceaa:layer_areas_afectads__tiquipaya_zamol',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__tiquipaya_grija',
+          ed: 'aceaa:layer_educacion__tiquipaya_8t80j',
+          es: 'aceaa:layer_centros_de_salud__tiquipaya_r1mw6',
+          c: 'aceaa:layer_com__tiquipaya_n5j61',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
+        },
+        restauracion: {
+          af: 'aceaa:layer_resturacion__tiquipaya_o1iji',
+          ap: 'aceaa:',
+          cam: 'aceaa:layer_caminos__tiquipaya_grija',
+          ed: 'aceaa:layer_educacion__tiquipaya_8t80j',
+          es: 'aceaa:layer_centros_de_salud__tiquipaya_r1mw6',
+          c: 'aceaa:layer_com__tiquipaya_n5j61',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
+        },
       }
     }
   ];
@@ -341,6 +495,9 @@ export class InicioComponent implements AfterViewInit {
   }
 
   private initMap(): void {
+    if (this.map) {
+      this.map.remove();
+    }
     this.map = L.map('map', {
       center: [-16, -65],
       zoom: 5,
@@ -378,7 +535,7 @@ export class InicioComponent implements AfterViewInit {
     this.PulseIcons(-66.206486187544854, -17.315427603500169)
     labelsLayer.addTo(this.map);
     this.map.on('zoomend', () => {
-  
+
       if (this.map.getZoom() === 6) {
         this.map.setView([-16, -65]);
       }
@@ -691,6 +848,9 @@ export class InicioComponent implements AfterViewInit {
     this.modalServiceState.mostrarLeyenda();
     this.indice = event.indice;
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
+    if (event.indice == 'focosCalor') {
+      this.simpleWMS(ciudadEncontrada, event.indice)
+    }
     if (event.indice == 'nbr') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
     }
@@ -700,12 +860,20 @@ export class InicioComponent implements AfterViewInit {
     if (event.indice == 'dnbr') {
       this.simpleWMS(ciudadEncontrada, event.indice)
     }
-    if (event.indice == 'FloraFauna') {
-      this.WMSVarios(ciudadEncontrada)
-      // this.simpleWMS(ciudadEncontrada, event.indice)
+    if (event.indice == 'quemas') {
+      this.sidebysideWMS(ciudadEncontrada, event.indice)
     }
-    if (event.indice == 'focosCalor') {
-      this.simpleWMS(ciudadEncontrada, event.indice)
+    if (event.indice == 'FloraFauna') {
+      this.WMSVarios(ciudadEncontrada, event.indice)
+    }
+    if (event.indice == 'AreasAfectadas') {
+      this.WMSVarios(ciudadEncontrada, event.indice)
+    }
+    if (event.indice == 'AreasRestauracion') {
+      this.WMSVarios(ciudadEncontrada, event.indice)
+    }
+    if (event.indice == 'AreasRege') {
+      this.sidebysideWMS(ciudadEncontrada, event.indice)
     }
   }
   sidebysideWMS(muni: any, indice: string): void {
@@ -717,15 +885,23 @@ export class InicioComponent implements AfterViewInit {
     if (indice === 'nbr') {
       layer1 = muni!.wms.pre.nbr;
       layer2 = muni!.wms.post.nbr;
-
+      this.tipoLeyenda = 'nbr'
       this.leyandaActiva = this.leyenda.NBR
       this.mostrarLeyenda = true;
     }
     if (indice === 'ndvi') {
       layer1 = muni!.wms.pre.ndvi;
       layer2 = muni!.wms.post.ndvi;
+      this.tipoLeyenda = 'ndvi'
       this.leyandaActiva = this.leyenda.NDVI
       this.mostrarLeyenda = true;
+    }
+    if (indice === 'quemas') {
+      layer1 = muni!.wms.quemas;
+      /* layer2 = muni!.wms.post.ndvi;
+       this.tipoLeyenda = 'quemas'
+        this.leyandaActiva = this.leyenda.NDVI
+       this.mostrarLeyenda = true; */
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
@@ -784,10 +960,12 @@ export class InicioComponent implements AfterViewInit {
     let layer1 = ''
     if (indice == 'dnbr') {
       layer1 = muni!.wms.dnbr;
+      this.tipoLeyenda = 'dnbr'
       this.leyandaActiva = this.leyenda.DNBR
       this.mostrarLeyenda = true;
     }
     if (indice == 'focosCalor') {
+      this.tipoLeyenda = 'focosCalor'
       layer1 = muni!.wms.focosCalor;
       this.leyandaActiva = this.leyenda.FocosCarlo
       this.mostrarLeyenda = true;
@@ -829,10 +1007,19 @@ export class InicioComponent implements AfterViewInit {
 
     }, 0);
   }
-  WMSVarios(muni: any) {
+  WMSVarios(muni: any, indice: string) {
     this.mostrarMapa2 = false;
     this.mostrarMapa3 = true;
-    const faunaFloraLayersConfig = muni!.wms.FaunaFlora
+    if (indice == 'FloraFauna') {
+      this.TipoMapa = muni!.wms.FaunaFlora
+    }
+    if (indice == 'AreasAfectadas') {
+      this.TipoMapa = muni!.wms.AreasAfectadas
+    }
+    if (indice == 'AreasRestauracion') {
+      console.log('gaaaa')
+      this.TipoMapa = muni!.wms.restauracion
+    }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
       if (this.map3) {
@@ -877,10 +1064,10 @@ export class InicioComponent implements AfterViewInit {
         }
       } */
       const wmsLayers: { [key: string]: L.TileLayer.WMS } = {};
-      for (const layerName in faunaFloraLayersConfig) {
-        if (faunaFloraLayersConfig.hasOwnProperty(layerName)) {
-          const layerId = layerName as keyof typeof faunaFloraLayersConfig;
-          const layers = faunaFloraLayersConfig[layerId];
+      for (const layerName in this.TipoMapa) {
+        if (this.TipoMapa.hasOwnProperty(layerName)) {
+          const layerId = layerName as keyof typeof this.TipoMapa;
+          const layers = this.TipoMapa[layerId];
           let layerOptions: WMSOptions = { ...defaultWmsOptions };
 
           // Aplica transparencia a capas específicas (ejemplo: 'b' y 'aq')
@@ -903,3 +1090,11 @@ export class InicioComponent implements AfterViewInit {
     }, 0);
   }
 }
+/* comunidad:'rurenabaque',
+capas:[
+  {
+    "capa1",
+    "capa2",
+    etc
+  }
+] */

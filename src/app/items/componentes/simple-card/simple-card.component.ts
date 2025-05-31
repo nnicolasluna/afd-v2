@@ -110,14 +110,12 @@ export class SimpleCardComponent {
   } */
   ngOnInit() {
     this.municipioEncontrado = this.data.find(municipio => municipio.nombre === this.municipio);
-    console.log('Municipio recibido:', this.municipio);
-    console.log('Municipio encontrado:', this.municipioEncontrado);
+
   }
 
   ngOnChanges() {
     this.municipioEncontrado = this.data.find(municipio => municipio.nombre === this.municipio);
-    console.log('Cambio detectado en municipio:', this.municipio);
-    console.log('Nuevo municipio encontrado:', this.municipioEncontrado);
+
   }
   mostrarSimpleCard: boolean = true;
   cerrarSimpleCard() {
