@@ -10,13 +10,17 @@ export class ModalStateService {
   private tresBtnActivo = new BehaviorSubject<'tresBtn' | null>(null);
   private btnEvaluamos = new BehaviorSubject<'btnEvaluamos' | null>(null);
   private prepost = new BehaviorSubject<'prepost' | null>(null);
+  private focoscalor = new BehaviorSubject<'focos' | null>(null);
+  private quemas = new BehaviorSubject<'quemas' | null>(null);
+
 
   data$: Observable<string> = this.botonActivoMenu.asObservable();
   vistaActual$ = this.vistaActual.asObservable();
   tresBtnAct$ = this.tresBtnActivo.asObservable();
   BtnEvaluamos$ = this.btnEvaluamos.asObservable();
   PrePost$ = this.prepost.asObservable();
-
+  focos$ = this.focoscalor.asObservable();
+  quemas$ = this.quemas.asObservable();
 
   mostrarAlter_rightbar(botonSeleccionado: any) {
     this.botonActivoMenu.next(botonSeleccionado);
@@ -68,7 +72,18 @@ export class ModalStateService {
   }
   cerrarPrePost() {
     this.prepost.next(null);
-
+  }
+  mostrarfocos() {
+    this.focoscalor.next('focos');
+  }
+  cerrarfocos() {
+    this.focoscalor.next(null);
+  }
+  mostrarquemas() {
+    this.quemas.next('quemas');
+  }
+  cerrarquemas() {
+    this.quemas.next(null);
   }
   mostrarVerDiagnostico() {
     this.vistaActual.next('verdiagnostico');

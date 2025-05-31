@@ -1,0 +1,67 @@
+.focosCalor {
+    position: absolute;
+    top: 200px;
+    left: 30px;
+    background-color: #272323;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cantidad {
+    text-align: center;
+}
+
+.mes {
+    text-align: start;
+}
+
+table {
+    border-collapse: collapse;
+    border-bottom: 1px solid white;
+    background-color: #161616B2;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+td,
+th {
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 3px 10px;
+}
+
+tr>*:last-child {
+    border-right: none;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+img {
+    width: 100%;
+}
+
+.superficie {
+    position: absolute;
+    top: 500px;
+    right: 20px;
+    background-color: #6E0B0BBF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    &__titulo{
+        font-weight: bold;
+        border-bottom: solid 1px white;
+    }
+}

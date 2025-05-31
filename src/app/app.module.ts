@@ -30,6 +30,8 @@ import { LeyendaComponent } from './items/componentes/leyenda/leyenda.component'
 import { RecuperacionComponent } from './recuperacion/recuperacion.component';
 import { PdfViwerComponent } from './items/componentes/pdf-viwer/pdf-viwer.component';
 import { PrePostComponent } from './items/componentes/pre-post/pre-post.component';
+import { FocosdeCalorComponent } from './items/componentes/focosde-calor/focosde-calor.component';
+import { QuemasComponent } from './items/componentes/quemas/quemas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +59,8 @@ import { PrePostComponent } from './items/componentes/pre-post/pre-post.componen
     RecuperacionComponent,
     PdfViwerComponent,
     PrePostComponent,
+    FocosdeCalorComponent,
+    QuemasComponent,
     
   ],
   imports: [

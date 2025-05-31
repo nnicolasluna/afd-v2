@@ -33,7 +33,9 @@ export class InicioComponent implements AfterViewInit {
   mostrarTalleres = false;
   mostrarLeyenda = false;
   mostrarPrePost = false;
+  mostrarfocos = false;
   mostrarRecuperacion = false
+  mostrarquemas = false
   tipoLeyenda: string = ''
   mostrarMapa2 = false;
   mostrarMapa3 = false;
@@ -482,6 +484,14 @@ export class InicioComponent implements AfterViewInit {
       data => {
         this.mostrarPrePost = data == 'prepost'
       })
+    this.modalServiceState.focos$.subscribe(
+      data => {
+        this.mostrarfocos = data == 'focos'
+      })
+    this.modalServiceState.quemas$.subscribe(
+      data => {
+        this.mostrarquemas = data == 'quemas'
+      })
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -852,7 +862,6 @@ export class InicioComponent implements AfterViewInit {
     if (event.indice == 'focosCalor') {
       this.simpleWMS(ciudadEncontrada, event.indice)
       this.modalServiceState.cerrarPrePost()
-
     }
     if (event.indice == 'nbr') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
@@ -893,6 +902,8 @@ export class InicioComponent implements AfterViewInit {
     }
   }
   sidebysideWMS(muni: any, indice: string): void {
+    this.modalServiceState.cerrarquemas()
+    this.modalServiceState.cerrarfocos()
     this.mostrarRightBar = false
     this.mostrarMapa2 = true;
     this.mostrarMapa3 = false;
@@ -916,6 +927,7 @@ export class InicioComponent implements AfterViewInit {
     }
     if (indice === 'quemas') {
       layer1 = muni!.wms.quemas;
+      this.modalServiceState.mostrarquemas()
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
@@ -971,6 +983,9 @@ export class InicioComponent implements AfterViewInit {
     /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
+    this.modalServiceState.cerrarquemas()
+    this.modalServiceState.cerrarfocos()
+    this.mostrarRightBar = false
     this.mostrarMapa2 = false;
     this.mostrarMapa3 = true;
     let layer1 = ''
@@ -985,6 +1000,7 @@ export class InicioComponent implements AfterViewInit {
       layer1 = muni!.wms.focosCalor;
       this.leyandaActiva = this.leyenda.FocosCarlo
       this.mostrarLeyenda = true;
+      this.modalServiceState.mostrarfocos()
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
@@ -1030,6 +1046,8 @@ export class InicioComponent implements AfterViewInit {
     }, 0);
   }
   WMSVarios(muni: any, indice: string) {
+    this.modalServiceState.cerrarquemas()
+    this.modalServiceState.cerrarfocos()
     this.mostrarMapa2 = false;
     this.mostrarMapa3 = true;
     if (indice == 'FloraFauna') {
@@ -1039,7 +1057,6 @@ export class InicioComponent implements AfterViewInit {
       this.TipoMapa = muni!.wms.AreasAfectadas
     }
     if (indice == 'AreasRestauracion') {
-      console.log('gaaaa')
       this.TipoMapa = muni!.wms.restauracion
     }
     const bounds = L.latLngBounds(muni.bounds);
