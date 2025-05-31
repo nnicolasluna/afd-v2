@@ -32,6 +32,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarManuales = false;
   mostrarTalleres = false;
   mostrarLeyenda = false;
+  mostrarPrePost = false;
   mostrarRecuperacion = false
   tipoLeyenda: string = ''
   mostrarMapa2 = false;
@@ -476,9 +477,11 @@ export class InicioComponent implements AfterViewInit {
     this.modalServiceState.BtnEvaluamos$.subscribe(
       data => {
         this.mostrartrebotonEvaluamos = data === 'btnEvaluamos';
-
-      }
-    )
+      })
+    this.modalServiceState.PrePost$.subscribe(
+      data => {
+        this.mostrarPrePost = data == 'prepost'
+      })
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -535,7 +538,6 @@ export class InicioComponent implements AfterViewInit {
     this.PulseIcons(-66.206486187544854, -17.315427603500169)
     labelsLayer.addTo(this.map);
     this.map.on('zoomend', () => {
-
       if (this.map.getZoom() === 6) {
         this.map.setView([-16, -65]);
       }
@@ -845,35 +847,49 @@ export class InicioComponent implements AfterViewInit {
 
   actualizarIndice(event: { indice: string, muni: string }) {
 
-    this.modalServiceState.mostrarLeyenda();
-    this.indice = event.indice;
+
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
     if (event.indice == 'focosCalor') {
       this.simpleWMS(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarPrePost()
+
     }
     if (event.indice == 'nbr') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
     }
     if (event.indice == 'ndvi') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
+
     }
     if (event.indice == 'dnbr') {
       this.simpleWMS(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarPrePost()
     }
     if (event.indice == 'quemas') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarVistas()
     }
     if (event.indice == 'FloraFauna') {
       this.WMSVarios(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarVistas()
+      this.modalServiceState.cerrarPrePost()
+
+
     }
     if (event.indice == 'AreasAfectadas') {
       this.WMSVarios(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarVistas()
+
     }
     if (event.indice == 'AreasRestauracion') {
       this.WMSVarios(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarVistas()
+
     }
     if (event.indice == 'AreasRege') {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
+      this.modalServiceState.cerrarVistas()
+
     }
   }
   sidebysideWMS(muni: any, indice: string): void {
@@ -888,6 +904,7 @@ export class InicioComponent implements AfterViewInit {
       this.tipoLeyenda = 'nbr'
       this.leyandaActiva = this.leyenda.NBR
       this.mostrarLeyenda = true;
+      this.modalServiceState.mostrarPrePost()
     }
     if (indice === 'ndvi') {
       layer1 = muni!.wms.pre.ndvi;
@@ -895,13 +912,10 @@ export class InicioComponent implements AfterViewInit {
       this.tipoLeyenda = 'ndvi'
       this.leyandaActiva = this.leyenda.NDVI
       this.mostrarLeyenda = true;
+      this.modalServiceState.mostrarPrePost()
     }
     if (indice === 'quemas') {
       layer1 = muni!.wms.quemas;
-      /* layer2 = muni!.wms.post.ndvi;
-       this.tipoLeyenda = 'quemas'
-        this.leyandaActiva = this.leyenda.NDVI
-       this.mostrarLeyenda = true; */
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
@@ -917,7 +931,8 @@ export class InicioComponent implements AfterViewInit {
         zoom: 10,
         dragging: false,
         zoomControl: false,
-        doubleClickZoom: false
+        doubleClickZoom: false,
+        scrollWheelZoom: false,
       });
 
       this.map2 = L.map('map2', {
@@ -925,7 +940,8 @@ export class InicioComponent implements AfterViewInit {
         zoom: 10,
         dragging: false,
         zoomControl: false,
-        doubleClickZoom: false
+        doubleClickZoom: false,
+        scrollWheelZoom: false,
       });
       const baseLayerUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
       L.tileLayer(baseLayerUrl, {
@@ -980,7 +996,9 @@ export class InicioComponent implements AfterViewInit {
         zoom: 10,
         dragging: false,
         zoomControl: false,
-        doubleClickZoom: false
+        doubleClickZoom: false,
+        minZoom: 5,
+        maxZoom: 15
       });
 
       // Base layer para ambos mapas
@@ -1004,7 +1022,11 @@ export class InicioComponent implements AfterViewInit {
 
       // Ajusta ambos mapas al bounding box
       this.map3.fitBounds(bounds);
-
+      this.map3.on('zoomend', () => {
+        if (this.map3.getZoom() === 6) {
+          this.map3.fitBounds(bounds);
+        }
+      });
     }, 0);
   }
   WMSVarios(muni: any, indice: string) {
