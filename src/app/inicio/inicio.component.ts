@@ -1094,7 +1094,7 @@ export class InicioComponent implements AfterViewInit {
     /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
-
+    this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
     this.modalServiceState.cerrarfocos()
     this.mostrarRightBar = false
