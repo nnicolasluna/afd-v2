@@ -61,16 +61,23 @@
         </div>
         <div class="leyendaMain__content" *ngIf="seleccionadoFauna === 'reptiles'">
             <div *ngIf="municipioData?.especiesAmenazadas?.anfibiosReptiles.anfibios">
+                <div class="items__texto"
+                    *ngFor="let item of municipioData.especiesAmenazadas.centrosPoblados let i = index">
+                    <img [src]="municipioData.especiesAmenazadas.centrosPoblados[i].img" alt="">
+                    {{ item.texto }}
+                </div>
                 <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas?.anfibiosReptiles.anfibios">Anfibios
                 </div>
                 <div class="items__texto"
                     *ngFor="let item of municipioData.especiesAmenazadas.anfibiosReptiles.anfibios; let i = index">
+                    <img [src]="municipioData.especiesAmenazadas.anfibiosReptiles.anfibios[i].img" alt="">
                     {{ item.texto }}
                 </div>
                 <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas?.anfibiosReptiles.reptiles">Reptiles
                 </div>
                 <div class="items__texto"
                     *ngFor="let item of municipioData.especiesAmenazadas.anfibiosReptiles.reptiles; let i = index">
+                    <img [src]="municipioData.especiesAmenazadas.anfibiosReptiles.reptiles[i].img" alt="">
                     {{ item.texto }}
                 </div>
             </div>
@@ -79,12 +86,42 @@
             <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas?.avesMamiferos.aves">Aves</div>
             <div class="items__texto"
                 *ngFor="let item of municipioData.especiesAmenazadas.avesMamiferos.aves; let i = index">
+                <img [src]="municipioData.especiesAmenazadas.avesMamiferos.aves[i].img" alt="">
                 {{ item.texto }}
             </div>
             <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas?.avesMamiferos.mamiferos">Mamíferos</div>
             <div class="items__texto"
                 *ngFor="let item of municipioData.especiesAmenazadas.avesMamiferos.mamiferos; let i = index">
+                <img [src]="municipioData.especiesAmenazadas.avesMamiferos.mamiferos[i].img" alt="">
                 {{ item.texto }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="infoSecundario">
+    <div class="infoSecundario--contenedor1">
+        <div class="infoSecundario__titulo">Riqueza Ecológica del Municipio</div>
+        <div class="infoSecundario__contenido" *ngIf="infosec.CoberturaForestal">
+            <div *ngFor="let key of infosec.CoberturaForestal">
+                {{ key.texto }} {{ key.cantidad }}
+            </div>
+        </div>
+    </div>
+    <div class="infoSecundario--contenedor2" *ngIf="infosec.territoriosIndigenas">
+        <div class="infoSecundario__titulo">Areas Protegidas</div>
+        <div class="infoSecundario__contenido">
+            <div *ngFor="let key of infosec.territoriosIndigenas">
+                {{ key.texto }} {{ key.cantidad }}
+            </div>
+        </div>
+    </div>
+    <div class="infoSecundario--contenedor3">
+        <div class="infoSecundario__titulo">Impacto de Incendios</div>
+        <div class="infoSecundario__contenido" *ngIf="infosec.Incendios">
+            <div *ngFor="let key of infosec.Incendios">
+                {{ key.texto }} {{ key.cantidad }}
             </div>
         </div>
     </div>

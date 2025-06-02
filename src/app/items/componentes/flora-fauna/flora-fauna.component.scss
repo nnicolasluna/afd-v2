@@ -14,6 +14,7 @@
     &--small {
         width: fit-content;
         max-width: 20%;
+        min-width: 300px;
     }
 
     &--big {
@@ -72,6 +73,12 @@
         align-items: center;
         padding: 5px;
     }
+
+    &__texto img {
+        width: 20px;
+        max-height: 20px;
+        margin-right: 3px;
+    }
 }
 
 ul {
@@ -94,15 +101,19 @@ li {
     position: fixed;
     top: 30%;
     left: 20px;
-    border-radius: 30px;
     display: flex;
     flex-direction: row;
     color: white;
     cursor: pointer;
+    width: 100%;
+    min-width: 300px;
+    max-width: 20%;
 
     &__btn {
         background-color: #5E5E5E80;
         padding: 10px 20px;
+        width: 100%;
+        text-align: center;
     }
 
     &__btn.active {
@@ -122,10 +133,45 @@ li {
     &__btnF {
         background-color: #5E5E5E80;
         padding: 10px 20px;
+        font-size: 13px;
     }
 
     &__btnF.active {
         background-color: #1F631C;
         padding: 10px 20px;
+    }
+}
+
+.infoSecundario {
+    position: fixed;
+    top: 45%;
+    right: 20px;
+    border-radius: 30px;
+    color: white;
+    max-width: 300px;
+    font-size: 12px;
+
+    &__titulo {
+        text-align: center;
+        font-weight: bold;
+        border-bottom: solid 1px white;
+    }
+
+    &--contenedor1 {
+        background-color: #555555BF;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    &--contenedor2 {
+        background-color: #1F631C;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    &--contenedor3 {
+        background-color: #531B1B;
+        padding: 5px 10px;
+        border-radius: 10px;
     }
 }
