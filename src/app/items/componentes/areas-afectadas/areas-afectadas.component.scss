@@ -1,0 +1,91 @@
+.leyendaMain {
+    position: fixed;
+    top: 36%;
+    left: 20px;
+    border-radius: 30px;
+    background-color: #161616B2;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+
+    &--small {
+        width: fit-content;
+        max-width: 20%;
+        min-width: 250px;
+    }
+
+    &--big {
+        width: 70%;
+    }
+
+    &__title {
+        border-bottom: solid 1px white;
+        text-align: center;
+        width: 100%;
+        padding: 10px 0 10px 0;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    &__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__leyenda {
+        padding-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+}
+
+.items {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 2px;
+
+    &__icono {
+        width: 25px;
+        height: 25px;
+        flex-shrink: 0;
+    }
+
+    &__texto {
+        font-size: 0.65em;
+        text-align: justify;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+    }
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -20px;
+
+}
+
+li {
+    margin-bottom: 5px;
+
+}
+img{
+    width: 20px;
+    height: auto;
+}

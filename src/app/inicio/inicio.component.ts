@@ -36,6 +36,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarfocos = false;
   mostrarRecuperacion = false
   mostrarFaunaFlora = false;
+  mostrarAfectadas = false;
   mostrarquemas = false
   tipoLeyenda: string = ''
   mostrarMapa2 = false;
@@ -590,6 +591,10 @@ export class InicioComponent implements AfterViewInit {
       data => {
         this.mostrarFaunaFlora = data == 'faunaflora'
       })
+    this.modalServiceState.afectadas$.subscribe(
+      data => {
+        this.mostrarAfectadas = data == 'afectadas'
+      })
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -1013,6 +1018,8 @@ export class InicioComponent implements AfterViewInit {
     }
   }
   sidebysideWMS(muni: any, indice: string): void {
+    this.modalServiceState.cerrarafectadas()
+    this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
     this.modalServiceState.cerrarfocos()
     this.mostrarRightBar = false
@@ -1094,6 +1101,7 @@ export class InicioComponent implements AfterViewInit {
     /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
+    this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
     this.modalServiceState.cerrarfocos()
@@ -1160,6 +1168,7 @@ export class InicioComponent implements AfterViewInit {
     }, 0);
   }
   WMSVarios(muni: any, indice: string) {
+    this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
     this.modalServiceState.cerrarfocos()
@@ -1180,6 +1189,7 @@ export class InicioComponent implements AfterViewInit {
     }
     if (indice == 'AreasAfectadas') {
       this.TipoMapa = muni!.wms.AreasAfectadas
+      this.modalServiceState.mostrarafectadas()
     }
     if (indice == 'AreasRestauracion') {
       this.TipoMapa = muni!.wms.restauracion

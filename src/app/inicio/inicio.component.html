@@ -35,3 +35,5 @@
 <app-focosde-calor [municipio]="municipio" *ngIf="mostrarfocos"></app-focosde-calor>
 <app-quemas [municipio]="municipio" *ngIf="mostrarquemas"></app-quemas>
 <app-flora-fauna *ngIf="mostrarFaunaFlora" [Municipio]="municipio" (tipomapa)="florafaura($event)"></app-flora-fauna>
+
+<app-areas-afectadas [Municipio]="municipio" *ngIf="mostrarAfectadas"></app-areas-afectadas>
