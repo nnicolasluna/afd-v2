@@ -61,24 +61,24 @@ export class FloraFaunaComponent {
       "municipio": "Palos Blancos",
       "fauna": {
         "centrosPoblados": [
-          { "texto": "Principales Centros Poblados", "img": "" },
-          { "texto": "Centros Poblados", "img": "" },
-          { "texto": "Límite Municipal", "img": "" },
-          { "texto": "Límite Municipal-Palos Blancos", "img": "" }
+          { "texto": "Principales Centros Poblados", "img": "assets/iconosLeyenda/pcp.png" },
+          { "texto": "Centros Poblados", "img": "assets/iconosLeyenda/cp.png" },
+          { "texto": "Límite Municipal", "img": "assets/iconosLeyenda/lc.png" },
+          { "texto": "Límite Municipal-Palos Blancos", "img": "assets/iconosLeyenda/lmM.png" }
         ],
         "areaquemada": [
-          { "texto": "Área Quemada 2023", "img": "" }
+          { "texto": "Área Quemada 2023", "img": "assets/iconosLeyenda/aq.png" }
         ],
         "Tco": [
-          { "texto": "Mosetenes", "img": "" },
-          { "texto": "Pilón Lajas", "img": "" }
+          { "texto": "Mosetenes", "img": "assets/iconosLeyenda/city1.png" },
+          { "texto": "Pilón Lajas", "img": "assets/iconosLeyenda/city2.png" }
         ],
         "areasprotegidas": [
-          { "texto": "Reserva de la Biosfera Pilón Lajas", "img": "" }
+          { "texto": "Reserva de la Biosfera Pilón Lajas", "img": "assets/iconosLeyenda/ap.png" }
         ],
         "bosques": [
-          { "texto": "Bosque Amazónico", "img": "" },
-          { "texto": "Bosque Yungas", "img": "" }
+          { "texto": "Bosque Amazónico", "img": "assets/iconosLeyenda/b1.png" },
+          { "texto": "Bosque Yungas", "img": "assets/iconosLeyenda/b2.png" }
         ]
       }
     },
@@ -209,27 +209,23 @@ export class FloraFaunaComponent {
       "especiesAmenazadas": {
         "anfibiosReptiles": {
           "anfibios": [
-            // "Rana Terrestre de McDiarmid",
             { "texto": "Rana Terrestre de McDiarmid", "img": "" },
             { "texto": "Rana Armada Andina", "img": "" },
             { "texto": "Rana de Cristal de Bejarano", "img": "" },
-            /* "Rana Armada Andina",
-            "Rana de Cristal de Bejarano" */
+
           ],
           "reptiles": [
             { "texto": "Culebra de Balzan", "img": "" },
-            /* 
-                        "Culebra de Balzan" */
           ]
         },
         "avesMamiferos": {
           "aves": [
-            "Guacamayo militar",
-            "Espatulilla Colicorta",
-            "Mosquero de Weeden",
-            "Tucán de castaño",
-            "Cuco terrestre de Geoffroy",
-            "Cotorra serrana boliviana"
+            { "texto": "Guacamayo militar", "img": "" },
+            { "texto": "Espatulilla Colicorta", "img": "" },
+            { "texto": "Mosquero de Weeden", "img": "" },
+            { "texto": "Tucán de castaño", "img": "" },
+            { "texto": "Cuco terrestre de Geoffroy", "img": "" },
+            { "texto": "Cotorra serrana boliviana", "img": "" },
           ],
           "mamiferos": []
         }
@@ -241,17 +237,18 @@ export class FloraFaunaComponent {
         "anfibiosReptiles": {
           "anfibios": [],
           "reptiles": [
-            "Culebra de Balzan"
+            { "texto": "Culebra de Balzan", "img": "" }
+
           ]
         },
         "avesMamiferos": {
           "aves": [
-            "Guacamayo militar",
-            "Espatulilla colicorta",
-            "Mosquero de Weeden",
-            "Tucán de castaño",
-            "Cuco terrestre de Geoffroy",
-            "Mosquitero Conirostris"
+            { "texto": "Guacamayo militar", "img": "" },
+            { "texto": "Espatulilla colicorta", "img": "" },
+            { "texto": "Mosquero de Weeden", "img": "" },
+            { "texto": "Tucán de castaño", "img": "" },
+            { "texto": "Cuco terrestre de Geoffroy", "img": "" },
+            { "texto": "Mosquitero Conirostris", "img": "" }
           ],
           "mamiferos": []
         }
@@ -262,17 +259,18 @@ export class FloraFaunaComponent {
       "especiesAmenazadas": {
         "anfibiosReptiles": {
           "anfibios": [
-            "Sapo chechua"
+            { "texto": "Sapo chechua", "img": "" },
           ],
-          "reptiles": []
+          "reptiles": [
+            { "texto": "Lagartija rayada", "img": "" },
+          ]
         },
         "avesMamiferos": {
           "aves": [
-            "Monterita de Garlepp"
+            { "texto": "Monterita de Garlepp", "img": "" },
           ],
           "mamiferos": [
-            "Ratón de Siberia"
-          ]
+            { "texto": "Ratón de Siberia", "img": "" }]
         }
       }
     },
@@ -281,17 +279,16 @@ export class FloraFaunaComponent {
       "especiesAmenazadas": {
         "anfibiosReptiles": {
           "anfibios": [
-            "Sapo chechua"
+            { "texto": "Sapo chechua", "img": "" },
           ],
           "reptiles": []
         },
         "avesMamiferos": {
           "aves": [
-            "Monterita de Garlepp"
+            { "texto": "Monterita de Garlepp", "img": "" },
           ],
           "mamiferos": [
-            "Ratón de Siberia"
-          ]
+            { "texto": "Ratón de Siberia", "img": "" }]
         }
       }
     },
@@ -301,18 +298,18 @@ export class FloraFaunaComponent {
         "anfibiosReptiles": {
           "anfibios": [],
           "reptiles": [
-            "Culebra de Balzan"
+            { "texto": "Culebra de Balzan", "img": "" },
           ]
         },
         "avesMamiferos": {
           "aves": [
-            "Guacamayo militar",
-            "Espatulilla Colicorta",
-            "Tucán de castaño",
-            "Cuco terrestre de Geoffroy"
+            { "texto": "Guacamayo militar", "img": "" },
+            { "texto": "Espatulilla Colicorta", "img": "" },
+            { "texto": "Tucán de castaño", "img": "" },
+            { "texto": "Cuco terrestre de Geoffroy", "img": "" },
           ],
           "mamiferos": [
-            "Nutria gigante"
+            { "texto": "Nutria gigante", "img": "" },
           ]
         }
       }
@@ -322,25 +319,25 @@ export class FloraFaunaComponent {
       "especiesAmenazadas": {
         "anfibiosReptiles": {
           "anfibios": [
-            "Rana terrestre de McDiarmid"
+            { "texto": "Rana terrestre de McDiarmid", "img": "" },
           ],
           "reptiles": [
-            "Culebra de Balzan"
+            { "texto": "Culebra de Balzan", "img": "" },
           ]
         },
         "avesMamiferos": {
           "aves": [
-            "Guacamayo militar",
-            "Espatulilla Colicorta",
-            "Mosquero de Weecen",
-            "Tucán de castaño",
-            "Cuco terrestre",
-            "Cotorra serrana boliviana"
+            { "texto": "Guacamayo militar", "img": "" },
+            { "texto": "Espatulilla Colicorta", "img": "" },
+            { "texto": "Mosquero de Weecen", "img": "" },
+            { "texto": "Tucán de castaño", "img": "" },
+            { "texto": "Cuco terrestre", "img": "" },
+            { "texto": "Cotorra serrana boliviana", "img": "" },
           ],
           "mamiferos": [
-            "Tití modesto",
-            "Tití de Olalla",
-            "Nutria gigante"
+            { "texto": "Tití modesto", "img": "" },
+            { "texto": "Tití de Olalla", "img": "" },
+            { "texto": "Nutria gigante", "img": "" }
           ]
         }
       }
@@ -365,7 +362,7 @@ export class FloraFaunaComponent {
     if (opcion === 'reptiles') {
       this.tipomapa.emit('reptiles');
     } else {
- 
+
       this.tipomapa.emit('mamiferos');
 
     }

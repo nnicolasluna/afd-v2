@@ -34,4 +34,4 @@
 <app-pre-post *ngIf="mostrarPrePost"></app-pre-post>
 <app-focosde-calor [municipio]="municipio" *ngIf="mostrarfocos"></app-focosde-calor>
 <app-quemas [municipio]="municipio" *ngIf="mostrarquemas"></app-quemas>
-<app-flora-fauna *ngIf="mostrarFaunaFlora" [Municipio]="'Palos Blancos'" (tipomapa)="florafaura($event)"></app-flora-fauna>
+<app-flora-fauna *ngIf="mostrarFaunaFlora" [Municipio]="municipio" (tipomapa)="florafaura($event)"></app-flora-fauna>
