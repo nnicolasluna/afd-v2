@@ -28,7 +28,7 @@ export class BotonesEvaluamosComponent {
       indiceselecionado = 'quemas'
     }
     if (numero === 5) {
-      indiceselecionado = 'FloraFauna'
+      indiceselecionado = 'flora'
     }
     if (numero === 6) {
       indiceselecionado = 'AreasAfectadas'

@@ -1,0 +1,88 @@
+<div class="botones">
+    <div class="botones__btn" (click)="buscarMunicipio(Municipio,'Flora')" [class.active]="seleccionado === 'Flora'">
+        Flora</div>
+    <div class="botones__btn" (click)="buscarMunicipio(Municipio,'Fauna')" [class.active]="seleccionado === 'Fauna'">
+        Fauna</div>
+</div>
+<div class="leyendaMain leyendaMain--small">
+    <div class="leyendaMain__title">
+        {{Municipio}}
+    </div>
+    <div class="leyendaMain__body" *ngIf="seleccionado === 'Flora'">
+        <div class="leyendaMain__leyenda">Leyenda</div>
+        <div class="leyendaMain__content">
+            <div *ngIf="municipioData?.fauna?.centrosPoblados">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.centrosPoblados; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div *ngIf="municipioData?.fauna?.areaquemada">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.areaquemada; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div class="subtitle" *ngIf="municipioData?.fauna?.Tco">Territorios Comunitarios de Origen</div>
+            <div *ngIf="municipioData?.fauna?.Tco">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.Tco; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div class="subtitle" *ngIf="municipioData?.fauna?.areasprotegidas">Área Protegida</div>
+            <div *ngIf="municipioData?.fauna?.areasprotegidas">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.areasprotegidas; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div class="subtitle" *ngIf="municipioData?.fauna?.bosques">Bosques</div>
+            <div *ngIf="municipioData?.fauna?.bosques">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.bosques; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="leyendaMain__body" *ngIf="seleccionado === 'Fauna'">
+        <div class="leyendaMain__leyenda">Especies Amenazadas</div>
+        <div class="btnfauna">
+            <div class="btnfauna__btnF" [class.active]="seleccionadoFauna === 'reptiles'"
+                (click)="mostrarfauna('reptiles',Municipio)">
+                Anfibios-Reptiles</div>
+            <div class="btnfauna__btnF" [class.active]="seleccionadoFauna === 'mamiferos'"
+                (click)="mostrarfauna('mamiferos',Municipio)">
+                Aves-Mamiferos</div>
+        </div>
+        <div class="leyendaMain__content" *ngIf="seleccionadoFauna === 'reptiles'">
+            <div *ngIf="municipioData?.especiesAmenazadas?.anfibiosReptiles.anfibios">
+                <div class="items__texto"
+                    *ngFor="let item of municipioData.especiesAmenazadas.anfibiosReptiles.anfibios; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div *ngIf="municipioData?.fauna?.areaquemada">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.areaquemada; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div class="subtitle" *ngIf="municipioData?.fauna?.Tco">Territorios Comunitarios de Origen</div>
+            <div *ngIf="municipioData?.fauna?.Tco">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.Tco; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div class="subtitle" *ngIf="municipioData?.fauna?.areasprotegidas">Área Protegida</div>
+            <div *ngIf="municipioData?.fauna?.areasprotegidas">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.areasprotegidas; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+            <div class="subtitle" *ngIf="municipioData?.fauna?.bosques">Bosques</div>
+            <div *ngIf="municipioData?.fauna?.bosques">
+                <div class="items__texto" *ngFor="let item of municipioData.fauna.bosques; let i = index">
+                    {{ item.texto }}
+                </div>
+            </div>
+        </div>
+        <div class="leyendaMain__content" *ngIf="seleccionadoFauna === 'mamiferos'"></div>
+    </div>
+</div>

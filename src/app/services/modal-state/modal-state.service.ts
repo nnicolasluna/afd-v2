@@ -12,6 +12,7 @@ export class ModalStateService {
   private prepost = new BehaviorSubject<'prepost' | null>(null);
   private focoscalor = new BehaviorSubject<'focos' | null>(null);
   private quemas = new BehaviorSubject<'quemas' | null>(null);
+  private faunaflora = new BehaviorSubject<'faunaflora' | null>(null);
 
 
   data$: Observable<string> = this.botonActivoMenu.asObservable();
@@ -21,6 +22,7 @@ export class ModalStateService {
   PrePost$ = this.prepost.asObservable();
   focos$ = this.focoscalor.asObservable();
   quemas$ = this.quemas.asObservable();
+  faunaflora$ = this.faunaflora.asObservable();
 
   mostrarAlter_rightbar(botonSeleccionado: any) {
     this.botonActivoMenu.next(botonSeleccionado);
@@ -72,6 +74,12 @@ export class ModalStateService {
   }
   cerrarPrePost() {
     this.prepost.next(null);
+  }
+  mostrarFaunaFlora() {
+    this.faunaflora.next('faunaflora');
+  }
+  cerrarFaunaFlora() {
+    this.faunaflora.next(null);
   }
   mostrarfocos() {
     this.focoscalor.next('focos');

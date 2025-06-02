@@ -15,7 +15,7 @@ export class InicioComponent implements AfterViewInit {
   private map1!: L.Map;
   private map2!: L.Map;
   private map3!: L.Map;
-
+  x: string = ''
 
   municipio = '';
   mostrarCard = false;
@@ -35,6 +35,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarPrePost = false;
   mostrarfocos = false;
   mostrarRecuperacion = false
+  mostrarFaunaFlora = false;
   mostrarquemas = false
   tipoLeyenda: string = ''
   mostrarMapa2 = false;
@@ -69,7 +70,7 @@ export class InicioComponent implements AfterViewInit {
         dnbr: 'aceaa:a_1747538623598sanbuena_dnbr1',
         focosCalor: 'aceaa:layer_focos_de_calor__san_buenaventura_9vf0rk',
         quemas: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
-        FaunaFlora: {
+        Flora: {
           b: 'aceaa:layer_bosques__san_buenaventura_0p6o6',
           pcp: 'aceaa:layer_centros_poblados__san_buenaventura_3rx6dl',
           cp: 'aceaa:layer_comunidades__san_buenaventura_2iutt',
@@ -77,6 +78,20 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
           tco: 'aceaa:layer_tcos__san_buenaventura_sqzft',
           ap: 'aceaa:layer_areas_protegidas__san_buenaventura_8m4v5',
+        },
+        reptiles: {
+          r: 'aceaa:layer_san_buenaventura__reptiles_h9uxv',
+          an: 'aceaa:layer_san_buenaventura__anfibios_tnaut',
+          aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
+          pcp: 'aceaa:layer_centros_poblados__san_buenaventura_3rx6dl',
+          lm: 'aceaa:layer_limite_municipal__san_buenaventura_4svij',
+        },
+        mamiferos: {
+          ma: 'aceaa:',
+          av: 'aceaa:layer_san_buenaventura__aves_rhimql',
+          aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
+          pcp: 'aceaa:layer_centros_poblados__san_buenaventura_3rx6dl',
+          lm: 'aceaa:layer_limite_municipal__san_buenaventura_4svij',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__san_buenaventura_7d67c',
@@ -117,7 +132,7 @@ export class InicioComponent implements AfterViewInit {
         dnbr: 'aceaa:a_1747576386958dNBR1_pb',
         focosCalor: 'aceaa:layer_focos_de_calor__palos_blancos_nyusnf',
         quemas: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
-        FaunaFlora: {
+        Flora: {
           b: 'aceaa:layer_bosques__palos_blancos_w0088',
           pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
           cp: 'aceaa:layer_comunidades__palos_blancos_12lr2',
@@ -125,6 +140,22 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
           tco: 'aceaa:layer_tcos__palos_blancos_veodq',
           ap: 'aceaa:layer_areas_protegidas_palos_blancos_nuobfg',
+        },
+        reptiles: {
+          r: 'aceaa:',
+          an: 'aceaa:layer_palos_blancos__anfibios_vgueg',
+          aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
+          pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
+          lm: 'aceaa:layer_limite_municipal__palos_blancos_e1wjf',
+
+        },
+        mamiferos: {
+          ma: 'aceaa:layer_palos_blancos__mamiferos_i9ma3',
+          av: 'aceaa:layer_palos_blancos__aves_xlyp1k',
+          aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
+          pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
+          lm: 'aceaa:layer_limite_municipal__palos_blancos_e1wjf',
+
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__palos_blancos_l7r6j',
@@ -165,7 +196,7 @@ export class InicioComponent implements AfterViewInit {
         dnbr: 'aceaa:a_1747538931290rure_dnbr1',
         focosCalor: 'aceaa:layer_san_borja__focos_de_calor_sno9f',
         quemas: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
-        FaunaFlora: {
+        Flora: {
           b: 'aceaa:layer_bosques__rurrenabaque_nzou',
           pcp: 'aceaa:',
           cp: 'aceaa:layer_comunidades__rurrenabaque_3u86m',
@@ -173,6 +204,21 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
           tco: 'aceaa:layer_tcos__rurrenabaque_3cwei',
           ap: 'aceaa:layer_areas_protegidas__rurrenabaque_54elx',
+        },
+        reptiles: {
+          r: 'aceaa:layer_rurrenabaque__reptiles_agq4d',
+          an: 'aceaa:',
+          pcp: 'aceaa:',
+          aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
+          lm: 'aceaa:layer_limite_municipal__rurrenabaque_im1s',
+        },
+        mamiferos: {
+          ma: 'aceaa:layer_rurrenabaque__mamiferos_r6dx8',
+          av: 'aceaa:layer_rurrenabaque__aves_r6lbg',
+          aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
+          pcp: 'aceaa:',
+          lm: 'aceaa:layer_limite_municipal__rurrenabaque_im1s',
+
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__rurrenabaque_nbi75',
@@ -213,7 +259,7 @@ export class InicioComponent implements AfterViewInit {
         dnbr: 'aceaa:a_1747589538998dNBR_sb1',
         focosCalor: 'aceaa:layer_focos_de_calor__rurranabaque_cdmg5',
         quemas: 'aceaa:layer_quemas__san_borja_sw6j4',
-        FaunaFlora: {
+        Flora: {
           b: 'aceaa:layer_bosques__san_borja_3k08u',
           pcp: 'aceaa:layer_centros_poblados__san_borja_os7lj',
           cp: 'aceaa:layer_comunidades__san_borja_xxxqn',
@@ -221,6 +267,22 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_quemas__san_borja_sw6j4',
           tco: 'aceaa:layer_tcos__san_borja_ihj72',
           ap: 'aceaa:layer_areas_protegidas__san_borja_6igyd',
+        },
+        reptiles: {
+          r: 'aceaa:layer_san_borja__reptiles_qsb99',
+          an: 'aceaa:layer_san_borja__anfibios_p8xb',
+          pcp: 'aceaa:layer_centros_poblados__san_borja_os7lj',
+          lm: 'aceaa:layer_limite_municipal__san_borja_9wnmdk',
+          aq: 'aceaa:layer_quemas__san_borja_sw6j4',
+
+        },
+        mamiferos: {
+          ma: 'aceaa:layer_san_borja__mamiferos_t0ji6',
+          av: 'aceaa:layer_san_borja__aves_h1ijw',
+          aq: 'aceaa:layer_quemas__san_borja_sw6j4',
+          pcp: 'aceaa:layer_centros_poblados__san_borja_os7lj',
+          lm: 'aceaa:layer_limite_municipal__san_borja_9wnmdk',
+
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__san_borja_qb07d',
@@ -261,7 +323,7 @@ export class InicioComponent implements AfterViewInit {
         dnbr: 'aceaa:a_1747536074621vinto2',
         focosCalor: 'aceaa:layer_vinto__focos_de_calor_zpk08',
         quemas: 'aceaa:layer_recurrencia_vinto_log5y',
-        FaunaFlora: {
+        Flora: {
           b: 'aceaa:layer_bosques__vinto_1t2k4',
           pcp: 'aceaa:',
           cp: 'aceaa:layer_comunidades__vinto_rdrho',
@@ -269,6 +331,22 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_recurrencia_vinto_log5y',
           tco: 'aceaa:',
           ap: 'aceaa:layer_areas_protegidas__vinto_beowz',
+        },
+        reptiles: {
+          r: 'aceaa:layer_vinto__reptiles_w3601',
+          an: 'aceaa:layer_vinto__anfibios_02418k',
+          aq: 'aceaa:layer_recurrencia_vinto_log5y',
+          pcp: 'aceaa:',
+          lm: 'aceaa:layer_limite_municipal__vinto_tcdqo',
+
+        },
+        mamiferos: {
+          ma: 'aceaa:',
+          av: 'aceaa:layer_vinto__aves_uwcsfj',
+          aq: 'aceaa:layer_recurrencia_vinto_log5y',
+          pcp: 'aceaa:',
+          lm: 'aceaa:layer_limite_municipal__vinto_tcdqo',
+
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__vinto_nu4l8',
@@ -309,7 +387,7 @@ export class InicioComponent implements AfterViewInit {
         dnbr: 'aceaa:a_1747538444570tiquipaya_dnbr1',
         focosCalor: 'aceaa:layer_tiquipaya__focos_de_calor_slxrf',
         quemas: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
-        FaunaFlora: {
+        Flora: {
           b: 'aceaa:layer_bosques_tiquipaya_e2qfg',
           pcp: 'aceaa:layer_centros_poblados__tiquipaya_gsj6f',
           cp: 'aceaa:layer_comunidades__tiquipaya_0h1xp',
@@ -317,6 +395,22 @@ export class InicioComponent implements AfterViewInit {
           aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
           tco: 'aceaa:',
           ap: 'aceaa:layer_areas_protegidas__tiquipaya_yzg2e',
+        },
+        reptiles: {
+          r: 'aceaa:layer_tiquipaya__reptiles_5b858',
+          an: 'aceaa:layer_tiquipaya__anfibios_uas96',
+          aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
+          pcp: 'aceaa:layer_centros_poblados__tiquipaya_gsj6f',
+          lm: 'aceaa:layer_limite_municipal__tiquipaya_tj5nf',
+
+        },
+        mamiferos: {
+          ma: 'aceaa:layer_tiquipaya__mamiferos_2xinr',
+          av: 'aceaa:layer_tiquipaya__aves_o6zusi',
+          aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
+          pcp: 'aceaa:layer_centros_poblados__tiquipaya_gsj6f',
+          lm: 'aceaa:layer_limite_municipal__tiquipaya_tj5nf',
+
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectads__tiquipaya_zamol',
@@ -491,6 +585,10 @@ export class InicioComponent implements AfterViewInit {
     this.modalServiceState.quemas$.subscribe(
       data => {
         this.mostrarquemas = data == 'quemas'
+      })
+    this.modalServiceState.faunaflora$.subscribe(
+      data => {
+        this.mostrarFaunaFlora = data == 'faunaflora'
       })
   }
   ngAfterViewInit(): void {
@@ -765,13 +863,16 @@ export class InicioComponent implements AfterViewInit {
     L.marker([MunucipioSelecionado.latMun, MunucipioSelecionado.lonMun], { icon: customIcon4 }).addTo(this.map);
   }
   handleLocationSelection(MunucipioSelecionado: any): void {
+    this.modalServiceState.cerrarFaunaFlora()
+    this.modalServiceState.cerrarquemas()
+    this.modalServiceState.cerrarfocos()
     if (this.mostrarMapa2 || this.mostrarMapa3) {
       this.mostrarMapa2 = false
       this.mostrarMapa3 = false
 
       setTimeout(() => {
         this.limpiarMapa();
-
+        console.log('jejeje')
         this.initMap();
         this.agregarOverlayLupa(MunucipioSelecionado);
         this.municipio = MunucipioSelecionado.municipio;
@@ -854,7 +955,18 @@ export class InicioComponent implements AfterViewInit {
       alert('La geolocalización no es soportada por este navegador.');
     }
   }
-
+  florafaura(x: string) {
+    const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === this.municipio);
+    if (x === 'flora') {
+      this.WMSVarios(ciudadEncontrada, x)
+    }
+    if (x === 'reptiles') {
+      this.WMSVarios(ciudadEncontrada, x)
+    }
+    if (x === 'mamiferos') {
+      this.WMSVarios(ciudadEncontrada, x)
+    }
+  }
   actualizarIndice(event: { indice: string, muni: string }) {
 
 
@@ -878,11 +990,10 @@ export class InicioComponent implements AfterViewInit {
       this.sidebysideWMS(ciudadEncontrada, event.indice)
       this.modalServiceState.cerrarVistas()
     }
-    if (event.indice == 'FloraFauna') {
+    if (event.indice == 'flora') {
       this.WMSVarios(ciudadEncontrada, event.indice)
       this.modalServiceState.cerrarVistas()
       this.modalServiceState.cerrarPrePost()
-
 
     }
     if (event.indice == 'AreasAfectadas') {
@@ -983,6 +1094,7 @@ export class InicioComponent implements AfterViewInit {
     /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
+
     this.modalServiceState.cerrarquemas()
     this.modalServiceState.cerrarfocos()
     this.mostrarRightBar = false
@@ -996,6 +1108,8 @@ export class InicioComponent implements AfterViewInit {
       this.mostrarLeyenda = true;
     }
     if (indice == 'focosCalor') {
+      console.log(indice)
+
       this.tipoLeyenda = 'focosCalor'
       layer1 = muni!.wms.focosCalor;
       this.leyandaActiva = this.leyenda.FocosCarlo
@@ -1008,7 +1122,7 @@ export class InicioComponent implements AfterViewInit {
         this.map3.remove();
       }
       this.map3 = L.map('map3', {
-        center: [-15.7, -67.3], // Ajustado al centro aproximado de la capa
+        center: [-15.7, -67.3],
         zoom: 10,
         dragging: false,
         zoomControl: false,
@@ -1046,12 +1160,23 @@ export class InicioComponent implements AfterViewInit {
     }, 0);
   }
   WMSVarios(muni: any, indice: string) {
+    this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
     this.modalServiceState.cerrarfocos()
+    this.mostrarquemas = false
     this.mostrarMapa2 = false;
     this.mostrarMapa3 = true;
-    if (indice == 'FloraFauna') {
-      this.TipoMapa = muni!.wms.FaunaFlora
+    if (indice == 'flora') {
+      this.TipoMapa = muni!.wms.Flora
+      this.mostrarFaunaFlora = true
+    }
+    if (indice == 'reptiles') {
+      this.TipoMapa = muni!.wms.reptiles
+      this.mostrarFaunaFlora = true
+    }
+    if (indice == 'mamiferos') {
+      this.TipoMapa = muni!.wms.mamiferos
+      this.mostrarFaunaFlora = true
     }
     if (indice == 'AreasAfectadas') {
       this.TipoMapa = muni!.wms.AreasAfectadas
@@ -1115,6 +1240,12 @@ export class InicioComponent implements AfterViewInit {
           }
           if (layerName === 'b') {
             layerOptions = { ...layerOptions, opacity: 0.8 };
+          }
+          if (layerName === 'lm') {
+            layerOptions = { ...layerOptions, opacity: 0.7 };
+          }
+          if (layerName === 'pcp') {
+            layerOptions = { ...layerOptions, opacity: 0.7 };
           }
           wmsLayers[layerName] = L.tileLayer.wms(wmsBaseUrl, {
             layers: layers,

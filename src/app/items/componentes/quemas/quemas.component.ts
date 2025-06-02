@@ -86,8 +86,6 @@ export class QuemasComponent {
     }
   };
   ngOnInit(): void {
-    console.log(this.municipio)
-    console.log('gaaaa')
     this.municipioData = this.obtenerDatosMunicipio(this.municipio);
   }
   obtenerDatosMunicipio(municipioBuscado: string): DatosMunicipio | undefined {

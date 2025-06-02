@@ -32,6 +32,7 @@ import { PdfViwerComponent } from './items/componentes/pdf-viwer/pdf-viwer.compo
 import { PrePostComponent } from './items/componentes/pre-post/pre-post.component';
 import { FocosdeCalorComponent } from './items/componentes/focosde-calor/focosde-calor.component';
 import { QuemasComponent } from './items/componentes/quemas/quemas.component';
+import { FloraFaunaComponent } from './items/componentes/flora-fauna/flora-fauna.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { QuemasComponent } from './items/componentes/quemas/quemas.component';
     PrePostComponent,
     FocosdeCalorComponent,
     QuemasComponent,
+    FloraFaunaComponent,
     
   ],
   imports: [
