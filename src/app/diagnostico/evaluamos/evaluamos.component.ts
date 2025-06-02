@@ -27,10 +27,12 @@ export class EvaluamosComponent {
       this.currentStep++;
     }
     if (this.currentStep === 2) {
-      this.ExtenderBar = false;
+      /* this.ExtenderBar = false; */
       this.locationEvaluamos.emit(this.Municipio);
       this.currentStep = 1;
       this.modalStateService.mostrarBtnEvaluamos();
+      this.modalStateService.cerrarVistas()
+      this.modalStateService.mostrarLeyenda()
     }
 
   }

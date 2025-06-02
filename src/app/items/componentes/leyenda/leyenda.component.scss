@@ -14,6 +14,7 @@
     &--small {
         width: fit-content;
         max-width: 20%;
+        min-width: 300px;
     }
 
     &--big {
@@ -26,7 +27,7 @@
         width: 100%;
         padding: 10px 0 10px 0;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 1.2rem;
     }
 
     &__body {
@@ -40,7 +41,7 @@
 
     &__leyenda {
         padding-top: 5px;
-        font-size: 18px;
+        font-size: 0.9rem;
         font-weight: bold;
     }
 

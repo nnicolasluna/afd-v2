@@ -1,20 +1,18 @@
 .tres-botones {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 8%;
-
     z-index: 999;
     width: 100%;
 }
 
 .button-top-bar {
     width: fit-content;
-    min-height: 60px;
-    padding: 10px 30px;
+/*     min-height: 40px;
+ */    padding: 5px;
     color: white;
     border-radius: 10px;
     border: none;
@@ -22,6 +20,9 @@
     margin: 10px;
     font-size: 0.9rem;
     text-align: center;
+    max-width: 100px;
+    height: 100%;
+    min-height: 60px;
 
     &--black {
         background-color: transparentize(#272323, 0.1);
@@ -30,8 +31,7 @@
 
 }
 
-.button-top-bar.activo,
-.button-top-bar:hover {
+.button-top-bar.activo {
     background-color: #1F631C;
     color: white;
 }

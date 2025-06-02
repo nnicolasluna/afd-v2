@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
 
 @Component({
   selector: 'app-alternativas',
@@ -312,8 +313,15 @@ export class AlternativasComponent {
     }
   ]
 
+  constructor(private modalStateService: ModalStateService) { }
+
   ngOnInit() {
     this.descripcion = this.alternativas.filter(item => item.municipio === this.municipio);
+/*     this.modalStateService.cerrarVistas()
+ */    this.modalStateService.cerrarafectadas()
+    this.modalStateService.cerrarFaunaFlora()
+    this.modalStateService.cerrarquemas()
+    this.modalStateService.cerrarfocos()
   }
   mostrarPantalla1 = true;
   mostrarPantalla2 = false;

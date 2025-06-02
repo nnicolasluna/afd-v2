@@ -27,7 +27,7 @@
         width: 100%;
         padding: 10px 0 10px 0;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 1rem;
     }
 
     &__body {
@@ -41,7 +41,7 @@
 
     &__leyenda {
         padding-top: 5px;
-        font-size: 18px;
+        font-size: 0.9rem;
         font-weight: bold;
     }
 
@@ -71,8 +71,8 @@
         text-align: justify;
         display: flex;
         align-items: center;
-        padding: 5px;
-    }
+/*         padding: 5px;
+ */    }
 
     &__texto img {
         width: 20px;
@@ -93,7 +93,7 @@ li {
 }
 
 .subtitle {
-    font-size: 15px;
+    font-size: 0.6rem;
     font-weight: bold;
 }
 
@@ -129,6 +129,7 @@ li {
     flex-direction: row;
     color: white;
     cursor: pointer;
+    margin-bottom: 5px;
 
     &__btnF {
         background-color: #5E5E5E80;
