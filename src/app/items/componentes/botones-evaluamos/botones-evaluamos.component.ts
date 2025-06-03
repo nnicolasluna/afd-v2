@@ -37,7 +37,7 @@ export class BotonesEvaluamosComponent {
       indiceselecionado = 'AreasRestauracion'
     }
     if (numero === 8) {
-      indiceselecionado = 'AreasRege'
+      indiceselecionado = 'pasiva'
     }
     if (numero === 9) {
       indiceselecionado = 'focosCalor'

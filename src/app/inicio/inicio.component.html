@@ -38,3 +38,5 @@
 
 <app-areas-afectadas [Municipio]="municipio" *ngIf="mostrarAfectadas"></app-areas-afectadas>
 <app-restauracion [Municipio]="municipio" *ngIf="mostrarrestauracion"></app-restauracion>
+
+<app-regeneracion *ngIf="mostrarrege" [Municipio]="municipio" (tipomapa)="regeneracion($event)"></app-regeneracion>

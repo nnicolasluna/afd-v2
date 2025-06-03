@@ -12,7 +12,8 @@
                 <div class="card-info--bold">Área Protegida Nacional:</div> {{municipioEncontrado.areaProtegida}}
             </div>
             <div class="card-info__contentText">
-                <div class="card-info--bold">Territorios Comunitarios de Origen:</div> {{municipioEncontrado.comunarioOrigen}}
+                <div class="card-info--bold">Territorios Comunitarios de Origen:</div>
+                {{municipioEncontrado.comunarioOrigen}}
             </div>
             <div class="card-info__contentText">
                 <div class="card-info--bold">Provincia:</div>{{municipioEncontrado.provincia}}
@@ -20,13 +21,23 @@
         </div>
         <div class="card-stats">
             <div class="stat-box">
-                <p class="stat-value">3.708,2 Km<sup>2</sup></p>
+                <p class="stat-value">{{municipioEncontrado.superficie_km2}} Km<sup>2</sup></p>
                 <p class="stat-label">Superficie</p>
             </div>
-            <div class="stat-box">
-                <p class="stat-value">38.793 habitantes</p>
+            <div class="stat-box" *ngIf="municipioEncontrado.poblacion">
+                <p class="stat-value">{{municipioEncontrado.poblacion}} habitantes</p>
                 <p class="stat-label">Población Proyectada</p>
             </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.ubicacion">
+                <p class="stat-value">{{municipioEncontrado.ubicacion}} </p>
+                <p class="stat-label">Ubicacion</p>
+            </div>
+           <!--  <div class="" *ngIf="municipioEncontrado.ubicacion">
+                <p class="stat-label">caracteristicas</p>
+                <div *ngFor="let key of municipioEncontrado.caracteristicas">
+                    <p>{{key}}</p>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>

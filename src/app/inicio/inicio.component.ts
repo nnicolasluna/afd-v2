@@ -34,6 +34,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarLeyenda = false;
   mostrarPrePost = false;
   mostrarfocos = false;
+  mostrarrege = false;
   mostrarRecuperacion = false
   mostrarFaunaFlora = false;
   mostrarAfectadas = false;
@@ -113,6 +114,20 @@ export class InicioComponent implements AfterViewInit {
           c: 'aceaa:layer_com__sanbuena_f2d5b',
           lm: 'aceaa:layer_lim__sanbuena_1eq9k',
         },
+        regeneracionPasiva: {
+          ar: 'aceaa:layer_restauracion__san_buena_3aj6h',
+          ap: 'aceaa:layer_areas_protegidas__san_buenaventura_8m4v5',
+          cam: 'aceaa:layer_caminos__san_buenaventura_lkix1',
+          arege: 'aceaa:layer_regenracion__san_buena_h3h8mg',
+          aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
+          c: 'aceaa:layer_com__sanbuena_f2d5b',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
+        },
+        regeneracionActiva: {
+          ar: 'aceaa:layer_restauracion__san_buena_3aj6h',
+          arege: 'aceaa:layer_regenracion__san_buena_h3h8mg',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
+        },
       }
     },
     {
@@ -177,6 +192,20 @@ export class InicioComponent implements AfterViewInit {
           c: 'aceaa:layer_com__palos_0z5xe',
           lm: 'aceaa:layer_lim__palbl_9w7b5',
         },
+        regeneracionPasiva: {
+          ar: 'aceaa:layer_restauracion__palos_b8p3mj',
+          ap: 'aceaa:layer_areas_protegidas_palos_blancos_nuobfg',
+          cam: 'aceaa:layer_caminos__palos_blancos_6oztc',
+          arege: 'aceaa:layer_regenracion__palos_blancos_63a1j',
+          aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
+          c: 'aceaa:layer_com__palos_0z5xe',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
+        },
+        regeneracionActiva: {
+          ar: 'aceaa:layer_restauracion__palos_b8p3mj',
+          arege: 'aceaa:layer_regenracion__palos_blancos_63a1j',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
+        },
       }
     },
     {
@@ -238,6 +267,20 @@ export class InicioComponent implements AfterViewInit {
           ed: 'aceaa:layer_educacion__rurrenabaque_cuua9',
           es: 'aceaa:layer_centros_de_salud__rurrenabaque_fko8d',
           c: 'aceaa:layer_com__rurre_qtmpih',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
+        },
+        regeneracionPasiva: {
+          ar: 'aceaa:layer_restauracion__rurre_p35e6',
+          ap: 'aceaa:layer_areas_protegidas__rurrenabaque_54elx',
+          cam: 'aceaa:layer_caminos__rurrenabaque_fjkee',
+          arege: 'aceaa:layer_regenracion__rurrenabaque_nlk4t',
+          aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
+          c: 'aceaa:layer_com__rurre_qtmpih',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
+        },
+        regeneracionActiva: {
+          ar: 'aceaa:layer_restauracion__rurre_p35e6',
+          arege: 'aceaa:layer_regenracion__rurrenabaque_nlk4t',
           lm: 'aceaa:layer_lim__rurre_2gri6',
         },
       },
@@ -304,6 +347,20 @@ export class InicioComponent implements AfterViewInit {
           c: 'aceaa:layer_com__sanborja_773kv',
           lm: 'aceaa:layer_lim__sanbor_6cq47',
         },
+        regeneracionPasiva: {
+          ar: 'aceaa:layer_restauracion__san_borja_o4n6y',
+          ap: 'aceaa:layer_areas_protegidas__san_borja_6igyd',
+          cam: 'aceaa:layer_caminos__san_borja_ytbtf',
+          arege: 'aceaa:layer_regenracion__san_borja_cqyu',
+          aq: 'aceaa:layer_quemas__san_borja_sw6j4',
+          c: 'aceaa:layer_com__sanborja_773kv',
+          lm: 'aceaa:layer_lim__sanbor_6cq47',
+        },
+        regeneracionActiva: {
+          ar: 'aceaa:layer_lim__sanbor_6cq47',
+          arege: 'aceaa:layer_regenracion__san_borja_cqyu',
+          lm: 'aceaa:layer_restauracion__san_borja_o4n6y',
+        },
       }
     },
     {
@@ -366,6 +423,20 @@ export class InicioComponent implements AfterViewInit {
           ed: 'aceaa:layer_educacion__vinto_jygiq',
           es: 'aceaa:layer_centros_de_salud__vinto_l0oeb',
           c: 'aceaa:layer_com__vinto_2u1z9',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
+        },
+        regeneracionPasiva: {
+          ar: 'aceaa:layer_resturacion__vinto_i0aiw',
+          ap: 'aceaa:layer_areas_protegidas__vinto_beowz',
+          cam: 'aceaa:layer_caminos__vinto_7glcj',
+          arege: 'aceaa:layer_regenracion__vinto_pbtef',
+          aq: 'aceaa:layer_recurrencia_vinto_log5y',
+          c: 'aceaa:layer_com__vinto_2u1z9',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
+        },
+        regeneracionActiva: {
+          ar: 'aceaa:layer_resturacion__vinto_i0aiw',
+          arege: 'aceaa:layer_regenracion__vinto_pbtef',
           lm: 'aceaa:layer_lim__vinto_fwxbq',
         },
       }
@@ -432,7 +503,22 @@ export class InicioComponent implements AfterViewInit {
           c: 'aceaa:layer_com__tiquipaya_n5j61',
           lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
         },
+        regeneracionPasiva: {
+          ar: 'aceaa:layer_resturacion__tiquipaya_o1iji',
+          ap: 'aceaa:layer_areas_protegidas__tiquipaya_yzg2e',
+          cam: 'aceaa:layer_caminos__tiquipaya_grija',
+          arege: 'aceaa:layer_regenracion__tiquipaya_3kyv8',
+          aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
+          c: 'aceaa:layer_com__tiquipaya_n5j61',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
+        },
+        regeneracionActiva: {
+          ar: 'aceaa:layer_resturacion__tiquipaya_o1iji',
+          arege: 'aceaa:layer_regenracion__tiquipaya_3kyv8',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
+        },
       }
+
     }
   ];
   leyenda = {
@@ -600,6 +686,10 @@ export class InicioComponent implements AfterViewInit {
       data => {
         this.mostrarrestauracion = data == 'restauracion'
       })
+    this.modalServiceState.regeneracion$.subscribe(
+      data => {
+        this.mostrarrege = data == 'regeneracion'
+      })
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -644,16 +734,16 @@ export class InicioComponent implements AfterViewInit {
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
 
-    this.PulseIcons(-66.583986063547712, -14.888469024881504)
-    this.PulseIcons(-67.511256977542558, -14.640596957397738)
-    this.PulseIcons(-67.502035253202479, -14.486743690229083)
-    this.PulseIcons(-66.603523521731546, -14.893767021419279)
-    this.PulseIcons(-66.338472044796234, -17.361136266187586)
-    this.PulseIcons(-67.466772951849521, -15.299242026007526)
-    this.PulseIcons(-67.542160663186792, -14.301949370763342)
-    this.PulseIcons(-67.250119785935283, -15.586222016452332)
-    this.PulseIcons(-67.560121032584576, -14.332509679746231)
-    this.PulseIcons(-66.206486187544854, -17.315427603500169)
+    this.PulseIcons(-66.583986063547712, -14.888469024881504,this.map)
+    this.PulseIcons(-67.511256977542558, -14.640596957397738,this.map)
+    this.PulseIcons(-67.502035253202479, -14.486743690229083,this.map)
+    this.PulseIcons(-66.603523521731546, -14.893767021419279,this.map)
+    this.PulseIcons(-66.338472044796234, -17.361136266187586,this.map)
+    this.PulseIcons(-67.466772951849521, -15.299242026007526,this.map)
+    this.PulseIcons(-67.542160663186792, -14.301949370763342,this.map)
+    this.PulseIcons(-67.250119785935283, -15.586222016452332,this.map)
+    this.PulseIcons(-67.560121032584576, -14.332509679746231,this.map)
+    this.PulseIcons(-66.206486187544854, -17.315427603500169,this.map)
     labelsLayer.addTo(this.map);
     this.map.on('zoomend', () => {
       if (this.map.getZoom() === 6) {
@@ -661,14 +751,13 @@ export class InicioComponent implements AfterViewInit {
       }
     });
   }
-  PulseIcons(long: any, lat: any) {
+  PulseIcons(long: any, lat: any, map:any) {
     const blinkingIcon = L.divIcon({
       className: 'pulse-marker',
       iconSize: [6, 6],
       /* iconAnchor: [0, 0], */
     });
-
-    L.marker([lat, long], { icon: blinkingIcon }).addTo(this.map);
+    L.marker([lat, long], { icon: blinkingIcon }).addTo(map);
   }
   private iniciarmapa2(municipio: any): void {
     this.mostrarMapa2 = true
@@ -977,8 +1066,16 @@ export class InicioComponent implements AfterViewInit {
       this.WMSVarios(ciudadEncontrada, x)
     }
   }
+  regeneracion(x: string) {
+    const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === this.municipio);
+    if (x === 'activa') {
+      this.WMSVarios(ciudadEncontrada, x)
+    }
+    if (x === 'pasiva') {
+      this.WMSVarios(ciudadEncontrada, x)
+    }
+  }
   actualizarIndice(event: { indice: string, muni: string }) {
-
 
     const ciudadEncontrada = this.municipios.find(ciudad => ciudad.municipio === event.muni);
     if (event.indice == 'focosCalor') {
@@ -1016,13 +1113,14 @@ export class InicioComponent implements AfterViewInit {
       this.modalServiceState.cerrarVistas()
 
     }
-    if (event.indice == 'AreasRege') {
-      this.sidebysideWMS(ciudadEncontrada, event.indice)
+    if (event.indice == 'pasiva') {
+      this.WMSVarios(ciudadEncontrada, event.indice)
       this.modalServiceState.cerrarVistas()
 
     }
   }
   sidebysideWMS(muni: any, indice: string): void {
+    this.modalServiceState.cerrarrege()
     this.modalServiceState.cerrarrestauracion()
     this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
@@ -1107,6 +1205,7 @@ export class InicioComponent implements AfterViewInit {
     /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
+    this.modalServiceState.cerrarrege()
     this.modalServiceState.cerrarrestauracion()
     this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
@@ -1175,6 +1274,7 @@ export class InicioComponent implements AfterViewInit {
     }, 0);
   }
   WMSVarios(muni: any, indice: string) {
+    this.modalServiceState.cerrarrege()
     this.modalServiceState.cerrarrestauracion()
     this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
@@ -1202,6 +1302,19 @@ export class InicioComponent implements AfterViewInit {
     if (indice == 'AreasRestauracion') {
       this.TipoMapa = muni!.wms.restauracion
       this.modalServiceState.mostrarrestauracion()
+    }
+    if (indice == 'pasiva') {
+      this.TipoMapa = muni!.wms.regeneracionPasiva
+      this.modalServiceState.mostrarrege()
+    }
+    if (indice == 'activa') {
+      this.TipoMapa = muni!.wms.regeneracionActiva
+      this.modalServiceState.mostrarrege()
+      this.PulseIcons(-67.3040525119, -14.3826149047,this.map3)
+      this.PulseIcons(-14.2912277285, -67.3007326912,this.map3)
+/*       this.PulseIcons(-66.583986063547712, -14.888469024881504)
+      this.PulseIcons(-66.583986063547712, -14.888469024881504) */
+
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {

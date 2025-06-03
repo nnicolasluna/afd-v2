@@ -15,7 +15,7 @@ export class ModalStateService {
   private faunaflora = new BehaviorSubject<'faunaflora' | null>(null);
   private afectadas = new BehaviorSubject<'afectadas' | null>(null);
   private restauracion = new BehaviorSubject<'restauracion' | null>(null);
-
+  private regeneracion = new BehaviorSubject<'regeneracion' | null>(null);
 
   data$: Observable<string> = this.botonActivoMenu.asObservable();
   vistaActual$ = this.vistaActual.asObservable();
@@ -27,6 +27,7 @@ export class ModalStateService {
   faunaflora$ = this.faunaflora.asObservable();
   afectadas$ = this.afectadas.asObservable();
   restauracion$ = this.restauracion.asObservable();
+  regeneracion$ = this.regeneracion.asObservable();
 
   mostrarAlter_rightbar(botonSeleccionado: any) {
     this.botonActivoMenu.next(botonSeleccionado);
@@ -85,11 +86,17 @@ export class ModalStateService {
   cerrarFaunaFlora() {
     this.faunaflora.next(null);
   }
+   mostrarrege() {
+    this.regeneracion.next('regeneracion');
+  }
+  cerrarrege() {
+    this.regeneracion.next(null);
+  }
   mostrarrestauracion() {
     this.restauracion.next('restauracion');
   }
   cerrarrestauracion() {
-    this.faunaflora.next(null);
+    this.restauracion.next(null);
   }
   mostrarfocos() {
     this.focoscalor.next('focos');
