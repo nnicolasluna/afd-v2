@@ -1,0 +1,19 @@
+<div class="leyendaMain leyendaMain--small">
+    <div class="leyendaMain__title">
+        {{Municipio}}
+    </div>
+    <div class="leyendaMain__body">
+        <div class="leyendaMain__leyenda">Leyenda</div>
+        <div class="leyendaMain__content">
+            <div *ngFor="let item of data.leyenda" class="items">
+                <img *ngIf="item.img" [src]="item.img" alt="">
+                <div class="items__texto">{{ item.texto }}</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="adicionaltexto">
+    Las presentes áreas de referencia fueron identificadas durante la realización de los talleres realizados en campo
+</div>

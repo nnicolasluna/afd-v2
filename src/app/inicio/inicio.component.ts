@@ -38,6 +38,7 @@ export class InicioComponent implements AfterViewInit {
   mostrarFaunaFlora = false;
   mostrarAfectadas = false;
   mostrarquemas = false
+  mostrarrestauracion = false
   tipoLeyenda: string = ''
   mostrarMapa2 = false;
   mostrarMapa3 = false;
@@ -595,6 +596,10 @@ export class InicioComponent implements AfterViewInit {
       data => {
         this.mostrarAfectadas = data == 'afectadas'
       })
+    this.modalServiceState.restauracion$.subscribe(
+      data => {
+        this.mostrarrestauracion = data == 'restauracion'
+      })
   }
   ngAfterViewInit(): void {
     this.initMap();
@@ -1018,6 +1023,7 @@ export class InicioComponent implements AfterViewInit {
     }
   }
   sidebysideWMS(muni: any, indice: string): void {
+    this.modalServiceState.cerrarrestauracion()
     this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
@@ -1101,6 +1107,7 @@ export class InicioComponent implements AfterViewInit {
     /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
+    this.modalServiceState.cerrarrestauracion()
     this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
@@ -1168,6 +1175,7 @@ export class InicioComponent implements AfterViewInit {
     }, 0);
   }
   WMSVarios(muni: any, indice: string) {
+    this.modalServiceState.cerrarrestauracion()
     this.modalServiceState.cerrarafectadas()
     this.modalServiceState.cerrarFaunaFlora()
     this.modalServiceState.cerrarquemas()
@@ -1193,6 +1201,7 @@ export class InicioComponent implements AfterViewInit {
     }
     if (indice == 'AreasRestauracion') {
       this.TipoMapa = muni!.wms.restauracion
+      this.modalServiceState.mostrarrestauracion()
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {

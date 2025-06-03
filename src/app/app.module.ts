@@ -34,6 +34,7 @@ import { FocosdeCalorComponent } from './items/componentes/focosde-calor/focosde
 import { QuemasComponent } from './items/componentes/quemas/quemas.component';
 import { FloraFaunaComponent } from './items/componentes/flora-fauna/flora-fauna.component';
 import { AreasAfectadasComponent } from './items/componentes/areas-afectadas/areas-afectadas.component';
+import { RestauracionComponent } from './items/componentes/restauracion/restauracion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import { AreasAfectadasComponent } from './items/componentes/areas-afectadas/are
     QuemasComponent,
     FloraFaunaComponent,
     AreasAfectadasComponent,
+    RestauracionComponent,
     
   ],
   imports: [
