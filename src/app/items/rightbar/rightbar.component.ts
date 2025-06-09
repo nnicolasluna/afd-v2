@@ -98,10 +98,8 @@ export class RightbarComponent {
     });
   }
   alternarRightBar() {
-    this.visibilidadService.abrirCard();
-    console.log(this.visibilidadService.abrirCard());
-    //this.mostrarRightBar = !this.mostrarRightBar;
     if (this.mostrarRightBar === true) {
+      this.visibilidadService.cerrarCard();
       this.modalstateService.cerrarFaunaFlora();
       this.modalstateService.cerrarPrePost();
       this.modalstateService.cerrarfocos();
@@ -109,6 +107,8 @@ export class RightbarComponent {
       this.modalstateService.cerrarrege();
       this.modalstateService.cerrarrestauracion();
       this.modalstateService.cerrarafectadas();
+    } else {
+      this.visibilidadService.abrirCard();
     }
   }
 

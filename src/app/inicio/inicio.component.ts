@@ -717,6 +717,17 @@ export class InicioComponent implements AfterViewInit {
       this.cargarMunicipio(mun.source, '#FDE9A0', mun.color);
     });
     //this.cargarDepartamento('assets/geojson/municipio_afd.geo.json');
+
+    this.PulseIcons(-66.583986063547712, -14.888469024881504, this.map);
+    this.PulseIcons(-67.511256977542558, -14.640596957397738, this.map);
+    this.PulseIcons(-67.502035253202479, -14.486743690229083, this.map);
+    this.PulseIcons(-66.603523521731546, -14.893767021419279, this.map);
+    this.PulseIcons(-66.338472044796234, -17.361136266187586, this.map);
+    this.PulseIcons(-67.466772951849521, -15.299242026007526, this.map);
+    this.PulseIcons(-67.542160663186792, -14.301949370763342, this.map);
+    this.PulseIcons(-67.250119785935283, -15.586222016452332, this.map);
+    this.PulseIcons(-67.560121032584576, -14.332509679746231, this.map);
+    this.PulseIcons(-66.206486187544854, -17.315427603500169, this.map);
   }
 
   private initMap(): void {
@@ -754,16 +765,6 @@ export class InicioComponent implements AfterViewInit {
       this.map.getPane('labels')!.style.pointerEvents = 'none';
     }
 
-    this.PulseIcons(-66.583986063547712, -14.888469024881504, this.map);
-    this.PulseIcons(-67.511256977542558, -14.640596957397738, this.map);
-    this.PulseIcons(-67.502035253202479, -14.486743690229083, this.map);
-    this.PulseIcons(-66.603523521731546, -14.893767021419279, this.map);
-    this.PulseIcons(-66.338472044796234, -17.361136266187586, this.map);
-    this.PulseIcons(-67.466772951849521, -15.299242026007526, this.map);
-    this.PulseIcons(-67.542160663186792, -14.301949370763342, this.map);
-    this.PulseIcons(-67.250119785935283, -15.586222016452332, this.map);
-    this.PulseIcons(-67.560121032584576, -14.332509679746231, this.map);
-    this.PulseIcons(-66.206486187544854, -17.315427603500169, this.map);
     labelsLayer.addTo(this.map);
     this.map.on('zoomend', () => {
       if (this.map.getZoom() === 6) {
@@ -1006,7 +1007,6 @@ export class InicioComponent implements AfterViewInit {
 
       setTimeout(() => {
         this.limpiarMapa();
-        console.log('jejeje');
         this.initMap();
         this.agregarOverlayLupa(MunucipioSelecionado);
         this.municipio = MunucipioSelecionado.municipio;
@@ -1367,10 +1367,6 @@ export class InicioComponent implements AfterViewInit {
     if (indice == 'activa') {
       this.TipoMapa = muni!.wms.regeneracionActiva;
       this.modalServiceState.mostrarrege();
-      this.PulseIcons(-67.3040525119, -14.3826149047, this.map3);
-      this.PulseIcons(-14.2912277285, -67.3007326912, this.map3);
-      /*       this.PulseIcons(-66.583986063547712, -14.888469024881504)
-      this.PulseIcons(-66.583986063547712, -14.888469024881504) */
     }
     const bounds = L.latLngBounds(muni.bounds);
     setTimeout(() => {
@@ -1384,6 +1380,16 @@ export class InicioComponent implements AfterViewInit {
         zoomControl: false,
         doubleClickZoom: false,
       });
+      this.PulseIcons(-66.583986063547712, -14.888469024881504, this.map3);
+      this.PulseIcons(-67.511256977542558, -14.640596957397738, this.map3);
+      this.PulseIcons(-67.502035253202479, -14.486743690229083, this.map3);
+      this.PulseIcons(-66.603523521731546, -14.893767021419279, this.map3);
+      this.PulseIcons(-66.338472044796234, -17.361136266187586, this.map3);
+      this.PulseIcons(-67.466772951849521, -15.299242026007526, this.map3);
+      this.PulseIcons(-67.542160663186792, -14.301949370763342, this.map3);
+      this.PulseIcons(-67.250119785935283, -15.586222016452332, this.map3);
+      this.PulseIcons(-67.560121032584576, -14.332509679746231, this.map3);
+      this.PulseIcons(-66.206486187544854, -17.315427603500169, this.map3);
       this.map3.on('zoomend', () => {
         if (this.map3.getZoom() === 6) {
           this.map3.fitBounds(bounds);
