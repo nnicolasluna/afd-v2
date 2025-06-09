@@ -87,7 +87,10 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746461096055PostNBRSanBuena',
         },
         dnbr: 'aceaa:a_1747538623598sanbuena_dnbr1',
-        focosCalor: 'aceaa:layer_focos_de_calor__san_buenaventura_9vf0rk',
+        focosCalor: {
+          foco: 'aceaa:layer_focos_de_calor__san_buenaventura_9vf0rk',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
+        },
         quemas: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
         Flora: {
           b: 'aceaa:layer_bosques__san_buenaventura_0p6o6',
@@ -165,7 +168,10 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746460441687PostNBRPalosBlancos',
         },
         dnbr: 'aceaa:a_1747576386958dNBR1_pb',
-        focosCalor: 'aceaa:layer_focos_de_calor__palos_blancos_nyusnf',
+        focosCalor: {
+          foco: 'aceaa:layer_focos_de_calor__palos_blancos_nyusnf',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
+        },
         quemas: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
         Flora: {
           b: 'aceaa:layer_bosques__palos_blancos_w0088',
@@ -244,7 +250,10 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746460712250PostNBRRurrenabaque',
         },
         dnbr: 'aceaa:a_1747538931290rure_dnbr1',
-        focosCalor: 'aceaa:layer_san_borja__focos_de_calor_sno9f',
+        focosCalor: {
+          foco: 'aceaa:layer_focos_de_calor__rurranabaque_cdmg5',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
+        },
         quemas: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
         Flora: {
           b: 'aceaa:layer_bosques__rurrenabaque_nzou',
@@ -322,7 +331,10 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746460827267PostNBRSanBorja',
         },
         dnbr: 'aceaa:a_1747589538998dNBR_sb1',
-        focosCalor: 'aceaa:layer_focos_de_calor__rurranabaque_cdmg5',
+        focosCalor: {
+          foco: 'aceaa:layer_san_borja__focos_de_calor_sno9f',
+          lm: 'aceaa:layer_lim__sanbor_6cq47',
+        },
         quemas: 'aceaa:layer_quemas__san_borja_sw6j4',
         Flora: {
           b: 'aceaa:layer_bosques__san_borja_3k08u',
@@ -400,7 +412,10 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746461278454PostNBRVinto',
         },
         dnbr: 'aceaa:a_1747536074621vinto2',
-        focosCalor: 'aceaa:layer_vinto__focos_de_calor_zpk08',
+        focosCalor: {
+          foco: 'aceaa:layer_vinto__focos_de_calor_zpk08',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
+        },
         quemas: 'aceaa:layer_recurrencia_vinto_log5y',
         Flora: {
           b: 'aceaa:layer_bosques__vinto_1t2k4',
@@ -478,7 +493,10 @@ export class InicioComponent implements AfterViewInit {
           nbr: 'aceaa:a_1746461236706PostNBRTiquipaya',
         },
         dnbr: 'aceaa:a_1747538444570tiquipaya_dnbr1',
-        focosCalor: 'aceaa:layer_tiquipaya__focos_de_calor_slxrf',
+        focosCalor: {
+          foco: 'aceaa:layer_tiquipaya__focos_de_calor_slxrf',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
+        },
         quemas: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
         Flora: {
           b: 'aceaa:layer_bosques_tiquipaya_e2qfg',
@@ -657,7 +675,42 @@ export class InicioComponent implements AfterViewInit {
       },
     ],
   };
-
+  pulsePoints = [
+    { long: -66.583986063547712, lat: -14.888469024881504, label: 'San Borja' },
+    { long: -66.603523521731546, lat: -14.893767021419279, label: 'San Borja' },
+    {
+      long: -67.466772951849521,
+      lat: -15.299242026007526,
+      label: 'Palos Blancos',
+    },
+    {
+      long: -67.250119785935283,
+      lat: -15.586222016452332,
+      label: 'Palos Blancos',
+    },
+    {
+      long: -67.542160663186792,
+      lat: -14.301949370763342,
+      label: 'San Buenaventura',
+    },
+    {
+      long: -67.560121032584576,
+      lat: -14.332509679746231,
+      label: 'San Buenaventura',
+    },
+    {
+      long: -67.511256977542558,
+      lat: -14.640596957397738,
+      label: 'Rurrenabaque',
+    },
+    {
+      long: -67.502035253202479,
+      lat: -14.486743690229083,
+      label: 'Rurrenabaque',
+    },
+    { long: -66.338472044796234, lat: -17.361136266187586, label: 'Vinto' },
+    { long: -66.206486187544854, lat: -17.315427603500169, label: 'Tiquipaya' },
+  ];
   private geoLayers: { [key: string]: L.GeoJSON } = {};
   constructor(
     private http: HttpClient,
@@ -716,18 +769,9 @@ export class InicioComponent implements AfterViewInit {
     this.municipios.forEach((mun) => {
       this.cargarMunicipio(mun.source, '#FDE9A0', mun.color);
     });
-    //this.cargarDepartamento('assets/geojson/municipio_afd.geo.json');
-
-    this.PulseIcons(-66.583986063547712, -14.888469024881504, this.map);
-    this.PulseIcons(-67.511256977542558, -14.640596957397738, this.map);
-    this.PulseIcons(-67.502035253202479, -14.486743690229083, this.map);
-    this.PulseIcons(-66.603523521731546, -14.893767021419279, this.map);
-    this.PulseIcons(-66.338472044796234, -17.361136266187586, this.map);
-    this.PulseIcons(-67.466772951849521, -15.299242026007526, this.map);
-    this.PulseIcons(-67.542160663186792, -14.301949370763342, this.map);
-    this.PulseIcons(-67.250119785935283, -15.586222016452332, this.map);
-    this.PulseIcons(-67.560121032584576, -14.332509679746231, this.map);
-    this.PulseIcons(-66.206486187544854, -17.315427603500169, this.map);
+    this.pulsePoints.forEach((point) =>
+      this.PulseIcons(point.long, point.lat, this.map, 'red')
+    );
   }
 
   private initMap(): void {
@@ -772,84 +816,11 @@ export class InicioComponent implements AfterViewInit {
       }
     });
   }
-  PulseIcons(long: any, lat: any, map: any) {
-    const blinkingIcon = L.divIcon({
-      className: 'pulse-marker',
-      iconSize: [6, 6],
-      /* iconAnchor: [0, 0], */
-    });
+  PulseIcons(long: number, lat: number, map: any, color: string) {
+    const className = color === 'red' ? 'pulse-marker' : 'pulse-marker-yellow';
+    const blinkingIcon = L.divIcon({ className, iconSize: [6, 6] });
     L.marker([lat, long], { icon: blinkingIcon }).addTo(map);
   }
-  private iniciarmapa2(municipio: any): void {
-    this.mostrarMapa2 = true;
-    setTimeout(() => {
-      this.map1 = L.map('map1', {
-        center: [-16.5, -67.0],
-        zoom: 5,
-        dragging: false,
-        zoomControl: false,
-        doubleClickZoom: false,
-      });
-      this.map2 = L.map('map2', {
-        center: [-16.5, -64.15],
-        zoom: 5,
-        dragging: false,
-        zoomControl: false,
-        doubleClickZoom: false,
-      });
-
-      L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        {
-          maxZoom: 18,
-        }
-      ).addTo(this.map1);
-      L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        {
-          maxZoom: 18,
-        }
-      ).addTo(this.map2);
-
-      this.http.get<any>(municipio).subscribe((geojsonData) => {
-        const geojsonLayer1 = L.geoJSON(geojsonData, {
-          style: {
-            weight: 2,
-            fillColor: '#8FC938',
-            fillOpacity: 0.5,
-            color: '#8FC938',
-          },
-        }).addTo(this.map1);
-
-        this.map1.flyToBounds(geojsonLayer1.getBounds(), {
-          padding: [120, 120],
-          duration: 1.2,
-        });
-      });
-
-      this.http
-        .get<any>(
-          'assets/geojson/LaPaz/Municipios/quemado/quemas_sanbuena.geo.json'
-        )
-        .subscribe((geojsonData) => {
-          const geojsonLayer2 = L.geoJSON(geojsonData, {
-            style: {
-              weight: 2,
-              fillColor: '#D7191C',
-              fillOpacity: 0.5,
-              color: '#D7191C',
-            },
-          }).addTo(this.map2);
-
-          this.map2.flyToBounds(geojsonLayer2.getBounds(), {
-            padding: [120, 120],
-            duration: 1.2,
-          });
-        });
-    }, 0);
-    /* this.synchronizeMaps(); */
-  }
-
   private cargarMunicipio(mun: any, color: any, Municipiocolor: any): void {
     this.http.get<any>(mun).subscribe({
       next: (data) => {
@@ -906,48 +877,6 @@ export class InicioComponent implements AfterViewInit {
         this.map2.invalidateSize();
       }
     }, 100);
-  }
-
-  private cargarMunicipioPersonalizado(
-    mun: any,
-    color: any,
-    fillColor: any
-  ): void {
-    this.http.get<any>(mun).subscribe({
-      next: (data) => {
-        const layer = L.geoJSON(data, {
-          style: {
-            color: color,
-            weight: 2,
-            fillOpacity: 0.5,
-            fillColor: fillColor,
-          },
-        });
-        layer.addTo(this.map);
-
-        // Guardar la capa
-        this.geoLayers[mun.municipio] = layer;
-
-        const bounds = layer.getBounds();
-        this.map.flyToBounds(bounds, {
-          padding: [120, 120],
-          duration: 1.2,
-        });
-        if (this.map) {
-          this.map.scrollWheelZoom.enable();
-          this.map.dragging.enable();
-          this.map.doubleClickZoom.enable();
-
-          // Solo si nunca agregaste zoomControl
-          if (!this.map.zoomControl) {
-            L.control.zoom({ position: 'topright' }).addTo(this.map);
-          }
-        }
-      },
-      error: (err) => {
-        console.error(`Error al cargar el municipio ${mun.municipio}:`, err);
-      },
-    });
   }
 
   private cargarDepartamento(dep: any): void {
@@ -1043,22 +972,12 @@ export class InicioComponent implements AfterViewInit {
     this.agregarOverlayLupa(MunucipioSelecionado);
   }
   evaluamos(MunucipioSelecionado: any): void {
-    /* this.mostrarMapa2 = true */
     const ciudadEncontrada = this.municipios.find(
       (ciudad) => ciudad.municipio === MunucipioSelecionado
     );
     if (ciudadEncontrada) {
       this.limpiarMapa();
-
-      /* const newCenter: L.LatLngExpression = [ciudadEncontrada.lat, ciudadEncontrada.lon]; */
-      /* this.map1.flyTo(newCenter, 10); */
-      /* this.cargarMunicipioPersonalizado(ciudadEncontrada.source, '', '#8FC938'); */
-      /* this.cargarMunicipioPersonalizado(ciudadEncontrada.quemado, '', '#D7191C'); */
-      //this.iniciarmapa2(ciudadEncontrada.source);
-
-      //  this.sidebysideWMS(ciudadEncontrada, 'nbr');
-      /* this.modalServiceState.mostrarLeyenda() */
-      this.simpleWMS(ciudadEncontrada, 'focosCalor');
+      this.WMSVarios(ciudadEncontrada, 'focosCalor');
       this.visibilidadServiceVar.cerrarCard();
     }
   }
@@ -1135,7 +1054,7 @@ export class InicioComponent implements AfterViewInit {
       (ciudad) => ciudad.municipio === event.muni
     );
     if (event.indice == 'focosCalor') {
-      this.simpleWMS(ciudadEncontrada, event.indice);
+      this.WMSVarios(ciudadEncontrada, event.indice);
       this.modalServiceState.cerrarPrePost();
     }
     if (event.indice == 'nbr') {
@@ -1200,6 +1119,7 @@ export class InicioComponent implements AfterViewInit {
     }
     if (indice === 'quemas') {
       layer1 = muni!.wms.quemas;
+      layer2 = muni!.wms.focosCalor.lm;
       this.modalServiceState.mostrarquemas();
     }
     const bounds = L.latLngBounds(muni.bounds);
@@ -1254,10 +1174,20 @@ export class InicioComponent implements AfterViewInit {
           attribution: 'GeoServer ACEAA',
         })
         .addTo(this.map2);
+      if (indice === 'quemas') {
+        L.tileLayer
+          .wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+            layers: muni!.wms.focosCalor.lm,
+            format: 'image/png',
+            transparent: true,
+            version: '1.1.0',
+            attribution: 'GeoServer ACEAA',
+          })
+          .addTo(this.map1);
+      }
       this.map1.fitBounds(bounds);
       this.map2.fitBounds(bounds);
     }, 0);
-    /* this.modalServiceState.mostrarLeyenda() */
   }
   simpleWMS(muni: any, indice: string) {
     this.modalServiceState.cerrarrege();
@@ -1277,8 +1207,6 @@ export class InicioComponent implements AfterViewInit {
       this.mostrarLeyenda = true;
     }
     if (indice == 'focosCalor') {
-      console.log(indice);
-
       this.tipoLeyenda = 'focosCalor';
       layer1 = muni!.wms.focosCalor;
       this.leyandaActiva = this.leyenda.FocosCarlo;
@@ -1300,7 +1228,6 @@ export class InicioComponent implements AfterViewInit {
         maxZoom: 15,
       });
 
-      // Base layer para ambos mapas
       const baseLayerUrl =
         'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 
@@ -1308,7 +1235,6 @@ export class InicioComponent implements AfterViewInit {
         maxZoom: 18,
       }).addTo(this.map3);
 
-      // Capa WMS para el mapa 1 (PRE NDVI)
       L.tileLayer
         .wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
           layers: layer1,
@@ -1319,9 +1245,6 @@ export class InicioComponent implements AfterViewInit {
         })
         .addTo(this.map3);
 
-      // Capa WMS para el mapa 2 (POST NDVI)
-
-      // Ajusta ambos mapas al bounding box
       this.map3.fitBounds(bounds);
       this.map3.on('zoomend', () => {
         if (this.map3.getZoom() === 6) {
@@ -1340,6 +1263,15 @@ export class InicioComponent implements AfterViewInit {
     this.mostrarquemas = false;
     this.mostrarMapa2 = false;
     this.mostrarMapa3 = true;
+    if (indice == 'focosCalor') {
+      this.TipoMapa = muni!.wms.focosCalor;
+      this.mostrarFaunaFlora = false;
+      this.modalServiceState.mostrarfocos();
+      this.tipoLeyenda = 'focosCalor';
+      this.leyandaActiva = this.leyenda.FocosCarlo;
+      this.mostrarLeyenda = true;
+      this.modalServiceState.mostrarfocos();
+    }
     if (indice == 'flora') {
       this.TipoMapa = muni!.wms.Flora;
       this.mostrarFaunaFlora = true;
@@ -1374,22 +1306,21 @@ export class InicioComponent implements AfterViewInit {
         this.map3.remove();
       }
       this.map3 = L.map('map3', {
-        center: [-15.7, -67.3], // Centro aproximado
+        center: [-15.7, -67.3],
         zoom: 10,
         dragging: true,
         zoomControl: false,
         doubleClickZoom: false,
       });
-      this.PulseIcons(-66.583986063547712, -14.888469024881504, this.map3);
-      this.PulseIcons(-67.511256977542558, -14.640596957397738, this.map3);
-      this.PulseIcons(-67.502035253202479, -14.486743690229083, this.map3);
-      this.PulseIcons(-66.603523521731546, -14.893767021419279, this.map3);
-      this.PulseIcons(-66.338472044796234, -17.361136266187586, this.map3);
-      this.PulseIcons(-67.466772951849521, -15.299242026007526, this.map3);
-      this.PulseIcons(-67.542160663186792, -14.301949370763342, this.map3);
-      this.PulseIcons(-67.250119785935283, -15.586222016452332, this.map3);
-      this.PulseIcons(-67.560121032584576, -14.332509679746231, this.map3);
-      this.PulseIcons(-66.206486187544854, -17.315427603500169, this.map3);
+      if (indice === 'activa') {
+        const sanBorjaPoints = this.pulsePoints.filter(
+          (point) => point.label === muni.municipio
+        );
+        console.log(sanBorjaPoints);
+        sanBorjaPoints.forEach((point) => {
+          this.PulseIcons(point.long, point.lat, this.map3, 'yellow');
+        });
+      }
       this.map3.on('zoomend', () => {
         if (this.map3.getZoom() === 6) {
           this.map3.fitBounds(bounds);
@@ -1402,30 +1333,14 @@ export class InicioComponent implements AfterViewInit {
       }).addTo(this.map3);
 
       const wmsBaseUrl = 'https://geoserver.bits.bo/geoserver/aceaa/wms';
-      /* const wmsOptions = {
-        format: 'image/png',
-        transparent: true,
-        version: '1.1.0',
-        attribution: 'GeoServer ACEAA',
-        opacity: 0.7
-      }; */
+
       const defaultWmsOptions: WMSOptions = {
         format: 'image/png',
         transparent: true,
         version: '1.1.0',
         attribution: 'GeoServer ACEAA',
       };
-      /* const wmsLayers: { [key: string]: L.TileLayer.WMS } = {};
-      for (const layerName in faunaFloraLayersConfig) {
-        if (faunaFloraLayersConfig.hasOwnProperty(layerName)) {
-          const layers = faunaFloraLayersConfig[layerName as keyof typeof faunaFloraLayersConfig];
-          wmsLayers[layerName] = L.tileLayer.wms(wmsBaseUrl, {
-            layers: layers,
-            ...wmsOptions
-          });
-          wmsLayers[layerName].addTo(this.map3); // Initially add all layers
-        }
-      } */
+
       const wmsLayers: { [key: string]: L.TileLayer.WMS } = {};
       for (const layerName in this.TipoMapa) {
         if (this.TipoMapa.hasOwnProperty(layerName)) {
@@ -1435,7 +1350,7 @@ export class InicioComponent implements AfterViewInit {
 
           // Aplica transparencia a capas específicas (ejemplo: 'b' y 'aq')
           if (layerName === 'ap') {
-            layerOptions = { ...layerOptions, opacity: 0.7 };
+            layerOptions = { ...layerOptions, opacity: 0.5 };
           }
           if (layerName === 'b') {
             layerOptions = { ...layerOptions, opacity: 0.8 };
@@ -1445,6 +1360,21 @@ export class InicioComponent implements AfterViewInit {
           }
           if (layerName === 'pcp') {
             layerOptions = { ...layerOptions, opacity: 0.7 };
+          }
+          if (layerName === 'r') {
+            layerOptions = { ...layerOptions, opacity: 0.5 };
+          }
+          if (layerName === 'an') {
+            layerOptions = { ...layerOptions, opacity: 0.5 };
+          }
+          if (layerName === 'ma') {
+            layerOptions = { ...layerOptions, opacity: 0.5 };
+          }
+          if (layerName === 'av') {
+            layerOptions = { ...layerOptions, opacity: 0.5 };
+          }
+          if (layerName === 'af') {
+            layerOptions = { ...layerOptions, opacity: 0.5 };
           }
           wmsLayers[layerName] = L.tileLayer.wms(wmsBaseUrl, {
             layers: layers,

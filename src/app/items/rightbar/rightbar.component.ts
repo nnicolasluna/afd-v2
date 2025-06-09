@@ -98,15 +98,15 @@ export class RightbarComponent {
     });
   }
   alternarRightBar() {
+    this.modalstateService.cerrarFaunaFlora();
+    this.modalstateService.cerrarPrePost();
+    this.modalstateService.cerrarfocos();
+    this.modalstateService.cerrarquemas();
+    this.modalstateService.cerrarrege();
+    this.modalstateService.cerrarrestauracion();
+    this.modalstateService.cerrarafectadas();
     if (this.mostrarRightBar === true) {
       this.visibilidadService.cerrarCard();
-      this.modalstateService.cerrarFaunaFlora();
-      this.modalstateService.cerrarPrePost();
-      this.modalstateService.cerrarfocos();
-      this.modalstateService.cerrarquemas();
-      this.modalstateService.cerrarrege();
-      this.modalstateService.cerrarrestauracion();
-      this.modalstateService.cerrarafectadas();
     } else {
       this.visibilidadService.abrirCard();
     }
@@ -122,6 +122,5 @@ export class RightbarComponent {
   }
   minimizarRightBar(estado: boolean) {
     this.mostrarRightBar = estado;
-    console.log(estado);
   }
 }
