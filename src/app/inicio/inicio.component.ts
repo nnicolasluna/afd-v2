@@ -418,13 +418,13 @@ export class InicioComponent implements AfterViewInit {
         },
         quemas: 'aceaa:layer_recurrencia_vinto_log5y',
         Flora: {
-          b: 'aceaa:layer_bosques__vinto_1t2k4',
           pcp: 'aceaa:',
           cp: 'aceaa:layer_comunidades__vinto_rdrho',
           lm: 'aceaa:layer_limite_municipal__vinto_tcdqo',
           aq: 'aceaa:layer_recurrencia_vinto_log5y',
           tco: 'aceaa:',
           ap: 'aceaa:layer_areas_protegidas__vinto_beowz',
+          b: 'aceaa:layer_bosques__vinto_1t2k4',
         },
         reptiles: {
           r: 'aceaa:layer_vinto__reptiles_w3601',
@@ -770,7 +770,7 @@ export class InicioComponent implements AfterViewInit {
       this.cargarMunicipio(mun.source, '#FDE9A0', mun.color);
     });
     this.pulsePoints.forEach((point) =>
-      this.PulseIcons(point.long, point.lat, this.map, 'red')
+      this.PulseIcons(point.long, point.lat, this.map, 'red', 6)
     );
   }
 
@@ -816,9 +816,18 @@ export class InicioComponent implements AfterViewInit {
       }
     });
   }
-  PulseIcons(long: number, lat: number, map: any, color: string) {
+  PulseIcons(
+    long: number,
+    lat: number,
+    map: any,
+    color: string,
+    iconsize: number
+  ) {
     const className = color === 'red' ? 'pulse-marker' : 'pulse-marker-yellow';
-    const blinkingIcon = L.divIcon({ className, iconSize: [6, 6] });
+    const blinkingIcon = L.divIcon({
+      className,
+      iconSize: [iconsize, iconsize],
+    });
     L.marker([lat, long], { icon: blinkingIcon }).addTo(map);
   }
   private cargarMunicipio(mun: any, color: any, Municipiocolor: any): void {
@@ -1318,7 +1327,7 @@ export class InicioComponent implements AfterViewInit {
         );
         console.log(sanBorjaPoints);
         sanBorjaPoints.forEach((point) => {
-          this.PulseIcons(point.long, point.lat, this.map3, 'yellow');
+          this.PulseIcons(point.long, point.lat, this.map3, 'yellow', 8);
         });
       }
       this.map3.on('zoomend', () => {

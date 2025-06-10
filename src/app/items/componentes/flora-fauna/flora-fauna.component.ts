@@ -163,7 +163,6 @@ export class FloraFaunaComponent {
         areaquemada: [
           { texto: '1 año', img: 'assets/iconosLeyenda/aq.png' },
           { texto: '2 años', img: 'assets/iconosLeyenda/aq2.png' },
-          { texto: 'Vinto', img: 'assets/iconosLeyenda/aq3.png' },
         ],
         areasprotegidas: [
           {

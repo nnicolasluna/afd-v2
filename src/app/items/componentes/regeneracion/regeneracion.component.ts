@@ -118,7 +118,7 @@ export class RegeneracionComponent {
         { texto: 'Áreas de Restauración', img: 'assets/iconosLeyenda/pcp.png' },
         {
           texto: 'Comunidades',
-          img: 'assets/iconosLeyenda/muni/comunidad.png',
+          img: 'assets/iconosLeyenda/muni/comunidadRed.png',
         },
         {
           texto: 'Regeneración vegetal pasiva ',
@@ -133,7 +133,7 @@ export class RegeneracionComponent {
         { texto: 'Areas de Restauración', img: 'assets/iconosLeyenda/ap.png' },
         {
           texto: 'Comunidades',
-          img: 'assets/iconosLeyenda/muni/comunidad.png',
+          img: 'assets/iconosLeyenda/muni/comunidadRed.png',
         },
         {
           texto: 'Regeneración vegetal pasiva',
@@ -148,7 +148,7 @@ export class RegeneracionComponent {
         { texto: 'Areas de Restauración', img: 'assets/iconosLeyenda/ap.png' },
         {
           texto: 'Comunidades',
-          img: 'assets/iconosLeyenda/muni/comunidad.png',
+          img: 'assets/iconosLeyenda/muni/comunidadRed.png',
         },
         {
           texto: 'Regeneración vegetal pasiva',
@@ -163,7 +163,7 @@ export class RegeneracionComponent {
         { texto: 'Areas de Restauración', img: 'assets/iconosLeyenda/ap.png' },
         {
           texto: 'Comunidades',
-          img: 'assets/iconosLeyenda/muni/comunidad.png',
+          img: 'assets/iconosLeyenda/muni/comunidadRed.png',
         },
         {
           texto: 'Regeneración vegetal pasiva',
@@ -178,7 +178,7 @@ export class RegeneracionComponent {
         { texto: 'Areas de Restauración', img: 'assets/iconosLeyenda/ap.png' },
         {
           texto: 'Comunidades',
-          img: 'assets/iconosLeyenda/muni/comunidad.png',
+          img: 'assets/iconosLeyenda/muni/comunidadRed.png',
         },
         {
           texto: 'Regeneración vegetal pasiva',
@@ -193,7 +193,7 @@ export class RegeneracionComponent {
         { texto: 'Areas de Restauración', img: 'assets/iconosLeyenda/ap.png' },
         {
           texto: 'Comunidades',
-          img: 'assets/iconosLeyenda/muni/comunidad.png',
+          img: 'assets/iconosLeyenda/muni/comunidadRed.png',
         },
         {
           texto: 'Regeneración vegetal pasiva',

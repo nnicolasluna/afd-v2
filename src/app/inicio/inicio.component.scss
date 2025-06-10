@@ -152,10 +152,10 @@ p {
   animation: pulse 2s infinite;
 }
 :host ::ng-deep .pulse-marker-yellow {
-  background: yellow;
+  background: red;
   border-radius: 100%;
-  width: 1px;
-  height: 1px;
+  width: 5px;
+  height: 5px;
   position: fixed;
   animation: pulse 2s infinite;
 }

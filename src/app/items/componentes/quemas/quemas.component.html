@@ -35,9 +35,26 @@
         <img src="assets\iconosLeyenda\muni\lm.png" alt="" />
         <div class="items__texto">Limite Municipal</div>
       </div>
-      <div class="items">
+      <div
+        class="items"
+        *ngIf="municipio != 'Vinto' && municipio != 'Tiquipaya'"
+      >
         <img src="assets\iconosLeyenda\aq.png" alt="" />
         <div class="items__texto">Área Quemada 2023</div>
+      </div>
+      <div
+        class="items"
+        *ngIf="municipio == 'Vinto' || municipio == 'Tiquipaya'"
+      >
+        <img src="assets/iconosLeyenda/muni/nivelAlto.png" alt="" />
+        <div class="items__texto">1 Año</div>
+      </div>
+      <div
+        class="items"
+        *ngIf="municipio == 'Vinto' || municipio == 'Tiquipaya'"
+      >
+        <img src="assets\iconosLeyenda\aq2.png" alt="" />
+        <div class="items__texto">2 Años</div>
       </div>
     </div>
   </div>
