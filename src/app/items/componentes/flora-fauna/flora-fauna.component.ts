@@ -66,8 +66,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Centros Poblados', img: 'assets/iconosLeyenda/cp.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lc.png' },
-          {
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lc.png' },
+           */ {
             texto: 'Límite Municipal-Palos Blancos',
             img: 'assets/iconosLeyenda/lmM.png',
           },
@@ -100,8 +100,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Centros Poblados', img: 'assets/iconosLeyenda/cp.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lm.png' },
-          {
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lm.png' },
+           */ {
             texto: 'Límite Municipal-San Buenaventura',
             img: 'assets/iconosLeyenda/lmM.png',
           },
@@ -189,8 +189,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Centros Poblados', img: 'assets/iconosLeyenda/cp.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lm.png' },
-          {
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lm.png' },
+           */ {
             texto: 'Límite Municipal-Rurrenabaque',
             img: 'assets/iconosLeyenda/lmM.png',
           },
@@ -231,7 +231,8 @@ export class FloraFaunaComponent {
             texto: 'Límite Municipal-San Borja',
             img: 'assets/iconosLeyenda/lmM.png',
           },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lm.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lm.png' },
+           */
         ],
         Tco: [
           { texto: 'Pilón Lajas', img: 'assets/iconosLeyenda/city1.png' },
@@ -291,7 +292,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Área Quemada 2023', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+           */
         ],
         anfibiosReptiles: {
           anfibios: [
@@ -347,12 +349,18 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Área Quemada 2023', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+           */
         ],
         anfibiosReptiles: {
-          /*           "anfibios": [],
-           */ reptiles: [
-            { texto: 'Culebra de Balzan', img: 'assets/iconosLeyenda/ap2.png' },
+          anfibios: [
+            {
+              texto: 'Rana Armada Andina',
+              img: 'assets/iconosLeyenda/ap2.png',
+            },
+          ],
+          reptiles: [
+            { texto: 'Culebra de Balzan', img: 'assets/iconosLeyenda/ap4.png' },
           ],
         },
         avesMamiferos: {
@@ -390,7 +398,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Área Quemada 2023', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+           */
         ],
         anfibiosReptiles: {
           anfibios: [
@@ -422,7 +431,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Área Quemada 2023', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+           */
         ],
         anfibiosReptiles: {
           anfibios: [
@@ -453,11 +463,17 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Área Quemada 2023', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+           */
         ],
         anfibiosReptiles: {
-          /*           "anfibios": [],
-           */ reptiles: [
+          anfibios: [
+            {
+              texto: 'Rana Armada Andina',
+              img: 'assets/iconosLeyenda/ap2.png',
+            },
+          ],
+          reptiles: [
             { texto: 'Culebra de Balzan', img: 'assets/iconosLeyenda/ap2.png' },
           ],
         },
@@ -489,7 +505,8 @@ export class FloraFaunaComponent {
             img: 'assets/iconosLeyenda/pcp.png',
           },
           { texto: 'Área Quemada 2023', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+          /*           { texto: 'Límite Municipal', img: 'assets/iconosLeyenda/lmM.png' },
+           */
         ],
         anfibiosReptiles: {
           anfibios: [

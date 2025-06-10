@@ -1,27 +1,44 @@
 <div class="focosCalor">
-    <div class="titulo">{{municipio}}</div>
-    <div class="fuente">Historico de Quemas 2016 - 2022</div>
-    <table>
-        <thead>
-            <tr>
-                <th>Año</th>
-                <th>Superficie quemada</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of municipioData.datos">
-                <td class="mes">{{ item.Mes }}</td>
-                <td class="cantidad">{{ item.Cantidad }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="fuente">Fuente: SIMB</div>
+  <div class="titulo">{{ municipio }}</div>
+  <div class="fuente">Historico de Quemas 2016 - 2022</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Año</th>
+        <th>Superficie quemada</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of municipioData.datos">
+        <td class="mes">{{ item.Mes }}</td>
+        <td class="cantidad">{{ item.Cantidad }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="fuente">Fuente: SIMB</div>
 </div>
+
 <div class="superficie">
-    <div class="superficie__titulo">
-        Superficie Quemada 2023
+  <div class="superficie__titulo">Superficie Quemada 2023</div>
+  <div class="superficie__text">
+    {{ municipioData.superficie }}
+  </div>
+</div>
+<div class="leyendaMain leyendaMain--small">
+  <div class="leyendaMain__title">
+    {{ municipio }}
+  </div>
+  <div class="leyendaMain__body">
+    <div class="leyendaMain__leyenda">Leyenda</div>
+    <div class="leyendaMain__content">
+      <div class="items">
+        <img src="assets\iconosLeyenda\muni\lm.png" alt="" />
+        <div class="items__texto">Limite Municipal</div>
+      </div>
+      <div class="items">
+        <img src="assets\iconosLeyenda\aq.png" alt="" />
+        <div class="items__texto">Área Quemada 2023</div>
+      </div>
     </div>
-    <div class="superficie__text">
-        {{municipioData.superficie}}
-    </div>
+  </div>
 </div>

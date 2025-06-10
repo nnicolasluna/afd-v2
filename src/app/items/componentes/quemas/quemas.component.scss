@@ -1,67 +1,129 @@
 .focosCalor {
-    position: absolute;
-    top: 200px;
-    left: 30px;
-    background-color: #272323;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 15px;
-    max-width: 300px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  position: absolute;
+  top: 200px;
+  left: 30px;
+  background-color: #272323;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cantidad {
-    text-align: center;
+  text-align: center;
 }
 
 .mes {
-    text-align: start;
+  text-align: start;
 }
 
 table {
-    border-collapse: collapse;
-    border-bottom: 1px solid white;
-    background-color: #161616B2;
-    border-radius: 10px;
-    margin-bottom: 5px;
+  border-collapse: collapse;
+  border-bottom: 1px solid white;
+  background-color: #161616b2;
+  border-radius: 10px;
+  margin-bottom: 5px;
 }
 
 td,
 th {
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    padding: 3px 10px;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 3px 10px;
 }
 
-tr>*:last-child {
-    border-right: none;
+tr > *:last-child {
+  border-right: none;
 }
 
 .titulo {
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .superficie {
-    position: absolute;
-    top: 500px;
-    right: 20px;
-    background-color: #6E0B0BBF;
-    color: white;
-    padding: 10px;
+  position: absolute;
+  top: 48%;
+  right: 25px;
+  background-color: #6e0b0bbf;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  &__titulo {
+    font-weight: bold;
+    border-bottom: solid 1px white;
+  }
+}
+
+.leyendaMain {
+  position: fixed;
+  top: 30%;
+  right: 25px;
+  border-radius: 30px;
+  background-color: #161616b2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  padding: 10px;
+
+  &--small {
+    width: fit-content;
+    max-width: 20%;
+    min-width: 200px;
+  }
+
+  &__title {
+    border-bottom: solid 1px white;
     text-align: center;
-    border-radius: 10px;
-    &__titulo{
-        font-weight: bold;
-        border-bottom: solid 1px white;
-    }
+    width: 100%;
+    padding: 10px 0 10px 0;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  &__leyenda {
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+}
+
+.items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 2px;
+  margin-bottom: 3px;
+  height: 30px;
+
+  &__icono {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+  }
+
+  &__texto {
+    font-size: 0.65em;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+}
+img {
+  width: 20px;
+  height: 20px;
 }

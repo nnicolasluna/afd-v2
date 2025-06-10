@@ -1,50 +1,66 @@
 <div class="botones">
-    <div class="botones__btn" (click)="buscarMunicipio(Municipio,'pasiva')" [class.active]="seleccionado === 'pasiva'">
-        Regeneración Pasiva</div>
-    <div class="botones__btn" (click)="buscarMunicipio(Municipio,'activa')" [class.active]="seleccionado === 'activa'">
-        Regeneración Activa</div>
+  <div
+    class="botones__btn"
+    (click)="buscarMunicipio(Municipio, 'pasiva')"
+    [class.active]="seleccionado === 'pasiva'"
+  >
+    Regeneración Pasiva
+  </div>
+  <div
+    class="botones__btn"
+    (click)="buscarMunicipio(Municipio, 'activa')"
+    [class.active]="seleccionado === 'activa'"
+  >
+    Regeneración Activa
+  </div>
 </div>
 <div class="leyendaMain leyendaMain--small">
-    <div class="leyendaMain__title">
-        {{Municipio}}
-    </div>
-    <div class="leyendaMain__body">
-        <div class="leyendaMain__leyenda">Leyenda</div>
-        <div class="leyendaMain__content" *ngIf="seleccionado==='pasiva'">
-            <div *ngIf="municipioData?.leyenda">
-                <div class="items__texto" *ngFor="let item of municipioData.leyenda; let i = index">
-                    <img [src]="municipioData.leyenda[i].img" alt="">
-                    {{ item.texto }}
-                </div>
-            </div>
+  <div class="leyendaMain__title">
+    {{ Municipio }}
+  </div>
+  <div class="leyendaMain__body">
+    <div class="leyendaMain__leyenda">Leyenda</div>
+    <div class="leyendaMain__content" *ngIf="seleccionado === 'pasiva'">
+      <div *ngIf="municipioData?.leyenda">
+        <div
+          class="items"
+          *ngFor="let item of municipioData.leyenda; let i = index"
+        >
+          <img [src]="municipioData.leyenda[i].img" alt="" />
+          {{ item.texto }}
         </div>
-        <div class="leyendaMain__content" *ngIf="seleccionado==='activa'">
-            <div *ngIf="municipioData?.leyenda">
-                <div class="items__texto" *ngFor="let item of municipioData.leyenda; let i = index">
-                    <img [src]="municipioData.leyenda[i].img" alt="">
-                    {{ item.texto }}
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="leyendaMain__content" *ngIf="seleccionado === 'activa'">
+      <div *ngIf="municipioData?.leyenda">
+        <div
+          class="items"
+          *ngFor="let item of municipioData.leyenda; let i = index"
+        >
+          <img [src]="municipioData.leyenda[i].img" alt="" />
+          {{ item.texto }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="focosCalor">
-    <div class="titulo">{{Municipio}}</div>
-    <div class="fuente">Área de Regeneración</div>
-    <table *ngIf="seleccionado==='pasiva'">
-        <tbody>
-            <tr *ngFor="let item of datostabla.datos">
-                <td class="mes">{{ item.dato }}</td>
-                <td class="cantidad">{{ item.Cantidad }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="textoactivo" *ngIf="seleccionado==='activa'">
-        <div class="textoactivo__text">{{datosactivo.leyenda}}</div>
-        <div class="textoactivo__body">
-            <div class="titleAct">Área de Regeneración Activa</div>
-            <div class="areaAct"> {{datosactivo.area}}</div>
-        </div>
+  <div class="titulo">{{ Municipio }}</div>
+  <div class="fuente">Área de Regeneración</div>
+  <table *ngIf="seleccionado === 'pasiva'">
+    <tbody>
+      <tr *ngFor="let item of datostabla.datos">
+        <td class="mes">{{ item.dato }}</td>
+        <td class="cantidad">{{ item.Cantidad }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="textoactivo" *ngIf="seleccionado === 'activa'">
+    <div class="textoactivo__text">{{ datosactivo.leyenda }}</div>
+    <div class="textoactivo__body">
+      <div class="titleAct">Área de Regeneración Activa</div>
+      <div class="areaAct">{{ datosactivo.area }}</div>
     </div>
+  </div>
 </div>

@@ -1350,7 +1350,10 @@ export class InicioComponent implements AfterViewInit {
 
           // Aplica transparencia a capas específicas (ejemplo: 'b' y 'aq')
           if (layerName === 'ap') {
-            layerOptions = { ...layerOptions, opacity: 0.5 };
+            layerOptions = { ...layerOptions, opacity: 0.6 };
+          }
+          if (layerName === 'ar') {
+            layerOptions = { ...layerOptions, opacity: 0.7 };
           }
           if (layerName === 'b') {
             layerOptions = { ...layerOptions, opacity: 0.8 };
