@@ -161,12 +161,12 @@
   justify-content: center;
   align-items: center;
   height: fit-content;
-  
+
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 15px;
   font-weight: bold;
-  width: 95%;
+  width: 100%;
 
   &--black {
     background-color: #161616B2;
@@ -179,12 +179,13 @@
     padding-left: 5px;
     border-radius: 10px;
   }
-   &--greenV2 {
+
+  &--greenV2 {
     background-color: #366D19;
     padding-right: 5px;
     padding-left: 5px;
     border-radius: 10px 10px 0 0;
-    
+
   }
 }
 
@@ -267,15 +268,15 @@ mat-icon {
 .dobleCard {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .firstCard {
-  width: 50%;
   text-align: justify;
   height: 50%;
 
   &--normal {
-    width: 50%;
+    width: 48%;
   }
 
   &--big {
@@ -284,7 +285,7 @@ mat-icon {
 }
 
 .secondCard {
-  width: 50%;
+  width: 49%;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -297,7 +298,8 @@ mat-icon {
   &--small {
     width: 35%;
   }
-  &__contenedorImg{
+
+  &__contenedorImg {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -543,4 +545,10 @@ li {
   width: 100%;
   text-align: justify;
   justify-content: center;
+}
+
+.leccionesAprendidas {
+  width: 95%;
+  padding-left: 10px;
+  padding-right: 10px;
 }

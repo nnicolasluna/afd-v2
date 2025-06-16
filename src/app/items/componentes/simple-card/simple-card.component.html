@@ -9,15 +9,16 @@
                 <div class="card-info--bold">Departamento:</div> {{municipioEncontrado.departamento}}
             </div>
             <div class="card-info__contentText">
+                <div class="card-info--bold">Provincia:</div>{{municipioEncontrado.provincia}}
+            </div>
+            <div class="card-info__contentText">
                 <div class="card-info--bold">Área Protegida Nacional:</div> {{municipioEncontrado.areaProtegida}}
             </div>
             <div class="card-info__contentText">
                 <div class="card-info--bold">Territorios Comunitarios de Origen:</div>
                 {{municipioEncontrado.comunarioOrigen}}
             </div>
-            <div class="card-info__contentText">
-                <div class="card-info--bold">Provincia:</div>{{municipioEncontrado.provincia}}
-            </div>
+
         </div>
         <div class="card-stats">
             <div class="stat-box">
@@ -32,7 +33,7 @@
                 <p class="stat-value">{{municipioEncontrado.ubicacion}} </p>
                 <p class="stat-label">Ubicacion</p>
             </div>
-           <!--  <div class="" *ngIf="municipioEncontrado.ubicacion">
+            <!--  <div class="" *ngIf="municipioEncontrado.ubicacion">
                 <p class="stat-label">caracteristicas</p>
                 <div *ngFor="let key of municipioEncontrado.caracteristicas">
                     <p>{{key}}</p>

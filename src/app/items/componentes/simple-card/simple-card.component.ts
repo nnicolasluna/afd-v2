@@ -33,8 +33,8 @@ export class SimpleCardComponent {
       "superficie_km2": 7481,
       "poblacion": null,
       "provincia": "Abel Iturralde",
-      "areaProtegida": "PN ANMI Madidi",
-      "comunarioOrigen": "Tacana",
+      "areaProtegida": "-	Área Natural de Manejo Integrado Pilón Lajas Madidi -	Reserva de la Biósfera Pilón Lajas",
+      "comunarioOrigen": "Tacana I - San José de Uchupiamonas",
       "ubicacion": "481 km de La Paz",
       "caracteristicas": {
         "limita_con": "Rurrenabaque, Ixiamas, Apolo, Reyes",
