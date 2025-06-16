@@ -5,19 +5,19 @@
     </div>
     <div class="card-body">
         <div class="card-info">
-            <div class="card-info__contentText">
-                <div class="card-info--bold">Departamento:</div> {{municipioEncontrado.departamento}}
-            </div>
-            <div class="card-info__contentText">
-                <div class="card-info--bold">Provincia:</div>{{municipioEncontrado.provincia}}
-            </div>
-            <div class="card-info__contentText">
-                <div class="card-info--bold">Área Protegida Nacional:</div> {{municipioEncontrado.areaProtegida}}
-            </div>
-            <div class="card-info__contentText">
-                <div class="card-info--bold">Territorios Comunitarios de Origen:</div>
+            <p style="margin: 0; text-align: justify;">
+                <strong>Departamento:</strong> {{municipioEncontrado.departamento}}
+            </p>
+            <p style="margin: 0; text-align: justify;">
+                <span class="card-info--bold">Provincia: </span>{{municipioEncontrado.provincia}}
+            </p>
+            <p style="margin: 0; text-align: justify;">
+                <strong>Área Protegida Nacional: </strong> {{municipioEncontrado.areaProtegida}}
+            </p>
+            <p style="margin: 0; text-align: justify;">
+                <strong>Territorios Comunitarios de Origen: </strong>
                 {{municipioEncontrado.comunarioOrigen}}
-            </div>
+            </p>
 
         </div>
         <div class="card-stats">
@@ -33,12 +33,46 @@
                 <p class="stat-value">{{municipioEncontrado.ubicacion}} </p>
                 <p class="stat-label">Ubicacion</p>
             </div>
-            <!--  <div class="" *ngIf="municipioEncontrado.ubicacion">
-                <p class="stat-label">caracteristicas</p>
-                <div *ngFor="let key of municipioEncontrado.caracteristicas">
-                    <p>{{key}}</p>
-                </div>
-            </div> -->
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.comunidades">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.comunidades}} </p>
+                <p class="stat-label">Comunidades</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.limita_con">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.limita_con}} </p>
+                <p class="stat-label">Limita</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.territorio">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.territorio}} </p>
+                <p class="stat-label">Territorio</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.acceso">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.acceso}} </p>
+                <p class="stat-label">Acceso</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.condiciones_naturales">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.condiciones_naturales}} </p>
+                <p class="stat-label">Condiciones Naturales</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.usos">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.usos}} </p>
+                <p class="stat-label">Usos</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.problemas">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.problemas}} </p>
+                <p class="stat-label">Problemas</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.distritos">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.distritos}} </p>
+                <p class="stat-label">Distritos</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.amenazas">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.amenazas}} </p>
+                <p class="stat-label">Amenazas</p>
+            </div>
+            <div class="stat-box" *ngIf="municipioEncontrado.caracteristicas.causas">
+                <p class="stat-value">{{municipioEncontrado.caracteristicas.causas}} </p>
+                <p class="stat-label">Causas</p>
+            </div>
         </div>
     </div>
 </div>
