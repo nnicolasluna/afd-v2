@@ -19,8 +19,10 @@ export class MenuComponent {
   constructor(private modalStateService: ModalStateService) {}
   alternarleftCard() {
     this.modalStateService.mostrarleftbar();
+    this.sidebarAbierto = false;
   }
   toggleDiagnostico(btnSelected: any): void {
+    this.sidebarAbierto = false;
     this.mostrarDiagnostico = !this.mostrarDiagnostico;
     if (this.MunicipioMenu == '') {
       this.modalStateService.mostrarAlter_rightbar(btnSelected);
@@ -39,6 +41,8 @@ export class MenuComponent {
     this.localizacionUsuario.emit('true');
   }
   mostrarRecu(btnSelected: any): void {
+    this.sidebarAbierto = false;
+
     this.modalStateService.cerrarBtnEvaluamos();
     this.modalStateService.cerrarrege();
     this.modalStateService.cerrarrestauracion();
@@ -53,6 +57,7 @@ export class MenuComponent {
     }
   }
   mostrarAlternativas(btnSelected: any) {
+    this.sidebarAbierto = false;
     this.modalStateService.cerrarBtnEvaluamos();
     this.modalStateService.cerrarrege();
     this.modalStateService.cerrarrestauracion();
@@ -67,6 +72,7 @@ export class MenuComponent {
     }
   }
   mostrarConvenios() {
+    this.sidebarAbierto = false;
     this.modalStateService.mostrarConvenios();
     this.modalStateService.cerrarBtnEvaluamos();
     this.modalStateService.cerrartresBtn();
@@ -78,6 +84,7 @@ export class MenuComponent {
     this.modalStateService.cerrarfocos();
   }
   mostrarManuales() {
+    this.sidebarAbierto = false;
     this.modalStateService.mostrarManuales();
     this.modalStateService.cerrarBtnEvaluamos();
     this.modalStateService.cerrartresBtn();
@@ -89,6 +96,7 @@ export class MenuComponent {
     this.modalStateService.cerrarfocos();
   }
   mostrarTalleres() {
+    this.sidebarAbierto = false;
     this.modalStateService.mostrartalleres();
     this.modalStateService.cerrarBtnEvaluamos();
     this.modalStateService.cerrartresBtn();
@@ -101,5 +109,67 @@ export class MenuComponent {
   }
   refreshAll() {
     window.location.reload();
+  }
+  menuItems = [
+    {
+      id: 'home',
+      label: 'HOME',
+      icon: 'home',
+      action: () => this.refreshAll(),
+    },
+    {
+      id: 'plataformas',
+      label: 'OTRAS PLATAFORMAS',
+      icon: 'terminal',
+      action: () => this.alternarleftCard(),
+    },
+    {
+      id: 'diagnostico',
+      label: 'DIAGNOSTICO',
+      icon: 'monitor_heart',
+      action: () => this.toggleDiagnostico('DIAGNOSTICO'),
+    },
+    {
+      id: 'recuperacion',
+      label: 'RECUPERCIÓN Y RESTAURACIÓN',
+      icon: 'forest',
+      action: () => this.mostrarRecu('RECUPERCIÓN'),
+    },
+    {
+      id: 'alternativas',
+      label: 'ALTERNATIVAS AL USO DE FUEGO',
+      icon: 'alt_route',
+      action: () => this.mostrarAlternativas('ALTERNATIVAS'),
+    },
+    {
+      id: 'convenios',
+      label: 'CONVENIOS',
+      icon: 'description',
+      action: () => this.mostrarConvenios(),
+    },
+    {
+      id: 'talleres',
+      label: 'TALLERES',
+      icon: 'co_present',
+      action: () => this.mostrarTalleres(),
+    },
+    {
+      id: 'manuales',
+      label: 'MANUALES',
+      icon: 'book_2',
+      action: () => this.mostrarManuales(),
+    },
+  ];
+  sidebarAbierto = false;
+
+  toggleSidebar() {
+    this.sidebarAbierto = !this.sidebarAbierto;
+  }
+
+  // Opcional: cerrar el sidebar al hacer clic en un menú (solo en móviles)
+  cerrarSidebarEnMovil() {
+    if (window.innerWidth <= 768) {
+      this.sidebarAbierto = false;
+    }
   }
 }

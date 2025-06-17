@@ -96,6 +96,17 @@ export class RightbarComponent {
     this.visibilidadService.visibilidad$.subscribe((valor) => {
       this.mostrarRightBar = valor;
     });
+    this.breakpointObserver
+      .observe(['(max-width: 768px)'])
+      .subscribe((result) => {
+        if (result.matches) {
+          // Pantalla pequeña detectada
+          this.visibilidadService.cerrarCard();
+        } else {
+          // Opcional: podrías abrirla si es grande
+          this.visibilidadService.abrirCard();
+        }
+      });
   }
   alternarRightBar() {
     this.modalstateService.cerrarFaunaFlora();
@@ -113,6 +124,7 @@ export class RightbarComponent {
   }
 
   selectLocation(Municipio: string): void {
+    this.visibilidadService.cerrarCard();
     const ciudadEncontrada = this.ciudades.find(
       (ciudad) => ciudad.municipio === Municipio
     );

@@ -5,7 +5,15 @@ import { RecuperacionComponent } from './recuperacion.component';
 describe('RecuperacionComponent', () => {
   let component: RecuperacionComponent;
   let fixture: ComponentFixture<RecuperacionComponent>;
+selectedImage: string | null = null;
 
+openLightbox(image: string) {
+  this.selectedImage = this.rutaBaseImagenes + this.mucipioSelecionado[0].municipio + '/' + image;
+}
+
+closeLightbox() {
+  this.selectedImage = null;
+}
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [RecuperacionComponent]
@@ -18,4 +26,5 @@ describe('RecuperacionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

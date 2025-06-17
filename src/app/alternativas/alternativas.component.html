@@ -57,8 +57,13 @@
         <div class="tiuloCard tiuloCard__main">FOTOGRAFIAS</div>
         <div class="gallery-container">
             <div class="foto-item" *ngFor="let image of descripcion[0].fotografias">
-                <img [src]="rutaBaseImagenes+descripcion[0].municipio+'/'+image" alt="Imagen del municipio">
+                <img [src]="rutaBaseImagenes+descripcion[0].municipio+'/'+image" alt="Imagen del municipio"
+                    (click)="openLightbox(image)">
             </div>
+        </div>
+        <div class="overlay" *ngIf="selectedImage">
+            <a (click)="closeLightbox()" class="close-btn">&times;</a>
+            <img [src]="selectedImage" alt="Imagen ampliada" />
         </div>
     </div>
 </app-card-generico>
