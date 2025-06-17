@@ -55,8 +55,9 @@ export class AreasAfectadasComponent {
         { "texto": "Senda Rodera o Vereda", "img": "assets/iconosLeyenda/muni/carretero.png" },
         { "texto": "Area Protegida", "img": "assets/iconosLeyenda/muni/ap.png" },
         { "texto": "Áreas Afectadas", "img": "" },
-        { "texto": "Nivel Medio", "img": "assets/iconosLeyenda/muni/nivelMedio.png" },
         { "texto": "Nivel Alto", "img": "assets/iconosLeyenda/muni/nivelAlto.png" },
+        { "texto": "Nivel Medio", "img": "assets/iconosLeyenda/muni/nivelMedio.png" },
+        
       ]
     },
     {

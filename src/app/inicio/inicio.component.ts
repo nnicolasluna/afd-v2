@@ -106,14 +106,14 @@ export class InicioComponent implements AfterViewInit {
           an: 'aceaa:layer_san_buenaventura__anfibios_tnaut',
           aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
           pcp: 'aceaa:layer_centros_poblados__san_buenaventura_3rx6dl',
-          lm: 'aceaa:layer_limite_municipal__san_buenaventura_4svij',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
         },
         mamiferos: {
           ma: 'aceaa:',
           av: 'aceaa:layer_san_buenaventura__aves_rhimql',
           aq: 'aceaa:layer_areas_quemadas__san_buenaventura_ey7w5',
           pcp: 'aceaa:layer_centros_poblados__san_buenaventura_3rx6dl',
-          lm: 'aceaa:layer_limite_municipal__san_buenaventura_4svij',
+          lm: 'aceaa:layer_lim__sanbuena_1eq9k',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__san_buenaventura_7d67c',
@@ -187,14 +187,14 @@ export class InicioComponent implements AfterViewInit {
           an: 'aceaa:layer_palos_blancos__anfibios_vgueg',
           aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
           pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
-          lm: 'aceaa:layer_limite_municipal__palos_blancos_e1wjf',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
         },
         mamiferos: {
           ma: 'aceaa:layer_palos_blancos__mamiferos_i9ma3',
           av: 'aceaa:layer_palos_blancos__aves_xlyp1k',
           aq: 'aceaa:layer_quemas_2023palos_blancos_uu9f',
           pcp: 'aceaa:layer_principales_comunidades__palos_blancos_yqoe9',
-          lm: 'aceaa:layer_limite_municipal__palos_blancos_e1wjf',
+          lm: 'aceaa:layer_lim__palbl_9w7b5',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__palos_blancos_l7r6j',
@@ -269,14 +269,14 @@ export class InicioComponent implements AfterViewInit {
           an: 'aceaa:',
           pcp: 'aceaa:',
           aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
-          lm: 'aceaa:layer_limite_municipal__rurrenabaque_im1s',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
         },
         mamiferos: {
           ma: 'aceaa:layer_rurrenabaque__mamiferos_r6dx8',
           av: 'aceaa:layer_rurrenabaque__aves_r6lbg',
           aq: 'aceaa:layer_quemas__rurrenabaque_wi7wz',
           pcp: 'aceaa:',
-          lm: 'aceaa:layer_limite_municipal__rurrenabaque_im1s',
+          lm: 'aceaa:layer_lim__rurre_2gri6',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__rurrenabaque_nbi75',
@@ -349,15 +349,15 @@ export class InicioComponent implements AfterViewInit {
           r: 'aceaa:layer_san_borja__reptiles_qsb99',
           an: 'aceaa:layer_san_borja__anfibios_p8xb',
           pcp: 'aceaa:layer_centros_poblados__san_borja_os7lj',
-          lm: 'aceaa:layer_limite_municipal__san_borja_9wnmdk',
-          aq: 'aceaa:layer_quemas__san_borja_sw6j4',
+          lm: 'aceaa:layer_lim__sanbor_6cq47',
+          aq: 'aceaa:layer_lim__sanbor_6cq47',
         },
         mamiferos: {
           ma: 'aceaa:layer_san_borja__mamiferos_t0ji6',
           av: 'aceaa:layer_san_borja__aves_h1ijw',
           aq: 'aceaa:layer_quemas__san_borja_sw6j4',
           pcp: 'aceaa:layer_centros_poblados__san_borja_os7lj',
-          lm: 'aceaa:layer_limite_municipal__san_borja_9wnmdk',
+          lm: 'aceaa:layer_lim__sanbor_6cq47',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__san_borja_qb07d',
@@ -431,14 +431,14 @@ export class InicioComponent implements AfterViewInit {
           an: 'aceaa:layer_vinto__anfibios_02418k',
           aq: 'aceaa:layer_recurrencia_vinto_log5y',
           pcp: 'aceaa:',
-          lm: 'aceaa:layer_limite_municipal__vinto_tcdqo',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
         },
         mamiferos: {
           ma: 'aceaa:',
           av: 'aceaa:layer_vinto__aves_uwcsfj',
           aq: 'aceaa:layer_recurrencia_vinto_log5y',
           pcp: 'aceaa:',
-          lm: 'aceaa:layer_limite_municipal__vinto_tcdqo',
+          lm: 'aceaa:layer_lim__vinto_fwxbq',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectadas__vinto_nu4l8',
@@ -512,14 +512,14 @@ export class InicioComponent implements AfterViewInit {
           an: 'aceaa:layer_tiquipaya__anfibios_uas96',
           aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
           pcp: 'aceaa:layer_centros_poblados__tiquipaya_gsj6f',
-          lm: 'aceaa:layer_limite_municipal__tiquipaya_tj5nf',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
         },
         mamiferos: {
           ma: 'aceaa:layer_tiquipaya__mamiferos_2xinr',
           av: 'aceaa:layer_tiquipaya__aves_o6zusi',
           aq: 'aceaa:layer_recurrencia_tiquipaya_zau6h',
           pcp: 'aceaa:layer_centros_poblados__tiquipaya_gsj6f',
-          lm: 'aceaa:layer_limite_municipal__tiquipaya_tj5nf',
+          lm: 'aceaa:layer_lim__tiquipaya_wk4pu',
         },
         AreasAfectadas: {
           af: 'aceaa:layer_areas_afectads__tiquipaya_zamol',
@@ -1359,7 +1359,7 @@ export class InicioComponent implements AfterViewInit {
 
           // Aplica transparencia a capas específicas (ejemplo: 'b' y 'aq')
           if (layerName === 'ap') {
-            layerOptions = { ...layerOptions, opacity: 0.6 };
+            layerOptions = { ...layerOptions, opacity: 0.7 };
           }
           if (layerName === 'ar') {
             layerOptions = { ...layerOptions, opacity: 0.7 };
@@ -1387,6 +1387,9 @@ export class InicioComponent implements AfterViewInit {
           }
           if (layerName === 'af') {
             layerOptions = { ...layerOptions, opacity: 0.5 };
+          }
+          if (layerName === 'tco') {
+            layerOptions = { ...layerOptions, opacity: 0.7 };
           }
           wmsLayers[layerName] = L.tileLayer.wms(wmsBaseUrl, {
             layers: layers,

@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background-color: #1F631CE5;
+  background-color: #1f631ce5;
   height: 8%;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .platform-list {
-  background-color: #272323E5;
+  background-color: #272323e5;
   padding: 10px 0;
   display: flex;
   flex-direction: column;
@@ -53,9 +53,8 @@
 }
 
 .platform-list::-webkit-scrollbar-thumb {
-  background: #272323E5;
+  background: #272323e5;
   border-radius: 10px;
-
 }
 
 .platform-list::-webkit-scrollbar {
@@ -63,7 +62,7 @@
 }
 
 .platform-list::-webkit-scrollbar-track {
-  background: #5E5E5E;
+  background: #5e5e5e;
   border-radius: 10px;
 }
 
@@ -74,7 +73,6 @@
   margin: 10px;
   background-color: white;
   border-radius: 5px;
-
 }
 
 .text {
@@ -86,12 +84,11 @@
 .description {
   display: flex;
   justify-content: center;
-
 }
 
 .btn-body {
   border-radius: 30px;
-  background-color: #14438F;
+  background-color: #14438f;
   color: white;
   font-weight: bold;
   padding: 10px;
@@ -100,7 +97,7 @@
 .buttonRregresar {
   display: flex;
   flex-direction: row;
-  background-color: #14438F;
+  background-color: #14438f;
   align-items: center;
   padding-right: 10px;
   border-radius: 70px;
@@ -126,14 +123,14 @@
   /* padding: 10px;
   margin: 3px; */
   padding: 5px;
-  background-color: #272323E5;
+  background-color: #272323e5;
   border-radius: 0 0 10px 10px;
 }
 
 .btn {
-  background-color: #14438F;
+  background-color: #14438f;
   color: white;
-  border: solid #14438F 0px;
+  border: solid #14438f 0px;
   min-width: 100px;
   border-radius: 30px;
   padding: 5px 2px;
@@ -142,18 +139,16 @@
 
 .btn:hover {
   background-color: white;
-  color: #14438F;
+  color: #14438f;
 }
 
 .title {
-
   font-weight: bolder;
   padding-bottom: 5px;
 
   &--center {
     text-align: center;
   }
-
 }
 
 .title-2 {
@@ -169,19 +164,19 @@
   width: 100%;
 
   &--black {
-    background-color: #161616B2;
+    background-color: #161616b2;
     border-radius: 30px;
   }
 
   &--green {
-    background-color: #366D19;
+    background-color: #366d19;
     padding-right: 5px;
     padding-left: 5px;
     border-radius: 10px;
   }
 
   &--greenV2 {
-    background-color: #366D19;
+    background-color: #366d19;
     padding-right: 5px;
     padding-left: 5px;
     border-radius: 10px 10px 0 0;
@@ -231,7 +226,6 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-
 }
 
 .btn_act {
@@ -247,7 +241,6 @@
   padding: 0;
 }
 
-
 mat-icon {
   position: fixed;
   color: white;
@@ -262,13 +255,13 @@ mat-icon {
 
 .platform-list img {
   width: 80%;
-
 }
 
 .dobleCard {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  max-height: 300px;
 }
 
 .firstCard {
@@ -289,7 +282,6 @@ mat-icon {
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-
 
   &--normal {
     width: 50%;
@@ -316,12 +308,11 @@ table {
   width: 95%;
   border-collapse: collapse;
   border: 1px solid #333;
-  background-color: #161616B2;
+  background-color: #161616b2;
   border-radius: 30px;
 }
 
 th {
-
   color: white;
   font-weight: bold;
   text-align: center;
@@ -350,7 +341,6 @@ li {
   /* Needed for border-radius on children */
 }
 
-
 .lesson-item {
   display: flex;
   /* Use flexbox to align number and content */
@@ -370,7 +360,6 @@ li {
 .lesson-item:last-child {
   margin-bottom: 0;
 }
-
 
 .lesson-number {
   font-size: 2.5em;
@@ -442,9 +431,6 @@ li {
   line-height: 1.5;
   /* Mejora la legibilidad del texto */
 }
-
-
-
 
 .contenedor-principal {
   display: flex;
@@ -551,4 +537,29 @@ li {
   width: 95%;
   padding-left: 10px;
   padding-right: 10px;
+}
+@media (max-width: 1000px) {
+  .dobleCard {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .firstCard,
+  .secondCard {
+    width: 100%;
+    gap: 30px;
+  }
+ .firstCard .firstCard--big{
+  width: 100%;
+ }
+  .bar_main {
+    max-width: 100%;
+  }
+  .table{
+    background-color: blue;
+  }
+  .card {
+    width: 100%;
+  }
 }

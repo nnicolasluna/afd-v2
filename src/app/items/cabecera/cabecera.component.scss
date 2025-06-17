@@ -26,6 +26,7 @@
   z-index: 1000;
   height: 8vh; /* Usa vh para asegurar proporción en distintos tamaños */
   padding: 0 1rem;
+  bottom: auto;
 }
 
 .imagenes {
@@ -87,9 +88,44 @@ mat-icon {
   background-color: #1f631c;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .cabecera {
+    top: auto;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  .cabecera .imagenes {
     display: none;
+  }
+  .cabecera .contac {
+    font-size: 0.8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    /*     background-color: red; */
+  }
+  .cabecera .title {
+    text-align: center;
+    font-size: 0.7rem;
+    margin-bottom: -30px;
+  }
+  .cabecera mat-icon {
+    display: none;
+  }
+  .cabecera .contac .info_content {
+    display: flex;
+    justify-content: center;
+  }
+  .cabecera .bar {
+    display: none;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    background-color: red;
   }
 }
 

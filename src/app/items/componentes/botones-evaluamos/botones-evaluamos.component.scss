@@ -1,50 +1,65 @@
 .tres-botones {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 8%;
-    z-index: 999;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 8%;
+  z-index: 999;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .button-top-bar {
-    width: fit-content;
-/*     min-height: 40px;
- */    padding: 5px;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
-    font-size: 0.9rem;
-    text-align: center;
-    max-width: 100px;
-    height: 100%;
-    min-height: 60px;
+  width: fit-content;
+  /*   flex: 1 1 200px; */
+  padding: 5px;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 100px;
+  height: 100%;
+  min-height: 60px;
 
-    &--black {
-        background-color: transparentize(#272323, 0.1);
-    }
-
-
+  &--black {
+    background-color: transparentize(#272323, 0.1);
+  }
 }
 
 .button-top-bar.activo {
-    background-color: #1F631C;
-    color: white;
+  background-color: #1f631c;
+  color: white;
 }
 
 :host ::ng-deep .example {
-    text-transform: uppercase;
-    text-align: justify !important;
-    color: red !important;
+  text-transform: uppercase;
+  text-align: justify !important;
+  color: red !important;
 }
 
-
 .example {
-    --mdc-plain-tooltip-container-color: #272323E5;
-    --mdc-plain-tooltip-supporting-text-color: white;
-    font-size: 11px;
+  --mdc-plain-tooltip-container-color: #272323e5;
+  --mdc-plain-tooltip-supporting-text-color: white;
+  font-size: 11px;
+}
+@media (max-width: 768px) {
+  .tres-botones {
+    top: auto;
+    bottom: 80px;
+  }
+
+  .button-top-bar {
+    height: fit-content;
+    font-size: 0.7rem;
+    margin: 1px;
+    text-align: center;
+    max-width: 20%;
+    width: auto;
+    height: auto;
+    max-height: 20px;
+  }
 }
