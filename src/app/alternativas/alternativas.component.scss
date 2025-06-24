@@ -136,6 +136,7 @@ button:hover {
     gap: 10px;
     width: 100%;
     place-items: center;
+    max-height: 300px;
 }
 
 .foto-item img {
@@ -161,4 +162,65 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+.overlay {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}   
+.overlay img {
+  width: fit-content;
+  height: 80%;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+.close-btn:hover {
+  color: red;
+}
+@media (max-width: 1200px) {
+  .gallery-container {
+    grid-template-columns: repeat(1, 1fr);
+    overflow-y: auto;
+  }
+  .contenedorDoble {
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    gap: 10px;
+    &__card {
+      width: 100%;
+    }
+  }
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .overlay {
+    width: 90%;
+    height: 70%;
+    left: 5%;
+    top: 20%;
+  }
+  .overlay img {
+    width: 90%;
+    height: fit-content;
+  }
 }

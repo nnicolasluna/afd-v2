@@ -44,6 +44,7 @@ export class EvaluamosComponent {
   }
   mostrarDiagnostico(): void {
     this.modalStateService.mostrarDiagnostico();
+    this.modalStateService.mostrarTresBtn();
   }
   extenderBar() {
     this.ExtenderBar = !this.ExtenderBar;

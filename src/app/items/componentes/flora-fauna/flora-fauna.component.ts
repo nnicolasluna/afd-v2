@@ -608,26 +608,30 @@ export class FloraFaunaComponent {
       ],
       territoriosIndigenas: [
         {
-          texto: 'TCO San José de Uchupiamonas',
-          cantidad: '90,755 ha',
+          texto: '-	Área Natural de Manejo Integrado Pilón Lajas Madidi ',
+          cantidad: '117.292 ha',
         },
         {
-          texto: 'TCO Tacana I',
-          cantidad: '204,208 ha',
+          texto: 'Reserva de la Biósfera Pilón Lajas ',
+          cantidad: '0,19',
+        },
+         {
+          texto: 'Total, de áreas protegidas ',
+          cantidad: '294.963 ha',
         },
       ],
       Incendios: [
         {
-          texto: 'ha quemadas del Bosque Amazónico',
-          cantidad: '7,478 ha',
+          texto: 'Bosque Amazónico: 7.478 hectáreas quemadas',
+          cantidad: '7.478 hectáreas quemadas',
         },
         {
-          texto: 'ha quemadas del Bosque Yungas',
-          cantidad: '3,731 ha',
+          texto: 'Bosque de Yungas: ',
+          cantidad: '3.731 hectáreas quemadas',
         },
         {
-          texto: 'Total Afectado',
-          cantidad: '14,853 ha (5.6% de los bosques)',
+          texto: 'Total,  ',
+          cantidad: 'afectado: 14.853 hectáreas. ',
         },
       ],
     },

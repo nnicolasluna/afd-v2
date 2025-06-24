@@ -1,24 +1,48 @@
-iframe {
-    width: 100%;
-    min-height: 400px;
-    height: 90%;
-    border: none;
-    position: absolute;
-    bottom: 0;
-}
 
+iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  /* min-height: 300px; */
+}
 .pdf {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  overflow: auto;
 }
 
 .title {
-    height: 10%;
-    margin-top: 1%;
+  height: 10%;
+  margin-top: 1%;
+}
+.iframe-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+@media (max-width: 1000px) {
+  .title {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .pdf {
+    font-size: 20px;
+    width: 100%;
+    top: 0;
+    overflow: auto;
+    height: auto;
+  }
+
+  .iframe-container {
+    height: calc(100vh - 50px); 
+  }
 }

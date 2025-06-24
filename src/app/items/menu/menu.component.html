@@ -40,3 +40,16 @@
         </li>
     </ol>
 </div>
+
+<button class="burger-btn" (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+</button>
+<aside class="sidebar"  [class.open]="sidebarAbierto">
+    <ul class="menu-list">
+        <li *ngFor="let item of menuItems" class="lista" (click)="item.action()"
+            [ngClass]="{ 'activo': vistaActualActiva === item.id }">
+            <mat-icon [fontIcon]="item.icon"></mat-icon>
+            <span>{{ item.label }}</span>
+        </li>
+    </ul>
+</aside>
