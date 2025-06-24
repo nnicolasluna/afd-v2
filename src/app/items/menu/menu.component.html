@@ -19,7 +19,7 @@
         <li class="iconplustext" (click)="mostrarRecu('RECUPERCIÓN')"
             [ngClass]="{'activo': vistaActualActiva === 'recuperacion'}">
             <mat-icon fontIcon="forest"></mat-icon>
-            <span>RECUPERCIÓN Y RESTAURACIÓN</span>
+            <span>RECUPERACIÓN Y RESTAURACIÓN</span>
         </li>
         <li class="iconplustext" (click)="mostrarAlternativas('ALTERNATIVAS')"
             [ngClass]="{'activo': vistaActualActiva === 'alternativas'}">
@@ -44,7 +44,7 @@
 <button class="burger-btn" (click)="toggleSidebar()">
     <mat-icon>menu</mat-icon>
 </button>
-<aside class="sidebar"  [class.open]="sidebarAbierto">
+<aside class="sidebar" [class.open]="sidebarAbierto">
     <ul class="menu-list">
         <li *ngFor="let item of menuItems" class="lista" (click)="item.action()"
             [ngClass]="{ 'activo': vistaActualActiva === item.id }">
