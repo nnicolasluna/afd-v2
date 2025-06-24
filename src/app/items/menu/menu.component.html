@@ -11,23 +11,26 @@
         </li>
     </ol>
     <ol class="icons_right">
-        <li class="iconplustext" (click)="toggleDiagnostico('DIAGNOSTICO')"[ngClass]="{'activo': vistaActualActiva === 'diagnostico'}">
+        <li class="iconplustext" (click)="toggleDiagnostico('DIAGNOSTICO')"
+            [ngClass]="{'activo': vistaActualActiva === 'diagnostico'}">
             <mat-icon fontIcon="monitor_heart"></mat-icon>
-            <span>DIAGNOSTICO</span>
+            <span>DIAGNÓSTICO</span>
         </li>
-        <li class="iconplustext" (click)="mostrarRecu('RECUPERCIÓN')"[ngClass]="{'activo': vistaActualActiva === 'recuperacion'}">
+        <li class="iconplustext" (click)="mostrarRecu('RECUPERCIÓN')"
+            [ngClass]="{'activo': vistaActualActiva === 'recuperacion'}">
             <mat-icon fontIcon="forest"></mat-icon>
             <span>RECUPERCIÓN Y RESTAURACIÓN</span>
         </li>
-        <li class="iconplustext" (click)="mostrarAlternativas('ALTERNATIVAS')" [ngClass]="{'activo': vistaActualActiva === 'alternativas'}">
+        <li class="iconplustext" (click)="mostrarAlternativas('ALTERNATIVAS')"
+            [ngClass]="{'activo': vistaActualActiva === 'alternativas'}">
             <mat-icon fontIcon="alt_route"></mat-icon>
             <span>ALTERNATIVAS AL USO DE FUEGO</span>
         </li>
-        <li class="iconplustext" (click)="mostrarConvenios()"[ngClass]="{'activo': vistaActualActiva === 'convenios'}">
+        <li class="iconplustext" (click)="mostrarConvenios()" [ngClass]="{'activo': vistaActualActiva === 'convenios'}">
             <mat-icon fontIcon="description"></mat-icon>
             <span>CONVENIOS</span>
         </li>
-        <li class="iconplustext"(click)="mostrarTalleres()"[ngClass]="{'activo': vistaActualActiva === 'talleres'}">
+        <li class="iconplustext" (click)="mostrarTalleres()" [ngClass]="{'activo': vistaActualActiva === 'talleres'}">
             <mat-icon fontIcon="co_present"></mat-icon>
             <span>TALLERES</span>
         </li>
