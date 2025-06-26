@@ -247,7 +247,7 @@ export class FloraFaunaComponent {
           },
           {
             texto: 'Parque Regional Yacuma',
-            img: 'assets/iconosLeyenda/ap1.png',
+            img: 'assets/iconosLeyenda/ap.png',
           },
           {
             texto: 'Refugio de Vida Silvestre Espíritu de Elíser',
