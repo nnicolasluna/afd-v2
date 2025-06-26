@@ -1,4 +1,4 @@
-<div class="leyendaMain leyendaMain--small"  *ngIf="!isMobile || mostrarLeyenda">
+<div class="leyendaMain leyendaMain--small" *ngIf="!isMobile || mostrarLeyenda">
   <div class="leyendaMain__title">
     {{ Municipio }}
   </div>
@@ -6,18 +6,10 @@
     <div class="leyendaMain__leyenda">Leyenda</div>
     <div class="leyendaMain__content">
       <div *ngFor="let item of datos" class="items">
-        <div
-          *ngIf="tipo == 'focosCalor'"
-          class="items__icono"
-          [style.background-color]="item.color"
-          [style.border-radius]="'50%'"
-        ></div>
-        <div
-          *ngIf="tipo != 'focosCalor'"
-          class="items__icono"
-          [style.background-color]="item.color"
-          [style.border-radius]="'0%'"
-        ></div>
+        <div *ngIf="tipo == 'focosCalor'" class="items__icono" [style.background-color]="item.color"
+          [style.border-radius]="'50%'"></div>
+        <div *ngIf="tipo != 'focosCalor'" class="items__icono" [style.background-color]="item.color"
+          [style.border-radius]="'0%'"></div>
         <div class="items__texto">{{ item.description }}</div>
       </div>
       <div class="items" *ngIf="tipo == 'focosCalor'">
@@ -27,9 +19,6 @@
     </div>
   </div>
 </div>
-<button 
-  class="btn-flotante" 
-  *ngIf="isMobile" 
-  (click)="mostrarLeyenda = !mostrarLeyenda">
-  🛈
+<button class="btn-flotante" *ngIf="isMobile" (click)="mostrarLeyenda = !mostrarLeyenda">
+  i
 </button>

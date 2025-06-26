@@ -24,7 +24,7 @@
     {{ municipioData.superficie }}
   </div>
 </div>
-<div class="leyendaMain leyendaMain--small"*ngIf="!isMobile || mostrarLeyenda">
+<div class="leyendaMain leyendaMain--small" *ngIf="!isMobile || mostrarLeyenda">
   <div class="leyendaMain__title">
     {{ municipio }}
   </div>
@@ -35,33 +35,21 @@
         <img src="assets\iconosLeyenda\muni\lm.png" alt="" />
         <div class="items__texto">Limite Municipal</div>
       </div>
-      <div
-        class="items"
-        *ngIf="municipio != 'Vinto' && municipio != 'Tiquipaya'"
-      >
+      <div class="items" *ngIf="municipio != 'Vinto' && municipio != 'Tiquipaya'">
         <img src="assets\iconosLeyenda\aq.png" alt="" />
         <div class="items__texto">Área Quemada 2023</div>
       </div>
-      <div
-        class="items"
-        *ngIf="municipio == 'Vinto' || municipio == 'Tiquipaya'"
-      >
+      <div class="items" *ngIf="municipio == 'Vinto' || municipio == 'Tiquipaya'">
         <img src="assets/iconosLeyenda/muni/nivelAlto.png" alt="" />
         <div class="items__texto">1 Año</div>
       </div>
-      <div
-        class="items"
-        *ngIf="municipio == 'Vinto' || municipio == 'Tiquipaya'"
-      >
+      <div class="items" *ngIf="municipio == 'Vinto' || municipio == 'Tiquipaya'">
         <img src="assets\iconosLeyenda\aq2.png" alt="" />
         <div class="items__texto">2 Años</div>
       </div>
     </div>
   </div>
 </div>
-<button 
-  class="btn-flotante" 
-  *ngIf="isMobile" 
-  (click)="mostrarLeyenda = !mostrarLeyenda">
-  🛈
+<button class="btn-flotante" *ngIf="isMobile" (click)="mostrarLeyenda = !mostrarLeyenda">
+  i
 </button>

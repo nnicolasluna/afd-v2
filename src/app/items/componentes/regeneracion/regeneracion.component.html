@@ -1,16 +1,8 @@
 <div class="botones" *ngIf="!isMobile || mostrarLeyenda">
-  <div
-    class="botones__btn"
-    (click)="buscarMunicipio(Municipio, 'pasiva')"
-    [class.active]="seleccionado === 'pasiva'"
-  >
+  <div class="botones__btn" (click)="buscarMunicipio(Municipio, 'pasiva')" [class.active]="seleccionado === 'pasiva'">
     Regeneración Pasiva
   </div>
-  <div
-    class="botones__btn"
-    (click)="buscarMunicipio(Municipio, 'activa')"
-    [class.active]="seleccionado === 'activa'"
-  >
+  <div class="botones__btn" (click)="buscarMunicipio(Municipio, 'activa')" [class.active]="seleccionado === 'activa'">
     Regeneración Activa
   </div>
 </div>
@@ -22,10 +14,7 @@
     <div class="leyendaMain__leyenda">Leyenda</div>
     <div class="leyendaMain__content" *ngIf="seleccionado === 'pasiva'">
       <div *ngIf="municipioData?.leyenda">
-        <div
-          class="items"
-          *ngFor="let item of municipioData.leyenda; let i = index"
-        >
+        <div class="items" *ngFor="let item of municipioData.leyenda; let i = index">
           <img [src]="municipioData.leyenda[i].img" alt="" />
           {{ item.texto }}
         </div>
@@ -33,10 +22,7 @@
     </div>
     <div class="leyendaMain__content" *ngIf="seleccionado === 'activa'">
       <div *ngIf="municipioData?.leyenda">
-        <div
-          class="items"
-          *ngFor="let item of municipioData.leyenda; let i = index"
-        >
+        <div class="items" *ngFor="let item of municipioData.leyenda; let i = index">
           <img [src]="municipioData.leyenda[i].img" alt="" />
           {{ item.texto }}
         </div>
@@ -64,9 +50,6 @@
     </div>
   </div>
 </div>
-<button 
-  class="btn-flotante" 
-  *ngIf="isMobile" 
-  (click)="mostrarLeyenda = !mostrarLeyenda">
-  🛈
+<button class="btn-flotante" *ngIf="isMobile" (click)="mostrarLeyenda = !mostrarLeyenda">
+  i
 </button>

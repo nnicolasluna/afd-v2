@@ -8,7 +8,7 @@
                         <div class="timeline-line timeline-line--orange"></div>
                     </div>
                     <div class="talleres">
-                        <div class="title title--orange">Taller 1</div>
+                        <div class="title title--orange">Taller de Arranque</div>
                         <div class="date">10 Octubre 2024</div>
                         <div class="imgTex">
                             <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/2.png">
@@ -31,7 +31,7 @@
 
                     </div>
                     <div class="talleres">
-                        <div class="title title--red">Taller 2</div>
+                        <div class="title title--red">Taller de Mesas Técnicas</div>
                         <div class="date">13-24 Enero 2025</div>
                         <div class="imgTex">
                             <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/3.png">
@@ -56,7 +56,7 @@
                         <div class="timeline-line timeline-line--other"></div>
                     </div>
                     <div class="talleres">
-                        <div class="title title--other">Taller 3</div>
+                        <div class="title title--other">Taller de Presentación de Resultados</div>
                         <div class="date">26 Febrero 2025</div>
                         <div class="imgTex">
                             <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/4.png">
@@ -78,7 +78,7 @@
                         <div class="timeline-circle timeline-circle--green"></div>
                     </div>
                     <div class="talleres talleres--special">
-                        <div class="title title--green">Taller 4</div>
+                        <div class="title title--green">Taller de Socialización y Capacitaciones</div>
                         <div class="imgTex">
                             <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/5.png">
                             <div class="description">
@@ -175,8 +175,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="localization"*ngIf="Numerotaller!='TALLER 1'">
-                        <mat-icon fontIcon="calendar_month" ></mat-icon>
+                    <div class="localization" *ngIf="Numerotaller!='TALLER 1'">
+                        <mat-icon fontIcon="calendar_month"></mat-icon>
                         <div class="textFooter" *ngIf="Numerotaller==='TALLER 2'">
                             <div class="title_card">Fecha</div>
                             {{datosMunicipioSelecionado[6]?.Fecha}}

@@ -1,4 +1,4 @@
-<div class="botones"  *ngIf="!isMobile || mostrarLeyenda">
+<div class="botones" *ngIf="!isMobile || mostrarLeyenda">
   <div class="botones__btn" (click)="buscarMunicipio(Municipio, 'Flora')" [class.active]="seleccionado === 'Flora'">
     Flora
   </div>
@@ -6,7 +6,7 @@
     Fauna
   </div>
 </div>
-<div class="leyendaMain leyendaMain--small"  *ngIf="!isMobile || mostrarLeyenda">
+<div class="leyendaMain leyendaMain--small" *ngIf="!isMobile || mostrarLeyenda">
   <div class="leyendaMain__title">
     {{ Municipio }}
   </div>
@@ -160,9 +160,6 @@
     </div>
   </div>
 </div>
-<button 
-  class="btn-flotante" 
-  *ngIf="isMobile" 
-  (click)="mostrarLeyenda = !mostrarLeyenda">
-  🛈
+<button class="btn-flotante" *ngIf="isMobile" (click)="mostrarLeyenda = !mostrarLeyenda">
+  i
 </button>
