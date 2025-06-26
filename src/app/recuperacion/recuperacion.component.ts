@@ -1,9 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
+registerLocaleData(localeEs);
 @Component({
   selector: 'app-recuperacion',
   templateUrl: './recuperacion.component.html',
   styleUrls: ['./recuperacion.component.scss'],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
 })
 export class RecuperacionComponent {
   @Input() municipio: string | undefined;
@@ -33,20 +37,16 @@ export class RecuperacionComponent {
           tipo: 'Equipo',
           datosTabla: [
             {
-              Equipo: 'Carretillas',
-              Piezas: '2 Piezas',
+              Equipo: '2 Carretillas',
             },
             {
-              Equipo: 'Palas',
-              Piezas: '4 Piezas',
+              Equipo: '4 Palas',
             },
             {
-              Equipo: 'Azadones',
-              Piezas: '4 Piezas',
+              Equipo: '4 Azadones',
             },
             {
-              Equipo: 'Regaderas',
-              Piezas: '4 Piezas',
+              Equipo: '4 Regaderas',
             },
           ],
         },
@@ -58,7 +58,7 @@ export class RecuperacionComponent {
               Piezas: '625',
             },
             {
-              Equipo: 'Especies Forestales',
+              Equipo: 'Plantines de Especies Forestales',
               Piezas: '280',
             },
             {
@@ -76,10 +76,10 @@ export class RecuperacionComponent {
     {
       municipio: 'San Buenaventura',
       descripcion:
-        'Entrega de plantines de cacao criollo y especies forestales nativas a la comunidad de Tres Hermanos, como parte de las acciones de fortalecimiento de sistemas agroforestales y restauración ambiental. Esta intervención busca promover prácticas productivas sostenibles que aseguren la conservación de la biodiversidad, el manejo adecuado del suelo y el incremento de cobertura vegetal. Implementación de plantines de cacao criollo con enfoque agroforestal.',
+        'Entrega de plantines de cacao criollo y especies forestales nativas a la comunidad de Tres Hermanos, como parte de las acciones de fortalecimiento de sistemas agroforestales y restauración ambiental. Esta intervención busca promover prácticas productivas sostenibles que aseguren la conservación de la biodiversidad, el manejo adecuado del suelo y el incremento de cobertura vegetal. Establecimiento de plantines de cacao criollo en parcelas agroforestales.',
       tablas: {
         tabla1: {
-          comunidad: 'Comunidad Tres Hermanos VIVERO',
+          comunidad: 'Comunidad Tres Hermanos ',
           tipo: 'Plantines',
           datosTabla: [
             {
@@ -87,7 +87,7 @@ export class RecuperacionComponent {
               Piezas: '4600',
             },
             {
-              Equipo: 'Especies Forestales',
+              Equipo: 'Plantines de especies forestales',
               Piezas: '230',
             },
             {
@@ -122,24 +122,24 @@ export class RecuperacionComponent {
         'Entrega de materiales, herramientas en insumos al Gobierno Autónomo Municipal de Tiquipaya para la producción de plantines forestales nativos para establecimiento de plantaciones en zonas priorizadas en la próxima temporada de lluvias. Entrega de herramientas a la comunidad Molinos para el establecimiento de plantaciones forestales, y entrega de geomembrana para implementación de un atajado para la captura de agua, con fines de apoyo a la recuperación, prevención y mitigación de incendios.',
       tablas: {
         tabla1: {
-          comunidad: 'Gobierno Autónomo Municipal de Tiquipaya VIVERO',
+          comunidad: 'Gobierno Autónomo Municipal de Tiquipaya ',
           tipo: 'Semillas Forestales',
           datosTabla: [
             {
               Equipo: 'Semilla Kewiña',
-              Piezas: '1kg',
+              Piezas: '1kg ',
             },
             {
-              Equipo: 'Semilla Kiswara',
+              Equipo: ' Semilla Kiswara',
               Piezas: '1kg',
             },
             {
               Equipo: 'Semilla Lloque',
-              Piezas: '0,1',
+              Piezas: '0,1 Kg',
             },
             {
               Equipo: 'Semilla Retama',
-              Piezas: '0,5 kg',
+              Piezas: '0,5 kg ',
             },
           ],
         },
@@ -147,32 +147,28 @@ export class RecuperacionComponent {
           tipo: null,
           datosTabla: [
             {
-              Equipo: 'Rollo Agrofil',
-              Piezas: '2 Rollos',
+              Equipo: '2 Rollo Agrofil',
+              Piezas: '',
             },
             {
-              Equipo: 'Rollo Semisombra',
-              Piezas: '1 Rollo',
+              Equipo: '1 Rollo Semisombra',
+              Piezas: '',
             },
             {
-              Equipo: 'Enraizante Liquido',
+              Equipo: ' Enraizante Liquido',
               Piezas: '2 Litros',
             },
             {
               Equipo: 'Enraizante Polvo',
-              Piezas: '2 Unidades',
+              Piezas: '2 Unidades ',
             },
             {
               Equipo: 'Bolsas',
               Piezas: '60kg',
             },
             {
-              Equipo: 'Tijera de Podar',
-              Piezas: '10 Piezas',
-            },
-            {
-              Equipo: 'Tijera de Podar Pequeña',
-              Piezas: '10 Piezas',
+              Equipo: 'Tijeras de Podar',
+              Piezas: '10 ',
             },
           ],
         },
@@ -181,12 +177,12 @@ export class RecuperacionComponent {
           tipo: 'EQUIPO',
           datosTabla: [
             {
-              Equipo: 'Pala',
-              Piezas: '44 Piezas',
+              Equipo: '44 Pala',
+              Piezas: '',
             },
             {
-              Equipo: 'Picota',
-              Piezas: '44 Piezas',
+              Equipo: '44 Picota',
+              Piezas: '',
             },
             {
               Equipo: 'Geomembrana',
@@ -212,28 +208,28 @@ export class RecuperacionComponent {
         'Entrega de materiales, herramientas en insumos al Gobierno Autónomo Municipal de Vinto para la producción de plantines forestales nativos para establecimiento de plantaciones en zonas priorizadas en la próxima temporada de lluvias. Entrega de herramientas a la comunidad Combuyo Chico para el establecimiento de plantaciones forestales.',
       tablas: {
         tabla1: {
-          comunidad: 'Gobierno Autónomo Municipal de Vinto VIVERO',
+          comunidad: 'Gobierno Autónomo Municipal de Vinto ',
           tipo: ' Semillas Forestales',
           datosTabla: [
             {
-              Equipo: 'Semilla Chacatea',
-              Piezas: '1,25kg',
+              Equipo: '1,25kg Semilla Chacatea',
+              Piezas: '',
             },
             {
-              Equipo: 'Semilla Jacaranda',
-              Piezas: '0,75kg',
+              Equipo: '0,75kg Semilla Jacaranda',
+              Piezas: '',
             },
             {
-              Equipo: 'Semilla Lloque',
-              Piezas: '0,15kg',
+              Equipo: '0,15kg Semilla Lloque',
+              Piezas: '',
             },
             {
-              Equipo: 'Semilla Molle',
-              Piezas: '1,25 kg',
+              Equipo: '1,25 kg Semilla Molle',
+              Piezas: '',
             },
             {
-              Equipo: 'Semilla Soto',
-              Piezas: '0,75kg',
+              Equipo: '0,75kg Semilla Soto',
+              Piezas: '',
             },
             {
               Equipo: 'Tuna',
@@ -245,28 +241,28 @@ export class RecuperacionComponent {
           tipo: null,
           datosTabla: [
             {
-              Equipo: 'Rollo Agrofil',
-              Piezas: '2 Rollos',
+              Equipo: '2 Rollos Rollo Agrofil',
+              Piezas: '',
             },
             {
-              Equipo: 'Rollo Semisombra',
-              Piezas: '4 Rollos',
+              Equipo: '4 Rollos Rollo Semisombra',
+              Piezas: '',
             },
             {
-              Equipo: 'Enraizante Liquido',
-              Piezas: '2 Litros',
+              Equipo: '2 Litros Enraizante Liquido',
+              Piezas: '',
             },
             {
-              Equipo: 'Enraizante Polvo',
-              Piezas: '2 Unidades',
+              Equipo: '2 Unidades Enraizante Polvo',
+              Piezas: '',
             },
             {
-              Equipo: 'Bolsas',
-              Piezas: '60kg',
+              Equipo: '60kg Bolsas',
+              Piezas: '',
             },
             {
-              Equipo: 'Lama',
-              Piezas: '24 Cubos',
+              Equipo: '24 Cubos Lama',
+              Piezas: '',
             },
           ],
         },
@@ -275,12 +271,12 @@ export class RecuperacionComponent {
           tipo: 'EQUIPO',
           datosTabla: [
             {
-              Equipo: 'Pala',
-              Piezas: '45 Piezas',
+              Equipo: '45 Pala',
+              Piezas: '',
             },
             {
-              Equipo: 'Picota',
-              Piezas: '45 Piezas',
+              Equipo: '45Picota',
+              Piezas: '',
             },
           ],
         },
@@ -299,10 +295,10 @@ export class RecuperacionComponent {
     {
       municipio: 'Rurrenabaque',
       descripcion:
-        'Desarrollo de actividades orientadas a la implementación de plantines de cacao criollo bajo un enfoque agroforestal, en el marco del fortalecimiento de sistemas productivos resilientes en el municipio de Rurrenabaque. Esta intervención busca mejorar la recuperación de suelos degradados',
+        'Desarrollo de actividades orientadas a la implementación de plantines de cacao criollo bajo un enfoque agroforestal, en el marco del fortalecimiento de sistemas productivos resilientes en el municipio de Rurrenabaque. Esta intervención busca mejorar la recuperación de suelos degradados.',
       tablas: {
         tabla1: {
-          comunidad: 'Asunción del Quiquibey VIVERO',
+          comunidad: 'Asunción del Quiquibey ',
           tipo: ' Plantines',
           datosTabla: [
             {
@@ -333,7 +329,7 @@ export class RecuperacionComponent {
         'Entrega de plantines de cacao criollo y especies forestales a la comunidad de Pachiuval. Esta intervención tiene como objetivo promover la reforestación y mejorar la calidad del suelo.',
       tablas: {
         tabla1: {
-          comunidad: 'Comunidad Pachiuval VIVERO',
+          comunidad: 'Comunidad Pachiuval ',
           tipo: ' Plantines',
           datosTabla: [
             {
@@ -341,7 +337,7 @@ export class RecuperacionComponent {
               Piezas: '3500',
             },
             {
-              Equipo: 'Especies Forestales',
+              Equipo: 'Plantines de Especies Forestales',
               Piezas: '350',
             },
             {
@@ -388,5 +384,8 @@ export class RecuperacionComponent {
 
   closeLightbox() {
     this.selectedImage = null;
+  }
+  isNumber(value: any): boolean {
+    return !isNaN(parseFloat(value)) && isFinite(value);
   }
 }

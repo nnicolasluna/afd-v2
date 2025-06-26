@@ -1,39 +1,38 @@
-<div class="container-main" *ngIf="mostrarManual">
-    <div class="title">MANUALES</div>
-    <div class="container">
-        <div class="card"
-            (click)="ShowManual('ANEXO 2 MANUAL_PRELIMINAR_DE_ACCIONES_DE_RECUPERACIÓN_V1.2.pdf','ACCIONES DE RECUPERACIÓN')">
-            <div class="card__header">
-                <h3>ACCIONES<br>DE<br>RECUPERACIÓN</h3>
-            </div>
-            <div class="card__body">
-                <img src="assets/imagenes/manualPreliminar.png" alt="Acciones de recuperación">
-                <mat-icon fontIcon="arrow_downward"></mat-icon>
-            </div>
-            <div class="card__footer">
-            </div>
-        </div>
-        <div class="card"
-            (click)="ShowManual('ANEXO 3 MANUAL_PRELIMINAR_DE_PRÁCTICAS_ALTERNATIVAS_AL_USO_DEL_FUEGO_V1.2.pdf ','PRÁCTICAS ALTERNATIVAS AL USO DEL FUEGO')">
-            <div class="card__header">
-                <h3>PRÁCTICAS<br>ALTERNATIVAS AL USO<br>DEL FUEGO</h3>
-            </div>
-            <div class="card__body">
-                <img src="assets/imagenes/practicasAlternativas.png" alt="Prácticas alternativas al fuego">
-                <mat-icon fontIcon="arrow_downward"></mat-icon>
+<!-- <div class="container-main" *ngIf="mostrarManual">
+    <div class="contendor_manuales">
+        <div class="title">MANUALES</div>
+        
+        <div class="container">
+            <div class="card" *ngFor="let manual of manuales" (click)="ShowManual(manual.archivo, manual.titulo)">
+                <div class="card__header">
+                    <h3 [innerHTML]="manual.tituloHtml"></h3>
+                </div>
+                <div class="card__body">
+                    <img [src]="manual.imagen" [alt]="manual.alt">
+
+                    <mat-icon fontIcon="arrow_downward"></mat-icon>
+                </div>
             </div>
         </div>
-        <div class="card"
-            (click)="ShowManual('Anexo 4. Manual para la evaluación de daños ambientales e impactos .pdf ','EVALUACION DE DAÑOS AMBIENTALES Y IMPACTOS')">
-            <div class="card__header">
-                <h3>EVALUACION DE<br>DAÑOS AMBIENTALES<br>Y IMPACTOS</h3>
-            </div>
-            <div class="card__body">
-                <img src="assets/imagenes/evaluacionDanos.png" alt="Evaluación de daños">
-                <mat-icon fontIcon="arrow_downward"></mat-icon>
-            </div>
+
+    </div>
+</div> -->
+<div class="main-card" *ngIf="mostrarManual">
+    <div class="titulo">MANUALES</div>
+    <div class="card" *ngFor="let card of manuales">
+
+        <div class="card-content">
+            <h2>{{ card.titulo }}</h2>
+
+        </div>
+
+        <div class="card-action">
+            <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon" />
+            <button *ngIf="!isMobile" (click)="ShowManual(card.archivo, card.titulo)">Ver Manual</button>
+            <button *ngIf="isMobile" (click)="DownloadManual(card.archivo)">Descargar Manual</button>
         </div>
     </div>
+
 </div>
 <div class="pdfContainer" *ngIf="!mostrarManual">
     <button class="botonRegresar" (click)="ShowManual('','')">Regresar</button>

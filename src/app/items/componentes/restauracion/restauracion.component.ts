@@ -227,5 +227,12 @@ export class RestauracionComponent {
   ];
   ngOnInit(): void {
     this.data = this.datos.find((item) => item.municipio === this.Municipio);
+    this.checkMobile();
+    window.addEventListener('resize', () => this.checkMobile());
+  }
+  isMobile = false;
+  mostrarLeyenda = false;
+  checkMobile() {
+    this.isMobile = window.innerWidth < 768;
   }
 }

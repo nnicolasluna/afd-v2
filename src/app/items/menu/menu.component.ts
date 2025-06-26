@@ -21,7 +21,18 @@ export class MenuComponent {
     this.modalStateService.mostrarleftbar();
     this.sidebarAbierto = false;
   }
+  cerrarCard() {
+    this.modalStateService.cerrarFaunaFlora();
+    this.modalStateService.cerrarPrePost();
+    this.modalStateService.cerrarfocos();
+    this.modalStateService.cerrarquemas();
+    this.modalStateService.cerrarrege();
+    this.modalStateService.cerrarrestauracion();
+    this.modalStateService.cerrarafectadas();
+    this.modalStateService.cerrarBtnEvaluamos();
+  }
   toggleDiagnostico(btnSelected: any): void {
+    this.cerrarCard();
     this.sidebarAbierto = false;
     this.mostrarDiagnostico = !this.mostrarDiagnostico;
     if (this.MunicipioMenu == '') {
@@ -41,15 +52,9 @@ export class MenuComponent {
     this.localizacionUsuario.emit('true');
   }
   mostrarRecu(btnSelected: any): void {
+    this.cerrarCard();
     this.sidebarAbierto = false;
-
-    this.modalStateService.cerrarBtnEvaluamos();
-    this.modalStateService.cerrarrege();
-    this.modalStateService.cerrarrestauracion();
-    this.modalStateService.cerrarafectadas();
-    this.modalStateService.cerrarFaunaFlora();
-    this.modalStateService.cerrarquemas();
-    this.modalStateService.cerrarfocos();
+    this.cerrarCard();
     if (this.MunicipioMenu == '') {
       this.modalStateService.mostrarAlter_rightbar(btnSelected);
     } else {
@@ -57,14 +62,9 @@ export class MenuComponent {
     }
   }
   mostrarAlternativas(btnSelected: any) {
+    this.cerrarCard();
     this.sidebarAbierto = false;
-    this.modalStateService.cerrarBtnEvaluamos();
-    this.modalStateService.cerrarrege();
-    this.modalStateService.cerrarrestauracion();
-    this.modalStateService.cerrarafectadas();
-    this.modalStateService.cerrarFaunaFlora();
-    this.modalStateService.cerrarquemas();
-    this.modalStateService.cerrarfocos();
+    this.cerrarCard();
     if (this.MunicipioMenu == '') {
       this.modalStateService.mostrarAlter_rightbar(btnSelected);
     } else {
@@ -96,6 +96,7 @@ export class MenuComponent {
     this.modalStateService.cerrarfocos();
   }
   mostrarTalleres() {
+    this.sidebarAbierto = false;
     this.sidebarAbierto = false;
     this.modalStateService.mostrartalleres();
     this.modalStateService.cerrarBtnEvaluamos();

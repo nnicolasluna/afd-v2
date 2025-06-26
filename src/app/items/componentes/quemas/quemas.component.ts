@@ -6,11 +6,11 @@ interface DatosMunicipio {
 @Component({
   selector: 'app-quemas',
   templateUrl: './quemas.component.html',
-  styleUrls: ['./quemas.component.scss']
+  styleUrls: ['./quemas.component.scss'],
 })
 export class QuemasComponent {
   @Input() municipio: string = '';
-  municipioData: any
+  municipioData: any;
   datos: Record<string, DatosMunicipio> = {
     'San Buenaventura': {
       superficie: '14,853 ha',
@@ -21,8 +21,8 @@ export class QuemasComponent {
         { Mes: '2019', Cantidad: 0 },
         { Mes: '2020', Cantidad: 0 },
         { Mes: '2021', Cantidad: 1837 },
-        { Mes: '2022', Cantidad: 1897 }
-      ]
+        { Mes: '2022', Cantidad: 1897 },
+      ],
     },
     'San Borja': {
       superficie: '151,921 ha',
@@ -33,8 +33,8 @@ export class QuemasComponent {
         { Mes: '2019', Cantidad: 16357 },
         { Mes: '2020', Cantidad: 3235 },
         { Mes: '2021', Cantidad: 9957 },
-        { Mes: '2022', Cantidad: 30443 }
-      ]
+        { Mes: '2022', Cantidad: 30443 },
+      ],
     },
     'Palos Blancos': {
       superficie: '2.166 ha',
@@ -45,10 +45,10 @@ export class QuemasComponent {
         { Mes: '2019', Cantidad: 0 },
         { Mes: '2020', Cantidad: 201 },
         { Mes: '2021', Cantidad: 1371 },
-        { Mes: '2022', Cantidad: 4002 }
-      ]
+        { Mes: '2022', Cantidad: 4002 },
+      ],
     },
-    'Rurrenabaque': {
+    Rurrenabaque: {
       superficie: '60,154 ha',
       datos: [
         { Mes: '2016', Cantidad: 6211 },
@@ -57,10 +57,10 @@ export class QuemasComponent {
         { Mes: '2019', Cantidad: 143 },
         { Mes: '2020', Cantidad: 1784 },
         { Mes: '2021', Cantidad: 1384 },
-        { Mes: '2022', Cantidad: 6113 }
-      ]
+        { Mes: '2022', Cantidad: 6113 },
+      ],
     },
-    'Vinto': {
+    Vinto: {
       superficie: '452 ha',
       datos: [
         { Mes: '2016', Cantidad: 293 },
@@ -69,10 +69,10 @@ export class QuemasComponent {
         { Mes: '2019', Cantidad: 0 },
         { Mes: '2020', Cantidad: 59 },
         { Mes: '2021', Cantidad: 797 },
-        { Mes: '2022', Cantidad: 202 }
-      ]
+        { Mes: '2022', Cantidad: 202 },
+      ],
     },
-    'Tiquipaya': {
+    Tiquipaya: {
       superficie: '254 ha',
       datos: [
         { Mes: '2016', Cantidad: 2675 },
@@ -81,14 +81,21 @@ export class QuemasComponent {
         { Mes: '2019', Cantidad: 247 },
         { Mes: '2020', Cantidad: 122 },
         { Mes: '2021', Cantidad: 549 },
-        { Mes: '2022', Cantidad: 411 }
-      ]
-    }
+        { Mes: '2022', Cantidad: 411 },
+      ],
+    },
   };
   ngOnInit(): void {
     this.municipioData = this.obtenerDatosMunicipio(this.municipio);
+    this.checkMobile();
+    window.addEventListener('resize', () => this.checkMobile());
   }
+  isMobile = false;
+  mostrarLeyenda = false;
   obtenerDatosMunicipio(municipioBuscado: string): DatosMunicipio | undefined {
     return this.datos[municipioBuscado];
+  }
+  checkMobile() {
+    this.isMobile = window.innerWidth < 768;
   }
 }

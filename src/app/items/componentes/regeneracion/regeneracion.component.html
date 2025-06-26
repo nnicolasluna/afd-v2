@@ -1,4 +1,4 @@
-<div class="botones">
+<div class="botones" *ngIf="!isMobile || mostrarLeyenda">
   <div
     class="botones__btn"
     (click)="buscarMunicipio(Municipio, 'pasiva')"
@@ -14,7 +14,7 @@
     Regeneración Activa
   </div>
 </div>
-<div class="leyendaMain leyendaMain--small">
+<div class="leyendaMain leyendaMain--small" *ngIf="!isMobile || mostrarLeyenda">
   <div class="leyendaMain__title">
     {{ Municipio }}
   </div>
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<div class="focosCalor">
+<div class="focosCalor" *ngIf="!isMobile || mostrarLeyenda">
   <div class="titulo">{{ Municipio }}</div>
   <div class="fuente">Área de Regeneración</div>
   <table *ngIf="seleccionado === 'pasiva'">
@@ -64,3 +64,9 @@
     </div>
   </div>
 </div>
+<button 
+  class="btn-flotante" 
+  *ngIf="isMobile" 
+  (click)="mostrarLeyenda = !mostrarLeyenda">
+  🛈
+</button>

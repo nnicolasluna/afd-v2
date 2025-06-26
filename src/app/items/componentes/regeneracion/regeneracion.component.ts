@@ -286,6 +286,13 @@ export class RegeneracionComponent {
   ];
   ngOnInit(): void {
     this.buscarMunicipio(this.Municipio, 'pasiva');
+    this.checkMobile();
+    window.addEventListener('resize', () => this.checkMobile());
+  }
+  isMobile = false;
+  mostrarLeyenda = false;
+  checkMobile() {
+    this.isMobile = window.innerWidth < 768;
   }
   buscarMunicipio(nombreMunicipio: string, opcion: string) {
     this.seleccionado = opcion;

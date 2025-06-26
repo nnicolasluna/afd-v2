@@ -22,11 +22,11 @@
         </div>
         <div class="card-stats">
             <div class="stat-box">
-                <p class="stat-value">{{municipioEncontrado.superficie_km2}} Km<sup>2</sup></p>
+                <p class="stat-value">{{municipioEncontrado.superficie_km2 | number:'1.0-0'}} Km<sup>2</sup></p>
                 <p class="stat-label">Superficie</p>
             </div>
             <div class="stat-box" *ngIf="municipioEncontrado.poblacion">
-                <p class="stat-value">{{municipioEncontrado.poblacion}} habitantes</p>
+                <p class="stat-value">{{municipioEncontrado.poblacion | number:'1.0-0'}} habitantes</p>
                 <p class="stat-label">Población Proyectada</p>
             </div>
             <div class="stat-box" *ngIf="municipioEncontrado.ubicacion">

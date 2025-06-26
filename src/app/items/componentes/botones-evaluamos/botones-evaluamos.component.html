@@ -25,3 +25,20 @@ Es útil para comparar la vegetación antes y después de un incendio." [class.a
     <button class="button-top-bar button-top-bar--black" [class.activo]="botonseleccionado===8"
         (click)="seleccionarBoton(8)">Áreas Restauración Pasiva</button>
 </div>
+<button class="menu-float-button" (click)="mostrarMenu = !mostrarMenu">
+  ☰
+</button>
+
+<!-- Menú tipo sidebar desde la esquina inferior izquierda -->
+<div class="sidebar-menu" *ngIf="mostrarMenu">
+  <button class="close-btn" (click)="mostrarMenu = false">✕</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===9" (click)="seleccionarBoton(9)">Focos de Calor</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===1" (click)="seleccionarBoton(1)">Índice NBR</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===2" (click)="seleccionarBoton(2)">NDVI</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===3" (click)="seleccionarBoton(3)">DNBR</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===4" (click)="seleccionarBoton(4)">Recurrencia</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===5" (click)="seleccionarBoton(5)">Flora y Fauna</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===6" (click)="seleccionarBoton(6)">Áreas Afectadas</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===7" (click)="seleccionarBoton(7)">Restauración</button>
+  <button class="sidebar-item" [class.activo]="botonseleccionado===8" (click)="seleccionarBoton(8)">Restauración Pasiva</button>
+</div>

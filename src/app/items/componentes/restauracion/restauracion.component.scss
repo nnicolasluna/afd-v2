@@ -100,3 +100,23 @@ img {
   font-size: 0.7rem;
   text-align: justify;
 }
+.btn-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .adicionaltexto {
+    display: none;
+  }
+}

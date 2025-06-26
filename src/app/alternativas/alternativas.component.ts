@@ -267,7 +267,7 @@ export class AlternativasComponent {
     {
       municipio: 'Rurrenabaque',
       descripcion:
-        'Implementación de un sistema de refrigeración solar en apoyo al ecoturismo. Así mismo se realizó la entrega e instalación de un sistema de refrigeración solar para apoyar al emprendimiento de ecoturismo.',
+        'Entrega e instalación de un sistema de refrigeración para apoyar al emprendimiento de ecoturismo..',
       extraData: [
         {
           extradata: 'Comunidad Carmen Florida',

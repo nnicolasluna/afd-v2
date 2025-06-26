@@ -34,3 +34,14 @@
   padding: 3px 7px;
   border-radius: 0 0 10px 10px;
 }
+@media (max-width: 900px) {
+  .pre {
+    &--left {
+      left: 5%;
+    }
+
+    &--right {
+      right: 0%;
+    }
+  }
+}

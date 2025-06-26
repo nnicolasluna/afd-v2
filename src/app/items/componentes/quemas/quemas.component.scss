@@ -127,3 +127,37 @@ img {
   width: 20px;
   height: 20px;
 }
+.btn-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .focosCalor{
+    top: 30%;
+    left: 10px;
+    max-height: 500px;
+    height: auto;
+  }
+  .superficie{
+    top: 10%;
+    height: auto;
+    max-height: 100px;
+    left: 10px;
+  }
+  .leyendaMain{
+    top: 70%;
+    left: 50px;
+    max-height: 500px;
+    height: auto;
+  }
+}

@@ -1,10 +1,17 @@
-import { Component, Input } from '@angular/core';
 import { ModalStateService } from 'src/app/services/modal-state/modal-state.service';
+import { Component, Input,LOCALE_ID  } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es'; 
 
+registerLocaleData(localeEs);
 @Component({
   selector: 'app-simple-card',
   templateUrl: './simple-card.component.html',
-  styleUrls: ['./simple-card.component.scss']
+  styleUrls: ['./simple-card.component.scss'],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es' } 
+
+  ],
 })
 export class SimpleCardComponent {
   @Input() municipio: string = '';

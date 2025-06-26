@@ -42,7 +42,7 @@
         <div class="items-grid">
           <div *ngFor="let item of mucipioSelecionado[0].tablas.tabla1.datosTabla" class="item">
             <div class="name">
-              <div class="quantity">{{ item.Piezas }}</div>
+              <div class="quantity"> {{ isNumber(item.Piezas) ? (item.Piezas | number:'1.0-0') : item.Piezas }}</div>
               {{ item.Equipo }}
             </div>
           </div>
@@ -63,7 +63,7 @@
         <div class="items-grid">
           <div *ngFor="let item of mucipioSelecionado[0].tablas.tabla2?.datosTabla" class="item">
             <div class="name">
-              <div class="quantity">{{ item.Piezas }}</div>
+              <div class="quantity">{{ isNumber(item.Piezas) ? (item.Piezas | number:'1.0-0') : item.Piezas }}</div>
               {{ item.Equipo }}
             </div>
           </div>
@@ -84,7 +84,7 @@
         <div class="items-grid">
           <div *ngFor="let item of mucipioSelecionado[0].tablas.tabla3?.datosTabla" class="item">
             <div class="name">
-              <div class="quantity">{{ item.Piezas }}</div>
+              <div class="quantity">{{ isNumber(item.Piezas) ? (item.Piezas | number:'1.0-0') : item.Piezas }}</div>
               {{ item.Equipo }}
             </div>
           </div>

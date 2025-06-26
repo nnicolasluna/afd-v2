@@ -615,7 +615,7 @@ export class FloraFaunaComponent {
           texto: 'Reserva de la Biósfera Pilón Lajas ',
           cantidad: '0,19',
         },
-         {
+        {
           texto: 'Total, de áreas protegidas ',
           cantidad: '294.963 ha',
         },
@@ -803,9 +803,16 @@ export class FloraFaunaComponent {
       ],
     },
   ];
+  isMobile = false;
+  mostrarLeyenda = false;
 
   ngOnInit(): void {
     this.buscarMunicipio(this.Municipio, 'Flora');
+    this.checkMobile();
+    window.addEventListener('resize', () => this.checkMobile());
+  }
+  checkMobile() {
+    this.isMobile = window.innerWidth < 768;
   }
   buscarMunicipio(nombreMunicipio: string, opcion: string) {
     this.seleccionado = opcion;

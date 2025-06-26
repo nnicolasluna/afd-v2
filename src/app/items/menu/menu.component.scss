@@ -149,12 +149,24 @@ ol {
   text-align: start;
   /*   font-weight: 500; */
 }
-@media (min-width: 768px) {
+.burger-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+}
+@media (min-width:900px) {
   .sidebar {
     display: none;
   }
 }
-@media (max-width: 768px) {
+@media (max-width:900px) {
   .sidebar {
     transform: translateX(-100%);
   }
@@ -163,7 +175,7 @@ ol {
     transform: translateX(0);
   }
 
-  .burger-btn {
+    .burger-btn {
     display: block;
   }
   .lista span {
@@ -173,14 +185,4 @@ ol {
     display: none;
   }
 }
-.burger-btn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 10000;
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
+

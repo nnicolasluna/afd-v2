@@ -18,6 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   position: fixed;
   top: 0;
   left: 0;
@@ -28,20 +29,23 @@
   padding: 0 1rem;
   bottom: auto;
 }
-
-.imagenes {
+.cabecera-mobile {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+/* .imagenes {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Espaciado entre imágenes */
+  gap: 0.5rem; 
   height: 100%;
-}
+} */
 
-.imagenes img {
-  max-height: 100%; /* Ocupa como máximo el alto del contenedor */
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
 a {
   text-decoration: none;
   color: #1f631c;
@@ -60,10 +64,11 @@ a {
 .title {
   display: flex;
   align-items: center;
-  width: 300px;
+  max-width: 250px;
+  width: 100%;
   text-align: center;
   font-weight: bold;
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .contac {
@@ -87,8 +92,7 @@ mat-icon {
   width: 2px;
   background-color: #1f631c;
 }
-
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .cabecera {
     top: auto;
     bottom: 0;
@@ -101,39 +105,46 @@ mat-icon {
   .cabecera .imagenes {
     display: none;
   }
-  .cabecera .contac {
-    font-size: 0.8rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    /*     background-color: red; */
-  }
-  .cabecera .title {
-    text-align: center;
-    font-size: 0.7rem;
-    margin-bottom: -30px;
-  }
-  .cabecera mat-icon {
-    display: none;
-  }
-  .cabecera .contac .info_content {
-    display: flex;
-    justify-content: center;
-  }
-  .cabecera .bar {
-    display: none;
-    width: 0;
-    margin: 0;
-    padding: 0;
-    background-color: red;
+  .right {
+    display: block;
   }
 }
 
+.right {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 650px;
+}
 .imagenes {
   display: flex;
   flex-direction: row;
   overflow: hidden;
   white-space: nowrap;
-  height: 60px;
-  width: 60%;
+  height: 100%;
+  width: 50%;
+}
+.imagenes img {
+  width: auto;
+  max-width: 125px;
+  height: 70px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+@media (max-width: 1300px) {
+  .imagenes {
+    display: none;
+  }
+  .contac {
+    display: none;
+  }
+  .bar {
+    display: none;
+  }
+  .right {
+    text-align: center;
+  }
+  .cabecera {
+    display: none;
+  }
 }

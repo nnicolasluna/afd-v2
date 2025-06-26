@@ -25,7 +25,7 @@ export class BotonesEvaluamosComponent {
   constructor(private visibilidadService: VisibilidadService) {}
   seleccionarBoton(numero: number) {
     this.visibilidadService.cerrarCard();
-
+    this.mostrarMenu = false;
     this.botonseleccionado = numero;
     let indiceselecionado = '';
     if (numero === 1) {
@@ -61,4 +61,5 @@ export class BotonesEvaluamosComponent {
       muni: this.municipio,
     });
   }
+  mostrarMenu = false;
 }

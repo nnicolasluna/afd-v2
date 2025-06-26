@@ -1,4 +1,4 @@
-<div class="leyendaMain leyendaMain--small">
+<div class="leyendaMain leyendaMain--small"  *ngIf="!isMobile || mostrarLeyenda">
     <div class="leyendaMain__title">
         {{Municipio}}
     </div>
@@ -13,3 +13,9 @@
 
     </div>
 </div>
+<button 
+  class="btn-flotante" 
+  *ngIf="isMobile" 
+  (click)="mostrarLeyenda = !mostrarLeyenda">
+  🛈
+</button>

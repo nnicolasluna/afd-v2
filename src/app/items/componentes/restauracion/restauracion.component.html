@@ -1,4 +1,4 @@
-<div class="leyendaMain leyendaMain--small">
+<div class="leyendaMain leyendaMain--small" *ngIf="!isMobile || mostrarLeyenda">
     <div class="leyendaMain__title">
         {{Municipio}}
     </div>
@@ -19,3 +19,9 @@
     desarrollados en campo. Estas actividades permitieron recopilar información a través del diálogo directo con actores
     locales y técnicos especializados.
 </div>
+<button 
+  class="btn-flotante" 
+  *ngIf="isMobile" 
+  (click)="mostrarLeyenda = !mostrarLeyenda">
+  🛈
+</button>

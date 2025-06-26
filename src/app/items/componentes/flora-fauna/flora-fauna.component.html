@@ -1,20 +1,12 @@
-<div class="botones">
-  <div
-    class="botones__btn"
-    (click)="buscarMunicipio(Municipio, 'Flora')"
-    [class.active]="seleccionado === 'Flora'"
-  >
+<div class="botones"  *ngIf="!isMobile || mostrarLeyenda">
+  <div class="botones__btn" (click)="buscarMunicipio(Municipio, 'Flora')" [class.active]="seleccionado === 'Flora'">
     Flora
   </div>
-  <div
-    class="botones__btn"
-    (click)="buscarMunicipio(Municipio, 'Fauna')"
-    [class.active]="seleccionado === 'Fauna'"
-  >
+  <div class="botones__btn" (click)="buscarMunicipio(Municipio, 'Fauna')" [class.active]="seleccionado === 'Fauna'">
     Fauna
   </div>
 </div>
-<div class="leyendaMain leyendaMain--small">
+<div class="leyendaMain leyendaMain--small"  *ngIf="!isMobile || mostrarLeyenda">
   <div class="leyendaMain__title">
     {{ Municipio }}
   </div>
@@ -22,22 +14,16 @@
     <div class="leyendaMain__leyenda">Leyenda</div>
     <div class="leyendaMain__content">
       <div *ngIf="municipioData?.fauna?.centrosPoblados">
-        <div
-          class="items__texto"
-          *ngFor="
+        <div class="items__texto" *ngFor="
             let item of municipioData.fauna.centrosPoblados;
             let i = index
-          "
-        >
+          ">
           <img [src]="municipioData.fauna.centrosPoblados[i].img" alt="" />
           {{ item.texto }}
         </div>
       </div>
       <div *ngIf="municipioData?.fauna?.areaquemada">
-        <div
-          class="items__texto"
-          *ngFor="let item of municipioData.fauna.areaquemada; let i = index"
-        >
+        <div class="items__texto" *ngFor="let item of municipioData.fauna.areaquemada; let i = index">
           <img [src]="municipioData.fauna.areaquemada[i].img" alt="" />
           {{ item.texto }}
         </div>
@@ -46,10 +32,7 @@
         Territorios Comunitarios de Origen
       </div>
       <div *ngIf="municipioData?.fauna?.Tco">
-        <div
-          class="items__texto"
-          *ngFor="let item of municipioData.fauna.Tco; let i = index"
-        >
+        <div class="items__texto" *ngFor="let item of municipioData.fauna.Tco; let i = index">
           <img [src]="municipioData.fauna.Tco[i].img" alt="" />
           {{ item.texto }}
         </div>
@@ -58,23 +41,17 @@
         Área Protegida
       </div>
       <div *ngIf="municipioData?.fauna?.areasprotegidas">
-        <div
-          class="items__texto"
-          *ngFor="
+        <div class="items__texto" *ngFor="
             let item of municipioData.fauna.areasprotegidas;
             let i = index
-          "
-        >
+          ">
           <img [src]="municipioData.fauna.areasprotegidas[i].img" alt="" />
           {{ item.texto }}
         </div>
       </div>
       <div class="subtitle" *ngIf="municipioData?.fauna?.bosques">Bosques</div>
       <div *ngIf="municipioData?.fauna?.bosques">
-        <div
-          class="items__texto"
-          *ngFor="let item of municipioData.fauna.bosques; let i = index"
-        >
+        <div class="items__texto" *ngFor="let item of municipioData.fauna.bosques; let i = index">
           <img [src]="municipioData.fauna.bosques[i].img" alt="" />
           {{ item.texto }}
         </div>
@@ -84,121 +61,73 @@
   <div class="leyendaMain__body" *ngIf="seleccionado === 'Fauna'">
     <div class="leyendaMain__leyenda">Especies Amenazadas</div>
     <div class="btnfauna">
-      <div
-        class="btnfauna__btnF"
-        [class.active]="seleccionadoFauna === 'reptiles'"
-        (click)="mostrarfauna('reptiles', Municipio)"
-      >
+      <div class="btnfauna__btnF" [class.active]="seleccionadoFauna === 'reptiles'"
+        (click)="mostrarfauna('reptiles', Municipio)">
         Anfibios-Reptiles
       </div>
-      <div
-        class="btnfauna__btnF"
-        [class.active]="seleccionadoFauna === 'mamiferos'"
-        (click)="mostrarfauna('mamiferos', Municipio)"
-      >
+      <div class="btnfauna__btnF" [class.active]="seleccionadoFauna === 'mamiferos'"
+        (click)="mostrarfauna('mamiferos', Municipio)">
         Aves-Mamiferos
       </div>
     </div>
     <div class="leyendaMain__content" *ngIf="seleccionadoFauna === 'reptiles'">
       <div *ngIf="municipioData?.especiesAmenazadas?.anfibiosReptiles.anfibios">
-        <div
-          class="items__texto"
-          *ngFor="
+        <div class="items__texto" *ngFor="
             let item of municipioData.especiesAmenazadas.centrosPoblados;
             let i = index
-          "
-        >
-          <img
-            [src]="municipioData.especiesAmenazadas.centrosPoblados[i].img"
-            alt=""
-          />
+          ">
+          <img [src]="municipioData.especiesAmenazadas.centrosPoblados[i].img" alt="" />
           {{ item.texto }}
         </div>
-        <div
-          class="subtitle"
-          *ngIf="municipioData?.especiesAmenazadas.anfibiosReptiles.anfibios"
-        >
+        <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas.anfibiosReptiles.anfibios">
           Anfibios
         </div>
-        <div
-          class="items__texto"
-          *ngFor="
+        <div class="items__texto" *ngFor="
             let item of municipioData.especiesAmenazadas.anfibiosReptiles
               .anfibios;
             let i = index
-          "
-        >
-          <img
-            [src]="
+          ">
+          <img [src]="
               municipioData.especiesAmenazadas.anfibiosReptiles.anfibios[i].img
-            "
-            alt=""
-          />
+            " alt="" />
           {{ item.texto }}
         </div>
-        <div
-          class="subtitle"
-          *ngIf="municipioData?.especiesAmenazadas.anfibiosReptiles.reptiles"
-        >
+        <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas.anfibiosReptiles.reptiles">
           Reptiles
         </div>
-        <div
-          class="items__texto"
-          *ngFor="
+        <div class="items__texto" *ngFor="
             let item of municipioData.especiesAmenazadas.anfibiosReptiles
               .reptiles;
             let i = index
-          "
-        >
-          <img
-            [src]="
+          ">
+          <img [src]="
               municipioData.especiesAmenazadas.anfibiosReptiles.reptiles[i].img
-            "
-            alt=""
-          />
+            " alt="" />
           {{ item.texto }}
         </div>
       </div>
     </div>
     <div class="leyendaMain__content" *ngIf="seleccionadoFauna === 'mamiferos'">
-      <div
-        class="subtitle"
-        *ngIf="municipioData?.especiesAmenazadas?.avesMamiferos.aves"
-      >
+      <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas?.avesMamiferos.aves">
         Aves
       </div>
-      <div
-        class="items__texto"
-        *ngFor="
+      <div class="items__texto" *ngFor="
           let item of municipioData.especiesAmenazadas.avesMamiferos.aves;
           let i = index
-        "
-      >
-        <img
-          [src]="municipioData.especiesAmenazadas.avesMamiferos.aves[i].img"
-          alt=""
-        />
+        ">
+        <img [src]="municipioData.especiesAmenazadas.avesMamiferos.aves[i].img" alt="" />
         {{ item.texto }}
       </div>
-      <div
-        class="subtitle"
-        *ngIf="municipioData?.especiesAmenazadas?.avesMamiferos.mamiferos"
-      >
+      <div class="subtitle" *ngIf="municipioData?.especiesAmenazadas?.avesMamiferos.mamiferos">
         Mamíferos
       </div>
-      <div
-        class="items__texto"
-        *ngFor="
+      <div class="items__texto" *ngFor="
           let item of municipioData.especiesAmenazadas.avesMamiferos.mamiferos;
           let i = index
-        "
-      >
-        <img
-          [src]="
+        ">
+        <img [src]="
             municipioData.especiesAmenazadas.avesMamiferos.mamiferos[i].img
-          "
-          alt=""
-        />
+          " alt="" />
         {{ item.texto }}
       </div>
     </div>
@@ -231,3 +160,9 @@
     </div>
   </div>
 </div>
+<button 
+  class="btn-flotante" 
+  *ngIf="isMobile" 
+  (click)="mostrarLeyenda = !mostrarLeyenda">
+  🛈
+</button>

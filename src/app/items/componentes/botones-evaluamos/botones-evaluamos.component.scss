@@ -46,10 +46,14 @@
   --mdc-plain-tooltip-supporting-text-color: white;
   font-size: 11px;
 }
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .tres-botones {
     top: auto;
     bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    left: 0;
   }
 
   .button-top-bar {
@@ -61,5 +65,97 @@
     width: auto;
     height: auto;
     max-height: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .tres-botones {
+    /* display: none; */
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    left: 0;
+  }
+
+  .tres-botones.mostrar {
+    display: flex;
+  }
+
+  .button-top-bar {
+    width: 100%;
+  }
+}
+.menu-float-button {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #333;
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  z-index: 10000;
+}
+
+/* SIDEBAR desde la parte inferior izquierda */
+.sidebar-menu {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 10px;
+  border-radius: 12px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-item {
+  background-color: #f4f4f4;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.sidebar-item.activo {
+  background-color: #333;
+  color: white;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+}
+
+/* SOLO mostrar en móviles */
+@media (max-width: 768px) {
+  .menu-float-button {
+    display: block;
+  }
+
+  .tres-botones {
+    display: none !important;
+  }
+}
+
+/* En pantallas grandes oculta el sidebar */
+@media (min-width: 769px) {
+  .sidebar-menu {
+    display: none !important;
   }
 }

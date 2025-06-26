@@ -1,4 +1,4 @@
-<div class="focosCalor">
+<div class="focosCalor" *ngIf="!isMobile || mostrarLeyenda">
   <div class="titulo">{{ municipio }}</div>
   <div class="fuente">Historico de Quemas 2016 - 2022</div>
   <table>
@@ -18,13 +18,13 @@
   <div class="fuente">Fuente: SIMB</div>
 </div>
 
-<div class="superficie">
+<div class="superficie" *ngIf="!isMobile || mostrarLeyenda">
   <div class="superficie__titulo">Superficie Quemada 2023</div>
   <div class="superficie__text">
     {{ municipioData.superficie }}
   </div>
 </div>
-<div class="leyendaMain leyendaMain--small">
+<div class="leyendaMain leyendaMain--small"*ngIf="!isMobile || mostrarLeyenda">
   <div class="leyendaMain__title">
     {{ municipio }}
   </div>
@@ -59,3 +59,9 @@
     </div>
   </div>
 </div>
+<button 
+  class="btn-flotante" 
+  *ngIf="isMobile" 
+  (click)="mostrarLeyenda = !mostrarLeyenda">
+  🛈
+</button>
