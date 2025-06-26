@@ -3,16 +3,16 @@
         <img *ngFor="let logo of logos" [src]="logo" class="logo" />
     </div>
     <div class="right">
-        <div class="title">RECUPERACIÓN POST INCENDIOS</div>
+        <div class="title">{{titulo}}</div>
         <div class="bar"></div>
         <div class="contac">
             <div class="info_content">
                 <mat-icon fontIcon="send"></mat-icon>
-                <a href="">Informacion&#64;incendios.gob.bo</a>
+                <a href="">{{correo}}</a>
             </div>
             <div class="info_content">
                 <mat-icon fontIcon="location_on"></mat-icon>
-                <a href="">Calle Sánchez Lima Nro. 2653, Zona Sopocachi</a>
+                <a href="">{{direccion}}</a>
             </div>
         </div>
     </div>

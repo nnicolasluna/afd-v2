@@ -45,6 +45,7 @@
     <mat-icon>menu</mat-icon>
 </button>
 <aside class="sidebar" [class.open]="sidebarAbierto">
+    <button class="close-btn" (click)="toggleSidebar()">✕</button>
     <ul class="menu-list">
         <li *ngFor="let item of menuItems" class="lista" (click)="item.action()"
             [ngClass]="{ 'activo': vistaActualActiva === item.id }">

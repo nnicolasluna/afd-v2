@@ -250,7 +250,7 @@ mat-icon {
     align-items: end;
     text-align: center;
     gap: 1.5rem;
-    z-index: 9999;
+    z-index: 2;
 
     .imagenes {
       max-width: 100%;
@@ -299,7 +299,6 @@ mat-icon {
 
 @media (max-width: 480px) {
   .cabecera {
-    display: none;
     padding: 0.75rem;
     position: fixed;
 
@@ -318,7 +317,6 @@ mat-icon {
       }
 
       .contac {
-        display: none;
         font-size: 0.7rem;
 
         .info_content {

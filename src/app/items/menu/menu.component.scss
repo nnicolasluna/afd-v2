@@ -185,4 +185,14 @@ ol {
     display: none;
   }
 }
-
+.close-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin-right: 10px;
+}

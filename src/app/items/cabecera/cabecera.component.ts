@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./cabecera.component.scss'],
 })
 export class CabeceraComponent {
+  titulo = 'RECUPERACIÓN POST INCENDIOS';
+  direccion = 'Calle Sánchez Lima Nro. 2653, Zona Sopocachi';
+  correo = 'Informacion@incendios.gob.bo';
   logos: string[] = [
     'assets/logos/bicentenario_vertical.png',
     'assets/logos/APMT LOGO.png',
