@@ -2,7 +2,9 @@ iframe {
   flex: 1;
   width: 100%;
   border: none;
+  max-width: 800px;
 }
+
 .pdf {
   display: flex;
   flex-direction: column;
@@ -14,50 +16,59 @@ iframe {
   font-weight: bold;
   color: white;
   overflow: hidden;
-min-width: 800px;
+  min-width: 800px;
 }
 
 .title {
   height: 10%;
   margin-top: 1%;
-  flex-shrink: 0; /* Evitar que se encoja */
+  flex-shrink: 0;
+  /* Evitar que se encoja */
 }
+
 .iframe-container {
   flex: 1;
   width: 100%;
   height: 100%;
   overflow: hidden;
   display: flex;
-  min-height: 0; /* Importante para flexbox */
+  min-height: 0;
+  /* Importante para flexbox */
 }
+
 @media (max-width: 500px) {
   .title {
     font-size: 1rem;
     padding: 8px;
-    height: 60px; /* Más espacio para el botón regresar */
+    height: 60px;
+    /* Más espacio para el botón regresar */
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px; /* Espacio para el botón regresar */
+    margin-top: 40px;
+    /* Espacio para el botón regresar */
   }
 
   .pdf {
     font-size: 1.1rem;
     width: 100%;
-    height: 100%; /* Usar altura del contenedor padre */
+    height: 100%;
+    /* Usar altura del contenedor padre */
     overflow: hidden;
     position: relative;
   }
 
   .iframe-container {
     position: absolute;
-    top: 100px; /* Espacio para botón + título */
+    top: 100px;
+    /* Espacio para botón + título */
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    height: calc(100% - 100px); /* Altura calculada del contenedor padre */
+    height: calc(100% - 100px);
+    /* Altura calculada del contenedor padre */
     display: flex;
   }
 

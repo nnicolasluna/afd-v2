@@ -715,7 +715,7 @@ export class InicioComponent implements AfterViewInit {
   constructor(
     private http: HttpClient,
     private modalServiceState: ModalStateService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.modalServiceState.vistaActual$.subscribe((vista) => {
@@ -1325,7 +1325,6 @@ export class InicioComponent implements AfterViewInit {
         const sanBorjaPoints = this.pulsePoints.filter(
           (point) => point.label === muni.municipio
         );
-        console.log(sanBorjaPoints);
         sanBorjaPoints.forEach((point) => {
           this.PulseIcons(point.long, point.lat, this.map3, 'yellow', 8);
         });

@@ -77,7 +77,7 @@ export class AlterRightbarComponent implements OnInit {
       lonMun: -66.206486187544854,
     },
   ];
-  constructor(private modalStateService: ModalStateService) {}
+  constructor(private modalStateService: ModalStateService) { }
   ngOnInit(): void {
     this.modalStateService.data$.subscribe((botonActivo) => {
       if (botonActivo == 'DIAGNOSTICO') {
@@ -99,7 +99,6 @@ export class AlterRightbarComponent implements OnInit {
       (ciudad) => ciudad.municipio === Municipio
     );
     this.locationSelected.emit(ciudadEncontrada);
-    console.log(ciudadEncontrada)
     /* this.modalStateService.mostrarCard(); */
     this.modalStateService.data$.subscribe((botonActivo) => {
       if (botonActivo == 'DIAGNOSTICO') {
