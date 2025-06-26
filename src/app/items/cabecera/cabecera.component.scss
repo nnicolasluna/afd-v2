@@ -2,20 +2,6 @@
   background-color: white;
   color: #1f631c;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000;
-  height: 8%;
-} */
-.cabecera {
-  background-color: white;
-  color: #1f631c;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
@@ -26,7 +12,6 @@
   width: 100%;
   z-index: 1000;
   height: 8vh;
-  /* Usa vh para asegurar proporción en distintos tamaños */
   padding: 0 1rem;
   bottom: auto;
 }
@@ -42,28 +27,12 @@
   align-items: center;
 }
 
-/* .imagenes {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; 
-  height: 100%;
-} */
 
 a {
   text-decoration: none;
   color: #1f631c;
 }
 
-/* .imagenes img {
-  max-height: 60px;
-  width: auto;
-  height: auto;
-  max-height: 90%;
-  object-fit: contain;
-  flex-shrink: 1;
-
-}
- */
 .title {
   display: flex;
   align-items: center;
@@ -160,5 +129,233 @@ mat-icon {
 
   .cabecera {
     display: none;
+  }
+} */
+.cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .imagenes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    max-width: 50%;
+
+    .logo {
+      height: 50px;
+      width: auto;
+      max-width: 100px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* align-items: flex-end; */
+    gap: 0.5rem;
+    flex: 1;
+
+    min-width: 100px;
+
+
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #1f631c;
+      text-align: left;
+    }
+
+    .contac {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #1f631c;
+
+      .info_content {
+        display: flex;
+        align-items: center;
+
+        font-size: 0.9rem;
+
+        mat-icon {
+          font-size: 1.1rem;
+          color: #1f631c;
+        }
+
+        a {
+          text-decoration: none;
+          color: #1f631c;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #3498db;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive breakpoints
+@media (max-width: 1124px) {
+  .cabecera {
+    .imagenes {
+      max-width: 45%;
+      display: none;
+
+      .logo {
+        height: 50px;
+        max-width: 100px;
+      }
+    }
+
+    .right {
+      min-width: 150px;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      .title {
+        font-size: 0.9rem;
+      }
+
+      .contac {
+
+        font-size: 0.9rem;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecera {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+
+
+    .imagenes {
+      max-width: 100%;
+      justify-content: center;
+
+      .logo {
+        height: 45px;
+        max-width: 90px;
+      }
+    }
+
+    .right {
+      align-items: center;
+      min-width: auto;
+      width: 100%;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      .title {
+        font-size: 0.7rem;
+        text-align: center;
+      }
+
+      .contac {
+
+        align-items: center;
+
+        .info_content {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      a {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecera {
+    display: none;
+    padding: 0.75rem;
+    position: fixed;
+
+    .imagenes {
+      gap: 0.25rem;
+
+      .logo {
+        height: 35px;
+        max-width: 70px;
+      }
+    }
+
+    .right {
+      .title {
+        font-size: 0.7rem;
+      }
+
+      .contac {
+        display: none;
+        font-size: 0.7rem;
+
+        .info_content {
+          font-size: 0.7rem;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          mat-icon {
+            font-size: 0.7rem;
+          }
+        }
+      }
+
+      a {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .cabecera {
+    .imagenes {
+      .logo {
+        height: 30px;
+        max-width: 60px;
+      }
+    }
+
+    .right {
+      .title {
+        font-size: 0.7rem;
+        line-height: 1.1;
+      }
+
+      .contac {
+        font-size: 0.7rem;
+
+        .info_content {
+          font-size: 0.7rem;
+        }
+
+        a {
+          font-size: 0.7rem;
+        }
+      }
+    }
   }
 }
