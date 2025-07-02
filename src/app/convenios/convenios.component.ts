@@ -40,6 +40,7 @@ export class ConveniosComponent {
       objeto:
         'El presente convenio tiene como objeto principal establecer una alianza estratégica',
       pdf: 'Convenio_SanBuenaventura.pdf',
+      imagen: 'assets/imagenes/sanbuena.jpg',
     },
     {
       nombre: 'Gobierno Autonomo Municipal de Rurrenabaque',
@@ -47,6 +48,7 @@ export class ConveniosComponent {
       objeto:
         'El presente convenio tiene como objeto principal establecer una alianza estratégica',
       pdf: 'Convenio_Rurrenabaque.pdf',
+      imagen: 'assets/imagenes/rurre.png',
     },
     {
       nombre: 'Gobierno Autonomo Municipal de Palos Blancos',
@@ -55,8 +57,8 @@ export class ConveniosComponent {
         'El presente convenio tiene como objeto principal establecer una alianza estratégica',
 
       pdf: 'Convenio_PalosBlancos.pdf',
+      imagen: 'assets/imagenes/palos_blancos.jpg',
     },
-    
   ];
 
   ngOnInit(): void {

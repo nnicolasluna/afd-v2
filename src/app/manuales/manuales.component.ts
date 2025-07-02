@@ -14,22 +14,24 @@ export class ManualesComponent {
   isMobile = false;
   manuales = [
     {
-      archivo: 'ANEXO 2 MANUAL_PRELIMINAR_DE_ACCIONES_DE_RECUPERACIÓN_V1.2.pdf',
+      archivo: 'MANUAL DE ACCIONES DE RECUPERACION.pdf',
       titulo: 'ACCIONES DE RECUPERACIÓN',
-
-      pdfUrl:
-        'assets/pdf/ANEXO 2 MANUAL_PRELIMINAR_DE_ACCIONES_DE_RECUPERACIÓN_V1.2.pdf',
     },
     {
       archivo:
-        'ANEXO 3 MANUAL_PRELIMINAR_DE_PRÁCTICAS_ALTERNATIVAS_AL_USO_DEL_FUEGO_V1.2.pdf',
+        'MANUAL PRACTICAS ALTERNATIVAS.pdf',
       titulo: 'PRÁCTICAS ALTERNATIVAS AL USO DEL FUEGO',
     },
     {
       archivo:
-        'Anexo 4. Manual para la evaluación de daños ambientales e impactos .pdf',
+        'MANUAL EVALUACION DE DAÑOS.pdf',
       titulo: 'EVALUACION DE DAÑOS AMBIENTALES Y IMPACTOS',
+    },{
+      archivo:
+        'LINEAMIENTOS METODOLOGICOS GESI.pdf',
+      titulo: 'LINEAMIENTOS METODOLOGICOS GESI',
     },
+
   ];
 
   ShowManual(direccion: string, tituloPdf: string) {
