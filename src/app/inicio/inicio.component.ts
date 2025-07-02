@@ -779,7 +779,7 @@ export class InicioComponent implements AfterViewInit {
       this.map.remove();
     }
     this.map = L.map('map', {
-      center: [-16, -65],
+      center: [-18, -65],
       zoom: 5,
       scrollWheelZoom: true,
       dragging: true,
@@ -1358,10 +1358,10 @@ export class InicioComponent implements AfterViewInit {
 
           // Aplica transparencia a capas específicas (ejemplo: 'b' y 'aq')
           if (layerName === 'ap') {
-            layerOptions = { ...layerOptions, opacity: 0.7 };
+            layerOptions = { ...layerOptions, opacity: 0.6 };
           }
           if (layerName === 'ar') {
-            layerOptions = { ...layerOptions, opacity: 0.7 };
+            layerOptions = { ...layerOptions, opacity: 0.8 };
           }
           if (layerName === 'b') {
             layerOptions = { ...layerOptions, opacity: 0.8 };
@@ -1385,7 +1385,7 @@ export class InicioComponent implements AfterViewInit {
             layerOptions = { ...layerOptions, opacity: 0.5 };
           }
           if (layerName === 'af') {
-            layerOptions = { ...layerOptions, opacity: 0.5 };
+            layerOptions = { ...layerOptions, opacity: 0.7 };
           }
           if (layerName === 'tco') {
             layerOptions = { ...layerOptions, opacity: 0.7 };
@@ -1397,8 +1397,8 @@ export class InicioComponent implements AfterViewInit {
           wmsLayers[layerName].addTo(this.map3); // Initially add all layers
         }
       }
-      L.control.layers({}, wmsLayers).addTo(this.map3);
-      this.map3.fitBounds(bounds);
+/*       L.control.layers({}, wmsLayers).addTo(this.map3);
+ */      this.map3.fitBounds(bounds);
     }, 0);
   }
   cerrarRB() {

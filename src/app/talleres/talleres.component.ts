@@ -611,7 +611,7 @@ tipoTaller:string=''
   taller4 = [
     {
       "Municipio": "Rurrenabaque",
-      "Titulo": "Desarrollo del Taller de PAUF",
+      "Titulo": "Desarrollo del Taller de Prácticas Alternativas al Uso de Fuego",
       "Fecha": "16 - 17 de mayo 2025",
       "Contenido": "Se llevó a cabo el taller del Programa de Aprovechamiento y Uso Forestal (PAUF), organizado en dos jornadas con el objetivo de garantizar una formación integral a los participantes. Las actividades se dividieron en una sesión teórica, realizada el día 16 de mayo, y una sesión práctica, desarrollada el 17 de mayo.Esta estructura permitió combinar conocimientos conceptuales con experiencias aplicadas en campo, asegurando una mejor comprensión de los contenidos y fortaleciendo las capacidades técnicas de los asistentes en el manejo adecuado de los recursos forestales."
     },

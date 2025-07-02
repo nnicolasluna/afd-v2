@@ -62,12 +62,12 @@ export class RecuperacionComponent {
               Piezas: '280',
             },
             {
-              Equipo: 'Plantas Frutales',
+              Equipo: 'Plantines Frutales',
               Piezas: '280',
             },
             {
-              Equipo: 'Varetas',
-              Piezas: '3750',
+              Equipo: 'Varetas de Cacao',
+              Piezas: '3.750',
             },
           ],
         },
@@ -92,10 +92,6 @@ export class RecuperacionComponent {
             },
             {
               Equipo: 'Cedro',
-              Piezas: null,
-            },
-            {
-              Equipo: 'Toco Colorado',
               Piezas: null,
             },
             {
@@ -170,6 +166,10 @@ export class RecuperacionComponent {
               Equipo: 'Tijeras de Podar',
               Piezas: '10 ',
             },
+            {
+              Piezas: '300 Litros',
+              Equipo: 'Diesel',
+            },
           ],
         },
         tabla3: {
@@ -205,7 +205,7 @@ export class RecuperacionComponent {
     {
       municipio: 'Vinto',
       descripcion:
-        'Entrega de materiales, herramientas en insumos al Gobierno Autónomo Municipal de Vinto para la producción de plantines forestales nativos para establecimiento de plantaciones en zonas priorizadas en la próxima temporada de lluvias. Entrega de herramientas a la comunidad Combuyo Chico para el establecimiento de plantaciones forestales.',
+        'Entrega de materiales, herramientas en insumos al Gobierno Autónomo Municipal de Vinto para la producción de plantines forestales nativos para establecimiento de plantaciones en zonas priorizadas en la próxima temporada de lluvias. Entrega de herramientas a la comunidad Combuyo Chico para el establecimiento de plantaciones forestales. Se recuperarán 20 hectáreas',
       tablas: {
         tabla1: {
           comunidad: 'Gobierno Autónomo Municipal de Vinto ',
@@ -295,7 +295,7 @@ export class RecuperacionComponent {
     {
       municipio: 'Rurrenabaque',
       descripcion:
-        'Desarrollo de actividades orientadas a la implementación de plantines de cacao criollo bajo un enfoque agroforestal, en el marco del fortalecimiento de sistemas productivos resilientes en el municipio de Rurrenabaque. Esta intervención busca mejorar la recuperación de suelos degradados.',
+        'Desarrollo de actividades orientadas a la implementación de plantines de cacao criollo bajo un enfoque agroforestal, en el marco del fortalecimiento de sistemas productivos resilientes en el municipio de Rurrenabaque. Esta intervención busca mejorar la recuperación de suelos degradados. Se busca la rehabilitación de 14,5 hectáreas en sistemas agroforestales, teniendo como principal protagonista al cacao criollo',
       tablas: {
         tabla1: {
           comunidad: 'Asunción del Quiquibey ',
@@ -303,11 +303,23 @@ export class RecuperacionComponent {
           datosTabla: [
             {
               Equipo: 'Cacao Criollo',
-              Piezas: '5800',
+              Piezas: '5.800',
             },
             {
               Equipo: 'Plantines Forestales',
-              Piezas: '130',
+              Piezas: '139',
+            },
+            {
+              Equipo: 'Cedro',
+              Piezas: '',
+            },
+            {
+              Equipo: 'Toco colorado',
+              Piezas: '',
+            },
+            {
+              Equipo: 'Palo maría',
+              Piezas: '',
             },
           ],
         },
@@ -338,6 +350,10 @@ export class RecuperacionComponent {
             },
             {
               Equipo: 'Plantines de Especies Forestales',
+              Piezas: '350',
+            },
+            {
+              Equipo: 'Toco colorado',
               Piezas: '350',
             },
             {

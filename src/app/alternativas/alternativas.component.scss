@@ -81,9 +81,9 @@ button:hover {
 .items-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  font-size: 10px;
-  justify-items: center;
+  gap: 2px;
+  font-size: 0.5rem;
+  place-items: center; 
 }
 
 .item {
@@ -228,7 +228,7 @@ button:hover {
     font-size: 0.8rem;
     height: auto;
   }
-  .text{
+  .text {
     font-size: 0.7rem;
   }
 }

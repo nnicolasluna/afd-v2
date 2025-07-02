@@ -94,7 +94,10 @@
         <!-- <button class="btnPrimeraPantalla"></button> -->
     </div>
     <div class="segundaPantallaTalleres" *ngIf="taller2">
-        <div class="NumeroTaller">{{Numerotaller}}</div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 1'">TALLER DE ARRANQUE</div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 2'">TALLER DE SOCIALIZACION</div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 3'">TALLER DE PRESENTACION DE RESULTADOS DEL DIAGNOSTICO</div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 4'">TALLER DE IMPLEMENTACION DE ACCIONES</div>
         <div class="btnDepto" *ngIf="Numerotaller!='TALLER 3'">
             <button class="btnDepto__1" [ngClass]="{'active': regionSeleccionada?.nombre === region.nombre }"
                 *ngFor="let region of regiones" (click)="seleccionarRegion(region,Numerotaller)">
@@ -235,7 +238,8 @@
         </div>
     </div>
     <div class="terceraPantallaTalleres-Participantes" *ngIf="tecerapantalla_participantes">
-        <div class="Bigtitle">{{municipioSeleccionado?.nombre}}</div>
+        <div *ngIf="Numerotaller!='TALLER 3'" class="Bigtitle">{{municipioSeleccionado?.nombre}}</div>
+         <div *ngIf="Numerotaller==='TALLER 3'" class="Bigtitle">PRESENTACIÓN DE RESULTADOS DEL DIAGNOSTICO</div>
         <div class="tallerCardleft tallerCardleft--big">
 
             <div class="tallerCardleft__body">

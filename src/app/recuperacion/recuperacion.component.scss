@@ -87,8 +87,8 @@ button:hover {
 .items-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3px;
-  font-size: 10px;
+  gap: 2px;
+  font-size: 0.5rem;
 }
 
 .item {

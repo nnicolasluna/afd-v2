@@ -140,6 +140,8 @@ mat-icon {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
   gap: 1rem;
+  z-index: 6;
+  position: relative;
 
   .imagenes {
     display: flex;

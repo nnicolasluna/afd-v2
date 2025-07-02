@@ -9,13 +9,16 @@
   max-height: 80vh;
   overflow-y: auto;
   bottom: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .titulo {
   text-align: center;
   font-weight: bold;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
   color: white;
 }
 
@@ -23,25 +26,25 @@
   display: flex;
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding:2px 10px;
   align-items: center;
-  gap: 20px;
+  font-size: 1rem;
 }
 
 .card img.logo {
-  width: 100px;
+  width: 80px;
   height: auto;
 }
 
 .card-content {
   flex: 1;
+  font-size: 0.8rem;
 }
 
-.card-content h2 {
+.card-content h5 {
   margin: 0;
   color: #4caf50;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .card-content .label {

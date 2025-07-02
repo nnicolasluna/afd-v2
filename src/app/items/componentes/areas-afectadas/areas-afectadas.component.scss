@@ -10,6 +10,9 @@
   align-items: center;
   width: 100%;
   padding: 10px;
+  max-width: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   &--small {
     width: fit-content;

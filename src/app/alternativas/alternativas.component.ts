@@ -14,12 +14,7 @@ export class AlternativasComponent {
     {
       municipio: 'Palos Blancos',
       descripcion:
-        'Entrega e instalación de un secador solar al emprendimiento de la Organización de Mujeres Indígenas del Norte (OMIN), ubicado en el municipio de Palos Blancos, con el objetivo de fortalecer la producción local de harina de plátano como alternativa económica y sostenible. La infraestructura consta de una estructura metálica techada con policarbonato resistente, diseñada para optimizar la captación de energía solar. Se incluyó además la instalación de seis ventanas con mecanismos de ventilación natural, lo que permite una adecuada circulación del aire caliente y mejora el proceso de deshidratación de los productos agrícolas',
-      extraData: [
-        {
-          extradata: 'Secador Solar',
-        },
-      ],
+        'Entrega e instalación de un secador solar al emprendimiento de la Organización de Mujeres Indígenas del Norte (OMIN), ubicado en el municipio de Palos Blancos, con el objetivo de fortalecer la producción local de harina de plátano como alternativa económica y sostenible. La infraestructura consta de una estructura metálica techada con policarbonato resistente, diseñada para optimizar la captación de energía solar. Se incluyó además la instalación de seis ventanas con mecanismos de ventilación natural, lo que permite una adecuada circulación del aire caliente y mejora el proceso de deshidratación de los productos agrícolas. Entrega de 207 cajas meliponas para la cría de abejas y producción de miel más capacitaciones en meliponicultura. 108 cajas entregadas a Inicua Bajo y 99 a la OMIM.',
       tablas: {
         tabla1: {
           comunidad: 'Organización de la Mujer Indígena Moseten (OMIN)',
@@ -33,6 +28,18 @@ export class AlternativasComponent {
             },
             {
               Equipo: 'Materiales y Áridos para el Piso',
+            },
+            {
+              Equipo: 'Secador Solar',
+            },
+            {
+              Equipo: 'Estructura metálica',
+            },
+            {
+              Equipo: 'Cobertura de policarbonato',
+            },
+            {
+              Equipo: 'áridos para el piso',
             },
           ],
         },
@@ -51,11 +58,11 @@ export class AlternativasComponent {
     {
       municipio: 'San Buenaventura',
       descripcion:
-        'En la comunidad de Altamarani, se llevó adelante la implementación de cajas de abejas meliponas, con el fin de impulsar la producción y recolección de miel nativa, fortaleciendo los sistemas productivos sostenibles y respetuosos con la biodiversidad local. La meliponicultura representa una alternativa que promueve la conservación de polinizadores y el uso sostenible del bosque, generando ingresos sin comprometer los ecosistemas. Por otro lado, en la comunidad de Tres Hermanos, se brindó apoyo al emprendimiento de elaboración de jabones y champús naturales, mediante la realización de capacitaciones especializadas en técnicas artesanales, así como la entrega de insumos, materiales y utensilios necesarios para la producción.',
+        'En las comunidades de Altamarani y Tres Hermanos, se llevó adelante la implementación de cajas de abejas meliponas, con el fin de impulsar la producción y recolección de miel nativa, fortaleciendo los sistemas productivos sostenibles y respetuosos con la biodiversidad local. La meliponicultura representa una alternativa que promueve la conservación de polinizadores y el uso sostenible del bosque, generando ingresos sin comprometer los ecosistemas. Por otro lado, en la comunidad de Tres Hermanos, se brindó apoyo al emprendimiento de elaboración de jabones y champús naturales, mediante la realización de capacitaciones especializadas en técnicas artesanales, así como la entrega de insumos, materiales y utensilios necesarios para la producción.Diversificación de productos del emprendimiento TUMI dedicado a la elaboración de jabones medicinales, incorporando champú naturales y medicinales como nuevo producto. Incluye insumos, packing, talleres de capacitación para la elaboración de champú. Se entregaron 120 cajas meliponas para la cría de abejas y producción de miel más capacitaciones en meliponicultura. 60 cajas fueron entregadas a Altamarani y 60 a Tres Hermanos. Se apoyo a un emprendimiento comunitario de elaboración de shampoo y jabones por medio de la compra de insumos (moldes, utensilios, insumos vegetales y aceites naturales) y una capacitación técnica para las 12 personas que integran el emprendimiento',
       tablas: {
         tabla1: {
-          comunidad: 'Comunidad Altamarani',
-          tipo: 'MATERIALES',
+          comunidad: 'Comunidad Altamarani – Tres Hermanos',
+          tipo: 'Modificar a Sistemas Productivos Sustentables.',
           datosTabla: [
             {
               Equipo: 'Cajas de Meliponas',
@@ -106,10 +113,6 @@ export class AlternativasComponent {
             {
               Piezas: '4 Equipos',
               Equipo: 'Handies',
-            },
-            {
-              Piezas: '300 Litros',
-              Equipo: 'Diesel',
             },
           ],
         },
@@ -268,18 +271,25 @@ export class AlternativasComponent {
       municipio: 'Rurrenabaque',
       descripcion:
         'Entrega e instalación de un sistema de refrigeración para apoyar al emprendimiento de ecoturismo..',
-      extraData: [
-        {
-          extradata: 'Comunidad Carmen Florida',
-        },
-      ],
       tablas: {
         tabla1: {
           comunidad: 'Comunidad Carmen Florida',
           tipo: 'MATERIALES',
           datosTabla: [
             {
-              Equipo: 'Sistema de Refrigeración Solar',
+              Equipo: '5 paneles solares',
+            },
+            {
+              Equipo: 'Soportes',
+            },
+            {
+              Equipo: 'Batería de almacenamiento',
+            },
+            {
+              Equipo: 'Controladores de carga',
+            },
+            {
+              Equipo: 'Freezer de 300 litros',
             },
           ],
         },
@@ -288,7 +298,7 @@ export class AlternativasComponent {
     {
       municipio: 'San Borja',
       descripcion:
-        'Se realizó la entrega de cajas de abejas meliponas a las comunidades de Tierra Santa y Pachiuval, como parte de las acciones orientadas a promover alternativas sostenibles al uso del fuego en prácticas agroproductivas y de manejo del entorno rural. La implementación de sistemas de meliponicultura representa una estrategia productiva compatible con la conservación del bosque y el uso responsable del territorio, ya que no requiere quema de áreas para su mantenimiento ni para ampliar zonas de producción. Por el contrario, incentiva la preservación de la cobertura vegetal y la biodiversidad, al depender directamente de los ecosistemas forestales para garantizar el alimento de las abejas.',
+        'Se realizó la entrega de cajas de abejas meliponas a las comunidades de Tierra Santa y Pachiuval, como parte de las acciones orientadas a promover alternativas sostenibles al uso del fuego en prácticas agroproductivas y de manejo del entorno rural. La implementación de sistemas de meliponicultura representa una estrategia productiva compatible con la conservación del bosque y el uso responsable del territorio, ya que no requiere quema de áreas para su mantenimiento ni para ampliar zonas de producción. Por el contrario, incentiva la preservación de la cobertura vegetal y la biodiversidad, al depender directamente de los ecosistemas forestales para garantizar el alimento de las abejas. Entrega de 123 cajas meliponas para la cria de abejas y producción de miel (78 cajas para Pachiuval y 45 para Tierra Santa) más capacitaciones en meliponicultura.',
       tablas: {
         tabla1: {
           comunidad: 'Comunidad Pachiuval',
@@ -296,7 +306,7 @@ export class AlternativasComponent {
           datosTabla: [
             {
               Equipo: 'Cajas de Meliponas',
-              Piezas: '300',
+              Piezas: '150',
             },
           ],
         },
@@ -306,7 +316,7 @@ export class AlternativasComponent {
           datosTabla: [
             {
               Equipo: 'Cajas de Meliponas',
-              Piezas: '300',
+              Piezas: '150',
             },
           ],
         },

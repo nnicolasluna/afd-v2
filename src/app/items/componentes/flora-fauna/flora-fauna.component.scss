@@ -62,13 +62,18 @@
   align-items: center;
   margin-top: 3px;
   margin-bottom: 3px;
+  gap: 2px;
 
   &__icono {
     width: 25px;
     height: 25px;
     flex-shrink: 0;
   }
-
+  &__cont {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
   &__texto {
     /*     font-size: 0.65rem;
  */
@@ -154,7 +159,9 @@ li {
   color: white;
   max-width: 300px;
   font-size: 12px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   &__titulo {
     text-align: center;
     font-weight: bold;
@@ -194,7 +201,7 @@ li {
   cursor: pointer;
 }
 @media (max-width: 900px) {
-  .infoSecundario{
+  .infoSecundario {
     display: none;
   }
 }

@@ -14,48 +14,6 @@ export class FloraFaunaComponent {
   municipioData: any;
   seleccionado: string = '';
   seleccionadoFauna: string = '';
-  /* data = [
-    {
-      municipio: 'San Buenaventura',
-      fauna: {
-        centrosPoblados: [
-          { texto: 'Principales Centros Poblados', img: '' },
-          { texto: 'Centros Poblados', img: '' },
-          { texto: 'Limite Municipal', img: '' },
-          { texto: 'Limite Municipal-San Buenaventura', img: '' },
-        ],
-        aq: [
-          { texto: 'Area Quemada 2023', img: '' },
-        ],
-        tco: [
-          { texto: 'Mosetenes', img: '' },
-          { texto: 'Pilón Lajas', img: '' },
-        ],
-        ap: [
-          { texto: 'Reserva de la Biosfera Pilón Lajas', img: '' },
-        ],
-        bosques: [
-          { texto: 'Bosque Amazónico', img: '' },
-          { texto: 'Bosque Yungas', img: '' },
-        ]
-      },
-      flora: {
-        reptiles: {
-          anfibiosReptiles: {
-            aq: [
-              { texto: 'Area Quemada 2023', img: '' },
-              { texto: 'Principales Centros Poblados', img: '' },
-              { texto: 'Limite Municipal', img: '' },
-            ],
-            reptiles: [
-              { texto: 'Culebra de Balzan', img: '' },
-            ]
-          },
-          avesMamiferos: {}
-        }
-      }
-    }
-  ] */
   data = [
     {
       municipio: 'Palos Blancos',
@@ -136,7 +94,7 @@ export class FloraFaunaComponent {
         ],
         areaquemada: [
           { texto: '1 año', img: 'assets/iconosLeyenda/aq.png' },
-          { texto: '2 años', img: 'assets/iconosLeyenda/aq1.png' },
+          { texto: '2 años', img: 'assets/iconosLeyenda/aq2.png' },
           { texto: '3 años', img: 'assets/iconosLeyenda/aq3.png' },
         ],
         areasprotegidas: [
@@ -589,6 +547,16 @@ export class FloraFaunaComponent {
           cantidad: '72 ha',
         },
       ],
+      territorios: [
+        {
+          texto: 'Moseten 79.919,5 ha',
+          cantidad: '',
+        },
+        {
+          texto: 'Total,  ',
+          cantidad: 'Total, de tcos  79.919,5 ha',
+        },
+      ],
     },
     {
       nombre: 'San Buenaventura',
@@ -608,7 +576,7 @@ export class FloraFaunaComponent {
       ],
       territoriosIndigenas: [
         {
-          texto: '-	Área Natural de Manejo Integrado Pilón Lajas Madidi ',
+          texto: 'Área Natural de Manejo Integrado Pilón Lajas Madidi ',
           cantidad: '117.292 ha',
         },
         {
@@ -634,6 +602,20 @@ export class FloraFaunaComponent {
           cantidad: 'afectado: 14.853 hectáreas. ',
         },
       ],
+      territorios: [
+        {
+          texto: 'San José de Uchupiamonas 90.755 ha',
+          cantidad: '',
+        },
+        {
+          texto: '	Tacana I 204,208 ha',
+          cantidad: '',
+        },
+        {
+          texto: 'Total,  ',
+          cantidad: 'Total, de tcos 294.963 ha',
+        },
+      ],
     },
     {
       nombre: 'Tiquipaya',
@@ -655,6 +637,17 @@ export class FloraFaunaComponent {
           cantidad: '36 ha',
         },
       ],
+      territoriosIndigenas: [
+        {
+          texto: 'Parque Nacional Tunari 29.300 ha ',
+          cantidad: '',
+        },
+        {
+          texto: 'Área Protegida Norte Tiquipaya 204.208 ha',
+          cantidad: '',
+        },
+
+      ],
       Incendios: [
         {
           texto: 'ha quemadas en total',
@@ -675,6 +668,12 @@ export class FloraFaunaComponent {
     },
     {
       nombre: 'Vinto',
+      territoriosIndigenas: [
+        {
+          texto: 'Parque Nacional Tunari 16,711 ha ',
+          cantidad: '',
+        },
+      ],
       CoberturaForestal: [
         {
           texto: 'Parque Nacional Tunari',
@@ -799,6 +798,20 @@ export class FloraFaunaComponent {
         {
           texto: 'ha afectadas Bosque de Yungas',
           cantidad: '4,574 ha',
+        },
+      ],
+      territorios: [
+        {
+          texto: 'Pilon Lajas 127.542 ha',
+          cantidad: '',
+        },
+        {
+          texto: 'Tacana I 0.0001 ha',
+          cantidad: '',
+        },
+        {
+          texto: 'Total,  ',
+          cantidad: 'de tcos 127.542 ha',
         },
       ],
     },

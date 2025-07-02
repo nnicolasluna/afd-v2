@@ -13,6 +13,52 @@ export class ConveniosComponent {
   isMobile = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+  convenios = [
+    {
+      nombre: 'Gobierno Autonomo Municipal de Tiquipaya',
+      nombreCorto: 'Tiquipaya',
+      objeto:
+        'El presente convenio tiene como objeto principal establecer una alianza estratégica',
+      fecha: '1 de Febrero de 2025',
+      imagen:
+        'assets/imagenes/352390683_939313077346567_5335661545168067936_n.jpg',
+      pdf: 'Convenio_Tiquipaya.pdf',
+    },
+    {
+      nombre: 'Gobierno Autonomo Municipal de Vinto',
+      nombreCorto: 'Vinto',
+      objeto:
+        'El presente convenio tiene como objeto principal establecer una alianza estratégica',
+      fecha: '26 de Febrero de 2025',
+      imagen:
+        'assets/imagenes/486164854_9422512184532706_5850050359495577557_n.jpg',
+      pdf: 'Convenio_Vinto.pdf',
+    },
+    {
+      nombre: 'Gobierno Autonomo Municipal de San buenaventura ',
+      nombreCorto: 'Vinto',
+      objeto:
+        'El presente convenio tiene como objeto principal establecer una alianza estratégica',
+      pdf: 'Convenio_SanBuenaventura.pdf',
+    },
+    {
+      nombre: 'Gobierno Autonomo Municipal de Rurrenabaque',
+      nombreCorto: 'Vinto',
+      objeto:
+        'El presente convenio tiene como objeto principal establecer una alianza estratégica',
+      pdf: 'Convenio_Rurrenabaque.pdf',
+    },
+    {
+      nombre: 'Gobierno Autonomo Municipal de Palos Blancos',
+      nombreCorto: 'Vinto',
+      objeto:
+        'El presente convenio tiene como objeto principal establecer una alianza estratégica',
+
+      pdf: 'Convenio_PalosBlancos.pdf',
+    },
+    
+  ];
+
   ngOnInit(): void {
     this.breakpointObserver
       .observe([Breakpoints.Handset])
@@ -31,5 +77,4 @@ export class ConveniosComponent {
     link.download = pdf;
     link.click();
   }
-
 }
