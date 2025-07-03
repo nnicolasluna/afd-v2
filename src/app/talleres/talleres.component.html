@@ -9,9 +9,9 @@
                     </div>
                     <div class="talleres">
                         <div class="title title--orange">Taller de Arranque</div>
-                        <div class="date">10 Octubre 2024</div>
+                        <div class="">10 Octubre 2024</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/2.png">
+                            <!-- <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/2.png"> -->
                             <div class="description">
                                 Identificación y contacto con actores clave.
                                 Entrevistas y reuniones de presentaciones temáticas.
@@ -34,7 +34,7 @@
                         <div class="title title--red">Taller de Mesas Técnicas</div>
                         <div class="date">13-24 Enero 2025</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/3.png">
+                            <!-- <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/3.png"> -->
                             <div class="description">
                                 Documentar los procesos, acuerdos y lecciones aprendidas en las mesas de trabajo
                                 realizadas con el fin de establecer criterios técnicos y definir áreas priorizadas para
@@ -59,7 +59,7 @@
                         <div class="title title--other">Taller de Presentación de Resultados</div>
                         <div class="date">26 Febrero 2025</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/4.png">
+                            <!-- <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/4.png"> -->
                             <div class="description">
                                 Presentar los resultados de un proceso esencial de diagnostico e identificación de
                                 acciones de recuperación y practicas alternativas al uso de fuego en áreas afectadas por
@@ -80,7 +80,7 @@
                     <div class="talleres talleres--special">
                         <div class="title title--green">Taller de Socialización y Capacitaciones</div>
                         <div class="imgTex">
-                            <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/5.png">
+                            <!-- <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/5.png"> -->
                             <div class="description">
                                 Talleres realizados en múltiples fechas los cuales fueron efectuados en diferentes
                                 Municipios, ya sea con un fin educativo Teórico o Practico.
@@ -90,14 +90,38 @@
                 </div>
 
             </div>
+            <div class="timeLineContent timeLineContent__5" (click)="botonVertaller('TALLER 5')">
+                <div class="taller-container">
+                    <div class="cicleandBar">
+                        <div class="timeline-circle timeline-circle--blue"></div>
+                        <div class="timeline-line timeline-line--blue"></div>
+                    </div>
+                    <div class="talleres">
+                        <div class="title title--blue">Taller de Presentación de Resultados</div>
+                        <!-- <div class="date">26 Febrero 2025</div> -->
+                        <div class="imgTex">
+                            <!-- <img class="imgTimeline" src="assets/imagenes/Talleres/timeline/4.png"> -->
+                            <div class="description">
+                                Fortalecer las capacidades locales en la recuperación y restauración de suelos afectados
+                                por incendios forestales, promoviendo el manejo integral del fuego y prácticas
+                                alternativas al uso del fuego.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bar bar--blue"></div>
+            </div>
         </div>
         <!-- <button class="btnPrimeraPantalla"></button> -->
     </div>
     <div class="segundaPantallaTalleres" *ngIf="taller2">
-        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 1'">TALLER DE ARRANQUE</div>
-        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 2'">TALLER DE SOCIALIZACION</div>
-        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 3'">TALLER DE PRESENTACION DE RESULTADOS DEL DIAGNOSTICO</div>
-        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 4'">TALLER DE IMPLEMENTACION DE ACCIONES</div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 1'"><strong>TALLER DE ARRANQUE</strong></div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 2'"><strong>TALLER DE SOCIALIZACION</strong></div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 3'"><strong>TALLER DE PRESENTACION DE RESULTADOS DEL
+                DIAGNOSTICO</strong>
+        </div>
+        <div class="NumeroTaller" *ngIf="Numerotaller=='TALLER 4'"><strong>TALLER DE IMPLEMENTACION DE ACCIONES</strong>
+        </div>
         <div class="btnDepto" *ngIf="Numerotaller!='TALLER 3'">
             <button class="btnDepto__1" [ngClass]="{'active': regionSeleccionada?.nombre === region.nombre }"
                 *ngFor="let region of regiones" (click)="seleccionarRegion(region,Numerotaller)">
@@ -116,7 +140,7 @@
         <div class="btnMuni" *ngIf="Numerotaller=='TALLER 3'"></div>
         <div class="btnDepto" *ngIf="Numerotaller=='TALLER 3'"></div>
         <div class="doublecard">
-            <div class="tallerCardleft tallerCardleft--normal">
+            <div class="tallerCardleft ">
                 <div class="tallerCardleft__body">
                     <div class="tallerCardleft__title" *ngIf="Numerotaller==='TALLER 2'">Desarrollo de las Mesas
                         Técnicas Participativas</div>
@@ -195,51 +219,16 @@
                     </div>
                 </div>
             </div>
-            <!--  <div class="tallerCardright" *ngIf="municipioSeleccionado?.nombre!='Rurrenabaque' &&Numerotaller!='TALLER 4' "> -->
-            <div class="tallerCardright" *ngIf="Numerotaller!='TALLER 3' && Numerotaller!='TALLER 4'">
-                <div class="title">Galería de Imágenes {{Numerotaller}}</div>
-                <div class="tallerCardright__body">
-                    <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/1.png">
-                        <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
-                    </div>
-                    <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/2.png">
-                        <div *ngIf="Numerotaller==='TALLER 2'"> {{datosMunicipioSelecionado[6]?.Fecha}}</div>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="tallerCardright" *ngIf="Numerotaller=='TALLER 3'">
-                <div class="title">Galería de Imágenes {{Numerotaller}}</div>
-                <div class="tallerCardright__body">
-                    <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/1.png">
-                    </div>
-                    <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/2.png">
-                    </div>
-                </div>
-            </div>
-            <div class="tallerCardright"
-                *ngIf="municipioSeleccionado?.nombre != 'Rurrenabaque' && Numerotaller == 'TALLER 4'">
-                <div class="title">Galería de Imágenes {{municipioSeleccionado?.nombre}}</div>
-                <div class="tallerCardright__body">
-                    <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/2.png">
-                    </div>
-                    <div class="cont_img">
-                        <img src="assets/imagenes/Talleres/{{Numerotaller}}/{{municipioSeleccionado?.nombre}}/2.png">
-                    </div>
-                </div>
+            <div class="tallerCardright">
+                <app-carrucel [municipio]="municipioSeleccionado?.nombre|| ''" [taller]="Numerotaller">
+                </app-carrucel>
             </div>
 
         </div>
     </div>
     <div class="terceraPantallaTalleres-Participantes" *ngIf="tecerapantalla_participantes">
         <div *ngIf="Numerotaller!='TALLER 3'" class="Bigtitle">{{municipioSeleccionado?.nombre}}</div>
-         <div *ngIf="Numerotaller==='TALLER 3'" class="Bigtitle">PRESENTACIÓN DE RESULTADOS DEL DIAGNOSTICO</div>
+        <div *ngIf="Numerotaller==='TALLER 3'" class="Bigtitle">PRESENTACIÓN DE RESULTADOS DEL DIAGNOSTICO</div>
         <div class="tallerCardleft tallerCardleft--big">
 
             <div class="tallerCardleft__body">

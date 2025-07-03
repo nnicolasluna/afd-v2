@@ -36,6 +36,7 @@ import { FloraFaunaComponent } from './items/componentes/flora-fauna/flora-fauna
 import { AreasAfectadasComponent } from './items/componentes/areas-afectadas/areas-afectadas.component';
 import { RestauracionComponent } from './items/componentes/restauracion/restauracion.component';
 import { RegeneracionComponent } from './items/componentes/regeneracion/regeneracion.component';
+import { CarrucelComponent } from './talleres/components/carrucel/carrucel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { RegeneracionComponent } from './items/componentes/regeneracion/regenera
     AreasAfectadasComponent,
     RestauracionComponent,
     RegeneracionComponent,
+    CarrucelComponent,
     
   ],
   imports: [

@@ -157,7 +157,7 @@ export class FloraFaunaComponent {
         ],
         Tco: [
           { texto: 'Pilón Lajas', img: 'assets/iconosLeyenda/city1.png' },
-          { texto: 'Tacana I', img: 'assets/iconosLeyenda/pccity2p.png' },
+          { texto: 'Tacana I', img: 'assets/iconosLeyenda/city2.png' },
         ],
         areasprotegidas: [
           {

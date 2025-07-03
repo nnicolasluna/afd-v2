@@ -261,7 +261,8 @@ mat-icon {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-height: 300px;
+  gap: 5px;
+  /* max-height: 300px; */
 }
 
 .firstCard {

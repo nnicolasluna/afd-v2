@@ -1,0 +1,6 @@
+<!-- <div class="slider-container">
+  <img [src]="imagenes[imagenActual]" class="slider-img" alt="Imagen del slider">
+</div> -->
+<div class="slider-container" *ngIf="imagenes.length > 0">
+    <img [src]="imagenes[imagenActual]" class="slider-img" alt="Imagen del slider">
+</div>

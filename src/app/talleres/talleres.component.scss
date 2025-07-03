@@ -22,6 +22,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow-x: auto;
 }
 
 .taller-container {
@@ -51,6 +52,9 @@
   &--green {
     background: #a4f522;
   }
+  &--blue {
+    background: #228ff5;
+  }
 }
 
 .timeline-circle {
@@ -73,6 +77,9 @@
 
   &--green {
     border: solid 2px #a4f522;
+  }
+  &--blue {
+    border: solid 2px #228ff5;
   }
 }
 
@@ -105,12 +112,15 @@
   &--green {
     color: #a4f522;
   }
+  &--blue {
+    color: #228ff5;
+  }
 }
 
 .date {
   margin-left: 40px;
   /* font-size: 2vw; */
-  font-size: 1rem;
+  font-size: 0.8em;
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -136,11 +146,11 @@
 .topTimeLine {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "item1 . item2 ."
-    ". item3 . item4";
+    "item1 . item2 . item5"
+    ". item3 . item4 .";
 }
 
 .bar {
@@ -160,7 +170,10 @@
   }
 
   &--green {
-    background: #a4f522;
+    background-color: #a4f522;
+  }
+  &--blue {
+    background-color: #228ff5;
   }
 }
 
@@ -180,6 +193,9 @@
   &__4 {
     grid-area: item4;
   }
+  &__5 {
+    grid-area: item5;
+  }
 }
 
 .talleres {
@@ -189,9 +205,9 @@
   cursor: pointer;
   height: fit-content;
 
-  &--special {
+  /*  &--special {
     margin-top: 50%;
-  }
+  } */
 }
 
 .talleres:hover {
@@ -212,14 +228,25 @@
   background-color: white;
   color: #1f631c;
 }
-
+.segundaPantallaTalleres {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  height: 90%;
+}
 .NumeroTaller {
-  background-color: #1f631c;
-  font-weight: bold;
-  padding: 10px 30px;
-  width: fit-content;
-  border-radius: 0 0 10px 0;
-  font-size: 30px;
+  /* margin: 30px; */
+
+  text-align: center;
+  strong {
+    background-color: #1f631c;
+    font-weight: bold;
+    padding: 10px 20px;
+
+    border-radius: 10px;
+    font-size: 1.5rem;
+  }
 }
 
 .btnDepto {
@@ -227,16 +254,18 @@
   justify-content: center;
   align-items: center;
 
+  gap: 10px;
+
   &__1 {
-    padding: 10px 30px;
+    padding: 10px 20px;
     background-color: #5e5e5e;
     color: white;
     border-radius: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
+    /*     margin-left: 30px;
+    margin-right: 30px; */
     border: none;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 1.1rem;
   }
 }
 
@@ -244,12 +273,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 5px;
-
   &__1 {
-    padding-right: 30px;
-    padding-left: 30px;
+    /* padding-right: 20px;
+    padding-left: 20px; */
     width: 100%;
     border-radius: 30px;
     height: 100%;
@@ -257,6 +283,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 0.9rem;
   }
 }
 
@@ -281,10 +308,11 @@
 }
 
 .tallerCardleft {
-  width: 40%;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #161616;
   color: white;
+  width: 40%;
+  height: fit-content;
 
   &--normal {
     width: 40%;
@@ -309,7 +337,7 @@
     width: 95%;
     /* font-size: 13px; */
     margin: 10px;
-    font-size: 0.8vw;
+    font-size: 0.8rem;
   }
 
   &__body {
@@ -405,14 +433,17 @@
 }
 
 .tallerCardright {
-  background-color: #0e441b9e;
+  background-color: #161616;
   width: 40%;
+  height: 90%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   height: fit-content;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  border-radius: 20px;
+  /*   padding-top: 30px;
+  padding-bottom: 30px; */
 
   &__body {
     display: flex;
@@ -422,7 +453,8 @@
   }
 
   img {
-    width: 90%;
+    height: 200px;
+    width: auto;
   }
 
   .cont_img {
@@ -435,8 +467,8 @@
 .doublecard {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  max-height: 550px;
+  justify-content: space-around;
+
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -811,12 +843,6 @@
     max-height: none;
   }
 
-  .topTimeLine {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
   .cicleandBar {
     display: none;
   }
@@ -827,12 +853,12 @@
 
   .title,
   .date {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 0.8em;
     text-align: justify;
   }
 
@@ -1002,5 +1028,17 @@
   .swot-grid {
     display: flex;
     flex-direction: column;
+  }
+  .description {
+    display: none;
+  }
+}
+@media (max-width: 1100px) {
+  .description {
+    display: none;
+  }
+  .date,
+  .title {
+    font-size: 0.5rem;
   }
 }

@@ -4,3 +4,27 @@ button {
 .leaflet-control-layers {
   display: none !important;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3f3f3f;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272323e5;
+  border-radius: 10px;
+}
+
+/* Para navegadores con soporte de scrollbar-color (Firefox) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #272323e5 #3f3f3f;
+}
+@media (min-width: 1000px) {
+    html {
+        font-size: 8px;
+    }
+}
