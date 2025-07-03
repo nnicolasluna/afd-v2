@@ -342,7 +342,7 @@ export class RecuperacionComponent {
       tablas: {
         tabla1: {
           comunidad: 'Comunidad Pachiuval ',
-          tipo: ' Plantines',
+          tipo: ' Plantines forestales nativos',
           datosTabla: [
             {
               Equipo: 'Cacao Criollo',

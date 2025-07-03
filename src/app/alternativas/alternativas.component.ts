@@ -294,6 +294,13 @@ export class AlternativasComponent {
           ],
         },
       },
+      fotografias: [
+        '1.jpg',
+        '2.jpg',
+        '3.jpg',
+        '4.jpg',
+
+      ],
     },
     {
       municipio: 'San Borja',
@@ -321,6 +328,12 @@ export class AlternativasComponent {
           ],
         },
       },
+      fotografias: [
+        '1.jpg',
+        '2.jpg',
+        '3.jpg',
+        '4.jpg',
+      ],
     },
   ];
 
@@ -353,6 +366,7 @@ export class AlternativasComponent {
   openLightbox(image: string) {
     this.selectedImage =
       this.rutaBaseImagenes + this.descripcion[0].municipio + '/' + image;
+      console.log(this.selectedImage)
   }
 
   closeLightbox() {
