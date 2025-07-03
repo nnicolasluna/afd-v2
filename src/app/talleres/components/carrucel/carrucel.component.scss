@@ -1,6 +1,6 @@
 .slider-container {
   width: auto;
-  max-height: 400px;
+  max-height: 250px;
   height: 100%;
 
   overflow: hidden;
@@ -16,4 +16,5 @@
   object-fit: cover;
   transition: opacity 1s ease-in-out;
   opacity: 1;
+  overflow: visible;
 }

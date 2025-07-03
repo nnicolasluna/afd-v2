@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 interface Municipio {
   nombre: string;
 }
@@ -21,12 +21,48 @@ export class TalleresComponent {
   tecerapantalla_desarrollo = false
   datosMunicipioSelecionado: any;
   Numerotaller: string = ''
+  region: string = ''
+  tallerTitulos = new Map<string, string>([
+    ['TALLER 1', 'TALLER DE ARRANQUE'],
+    ['TALLER 2', 'TALLER DE SOCIALIZACION'],
+    ['TALLER 3', 'TALLER DE PRESENTACION DE RESULTADOS DEL DIAGNOSTICO'],
+    ['TALLER 4', 'TALLER DE IMPLEMENTACION DE ACCIONES'],
+    ['TALLER 5', 'TALLER DE FORTALECIMIENTO DE CAPACIDADES']
+  ]);
+  get TitleTaller(): string | null {
+    switch (this.Numerotaller) {
+      case 'TALLER 1':
+        return 'Desarrollo del Taller de Arranque';
+      case 'TALLER 2':
+        return 'Desarrollo de las Mesas Técnicas Participativas';
+      case 'TALLER 3':
+      case 'TALLER 4':
+        return this.datosMunicipioSelecionado?.Titulo || null;
+      default:
+        return null;
+    }
+  }
+  get tituloTaller(): string | undefined {
+    return this.tallerTitulos.get(this.Numerotaller);
+  }
   regiones: Region[] = [
     {
       nombre: 'La Paz',
       municipios: [{ nombre: 'Palos Blancos' }, { nombre: 'San Buenaventura' }],
       municipioInicial: 'Palos Blancos',
     },
+    {
+      nombre: 'Beni',
+      municipios: [{ nombre: 'Rurrenabaque' }, { nombre: 'San Borja' }],
+      municipioInicial: 'Rurrenabaque'
+    },
+    {
+      nombre: 'Cochabamba',
+      municipios: [{ nombre: 'Tiquipaya' }, { nombre: 'Vinto' }],
+      municipioInicial: 'Tiquipaya'
+    }
+  ];
+  regionesTaller5: Region[] = [
     {
       nombre: 'Beni',
       municipios: [{ nombre: 'Rurrenabaque' }, { nombre: 'San Borja' }],
@@ -60,15 +96,17 @@ export class TalleresComponent {
     this.primerapantalla = !this.primerapantalla
     this.taller2 = !this.primerapantalla
     this.Numerotaller = taller
-    this.seleccionarRegion(this.regiones[0], taller);
-    this.seleccionarMunicipio(this.regiones[0].municipios.find(m => m.nombre === this.regiones[0].municipioInicial)!, taller);
-  }
-  seleccionarRegion(region: Region, taller: string): void {
-    this.regionSeleccionada = region;
-    this.seleccionarMunicipio(region.municipios.find(m => m.nombre === region.municipioInicial)!, taller);
+    this.seleccionarRegion(this.regiones[1], taller);
+    this.seleccionarMunicipio(this.regiones[1].municipios.find(m => m.nombre === this.regiones[1].municipioInicial)!, taller, this.regionSeleccionada?.nombre);
   }
 
-  seleccionarMunicipio(municipio: Municipio, taller: string): void {
+  seleccionarRegion(region: Region, taller: string): void {
+    this.regionSeleccionada = region;
+    this.seleccionarMunicipio(region.municipios.find(m => m.nombre === region.municipioInicial)!, taller, this.regionSeleccionada.nombre);
+  }
+
+  seleccionarMunicipio(municipio: Municipio, taller: string, region?: string): void {
+
     this.municipioSeleccionado = municipio;
     const nombreMunicipio = this.municipioSeleccionado.nombre;
     if (taller === 'TALLER 2') {
@@ -85,6 +123,11 @@ export class TalleresComponent {
     if (taller === 'TALLER 3') {
       this.datosMunicipioSelecionado = this.taller3;
     }
+    if (taller === 'TALLER 5') {
+
+      this.datosMunicipioSelecionado = this.taller5.find(taller => taller.departamento === region);
+
+    }
   }
 
 
@@ -97,15 +140,22 @@ export class TalleresComponent {
     this.taller2 = !this.taller2
     this.tecerapantalla_desarrollo = !this.tecerapantalla_desarrollo
   }
-tipoTaller:string=''
-  vergaleriaPracticos(tipo:string) {
+  tipoTaller: string = ''
+  vergaleriaPracticos(tipo: string) {
     this.galeriaPracticos = !this.galeriaPracticos
     this.taller2 = !this.taller2
-    this.tipoTaller=tipo
+    this.tipoTaller = tipo
   }
   imageNumbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8]; // Números de tus imágenes
-  getImageUrl(imageNumber: number, tipo:string): string {
+  getImageUrl(imageNumber: number, tipo: string): string {
     return `assets/imagenes/Talleres/${this.Numerotaller}/${this.municipioSeleccionado?.nombre}/${tipo}/${imageNumber}.png`;
+  }
+  getImageUrlTaller5(imageNumber: number, tipo: string): string {
+    return `assets/imagenes/Talleres/${this.Numerotaller}/${this.regionSeleccionada?.nombre}/${tipo}/${imageNumber}.png`;
+  }
+  getvideo() {
+    console.log(this.regionSeleccionada?.nombre)
+    return `assets/videos/${this.regionSeleccionada?.nombre}.mp4`;
   }
   datos_organizados = {
     "San Buenaventura": [
@@ -722,4 +772,46 @@ tipoTaller:string=''
       }
     }
   }
+  taller5 = [
+    {
+      "departamento": "Cochabamba",
+      "Fecha": "9 Mayo de 2025",
+      "participantes": [
+        "Gobernación de Cochabamba",
+        "Municipios Beneficiarios",
+        "Escuela de Ciencias Forestales",
+        "Miembros de Comunidades",
+        "Autoridad Plurinacional de la Madre Tierra",
+        "Servicio Nacional de Áreas Protegidas",
+        "Gobierno Autónomo Departamental"
+      ],
+      'teorico': {
+        "titulo": 'Capacitación teórica',
+        "descripcion": 'Presentaciones Magistrales :La primera parte de la capacitación consistió en la disertación magistral de los diversos temas, descritos  por parte del instructor, como ser: Introducción y fundamentos del MIF, evaluación y diagnóstico, prácticas alternativas al uso del fuego, implementación y monitoreo de planes de manejo integral del fuego, aspectos sociales de equidad de género y comunitarios, finalmente Casos prácticos y estudios de caso con el uso de presentaciones didácticas en formato power point. Trabajos de Grupo: La segunda parte del trabajo en aula consistió en el trabajo grupal de los participantes, distribuidos en grupos de acuerdo al municipio de procedencia, para trabajar en la elaboración de un plan básico de manejo integral del fuego, analizando como área de influencia el Municipio correspondiente y presentando posteriormente los resultados a todos los participantes.'
+      },
+      'practivo': {
+        "titulo": 'Capacitación Práctica',
+        "descripcion": 'En la capacitación práctica del taller en Cochabamba, se visitó el instituto de forestería andina “Mollesnejta”, está área tiene estudios y parcelas con distintas técnicas de recuperación de suelos, recuperación de especies forestales afectadas por el fuego e implementación de sistemas agroforestales andinos, de igual manera el personal técnico del instituto realizó una explicación complementaria con los esfuerzos realizados y los alcances alcanzados.'
+      }
+    },
+    {
+      "departamento": "Beni",
+      "Fecha": "16 Mayo de 2025",
+      "participantes": [
+        "Gobierno Autónomo Municipal de Rurrenabaque",
+        "GAM San Buenaventura",
+        "Miembros de comunidades",
+        "Wildlife Conservation Society (WCS)",
+        "SICIREC Bolivia Ltda"
+      ],
+      'teorico': {
+        "titulo": 'Capacitación teórica',
+        "descripcion": 'Presentaciones Magistrales:La primera parte de la capacitación consistió en la disertación magistral de los diversos temas, descritos  por parte del instructor, como ser: Introducción y fundamentos del MIF, evaluación y diagnóstico, prácticas alternativas al uso del fuego, implementación y monitoreo de planes de manejo integral del fuego, aspectos sociales de equidad de género y comunitarios, finalmente Casos prácticos y estudios de caso con el uso de presentaciones didácticas en formato power point. Trabajo de Grupos:La segunda parte del trabajo en aula consistió en el trabajo grupal de los participantes, distribuidos en grupos de acuerdo al municipio de procedencia, para trabajar en la elaboración de un plan básico de manejo integral del fuego, analizando como área de influencia el Municipio correspondiente y presentando posteriormente los resultados a todos los participantes.'
+      },
+      'practivo': {
+        "titulo": 'Capacitación Práctica',
+        "descripcion": 'En la capacitación práctica de la capacitación de Rurrenabaque se visitó un predio comunal, que trabaja en riesgo compartido entre el productor y la empresa SICIREC, en el predio se visitaron distintas parcelas de implementación de plantaciones comerciales puras de distintas edades y de distintas especies forestales. De igual manera en el mismo predio se visitaron parcelas de implementación de sistemas agroforestales con el cultivo de cacao injertado criollo. En la visita el personal técnico de la empresa realizó la descripción general del manejo de las parcelas, así como el manejo del cacao.'
+      }
+    }
+  ]
 }

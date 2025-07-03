@@ -15,14 +15,14 @@
   align-items: center;
   justify-content: center;
   color: white;
-  max-height: 900px;
+
   height: 100%;
+  max-height: 1000px;
   overflow-y: auto;
   /*   background-image: url("../../assets/imagenes/Talleres/timeline/1.png"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow-x: auto;
 }
 
 .taller-container {
@@ -52,6 +52,7 @@
   &--green {
     background: #a4f522;
   }
+
   &--blue {
     background: #228ff5;
   }
@@ -78,8 +79,26 @@
   &--green {
     border: solid 2px #a4f522;
   }
+
   &--blue {
     border: solid 2px #228ff5;
+  }
+}
+
+.taller5 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.9rem;
+  max-height: 250px;
+  overflow-y: auto;
+  text-align: justify;
+  padding: 5px;
+  margin: 10px;
+
+  &__title {
+    font-weight: bold;
+    text-align: center;
   }
 }
 
@@ -112,6 +131,7 @@
   &--green {
     color: #a4f522;
   }
+
   &--blue {
     color: #228ff5;
   }
@@ -172,6 +192,7 @@
   &--green {
     background-color: #a4f522;
   }
+
   &--blue {
     background-color: #228ff5;
   }
@@ -193,6 +214,7 @@
   &__4 {
     grid-area: item4;
   }
+
   &__5 {
     grid-area: item5;
   }
@@ -228,6 +250,7 @@
   background-color: white;
   color: #1f631c;
 }
+
 .segundaPantallaTalleres {
   display: flex;
   flex-direction: column;
@@ -235,17 +258,33 @@
   justify-content: center;
   height: 90%;
 }
+
+.menuTalleres {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.MenuTaller {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .NumeroTaller {
   /* margin: 30px; */
 
   text-align: center;
+
   strong {
     background-color: #1f631c;
     font-weight: bold;
     padding: 10px 20px;
 
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -257,7 +296,7 @@
   gap: 10px;
 
   &__1 {
-    padding: 10px 20px;
+    padding: 5px;
     background-color: #5e5e5e;
     color: white;
     border-radius: 5px;
@@ -265,7 +304,8 @@
     margin-right: 30px; */
     border: none;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
   }
 }
 
@@ -273,28 +313,34 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
   &__1 {
     /* padding-right: 20px;
     padding-left: 20px; */
     width: 100%;
-    border-radius: 30px;
+    padding: 2px 5px;
     height: 100%;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    border-radius: 15px;
+    cursor: pointer;
   }
 }
 
 .btnMuni2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 5px;
   background-color: #5e5e5ecc;
-  border-radius: 30px;
-  width: 20%;
-  height: 50px;
+  /*   border-radius: 10px;
+  padding: 5px; */
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  max-width: 90%;
+  width: 100%;
+  max-height: 50px;
+  height: 100%;
+  /* width: 20%; */
+  border-radius: 15px;
 }
 
 .btnDepto__1.active {
@@ -304,7 +350,6 @@
 
 .btnMuni__1.active {
   background-color: #1f631c;
-  font-weight: bold;
 }
 
 .tallerCardleft {
@@ -338,6 +383,8 @@
     /* font-size: 13px; */
     margin: 10px;
     font-size: 0.8rem;
+    max-height: 250px;
+    overflow-y: auto;
   }
 
   &__body {
@@ -403,15 +450,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 90%;
+  width: 100%;
   margin: 10px;
 
   &__btn {
     background-color: #1f631c;
-    border-radius: 30px;
-    padding: 5px 30px;
+    border-radius: 10px;
+    padding: 5px 10px;
     border: none;
     color: white;
+    font-size: 0.8rem;
     width: 30%;
   }
 
@@ -792,6 +840,16 @@
   .gallery-container {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .description {
+    display: none;
+  }
+
+  .date,
+  .title {
+    margin: 0;
+    font-size: 0.9rem;
+  }
 }
 
 .gallery-container {
@@ -836,6 +894,11 @@
     background-image: none;
   }
 
+  .menuTalleres {
+    flex-direction: column;
+    gap: 5px;
+  }
+
   .container-main {
     top: 0;
     bottom: auto;
@@ -855,10 +918,16 @@
   .date {
     font-size: 0.8rem;
     text-align: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .date {
+    display: none;
   }
 
   .description {
-    font-size: 0.8em;
+    font-size: 1rem;
     text-align: justify;
   }
 
@@ -871,6 +940,23 @@
       margin-top: 0%;
     }
   }
+
+  .topTimeLine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    gap: 5px;
+  }
+
+  .timeLineContent {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (max-width: 900px) {
@@ -880,19 +966,33 @@
     width: 100%;
     gap: 10px;
   }
+
   .Bigtitle {
     font-size: 1rem;
     padding: 20px 10px;
   }
+
   .segundaPantallaTalleres {
+    margin-top: 40px;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 5px;
+    height: 100%;
   }
 
   .NumeroTaller {
-    border-radius: 5px;
+
+    strong {
+      border-radius: 10px;
+      font-size: 0.9rem;
+      padding: 5px 15px;
+    }
+  }
+
+  .menuTalleres {
+    gap: 10px;
+    width: 100%;
   }
 
   .btnDepto {
@@ -915,7 +1015,7 @@
       padding: 0;
       width: fit-content;
       border-radius: 5px;
-
+      font-size: 0.8rem;
       width: 100%;
       min-width: 100px;
     }
@@ -962,9 +1062,11 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    font-size: 0.7rem;
 
     &__btn {
       border-radius: 5px;
+      font-size: 0.7rem;
     }
   }
 
@@ -996,6 +1098,7 @@
   .buttonContent {
     width: 100%;
     border-radius: 5px;
+
     &__desarrollo {
       font-size: 0.9rem;
       border-radius: none;
@@ -1029,16 +1132,19 @@
     display: flex;
     flex-direction: column;
   }
+
   .description {
     display: none;
   }
 }
-@media (max-width: 1100px) {
+
+/* @media (max-width: 1100px) {
   .description {
     display: none;
   }
+
   .date,
   .title {
     font-size: 0.5rem;
   }
-}
+} */

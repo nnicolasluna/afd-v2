@@ -71,7 +71,7 @@ import { CarrucelComponent } from './talleres/components/carrucel/carrucel.compo
     RestauracionComponent,
     RegeneracionComponent,
     CarrucelComponent,
-    
+
   ],
   imports: [
     BrowserModule,

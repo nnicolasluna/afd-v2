@@ -38,6 +38,7 @@ export class CarrucelComponent implements OnChanges, OnDestroy {
   imagenes: string[] = [];
   imagenActual = 0;
   intervalo: any;
+  imagenVisible = true; // <-- nuevo
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['municipio'] || changes['taller']) {
@@ -52,7 +53,7 @@ export class CarrucelComponent implements OnChanges, OnDestroy {
 
       this.intervalo = setInterval(() => {
         this.imagenActual = (this.imagenActual + 1) % this.imagenes.length;
-      }, 5000);
+      }, 2000);
     }
   }
 
@@ -61,15 +62,21 @@ export class CarrucelComponent implements OnChanges, OnDestroy {
       clearInterval(this.intervalo);
     }
   }
+  ocultarImagen(): void {
+    this.imagenVisible = false;
+  }
 
+  mostrarImagen(): void {
+    this.imagenVisible = true;
+  }
   cargarImagenes(taller: string): void {
-    const totalImagenes = 2; // o más si tienes más imágenes
-    if (taller != 'TALLER 3') {
+    const totalImagenes = 2;
+    if (taller != 'TALLER 3' && 'TALLER 5') {
       for (let i = 1; i <= totalImagenes; i++) {
         const ruta = `assets/imagenes/Talleres/${this.taller}/${this.municipio}/${i}.png`;
         this.imagenes.push(ruta);
       }
-    } else {
+    } else if (taller == 'TALLER 3') {
       for (let i = 1; i <= totalImagenes; i++) {
         const ruta = `assets/imagenes/Talleres/${this.taller}/${i}.png`;
         this.imagenes.push(ruta);
