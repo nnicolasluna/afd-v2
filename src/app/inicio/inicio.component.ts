@@ -3,6 +3,8 @@ import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { ModalStateService } from '../services/modal-state/modal-state.service';
 import { VisibilidadService } from '../services/modal-state/visible.service';
+import { sideBySideControl } from './sidebyside/swipe.control';
+
 interface WMSOptions extends L.WMSOptions {
   opacity?: number;
 }
@@ -12,6 +14,7 @@ interface WMSOptions extends L.WMSOptions {
   styleUrls: ['./inicio.component.scss'],
 })
 export class InicioComponent implements AfterViewInit {
+  direccionServidor = 'https://geoserver.bits.bo/geoserver/aceaa/wms';
   private map!: L.Map;
   private map1!: L.Map;
   private map2!: L.Map;
@@ -1166,7 +1169,7 @@ export class InicioComponent implements AfterViewInit {
         maxZoom: 18,
       }).addTo(this.map2);
       L.tileLayer
-        .wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+        .wms(this.direccionServidor, {
           layers: layer1,
           format: 'image/png',
           transparent: true,
@@ -1175,7 +1178,7 @@ export class InicioComponent implements AfterViewInit {
         })
         .addTo(this.map1);
       L.tileLayer
-        .wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+        .wms(this.direccionServidor, {
           layers: layer2,
           format: 'image/png',
           transparent: true,
@@ -1185,7 +1188,7 @@ export class InicioComponent implements AfterViewInit {
         .addTo(this.map2);
       if (indice === 'quemas') {
         L.tileLayer
-          .wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+          .wms(this.direccionServidor, {
             layers: muni!.wms.focosCalor.lm,
             format: 'image/png',
             transparent: true,
@@ -1245,7 +1248,7 @@ export class InicioComponent implements AfterViewInit {
       }).addTo(this.map3);
 
       L.tileLayer
-        .wms('https://geoserver.bits.bo/geoserver/aceaa/wms', {
+        .wms(this.direccionServidor, {
           layers: layer1,
           format: 'image/png',
           transparent: true,
@@ -1340,7 +1343,7 @@ export class InicioComponent implements AfterViewInit {
         maxZoom: 18,
       }).addTo(this.map3);
 
-      const wmsBaseUrl = 'https://geoserver.bits.bo/geoserver/aceaa/wms';
+      const wmsBaseUrl = this.direccionServidor;
 
       const defaultWmsOptions: WMSOptions = {
         format: 'image/png',
@@ -1397,8 +1400,7 @@ export class InicioComponent implements AfterViewInit {
           wmsLayers[layerName].addTo(this.map3); // Initially add all layers
         }
       }
-/*       L.control.layers({}, wmsLayers).addTo(this.map3);
- */      this.map3.fitBounds(bounds);
+      this.map3.fitBounds(bounds);
     }, 0);
   }
   cerrarRB() {
