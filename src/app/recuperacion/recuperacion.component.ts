@@ -94,7 +94,7 @@ export class RecuperacionComponent {
         },
         tabla2: {
           comunidad: '',
-          tipo: '',
+          tipo: 'Especies',
           datosTabla: [
             {
               Equipo: 'Cedro',
@@ -319,6 +319,12 @@ export class RecuperacionComponent {
               Equipo: 'Plantines Forestales',
               Piezas: '139',
             },
+          ],
+        },
+        tabla2: {
+          comunidad: '',
+          tipo: ' Especies',
+          datosTabla: [
             {
               Equipo: 'Cedro',
               Piezas: '',
