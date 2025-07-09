@@ -90,6 +90,12 @@ export class RecuperacionComponent {
               Equipo: 'Plantines de especies forestales',
               Piezas: '230',
             },
+          ],
+        },
+        tabla2: {
+          comunidad: '',
+          tipo: '',
+          datosTabla: [
             {
               Equipo: 'Cedro',
               Piezas: null,
@@ -170,7 +176,7 @@ export class RecuperacionComponent {
               Piezas: '300 Litros',
               Equipo: 'Diesel',
             },
-             {
+            {
               Piezas: 'Geomembrana',
               Equipo: '',
             },
@@ -360,6 +366,12 @@ export class RecuperacionComponent {
               Equipo: 'Toco colorado',
               Piezas: '350',
             },
+          ],
+        },
+        tabla3: {
+          comunidad: '',
+          tipo: 'Especies',
+          datosTabla: [
             {
               Equipo: 'Cedro',
               Piezas: null,
