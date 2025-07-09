@@ -732,7 +732,9 @@ export class TalleresComponent {
       "Fundación Samay",
       "Comunidades: Alta Marani, Tres Hermanos, Tumupasa (San Buenaventura), Asunción del Quiquibey, Carmen Florida (Rurrenabaque), Pachiuval, Tierra Santa(San Borja), Inicua Bajo(Palos Blancos), Combuyo Chico (Vinto), Los Molinos (Tiquipaya))",
       "Instituto de Investigaciones Socio Económico (IISEC) de la Universidad Católica Boliviana",
-      "Equipo Ejecutor"
+      "Equipo Ejecutor",
+      "Autoridad de Fiscalización y Control Social de Bosques y Tierra - Departamental Cochabamba",
+      "Autoridad de Fiscalización y Control Social de Bosques y Tierra - UOBT Rurrenabaque."
     ],
     "Resultados": {
       "Protocolo": "Se dio la bienvenida a los participantes y se llevó a cabo la inauguración de este importante evento por parte de las autoridades de la APMT y AFD. Asimismo, los representantes de cada municipio realizaron breves alusiones en las que compartieron sus perspectivas, y expectativas respecto al taller.",

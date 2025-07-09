@@ -30,7 +30,7 @@ export class RecuperacionComponent {
     {
       municipio: 'Palos Blancos',
       descripcion:
-        'Entrega de materiales, herramientas e insumos a la comunidad de Inicua Bajo, con el objetivo de apoyar el establecimiento de plantaciones forestales nativas como parte de las estrategias de restauración ecológica y conservación del entorno natural. Además, se realizó la implementación de plantines de cacao criollo bajo un enfoque agroforestal, promoviendo sistemas productivos sostenibles que integran especies agrícolas y forestales.',
+        'Entrega de materiales, herramientas e insumos a la comunidad de Inicua Bajo, con el objetivo de apoyar el establecimiento de plantaciones forestales nativas como parte de las estrategias de restauración ecológica y conservación del entorno natural. Además, se realizó la implementación de plantines de cacao criollo bajo un enfoque agroforestal, promoviendo sistemas productivos sostenibles que integran especies agrícolas y forestales. Se indica que se recuperaron 28 hectáreas',
       tablas: {
         tabla1: {
           comunidad: 'Comunidad Inicua Bajo',
@@ -76,7 +76,7 @@ export class RecuperacionComponent {
     {
       municipio: 'San Buenaventura',
       descripcion:
-        'Entrega de plantines de cacao criollo y especies forestales nativas a la comunidad de Tres Hermanos, como parte de las acciones de fortalecimiento de sistemas agroforestales y restauración ambiental. Esta intervención busca promover prácticas productivas sostenibles que aseguren la conservación de la biodiversidad, el manejo adecuado del suelo y el incremento de cobertura vegetal. Establecimiento de plantines de cacao criollo en parcelas agroforestales.',
+        'Entrega de plantines de cacao criollo y especies forestales nativas a la comunidad de Tres Hermanos, como parte de las acciones de fortalecimiento de sistemas agroforestales y restauración ambiental. Esta intervención busca promover prácticas productivas sostenibles que aseguren la conservación de la biodiversidad, el manejo adecuado del suelo y el incremento de cobertura vegetal. Establecimiento de plantines de cacao criollo en parcelas agroforestales. Se recuperaron 8,75 hectáreas',
       tablas: {
         tabla1: {
           comunidad: 'Comunidad Tres Hermanos ',
@@ -115,7 +115,7 @@ export class RecuperacionComponent {
     {
       municipio: 'Tiquipaya',
       descripcion:
-        'Entrega de materiales, herramientas en insumos al Gobierno Autónomo Municipal de Tiquipaya para la producción de plantines forestales nativos para establecimiento de plantaciones en zonas priorizadas en la próxima temporada de lluvias. Entrega de herramientas a la comunidad Molinos para el establecimiento de plantaciones forestales, y entrega de geomembrana para implementación de un atajado para la captura de agua, con fines de apoyo a la recuperación, prevención y mitigación de incendios.',
+        'Entrega de materiales, herramientas en insumos al Gobierno Autónomo Municipal de Tiquipaya para la producción de plantines forestales nativos para establecimiento de plantaciones en zonas priorizadas en la próxima temporada de lluvias. Entrega de herramientas a la comunidad Molinos para el establecimiento de plantaciones forestales, y entrega de geomembrana para implementación de un atajado para la captura de agua, con fines de apoyo a la recuperación, prevención y mitigación de incendios. Se apoyó con la entrega de diesel para la implementación de obras de prevención y mitigación de incendios, por medio de fajas cortafuegos y la geomembrana para un atajado para la captura de agua Se estima la recuperación de 20 hectáreas.',
       tablas: {
         tabla1: {
           comunidad: 'Gobierno Autónomo Municipal de Tiquipaya ',
@@ -169,6 +169,10 @@ export class RecuperacionComponent {
             {
               Piezas: '300 Litros',
               Equipo: 'Diesel',
+            },
+             {
+              Piezas: 'Geomembrana',
+              Equipo: '',
             },
           ],
         },
@@ -232,8 +236,8 @@ export class RecuperacionComponent {
               Piezas: '',
             },
             {
-              Equipo: 'Tuna',
-              Piezas: '700',
+              Equipo: 'Tallos de Tuno',
+              Piezas: '',
             },
           ],
         },
@@ -241,11 +245,11 @@ export class RecuperacionComponent {
           tipo: null,
           datosTabla: [
             {
-              Equipo: '2 Rollos Rollo Agrofil',
+              Equipo: '2 Rollos Agrofil',
               Piezas: '',
             },
             {
-              Equipo: '4 Rollos Rollo Semisombra',
+              Equipo: '4 Rollos Semisombra',
               Piezas: '',
             },
             {
@@ -275,7 +279,7 @@ export class RecuperacionComponent {
               Piezas: '',
             },
             {
-              Equipo: '45Picota',
+              Equipo: '45 Picotas',
               Piezas: '',
             },
           ],
@@ -338,7 +342,7 @@ export class RecuperacionComponent {
     {
       municipio: 'San Borja',
       descripcion:
-        'Entrega de plantines de cacao criollo y especies forestales a la comunidad de Pachiuval. Esta intervención tiene como objetivo promover la reforestación y mejorar la calidad del suelo.',
+        'Entrega de plantines de cacao criollo y especies forestales a la comunidad de Pachiuval. Esta intervención tiene como objetivo promover la reforestación y mejorar la calidad del suelo. Se recuperaron 8,75 hectáreas',
       tablas: {
         tabla1: {
           comunidad: 'Comunidad Pachiuval ',
