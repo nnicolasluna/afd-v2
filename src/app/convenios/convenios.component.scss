@@ -124,6 +124,19 @@
     bottom: auto;
     height: 100%;
     max-height: none;
+
+    &__header {
+      justify-content: center;
+
+      .button {
+        display: none;
+      }
+    }
+
+    .card-main {
+      max-height: 80vh;
+      height: 100%;
+    }
   }
 
   .pdfContainer {
@@ -138,6 +151,16 @@
     right: 0;
     left: auto;
   }
+
+  .button {
+    display: none;
+  }
+
+  .close-btn {
+    display: none;
+  }
+
+
 }
 
 .close-btn {

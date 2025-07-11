@@ -273,6 +273,41 @@
   gap: 10px;
 }
 
+.regresar {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+
+  &__btn {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      background-color: #e0e0e0;
+      transform: scale(0.95);
+    }
+  }
+}
+
+
 .NumeroTaller {
   /* margin: 30px; */
 
@@ -973,12 +1008,14 @@
   }
 
   .segundaPantallaTalleres {
-    margin-top: 40px;
+    /* margin-top: 40px; */
+    top: 30px;
     display: flex;
-    align-items: center;
+
     flex-direction: column;
     gap: 5px;
     height: 100%;
+
   }
 
   .NumeroTaller {
@@ -1135,6 +1172,19 @@
 
   .description {
     display: none;
+  }
+
+  .regresar {
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    transform: none;
+
+    &__btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
   }
 }
 

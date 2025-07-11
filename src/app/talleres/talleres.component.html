@@ -116,6 +116,9 @@
         <!-- <button class="btnPrimeraPantalla"></button> -->
     </div>
     <div class="segundaPantallaTalleres" *ngIf="taller2">
+        <div class="regresar"><button (click)="regresar()" class="regresar__btn">
+                < </button>
+        </div>
         <div class="menuTalleres">
             <div class="NumeroTaller" *ngIf="tituloTaller">
                 <strong>{{ tituloTaller }}</strong>

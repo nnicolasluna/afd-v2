@@ -816,4 +816,8 @@ export class TalleresComponent {
       }
     }
   ]
+  regresar() {
+    this.primerapantalla = true;
+    this.taller2 = false;
+  }
 }
