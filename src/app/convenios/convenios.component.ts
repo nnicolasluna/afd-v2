@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { ModalStateService } from '../services/modal-state/modal-state.service';
 
 @Component({
   selector: 'app-convenios',
@@ -12,7 +13,7 @@ export class ConveniosComponent {
   titulo: string = '';
   isMobile = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private modalStateService: ModalStateService) { }
   convenios = [
     {
       nombre: 'Gobierno Autonomo Municipal de Tiquipaya',
@@ -78,5 +79,8 @@ export class ConveniosComponent {
     link.href = `assets/pdf/${pdf}`;
     link.download = pdf;
     link.click();
+  }
+  onCerrarClick() {
+    this.modalStateService.cerrarVistas();
   }
 }

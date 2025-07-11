@@ -18,18 +18,23 @@
     </div>
 </div> -->
 <div class="main-card" *ngIf="mostrarManual">
-    <div class="titulo">MANUALES</div>
-    <div class="card" *ngFor="let card of manuales">
+    <div class="main-card__header">
+        <div class="titulo">MANUALES</div>
+        <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
+    </div>
+    <div class="card-main">
+        <div class="card" *ngFor="let card of manuales">
 
-        <div class="card-content">
-            <h2>{{ card.titulo }}</h2>
+            <div class="card-content">
+                <h2>{{ card.titulo }}</h2>
 
-        </div>
+            </div>
 
-        <div class="card-action">
-            <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon" />
-            <button *ngIf="!isMobile" (click)="ShowManual(card.archivo, card.titulo)">Ver Manual</button>
-            <button *ngIf="isMobile" (click)="DownloadManual(card.archivo)">Descargar Manual</button>
+            <div class="card-action">
+                <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon" />
+                <button *ngIf="!isMobile" (click)="ShowManual(card.archivo, card.titulo)">Ver Manual</button>
+                <button *ngIf="isMobile" (click)="DownloadManual(card.archivo)">Descargar Manual</button>
+            </div>
         </div>
     </div>
 

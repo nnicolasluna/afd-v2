@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ModalStateService } from '../services/modal-state/modal-state.service';
 
 @Component({
   selector: 'app-manuales',
@@ -26,7 +27,7 @@ export class ManualesComponent {
       archivo:
         'MANUAL EVALUACION DE DAÑOS.pdf',
       titulo: 'EVALUACION DE DAÑOS AMBIENTALES Y IMPACTOS',
-    },{
+    }, {
       archivo:
         'LINEAMIENTOS METODOLOGICOS GESI.pdf',
       titulo: 'LINEAMIENTOS METODOLOGICOS GESI',
@@ -41,20 +42,23 @@ export class ManualesComponent {
   }
   pdfUrl: SafeResourceUrl | undefined;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private modalStateService: ModalStateService) { }
 
   ngOnInit(): void {
-     this.breakpointObserver
-       .observe([Breakpoints.Handset])
-       .subscribe((result) => {
-         this.isMobile = result.matches;
-       });
-   }
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+      });
+  }
   DownloadManual(pdf: string) {
     const link = document.createElement('a');
     link.href = `assets/pdf/${pdf}`;
     link.download = pdf;
     link.click();
+  }
+  onCerrarClick() {
+    this.modalStateService.cerrarVistas();
   }
 
 }

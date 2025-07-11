@@ -1,17 +1,21 @@
 .main-card {
   position: fixed;
   left: 0;
-  top: 10%;
+  top: 15%;
   z-index: 5;
   background-color: #111;
   color: wi;
   padding: 20px;
-  max-height: 400px;
-  overflow-y: auto;
   bottom: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .titulo {
@@ -134,4 +138,29 @@
     right: 0;
     left: auto;
   }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button {
+  width: fit-content;
+  border-radius: 50%;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-main {
+  max-height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

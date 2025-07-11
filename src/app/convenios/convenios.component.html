@@ -1,20 +1,24 @@
 <div class="main-card" *ngIf="mostrarManual">
-    <div class="titulo">Convenios</div>
+    <div class="main-card__header ">
+        <div class="titulo">Convenios</div>
+        <div class="button" (click)="onCerrarClick()"><button class="close-btn">×</button></div>
+    </div>
+    <div class="card-main">
+        <div class="card" *ngFor="let item of convenios">
+            <img *ngIf="item.imagen" [src]="item.imagen" [alt]="'Escudo ' + item.nombreCorto" class="logo" />
 
-    <div class="card" *ngFor="let item of convenios">
-        <img *ngIf="item.imagen" [src]="item.imagen" [alt]="'Escudo ' + item.nombreCorto" class="logo" />
+            <div class="card-content">
+                <h5>{{ item.nombre }}</h5>
+                <p class="label">Objeto del Convenio</p>
+                <p>{{ item.objeto }}</p>
+                <p *ngIf="item.fecha" class="label">Fecha de Suscripción: {{ item.fecha }}</p>
+            </div>
 
-        <div class="card-content">
-            <h5>{{ item.nombre }}</h5>
-            <p class="label">Objeto del Convenio</p>
-            <p>{{ item.objeto }}</p>
-            <p *ngIf="item.fecha" class="label">Fecha de Suscripción: {{ item.fecha }}</p>
-        </div>
-
-        <div class="card-action">
-            <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon" />
-            <button *ngIf="!isMobile" (click)="ShowManual(item.pdf, item.nombre)">Ver Convenio</button>
-            <button *ngIf="isMobile" (click)="DownloadManual(item.pdf)">Descargar Convenio</button>
+            <div class="card-action">
+                <img src="assets/imagenes/pdf-icon-png-2058.png" alt="PDF" class="pdf-icon" />
+                <button *ngIf="!isMobile" (click)="ShowManual(item.pdf, item.nombre)">Ver Convenio</button>
+                <button *ngIf="isMobile" (click)="DownloadManual(item.pdf)">Descargar Convenio</button>
+            </div>
         </div>
     </div>
 </div>
